@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kahire + Luxor — 24–30 Ekim 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lapis:#1E2A52;
+    --lapis-deep:#141D3B;
+    --limestone:#F2EADA;
+    --sand:#D9C39A;
+    --gold:#C9A227;
+    --nile:#2F6D62;
+    --ink:#26221A;
+    --muted:#6E6452;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Figtree',sans-serif;background:var(--limestone);color:var(--ink);line-height:1.6}
+  img{display:block;max-width:100%}
+
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;background:var(--lapis-deep);overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--lapis-deep) 4%,rgba(20,29,59,.45) 45%,rgba(20,29,59,.25))}
+  .hero-inner{position:relative;z-index:2;width:min(1050px,92%);margin:0 auto;padding:0 0 72px}
+  .eyebrow{font-family:'Cinzel',serif;letter-spacing:.35em;font-size:.78rem;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-family:'Cinzel',serif;font-weight:700;color:var(--limestone);font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.08}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{color:#D8D3C4;max-width:600px;margin-top:20px;font-size:1.05rem}
+  .hero-stats{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+  .hstat{border-left:2px solid var(--gold);padding-left:14px}
+  .hstat b{display:block;font-family:'Cinzel',serif;color:var(--limestone);font-size:1.35rem;letter-spacing:.04em}
+  .hstat span{color:#B9B29E;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+
+  .route{background:var(--lapis);color:var(--limestone);padding:26px 0}
+  .route-inner{width:min(1050px,92%);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-family:'Cinzel',serif;letter-spacing:.12em;font-size:.95rem}
+  .route .dot{width:9px;height:9px;border-radius:50%;background:var(--gold)}
+  .route .dash{flex:0 0 60px;height:1px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 14px)}
+  .route small{display:block;text-align:center;letter-spacing:.06em;color:#AEB6D6;font-family:'Figtree';font-size:.72rem;margin-top:2px}
+
+  section{padding:78px 0}
+  .wrap{width:min(1050px,92%);margin:0 auto}
+  .sec-head{margin-bottom:46px}
+  .sec-head .eyebrow{color:var(--nile)}
+  .sec-head h2{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.4vw,2.4rem);color:var(--lapis);font-weight:600}
+  .sec-head p{color:var(--muted);max-width:660px;margin-top:10px}
+
+  .nile-line{position:relative}
+  .nile-line::before{content:"";position:absolute;left:34px;top:0;bottom:0;width:3px;background:linear-gradient(var(--nile),var(--gold));border-radius:3px;opacity:.55}
+  .day{position:relative;padding:0 0 42px 92px}
+  .day:last-child{padding-bottom:0}
+  .cartouche{position:absolute;left:6px;top:0;width:58px;height:84px;border:2px solid var(--gold);border-radius:29px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--limestone);font-family:'Cinzel',serif}
+  .cartouche b{font-size:1.35rem;color:var(--lapis);line-height:1}
+  .cartouche span{font-size:.58rem;letter-spacing:.14em;color:var(--gold);margin-top:4px;text-align:center}
+  .day-card{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;overflow:hidden;box-shadow:0 2px 14px rgba(38,34,26,.06)}
+  .photo{height:240px;background:linear-gradient(135deg,var(--lapis),var(--nile));position:relative;overflow:hidden}
+  .photo img{width:100%;height:100%;object-fit:cover}
+  .photo .cap{position:absolute;right:10px;bottom:8px;background:rgba(20,29,59,.72);color:var(--sand);font-size:.68rem;padding:3px 9px;border-radius:3px;letter-spacing:.05em;z-index:2}
+  .photo.gone{display:flex;align-items:center;justify-content:center}
+  .photo.gone img,.photo.gone .cap{display:none}
+  .photo.gone::after{content:"𓂀";font-size:3.2rem;color:rgba(242,234,218,.4)}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#FBF7EC}
+  .duo .photo{height:210px}
+  .day-body{padding:24px 28px 26px}
+  .day-body h3{font-family:'Cinzel',serif;color:var(--lapis);font-size:1.15rem;letter-spacing:.04em;margin-bottom:4px}
+  .day-body .theme{color:var(--nile);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+  .stops{list-style:none}
+  .stops li{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #DCCFAF}
+  .stops li:first-child{border-top:0}
+  .stops .t{flex:0 0 92px;font-weight:700;color:var(--gold);font-size:.82rem;letter-spacing:.05em;padding-top:2px}
+  .stops .what b{font-weight:600;color:var(--ink)}
+  .stops .what span{display:block;color:var(--muted);font-size:.88rem}
+  .tag{display:inline-block;background:var(--nile);color:#EDF5F2;font-size:.68rem;padding:2px 8px;border-radius:3px;margin-left:8px;letter-spacing:.06em;vertical-align:1px}
+  .tag.ot{background:#8A2A2B}
+
+  .budget{background:var(--lapis);color:var(--limestone)}
+  .budget .sec-head h2{color:var(--limestone)}
+  .budget .sec-head .eyebrow{color:var(--gold)}
+  .budget .sec-head p{color:#AEB6D6}
+  .stele{background:var(--lapis-deep);border:1px solid rgba(201,162,39,.4);border-radius:6px;overflow:hidden}
+  .stele table{width:100%;border-collapse:collapse}
+  .stele th{font-family:'Cinzel',serif;text-align:left;font-size:.78rem;letter-spacing:.18em;color:var(--gold);padding:16px 22px;border-bottom:1px solid rgba(201,162,39,.35);text-transform:uppercase}
+  .stele th:last-child,.stele td:last-child{text-align:right;white-space:nowrap}
+  .stele td{padding:12px 22px;border-bottom:1px solid rgba(242,234,218,.08);font-size:.95rem}
+  .stele td small{display:block;color:#8E96B8;font-size:.78rem}
+  .stele tr.total td{font-family:'Cinzel',serif;font-size:1.05rem;color:var(--gold);border-top:2px solid rgba(201,162,39,.5);border-bottom:0;padding:18px 22px;letter-spacing:.05em}
+  .budget-note{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px}
+  .bnote{flex:1 1 240px;border-left:2px solid var(--gold);padding-left:16px}
+  .bnote b{display:block;font-family:'Cinzel',serif;font-size:1.5rem;color:var(--limestone)}
+  .bnote span{color:#AEB6D6;font-size:.85rem}
+
+  .tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .tip{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;padding:24px;position:relative}
+  .tip::before{content:attr(data-g);font-size:1.5rem;position:absolute;top:18px;right:18px;opacity:.85}
+  .tip h4{font-family:'Cinzel',serif;color:var(--lapis);font-size:.98rem;margin-bottom:8px;letter-spacing:.03em;padding-right:40px}
+  .tip p{color:var(--muted);font-size:.9rem}
+  .tip p b{color:var(--ink)}
+
+  .close{background:var(--nile);color:#EDF5F2;text-align:center}
+  .close h2{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.1rem);max-width:760px;margin:0 auto 14px}
+  .close p{max-width:640px;margin:0 auto;color:#CDE2DC}
+  .vs{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:38px}
+  .vs .card{background:rgba(20,29,59,.35);border:1px solid rgba(242,234,218,.25);border-radius:6px;padding:20px 26px;min-width:200px}
+  .vs .card.win{background:var(--limestone);color:var(--ink);border-color:var(--gold)}
+  .vs .card b{display:block;font-family:'Cinzel',serif;font-size:1.35rem}
+  .vs .card.win b{color:var(--nile)}
+  .vs .card span{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+  footer{background:var(--lapis-deep);color:#7F86A8;text-align:center;font-size:.78rem;padding:26px 16px;letter-spacing:.04em}
+
+  @media (max-width:640px){
+    .nile-line::before{left:26px}
+    .day{padding-left:74px}
+    .cartouche{width:46px;height:70px;left:4px}
+    .cartouche b{font-size:1.1rem}
+    .stops .t{flex-basis:74px}
+    .photo{height:180px}
+    .duo{grid-template-columns:1fr}
+    .duo .photo{height:180px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .day-card{transition:transform .25s ease,box-shadow .25s ease}
+    .day-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(38,34,26,.12)}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <img class="wm" data-f='["All Gizah Pyramids.jpg"]' data-w="1600" alt="Gize Piramitleri">
+  <div class="hero-inner">
+    <div class="eyebrow">İki Kişi · 24 – 30 Ekim 2026 · 6 Gece 7 Gün</div>
+    <h1>Kahire <em>+</em> Luxor<br>Kültür Odaklı Mısır</h1>
+    <p>Firavunlardan Memlüklere, Kavalalı Mehmet Ali Paşa'dan Krallar Vadisi'ne — cruise yok, plaj yok, zorunlu bahşiş yok. Bütçenin tamamı tarihe.</p>
+    <div class="hero-stats">
+      <div class="hstat"><b>70–90 bin ₺</b><span>2 kişi toplam</span></div>
+      <div class="hstat"><b>16+ eser</b><span>antik + islami miras</span></div>
+      <div class="hstat"><b>%30–50</b><span>paket tura göre tasarruf</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ROTA -->
+<div class="route">
+  <div class="route-inner">
+    <div>İSTANBUL<small>24 Ekim sabahı</small></div>
+    <span class="dash"></span><span class="dot"></span>
+    <div>KAHİRE<small>3 gece · 24–27 Eki</small></div>
+    <span class="dash"></span><span class="dot"></span>
+    <div>LUXOR<small>3 gece · 27–30 Eki</small></div>
+    <span class="dash"></span><span class="dot"></span>
+    <div>İSTANBUL<small>30 Ekim</small></div>
+  </div>
+</div>
+
+<!-- GÜN GÜN -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Program · 24–30 Ekim</div>
+      <h2>Nil Boyunca Yedi Gün</h2>
+      <p>Sabahlar ören yerlerine (serin ve tenha), öğleden sonralar müzelere ve şehre. Ekim sonu Kahire ~28°C, Luxor ~33°C — gezmek için yılın en iyi dönemlerinden.</p>
+    </div>
+
+    <div class="nile-line">
+
+      <div class="day">
+        <div class="cartouche"><b>1</b><span>CMT<br>24 EKİ</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Mosque of Muhammad Ali, Citadel of Cairo.jpg","Cairo Citadel.jpg","Mosque of Muhammad Ali.jpg","Muhammad Ali Mosque.jpg"]' alt="Muhammed Ali Camii"><span class="cap">Muhammed Ali Camii, Kahire Kalesi</span></div>
+            <div class="photo"><img class="wm" data-f='["Khan el-Khalili.jpg","Khan El-Khalili.jpg","Khan el-Khalili, Cairo.jpg","Khan el Khalili bazaar.jpg"]' alt="Khan el-Khalili"><span class="cap">Khan el-Khalili Çarşısı</span></div>
+          </div>
+          <div class="day-body">
+            <h3>İstanbul → Kahire</h3>
+            <div class="theme">Varış &amp; Kavalalı'nın Kahiresi <span class="tag ot">Osmanlı izi</span></div>
+            <ul class="stops">
+              <li><span class="t">Sabah</span><div class="what"><b>Uçuş + kapıda vize</b><span>~2 sa 15 dk; vize kapıda 25 $/kişi, kart hazır olsun.</span></div></li>
+              <li><span class="t">Öğleden sonra</span><div class="what"><b>Kahire Kalesi: Muhammed Ali Camii + türbesi</b><span>Kavalalı Mehmet Ali Paşa'nın İstanbul camilerini örnek alarak yaptırdığı "Alabaster Camii" — Paşa'nın türbesi caminin içinde. Kale'deki Cevahir Sarayı'na da (Paşa'nın kabul sarayı) uğrayın.</span></div></li>
+              <li><span class="t">Akşam</span><div class="what"><b>Khan el-Khalili Çarşısı</b><span>Akşam yemeği + 250 yıllık El Fishawy'de nane çayı.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>2</b><span>PAZ<br>25 EKİ</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Great Sphinx of Giza - 20080716a.jpg"]' alt="Sfenks"><span class="cap">Sfenks &amp; Kefren Piramidi</span></div>
+            <div class="photo"><img class="wm" data-f='["Grand Egyptian Museum.jpg","Grand Egyptian Museum, Giza.jpg","The Grand Egyptian Museum.jpg","Grand Egyptian Museum 2023.jpg"]' alt="Büyük Mısır Müzesi"><span class="cap">Büyük Mısır Müzesi (GEM)</span></div>
+          </div>
+          <div class="day-body">
+            <h3>Gize Günü</h3>
+            <div class="theme">Piramitler + Büyük Mısır Müzesi <span class="tag">paket turlarda eksik!</span></div>
+            <ul class="stops">
+              <li><span class="t">08:00</span><div class="what"><b>Gize Platosu: Keops, Kefren, Mikerinos, Sfenks</b><span>Kapı açılışında girin — serin, tenha, ışık ideal. Giriş ~700 EGP/kişi, sadece kart.</span></div></li>
+              <li><span class="t">Öğleden sonra</span><div class="what"><b>Büyük Mısır Müzesi (GEM)</b><span>Dünyanın en büyük arkeoloji müzesi, piramitlerin hemen yanında. Bilet yalnızca önceden online: visit-gem.com (~1.450 EGP).</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>3</b><span>PZT<br>26 EKİ</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Saqqara pyramid ver 2.jpg","Saqqara pyramid.jpg","Step Pyramid of Djoser.jpg"]' alt="Sakkara Basamaklı Piramidi"><span class="cap">Coser'in Basamaklı Piramidi, Sakkara</span></div>
+            <div class="photo"><img class="wm" data-f='["Mosque-Madrassa of Sultan Hassan.jpg","Sultan Hassan Mosque.jpg","Mosque of Sultan Hassan.jpg","Sultan Hasan Mosque, Cairo.jpg"]' alt="Sultan Hasan Medresesi"><span class="cap">Sultan Hasan Medresesi</span></div>
+          </div>
+          <div class="day-body">
+            <h3>Sakkara + İslami Kahire</h3>
+            <div class="theme">MÖ 2650'den Memlüklere &amp; Kavalalı Türbelerine <span class="tag ot">Osmanlı izi</span></div>
+            <ul class="stops">
+              <li><span class="t">Sabah</span><div class="what"><b>Sakkara Basamaklı Piramidi</b><span>Mısır'ın en eski piramidi. Dönüş yolunda İbn Tulun Camii'ne (879 — Kahire'nin en eskisi, spiral minaresiyle) kısa durak.</span></div></li>
+              <li><span class="t">Öğleden sonra</span><div class="what"><b>Sultan Hasan Medresesi + Rifai Camii</b><span>Karşılıklı iki dev: Memlük mimarisinin zirvesi ve Kavalalı hanedanının türbe camii — Kral Faruk ve İran Şahı da burada gömülü. Ortak bilet ~kişi başı 10 $.</span></div></li>
+              <li><span class="t">Gün batımı</span><div class="what"><b>El-Muizz Caddesi + Bab Zuveyla</b><span>Dünyanın en yoğun Orta Çağ İslam eseri barındıran sokağı; akşam ışıklandırmasıyla gezin, Khan el-Khalili'ye yürüyerek çıkar.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>4</b><span>SAL<br>27 EKİ</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Karnak Temple.jpg","Karnak temple.jpg","Great Hypostyle Hall, Karnak.jpg","Hypostyle hall, Karnak temple.jpg"]' alt="Karnak Tapınağı"><span class="cap">Karnak — Hipostil Salonu</span></div>
+            <div class="photo"><img class="wm" data-f='["Egypt.LuxorTemple.06.jpg","Luxor Temple.jpg","Luxor temple.jpg","Luxor Temple at night.jpg"]' alt="Luxor Tapınağı"><span class="cap">Luxor Tapınağı</span></div>
+          </div>
+          <div class="day-body">
+            <h3>Kahire → Luxor</h3>
+            <div class="theme">Doğu Yakası: Tapınaklar Günü</div>
+            <ul class="stops">
+              <li><span class="t">Sabah</span><div class="what"><b>İç hat uçuşu</b><span>~1 saat, kişi başı ~70–80 $. Otele valiz bırakıp direkt geziye.</span></div></li>
+              <li><span class="t">Öğleden sonra</span><div class="what"><b>Karnak Tapınağı</b><span>Mısır'ın en büyük tapınak kompleksi; 134 sütunlu hipostil salonuna en az 2–3 saat ayırın.</span></div></li>
+              <li><span class="t">Gün batımı</span><div class="what"><b>Luxor Tapınağı</b><span>Işıklandırıldığı akşam saatinde gezin — avlusundaki Ebu'l Haggag Camii ile tapınak-cami iç içe. Girişteki tek dikilitaşın eşi Paris Concorde Meydanı'nda.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>5</b><span>ÇRŞ<br>28 EKİ</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Valley of the Kings.jpg","Valley of the Kings, Luxor.jpg","Valley of the Kings panorama.jpg","ValleyOfTheKingsPano.jpg"]' alt="Krallar Vadisi"><span class="cap">Krallar Vadisi</span></div>
+            <div class="photo"><img class="wm" data-f='["Mortuary Temple of Hatshepsut.jpg","Temple of Hatshepsut.jpg","Hatshepsut temple.jpg","Deir el-Bahari.jpg"]' alt="Hatşepsut Tapınağı"><span class="cap">Hatşepsut Tapınağı, Deir el-Bahri</span></div>
+          </div>
+          <div class="day-body">
+            <h3>Batı Yakası</h3>
+            <div class="theme">Ölüler Şehri: Krallar Vadisi</div>
+            <ul class="stops">
+              <li><span class="t">07:00</span><div class="what"><b>Krallar Vadisi</b><span>3 mezar dahil ~750 EGP; Tutankhamun mezarı ayrı bilet. Erken gidin, sıcaktan ve gruplardan önce.</span></div></li>
+              <li><span class="t">Sabah</span><div class="what"><b>Hatşepsut Tapınağı</b><span>Kadın firavunun kayalara oyulu teraslı tapınağı. Rehberli yarım gün turu 2 kişi ~80–100 $.</span></div></li>
+              <li><span class="t">Öğlen</span><div class="what"><b>Memnon Devleri</b><span>Ücretsiz, yol üstü 15 dakika. 3.400 yıldır ayakta duran 18 metrelik ikizler.</span></div></li>
+              <li><span class="t">Öğleden sonra</span><div class="what"><b>Luxor Müzesi</b><span>Küçük ama seçkin koleksiyon; sıcaktan kaçış molası.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>6</b><span>PRŞ<br>29 EKİ</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Medinet Habu.jpg","Medinet Habu temple.jpg","Medinet Habu Ramses III. Tempel 01.jpg","Mortuary Temple of Ramesses III.jpg"]' alt="Medinet Habu"><span class="cap">Medinet Habu — III. Ramses Tapınağı</span></div>
+            <div class="photo"><img class="wm" data-f='["Felucca on the Nile.jpg","Feluccas on the Nile.jpg","Felucca, Nile.jpg","Felucca Luxor.jpg"]' alt="Nil'de felluka"><span class="cap">Nil'de felluka</span></div>
+          </div>
+          <div class="day-body">
+            <h3>Luxor'un Tadını Çıkarın</h3>
+            <div class="theme">29 Ekim'i Nil'de Kutlayın 🇹🇷</div>
+            <ul class="stops">
+              <li><span class="t">Sabah</span><div class="what"><b>Medinet Habu</b><span>III. Ramses'in tapınağı — orijinal renkleri en iyi korunan kabartmalar, üstelik kalabalıksız.</span></div></li>
+              <li><span class="t">Öğleden sonra</span><div class="what"><b>Nil'de felluka</b><span>Cumhuriyet Bayramı gün batımını geleneksel yelkenlide karşılayın: 1 saat ~15–20 $. Cruise'un özeti, fiyatın kırkta biri.</span></div></li>
+              <li><span class="t">Akşam</span><div class="what"><b>Luxor → Kahire uçuşu</b><span>Havalimanına yakın otelde geceleyin.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>7</b><span>CUM<br>30 EKİ</span></div>
+        <div class="day-card">
+          <div class="day-body">
+            <h3>Kahire → İstanbul</h3>
+            <div class="theme">Dönüş</div>
+            <ul class="stops">
+              <li><span class="t">Sabah</span><div class="what"><b>Dönüş uçuşu</b><span>Çıkış harcını (1.250 ₺/kişi) Türkiye'den ayrılmadan önce dijital ödemiş olun — havalimanında pul satışı kalktı.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BÜTÇE -->
+<section class="budget">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Bütçe</div>
+      <h2>İki Kişilik Hesap</h2>
+      <p>Temmuz 2026 araştırma fiyatlarıyla. İslami Kahire eklemeleri bütçeyi neredeyse değiştirmiyor: camilerin çoğu ücretsiz veya birkaç dolar. Sürpriz kalem yok.</p>
+    </div>
+    <div class="stele">
+      <table>
+        <tr><th>Kalem</th><th>2 Kişi</th></tr>
+        <tr><td>İstanbul – Kahire gidiş-dönüş<small>24 Eki gidiş / 30 Eki dönüş — Cumhuriyet Bayramı haftası, erken alın!</small></td><td>260–340 $</td></tr>
+        <tr><td>Kahire – Luxor gidiş-dönüş iç hat<small>27 Eki gidiş / 29 Eki akşam dönüş; EgyptAir / Nile Air</small></td><td>280–320 $</td></tr>
+        <tr><td>Kahire oteli — 3 gece + havalimanı 1 gece<small>Downtown/Zamalek 4* veya Gize'de piramit manzaralı butik</small></td><td>230–300 $</td></tr>
+        <tr><td>Luxor oteli — 2 gece<small>Doğu yakası, Nil'e yakın</small></td><td>100–150 $</td></tr>
+        <tr><td>Tüm girişler<small>Gize, GEM, Sakkara, Sultan Hasan+Rifai, Karnak, Krallar Vadisi, Medinet Habu…</small></td><td>170–200 $</td></tr>
+        <tr><td>Batı yakası rehberli yarım gün</td><td>80–100 $</td></tr>
+        <tr><td>Yemekler — 6 gün<small>Yerel lokantalarda ikiniz 10–15 $'a doyarsınız</small></td><td>180–250 $</td></tr>
+        <tr><td>Şehir içi ulaşım + felluka + bahşişler<small>Uber Kahire'de çok ucuz; bahşiş tamamen sizin takdiriniz</small></td><td>130–180 $</td></tr>
+        <tr><td>Vize — kapıda<small>25 $/kişi</small></td><td>50 $</td></tr>
+        <tr><td>Yurt dışı çıkış harcı<small>1.250 ₺/kişi, gitmeden dijital ödeyin</small></td><td>2.500 ₺</td></tr>
+        <tr class="total"><td>TOPLAM</td><td>≈ 72 – 92 bin ₺</td></tr>
+      </table>
+    </div>
+    <div class="budget-note">
+      <div class="bnote"><b>~117 bin ₺</b><span>Kralların İzinde paketi — piramitler ve İslami Kahire yok</span></div>
+      <div class="bnote"><b>~155 bin ₺</b><span>Kadim Rotalar paketi</span></div>
+      <div class="bnote"><b>25–60 bin ₺</b><span>bu planla cebinizde kalan fark</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- İPUÇLARI -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Bilmeden Gitmeyin</div>
+      <h2>Sekiz Altın Kural</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip" data-g="📅"><h4>Bayram haftası uyarısı</h4><p>24–30 Ekim, Cumhuriyet Bayramı dönemine denk geliyor — İstanbul çıkışlı biletler hızlı dolar ve pahalanır. <b>Uçakları ilk iş olarak, hemen alın.</b></p></div>
+      <div class="tip" data-g="🎫"><h4>GEM bileti önceden</h4><p>Büyük Mısır Müzesi'nde gişe satışı yok — bileti <b>visit-gem.com</b> üzerinden gitmeden alın.</p></div>
+      <div class="tip" data-g="💳"><h4>Nakit geçmiyor</h4><p>2026'dan itibaren Piramitler ve Karnak dahil ören girişleri <b>yalnızca kartla</b>. Yurt dışına açık kart + yedek kart şart.</p></div>
+      <div class="tip" data-g="🕌"><h4>Cami adabı</h4><p>Omuz ve diz kapalı; kadınlar için ince bir şal pratik olur. Camilerin çoğu <b>ücretsiz</b> — İslami Kahire bütçe dostudur.</p></div>
+      <div class="tip" data-g="🌅"><h4>Sabahçı olun</h4><p>Ören yerlerine kapı açılışında girin: hem serin hem tenha. Öğleni müzeye ve otele saklayın.</p></div>
+      <div class="tip" data-g="🛶"><h4>Cruise'un özeti: felluka</h4><p>Nil'de yelkenli keyfi için 900 $'lık cruise şart değil — Luxor'da 1 saatlik felluka <b>15–20 $</b>.</p></div>
+      <div class="tip" data-g="🍲"><h4>Yerel yiyin</h4><p>Turistik Nil restoranları yerine koshary, ful, kebap lokantaları: daha ucuz ve daha lezzetli.</p></div>
+      <div class="tip" data-g="🛡️"><h4>İptal edilebilir alın</h4><p>Otel ve günlük turları <b>ücretsiz iptalli</b> tarifelerle rezerve edin; turları GetYourGuide/Viator güvencesiyle almak rahattır.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- KAPANIŞ -->
+<section class="close">
+  <div class="wrap">
+    <h2>Firavunlar, Memlükler ve Kavalalı — tek gezide, yarı fiyatına.</h2>
+    <p>Paket turların "ekstra" diye sattığı her şey ve hiçbirinin göstermediği İslami Kahire bu planda var. Tek gereksinim: temel İngilizce ve biraz planlama keyfi.</p>
+    <div class="vs">
+      <div class="card"><b>~155 bin ₺</b><span>Kadim Rotalar</span></div>
+      <div class="card"><b>~117 bin ₺</b><span>Kralların İzinde</span></div>
+      <div class="card win"><b>72–92 bin ₺</b><span>Bu plan · 2 kişi</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>24–30 Ekim 2026 · Fiyatlar Temmuz 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) · Görseller: Wikimedia Commons (CC)</footer>
+
+<script>
+(function(){
+  var base='https://commons.wikimedia.org/wiki/Special:FilePath/';
+  document.querySelectorAll('img.wm').forEach(function(img){
+    var files=[];
+    try{files=JSON.parse(img.dataset.f||'[]');}catch(e){}
+    var w=img.dataset.w||'1100', i=0;
+    function tryNext(){
+      if(i>=files.length){
+        var p=img.closest('.photo');
+        if(p){p.classList.add('gone');}else{img.style.display='none';}
+        return;
+      }
+      img.src=base+encodeURIComponent(files[i++])+'?width='+w;
+    }
+    img.addEventListener('error',tryNext);
+    tryNext();
+  });
+})();
+</script>
+</body>
+</html>
