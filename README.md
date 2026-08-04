@@ -33,7 +33,10 @@ alternatif denenir.
 - **Her durağın kendi kamera açısı var** — Gize'ye güneybatıdan, Hatşepsut'a
   kayalığın üstünden bakılır.
 - **Katman süzgeçleri** — antik miras, İslami Kahire, müze, sofra, deneyim, ulaşım
-- **Uydu / çizim** zemin değişimi ve **3D arazi** (Krallar Vadisi'nde belirgin)
+- **Üç zemin** — uydu (raster), gece ve papirüs (vektör). Vektör zeminler sayfanın
+  paletine göre çalışma anında yeniden renklendirilir; yüksek yakınlaştırmada
+  binalar kabarır. Vektör servisi yanıt vermezse harita kendiliğinden uyduya döner.
+- **3D arazi** — yükseklik verisiyle kabartma (Krallar Vadisi'nde belirgin)
 - Klavyeyle gezinme (`←` `→`), durak bazlı derin bağlantı (`#durak-karnak`)
 
 ## Teknik
@@ -44,10 +47,15 @@ Derleme adımı yok — dosyalar olduğu gibi yayınlanıyor.
 index.html              Programın tamamı (kendi içinde bağımsız)
 rota.html               İnteraktif harita + zaman çizelgesi
 assets/duraklar.js      Rota verisi: koordinat, saat, kategori, kamera
+assets/zeminler.js      Harita zeminleri ve palet renklendirmesi
 assets/rota.js          Harita, scroll senkronu, süzgeçler
 assets/rota.css         Tasarım katmanı
 assets/vendor/maplibre  MapLibre GL JS 6.1.0 (BSD-3-Clause, repoda sabit)
 ```
+
+Vektör zeminler katmanları kaynak adına göre değil `source-layer` değerine göre
+eşleştirir (OpenMapTiles şeması), böylece taban stil değişse de renklendirme
+çalışmaya devam eder.
 
 MapLibre CDN yerine repoda tutuluyor: sürüm sabit kalıyor ve web worker
 same-origin çalıştığı için CORS sorunu çıkmıyor.
@@ -64,7 +72,8 @@ python3 -m http.server 8000
 | Katman | Kaynak |
 |---|---|
 | Uydu | Esri World Imagery (Esri, Maxar, Earthstar Geographics) |
-| Etiket ve çizim zemin | CARTO, © OpenStreetMap katkıcıları |
+| Uydu etiketleri | CARTO, © OpenStreetMap katkıcıları |
+| Vektör karolar (gece / papirüs) | OpenFreeMap, © OpenStreetMap katkıcıları — API anahtarı gerektirmez |
 | Yükseklik (3D) | AWS Terrain Tiles (terrarium) |
 
 ## Notlar

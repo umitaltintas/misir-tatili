@@ -1,4 +1,5 @@
 import { DURAKLAR, GUNLER, KATEGORILER, UCUSLAR } from "./duraklar.js";
+import { ZEMINLER, UYDU_STILI, boya, binaKabart } from "./zeminler.js";
 
 /* MapLibre 6 yalnızca adlandırılmış dışa aktarım sunar, varsayılan yok.
    Dinamik yüklüyoruz: harita açılmazsa zaman çizelgesi tek başına ayakta kalsın. */
@@ -41,47 +42,13 @@ function yay(a, b, kavis = 0.18, adim = 72) {
   return nokta;
 }
 
-/* ————————————————————————————————— Harita stilleri */
-
-const ATIF_UYDU = 'Görüntüler: <a href="https://www.esri.com/">Esri</a>, Maxar, Earthstar Geographics';
-const ATIF_CIZIM = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> katkıcıları, © <a href="https://carto.com/attributions">CARTO</a>';
-
-const raster = (tiles, atif) => ({
-  type: "raster", tiles, tileSize: 256, maxzoom: 19, attribution: atif,
-});
-
-const STILLER = {
-  uydu: {
-    version: 8,
-    sources: {
-      zemin: raster(["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"], ATIF_UYDU),
-      yazi: raster(["https://a.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png"], ATIF_CIZIM),
-    },
-    layers: [
-      { id: "zemin", type: "raster", source: "zemin" },
-      { id: "yazi", type: "raster", source: "yazi", paint: { "raster-opacity": 0.85 } },
-    ],
-  },
-  cizim: {
-    version: 8,
-    sources: {
-      zemin: raster([
-        "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
-        "https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
-        "https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
-      ], ATIF_CIZIM),
-    },
-    layers: [{ id: "zemin", type: "raster", source: "zemin" }],
-  },
-};
-
 /* ————————————————————————————————— Durum */
 
 const durum = {
   etkin: null,
   gun: 1,
   kapali: new Set(),
-  uydu: true,
+  zemin: 0,        // ZEMINLER dizisindeki sıra
   arazi: false,
 };
 
@@ -418,16 +385,58 @@ function klavyeKur() {
   });
 }
 
+/* ————————————————————————————————— Zemin değişimi */
+
+let zeminZamanlayici = null;
+
+/** Harita üstünde kısa süreli bilgi notu. */
+function zeminNotu(metin) {
+  let not = $("#zemin-not");
+  if (!not) {
+    not = el("p", "zemin-not");
+    not.id = "zemin-not";
+    not.setAttribute("role", "status");
+    $(".harita-sarmal").append(not);
+  }
+  not.textContent = metin;
+  not.classList.add("gorunur");
+  clearTimeout(not._sure);
+  not._sure = setTimeout(() => not.classList.remove("gorunur"), 6500);
+}
+
+function zeminUygula(indeks) {
+  const z = ZEMINLER[indeks];
+  durum.zemin = indeks;
+
+  const btn = $("#zemin-btn");
+  btn.textContent = z.ad;
+  btn.setAttribute("aria-pressed", String(z.tip === "vektor"));
+
+  haritaHazir = false;
+  clearTimeout(zeminZamanlayici);
+
+  if (z.tip === "raster") {
+    map.setStyle(UYDU_STILI);
+    return;
+  }
+
+  map.setStyle(z.url);
+
+  // Vektör karo servisi yanıt vermezse sessizce boş harita bırakma; uyduya dön.
+  zeminZamanlayici = setTimeout(() => {
+    if (!haritaHazir && durum.zemin === indeks) {
+      zeminNotu(`${z.ad} zemini yüklenemedi — uydu görünümüne dönüldü.`);
+      zeminUygula(0);
+    }
+  }, 9000);
+}
+
 /* ————————————————————————————————— Harita araçları */
 
 function araclarKur() {
   const zeminBtn = $("#zemin-btn");
   zeminBtn.addEventListener("click", () => {
-    durum.uydu = !durum.uydu;
-    zeminBtn.setAttribute("aria-pressed", String(durum.uydu));
-    zeminBtn.textContent = durum.uydu ? "UYDU" : "ÇİZİM";
-    haritaHazir = false;
-    map.setStyle(STILLER[durum.uydu ? "uydu" : "cizim"]);
+    zeminUygula((durum.zemin + 1) % ZEMINLER.length);
   });
 
   const araziBtn = $("#arazi-btn");
@@ -506,7 +515,7 @@ async function baslat() {
   try {
     map = new maplibregl.Map({
       container: "harita",
-      style: STILLER.uydu,
+      style: UYDU_STILI,
       center: sakin ? ilk.konum : [30.8, 34.5],
       zoom: sakin ? (ilk.kamera?.zoom ?? 15) : 4.4,
       pitch: sakin ? (ilk.kamera?.pitch ?? 50) : 0,
@@ -530,6 +539,12 @@ async function baslat() {
 
   map.on("style.load", () => {
     haritaHazir = true;
+    clearTimeout(zeminZamanlayici);
+    const z = ZEMINLER[durum.zemin];
+    if (z.tip === "vektor") {
+      boya(map, z.palet);
+      binaKabart(map, z.palet);
+    }
     katmanlariKur();
   });
 

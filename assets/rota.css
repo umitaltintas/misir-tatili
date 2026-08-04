@@ -178,6 +178,18 @@ a { color: inherit; }
 .arac:hover { border-color: var(--sand); }
 .arac[aria-pressed="true"] { color: var(--gold); border-color: var(--gold); }
 
+.zemin-not {
+  position: absolute; z-index: 6; right: 14px; top: 92px;
+  max-width: 250px;
+  font-family: "IBM Plex Mono", monospace; font-size: .68rem; line-height: 1.6;
+  color: var(--sand); background: rgba(8, 13, 30, .9);
+  border: 1px solid rgba(201, 162, 39, .45); border-radius: 3px;
+  padding: 9px 12px; backdrop-filter: blur(8px);
+  opacity: 0; transform: translateY(-6px); pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+}
+.zemin-not.gorunur { opacity: 1; transform: none; }
+
 .harita-durum {
   position: absolute; z-index: 5; left: 14px; bottom: 30px;
   font-family: "IBM Plex Mono", monospace; font-size: .68rem;
