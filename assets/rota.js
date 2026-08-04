@@ -1,5 +1,6 @@
 import { DURAKLAR, GUNLER, KATEGORILER, UCUSLAR } from "./duraklar.js";
 import { ZEMINLER, UYDU_STILI, boya, binaKabart } from "./zeminler.js";
+import { BAGLANTILAR, TURLER, baglanti } from "./baglantilar.js";
 
 /* MapLibre 6 yalnızca adlandırılmış dışa aktarım sunar, varsayılan yok.
    Dinamik yüklüyoruz: harita açılmazsa zaman çizelgesi tek başına ayakta kalsın. */
@@ -73,11 +74,41 @@ function panelKur() {
     bas.append(sira, el("h2", null, gun.baslik), el("p", "tema", gun.tema));
     blok.append(bas);
 
-    for (const d of DURAKLAR.filter((x) => x.gun === gun.no)) {
+    const gunDuraklari = DURAKLAR.filter((x) => x.gun === gun.no);
+    gunDuraklari.forEach((d, i) => {
+      // Günün ilk durağından önce, bir önceki günün son durağından gelen bağlantı.
+      const oncekiId = i === 0
+        ? DURAKLAR[DURAKLAR.indexOf(d) - 1]?.id
+        : gunDuraklari[i - 1].id;
+      const b = oncekiId ? baglanti(oncekiId, d.id) : null;
+      if (b) blok.append(baglantiYap(b));
       blok.append(kartYap(d));
-    }
+    });
     panel.append(blok);
   }
+}
+
+/** İki durak arasındaki ulaşım şeridi. */
+function baglantiYap(b) {
+  const tur = TURLER[b.tur] || { ad: b.tur.toUpperCase(), renk: "#7A7160" };
+  const k = el("div", "gecis");
+  k.style.setProperty("--g-renk", tur.renk);
+  if (b.gunBasi) k.classList.add("gun-basi-gecis");
+
+  const bas = el("div", "gecis-bas");
+  bas.append(el("span", "gecis-tur", tur.ad));
+  if (b.sure) bas.append(el("span", "gecis-veri", b.sure));
+  if (b.ucret && b.ucret !== "—") bas.append(el("span", "gecis-veri", b.ucret));
+  k.append(bas);
+
+  if (b.ozet) k.append(el("p", "gecis-ozet", b.ozet));
+  if (b.detay) k.append(el("p", "gecis-detay", b.detay));
+  if (b.dikkat) {
+    const uyari = el("p", "gecis-dikkat");
+    uyari.append(el("b", null, "Dikkat "), document.createTextNode(b.dikkat));
+    k.append(uyari);
+  }
+  return k;
 }
 
 function kartYap(d) {
@@ -130,8 +161,9 @@ function seritKur() {
     b.title = `${g.tarih} — ${g.baslik}`;
     b.setAttribute("aria-label", `Gün ${g.no}: ${g.baslik}`);
     b.addEventListener("click", () => {
-      const ilk = DURAKLAR.find((d) => d.gun === g.no);
-      kartlar.get(ilk.id)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
+      // Bloğun başına git: gün başlığı ve o güne geçişi anlatan ulaşım şeridi de görünsün.
+      document.getElementById(`gun-${g.no}`)
+        ?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "start" });
     });
     li.append(b);
     gunListe.append(li);
@@ -200,9 +232,10 @@ function katmanVerisi() {
       const a = noktalar[i], b = noktalar[i + 1];
       // Uçuş bacakları ayrı katmanda çiziliyor; şehirler arası atlamayı burada atla.
       if (mesafe(a.konum, b.konum) > 120) continue;
+      const bag = baglanti(a.id, b.id);
       gunlukRota.features.push({
         type: "Feature",
-        properties: { gun: g.no },
+        properties: { gun: g.no, yaya: bag?.tur === "yuruyus" },
         geometry: { type: "LineString", coordinates: [a.konum, b.konum] },
       });
     }
@@ -242,11 +275,27 @@ function katmanlariKur() {
   if (!map.getLayer("rota-hat")) {
     map.addLayer({
       id: "rota-hat", type: "line", source: "rota",
+      filter: ["!=", ["get", "yaya"], true],
       layout: { "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": "#C9A227",
         "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.2, 14, 2.6],
         "line-opacity": 0.35,
+      },
+    });
+  }
+
+  // Yürünen bacaklar noktalı: haritada araçla gidilenlerden ayırt edilsin.
+  if (!map.getLayer("rota-yaya")) {
+    map.addLayer({
+      id: "rota-yaya", type: "line", source: "rota",
+      filter: ["==", ["get", "yaya"], true],
+      layout: { "line-cap": "round" },
+      paint: {
+        "line-color": "#8FAF7E",
+        "line-width": 2,
+        "line-dasharray": [0.6, 1.8],
+        "line-opacity": 0.4,
       },
     });
   }
@@ -275,6 +324,9 @@ function rotaVurgula(gun) {
     ["interpolate", ["linear"], ["zoom"],
       8, ["case", esit, 2, 1],
       14, ["case", esit, 3.6, 1.8]]);
+  if (map.getLayer("rota-yaya")) {
+    map.setPaintProperty("rota-yaya", "line-opacity", ["case", esit, 0.95, 0.22]);
+  }
   map.setPaintProperty("ucus-hat", "line-opacity",
     ["case", ["==", ["get", "gun"], gun], 0.9, 0.28]);
 }

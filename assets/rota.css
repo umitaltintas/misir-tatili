@@ -353,7 +353,10 @@ a { color: inherit; }
 
 /* ————————————————————————————————— GÜN BLOKLARI */
 
-.gun-blok { padding-bottom: 22px; }
+.gun-blok {
+  padding-bottom: 22px;
+  scroll-margin-top: calc(var(--ust-h) + 8px);
+}
 
 .gun-basi {
   position: sticky; top: calc(var(--ust-h) - 1px); z-index: 20;
@@ -430,6 +433,46 @@ a { color: inherit; }
 .rozet.vurgu { color: var(--gold); border-color: rgba(201, 162, 39, .45); }
 .rozet.oneri { color: var(--k-yemek); border-color: rgba(196, 96, 63, .5); }
 
+/* ————————————————————————————————— ULAŞIM ŞERİDİ */
+
+.gecis {
+  margin: 2px 0 2px 74px;
+  padding: 13px 0 15px 17px;
+  border-left: 1px dashed color-mix(in srgb, var(--g-renk, var(--dim)) 55%, transparent);
+}
+.gun-basi-gecis { margin-top: 6px; }
+
+.gecis-bas {
+  display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
+}
+.gecis-tur {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .62rem; letter-spacing: .14em;
+  color: var(--g-renk); padding: 2px 8px; border-radius: 3px;
+  border: 1px solid color-mix(in srgb, var(--g-renk) 45%, transparent);
+}
+.gecis-veri {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .68rem; color: var(--dim);
+}
+.gecis-veri + .gecis-veri::before { content: "· "; opacity: .6; }
+
+.gecis-ozet { font-size: .84rem; color: var(--sand); margin-top: 8px; opacity: .92; }
+.gecis-detay { font-size: .8rem; color: var(--dim); margin-top: 4px; }
+
+.gecis-dikkat {
+  font-size: .79rem; color: var(--sand); opacity: .95;
+  margin-top: 9px; padding-left: 11px;
+  border-left: 2px solid var(--k-yemek);
+}
+.gecis-dikkat b {
+  color: var(--k-yemek); font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; font-size: .68rem;
+}
+
+/* Şerit zaten ayırıcı görevi görüyor; kartın kendi çizgisi çift olmasın. */
+.gecis + .durak { border-top: 0; }
+
 /* Aktif durak: soldan altın bir kılavuz çizgisi */
 .durak::before {
   content: ""; position: absolute; left: -20px; top: 15px; bottom: 15px;
@@ -504,6 +547,7 @@ a { color: inherit; }
   .durak { grid-template-columns: 46px 1fr; gap: 12px; }
   .giris-olcu { gap: 18px; }
   .marka b { font-size: .92rem; }
+  .gecis { margin-left: 58px; padding-left: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

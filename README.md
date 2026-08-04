@@ -15,6 +15,8 @@ bütçenin tamamı antik ve İslami mirasa ayrılmış.
 - **Gün gün program** — Gize, Sakkara, İslami Kahire, Karnak, Krallar Vadisi, Medinet Habu
 - **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; toplam, paket
   turlarla fark ve giriş/kapanış özetleri anında yeniden hesaplanır
+- **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
+  trafik saatleri ve kaçınılacaklar
 - **Hazırlık listesi** — 12 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
 - **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
 - **Sekiz altın kural** — bayram haftası bilet uyarısı, GEM ön bileti, kartla ödeme zorunluluğu
@@ -27,6 +29,10 @@ alternatif denenir.
 ### Nil Boyunca (`rota.html`)
 
 27 durağın tamamı saatiyle, kategorisiyle ve harita üzerindeki yeriyle.
+
+- **Duraklar arası ulaşım** — her geçiş için araç türü, süre, ücret ve dikkat notu:
+  hangi noktada Uber çalışır, nerede şoförü bekletmek gerekir, feribot mu köprü mü.
+  Yürünen bacaklar haritada noktalı çizgiyle ayrılır.
 
 - **Kaydırdıkça harita güneye iner** — sayfanın dikey ekseni gerçek enlemi izler,
   Kahire 30.1°K'den Luxor 25.7°K'ye. Soldaki *nilometre* o anki enlemi gösterir.
@@ -47,6 +53,7 @@ Derleme adımı yok — dosyalar olduğu gibi yayınlanıyor.
 index.html              Programın tamamı (kendi içinde bağımsız)
 rota.html               İnteraktif harita + zaman çizelgesi
 assets/duraklar.js      Rota verisi: koordinat, saat, kategori, kamera
+assets/baglantilar.js   Duraklar arası ulaşım: tür, süre, ücret, uyarılar
 assets/zeminler.js      Harita zeminleri ve palet renklendirmesi
 assets/rota.js          Harita, scroll senkronu, süzgeçler
 assets/rota.css         Tasarım katmanı
@@ -84,3 +91,7 @@ Harita konumları yaklaşıktır: ören yerleri isabetli, restoran ve çarşı n
 doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi" rozetli duraklar
 ana programda geçmez, rotaya uyduğu için eklenmiştir — gitmeden önce güncel adres
 ve çalışma saatlerini doğrulayın.
+
+Ulaşım süreleri ve EGP tutarları da tahmindir. Mısır'da enflasyon yüksek seyrettiği
+için yerel para birimindeki rakamlar hızla eskiyor; taksi ve feribot ücretlerini
+gitmeden doğrulayın.

@@ -164,6 +164,15 @@
   .stele tr.total td{transition:color .2s ease}
   .toplam-usd{display:block;font-family:'Figtree',sans-serif;font-size:.76rem;letter-spacing:.02em;color:#8E96B8;margin-top:3px}
 
+  /* ——— Ulaşım rehberi ——— */
+  .ul-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+  .ul-kart{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;padding:24px}
+  .ul-kart h3{font-family:'Cinzel',serif;color:var(--lapis);font-size:1rem;letter-spacing:.03em;margin-bottom:10px}
+  .ul-kart p{color:var(--muted);font-size:.88rem}
+  .ul-kart p b{color:var(--ink)}
+  .ul-kart .ul-not{margin-top:12px;padding-left:12px;border-left:2px solid var(--nile);font-size:.83rem}
+  .ul-kart .ul-not b{color:var(--nile);text-transform:uppercase;letter-spacing:.06em;font-size:.72rem}
+
   /* ——— Hazırlık listesi ——— */
   .hz-ust{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:24px}
   .hz-bar{flex:1 1 220px;height:6px;background:#E2D6BC;border-radius:999px;overflow:hidden}
@@ -224,6 +233,7 @@
     <ul class="nav-links">
       <li><a class="nav-link" href="#program">Program</a></li>
       <li><a class="nav-link" href="#butce">Bütçe</a></li>
+      <li><a class="nav-link" href="#ulasim">Ulaşım</a></li>
       <li><a class="nav-link" href="#hazirlik">Hazırlık</a></li>
       <li><a class="nav-link" href="#ipuclari">İpuçları</a></li>
     </ul>
@@ -439,6 +449,55 @@
       <div class="bnote"><b>~117 bin ₺</b><span>Kralların İzinde paketi — piramitler ve İslami Kahire yok</span></div>
       <div class="bnote"><b>~155 bin ₺</b><span>Kadim Rotalar paketi</span></div>
       <div class="bnote"><b id="fark">25–60 bin ₺</b><span>iki pakete göre cebinizde kalan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ULAŞIM -->
+<section id="ulasim">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Nasıl Gidilir</div>
+      <h2>Ulaşım Rehberi</h2>
+      <p>Kahire ve Luxor bu konuda birbirinden ayrılıyor: birinde uygulamadan araç çağırıyorsunuz, diğerinde pazarlık ediyorsunuz. Duraklar arası tek tek ulaşım bilgisi <a href="rota.html">haritalı rotada</a>.</p>
+    </div>
+
+    <div class="ul-grid">
+      <article class="ul-kart">
+        <h3>Kahire · Uber ve Careem</h3>
+        <p>Şehir içi ulaşımın tek pratik cevabı. Fiyat uygulamada sabit, pazarlık yok, güzergâh kayıtlı. Nakit ya da kart seçebilirsiniz; nakit çok yaygın, şoförde para üstü olmayabilir.</p>
+        <p class="ul-not"><b>Kaçının:</b> Havalimanı çıkışında ve ören yeri kapılarında yaklaşan taksicilerden. Aynı yol üç katına çıkabiliyor.</p>
+      </article>
+
+      <article class="ul-kart">
+        <h3>Luxor · Uber yok</h3>
+        <p>Burada uygulama çalışmıyor, taksi pazarlığı normal. Fiyatı <b>binmeden önce</b> netleştirin. En rahatı otelden araç istemek ya da batı yakası için gün boyu şoförlü araç tutmak.</p>
+        <p class="ul-not"><b>Kaleş:</b> At arabası teklifleri yoğun. Hayvanların durumu çoğu zaman kötü — taksi hem hızlı hem sorunsuz.</p>
+      </article>
+
+      <article class="ul-kart">
+        <h3>Batı yakasına geçiş</h3>
+        <p>Krallar Vadisi, Hatşepsut ve Medinet Habu Nil'in karşı kıyısında. İki yol var: <b>yolcu feribotu</b> (5 dakika, 10–20 EGP, karşıda araç tutarsınız) veya güneydeki <b>köprü</b> (şoförlü araçla, gün boyu aracınız yanınızda).</p>
+        <p class="ul-not"><b>Öneri:</b> Üç ayrı noktayı gezeceğiniz için yarım/tam günlük araç feribottan daha rahat çıkıyor.</p>
+      </article>
+
+      <article class="ul-kart">
+        <h3>Şehirler arası · uçak</h3>
+        <p>Kahire–Luxor arası uçakla 1 saat, kişi başı 70–80 $. EgyptAir ve Nile Air günde birkaç sefer yapıyor. Programdaki üç günü Luxor'da geçirmek için en verimli seçenek bu.</p>
+        <p class="ul-not"><b>Alternatif:</b> Gece yataklı treni 10–11 saat sürüyor ve bir otel gecesi kazandırıyor; ama sabahınızı yorgun başlatır.</p>
+      </article>
+
+      <article class="ul-kart">
+        <h3>Trafik saatleri</h3>
+        <p>Kahire sabah 07:30–10:00 ve akşam 15:00–19:00 arası kilitleniyor. Ören yerlerine kapı açılışında gitme önerisinin bir sebebi de bu: 07:00'de yola çıkarsanız yol boş.</p>
+        <p class="ul-not"><b>Payı geniş tutun:</b> Havalimanına giderken bu aralıklara denk geliyorsanız bir saat fazladan hesaplayın.</p>
+      </article>
+
+      <article class="ul-kart">
+        <h3>Metro ve yürüyüş</h3>
+        <p>Kahire metrosu çok ucuz ama bu rotadaki durakların çoğuna yakın değil. İslami Kahire'de ise durakların arası zaten yürüme mesafesinde — Sultan Hasan'dan Bab Zuveyla'ya, oradan El-Muizz'e yürümek gezinin kendisi.</p>
+        <p class="ul-not"><b>Not:</b> Metroda kadınlara ayrılmış vagonlar bulunuyor.</p>
+      </article>
     </div>
   </div>
 </section>
