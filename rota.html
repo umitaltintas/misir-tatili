@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nil Boyunca — Kahire + Luxor rotası</title>
+<meta name="description" content="24–30 Ekim 2026 Mısır programının interaktif haritası ve zaman çizelgesi: her durak, saati ve konumuyla.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Cinzel:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="assets/vendor/maplibre/maplibre-gl.css" rel="stylesheet">
+<link href="assets/rota.css" rel="stylesheet">
+</head>
+<body>
+
+<a class="atla" href="#panel">Zaman çizelgesine geç</a>
+
+<header class="ust">
+  <div class="ust-sira">
+    <a class="marka" href="./">
+      <b>NİL BOYUNCA</b>
+      <span>24–30 EKİM 2026 · KAHİRE + LUXOR</span>
+    </a>
+    <ul class="gunler" id="gunler" aria-label="Günler"></ul>
+    <a class="geri" href="./">← Programın tamamı</a>
+  </div>
+  <div class="ust-sira">
+    <ul class="filtreler" id="filtreler" aria-label="Katman süzgeçleri"></ul>
+  </div>
+</header>
+
+<main class="sahne">
+
+  <div class="panel">
+
+    <aside class="nilometre" aria-hidden="true">
+      <span class="nil-yon">KUZEY</span>
+      <div class="nil-hat" id="nil-hat">
+        <div class="nil-imlec" id="nil-imlec"></div>
+      </div>
+      <span class="nil-etiket" id="nil-etiket">30.12°K</span>
+    </aside>
+
+    <section class="giris">
+      <p class="eyebrow">Yedi gün · iki şehir · tek çizgi</p>
+      <h1>Nil Boyunca<br><em>Gün Gün Rota</em></h1>
+      <p>
+        Programdaki her durak burada saatiyle ve haritadaki yeriyle duruyor.
+        Aşağı kaydırdıkça harita da güneye iniyor — Kahire'den Luxor'a, tıpkı
+        yolculuğun kendisi gibi. Soldaki ölçek o an nerede olduğunuzun enlemini gösterir.
+      </p>
+
+      <div class="giris-olcu">
+        <div><b id="olcu-durak">—</b><span>durak</span></div>
+        <div><b id="olcu-km">—</b><span>km yol</span></div>
+        <div><b id="olcu-enlem">—</b><span>enlem farkı</span></div>
+      </div>
+
+      <p class="ipucu-satir">
+        Bir durağa tıklayın, harita oraya uçsun. <kbd>←</kbd> <kbd>→</kbd> ile
+        duraklar arasında gezinin. Üstteki renkli süzgeçlerle katmanları kapatabilirsiniz.
+      </p>
+    </section>
+
+    <div id="panel"></div>
+
+    <section class="kapanis">
+      <h2>Rotayı kendinize göre esnetin</h2>
+      <p>
+        Saatler kesin randevu değil, sıralama önerisi: sabahları ören yerlerine, öğleden
+        sonraları müzelere ve şehre ayrılmış. Ekim sonunda Kahire yaklaşık 28°C, Luxor 33°C —
+        sıcak saatleri kapalı mekâna denk getirmek işe yarıyor.
+      </p>
+      <p class="uyari">
+        Konumlar harita üzerinde yaklaşık işaretlenmiştir; ören yerleri isabetli, restoran
+        ve çarşı noktaları ise doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi"
+        rozetli duraklar ana programda geçmiyor, gezi rotasına uyduğu için eklendi —
+        gitmeden önce güncel adres ve çalışma saatlerini doğrulayın.
+      </p>
+      <a class="cikis" href="./">← Programın tamamına dön</a>
+    </section>
+
+  </div>
+
+  <div class="harita-sarmal">
+    <div id="harita" role="application" aria-label="Rota haritası"></div>
+
+    <div class="harita-arac">
+      <button class="arac" id="zemin-btn" type="button" aria-pressed="true" title="Uydu görüntüsü ve çizim arasında geçiş">UYDU</button>
+      <button class="arac" id="arazi-btn" type="button" aria-pressed="false" title="Yükseklik verisiyle araziyi kabartır">3D ARAZİ</button>
+    </div>
+
+    <p class="harita-durum" id="harita-durum" aria-live="polite"></p>
+
+    <div class="perde" id="perde">
+      <div class="sonar"></div>
+      <p>KARO VERİSİ YÜKLENİYOR</p>
+    </div>
+  </div>
+
+</main>
+
+<script type="module" src="assets/rota.js"></script>
+</body>
+</html>
