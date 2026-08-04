@@ -13,11 +13,16 @@ bütçenin tamamı antik ve İslami mirasa ayrılmış.
 ### Programın tamamı (`index.html`)
 
 - **Gün gün program** — Gize, Sakkara, İslami Kahire, Karnak, Krallar Vadisi, Medinet Habu
-- **Bütçe tablosu** — 2 kişi ≈ 72–92 bin ₺ (Temmuz 2026 fiyat araştırması)
+- **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; toplam, paket
+  turlarla fark ve giriş/kapanış özetleri anında yeniden hesaplanır
+- **Hazırlık listesi** — 12 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
+- **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
 - **Sekiz altın kural** — bayram haftası bilet uyarısı, GEM ön bileti, kartla ödeme zorunluluğu
+- Kalkışa kalan gün sayısı ve yazdırmaya uygun çıktı düzeni
 
-Tek dosyalık statik sayfa. Görseller Wikimedia Commons'tan (CC) çalışma anında çekilir;
-bir dosya adı bulunamazsa sonraki alternatif denenir.
+Tek dosyalık statik sayfa — CSS ve JS gömülü, `file://` üzerinden de açılır. Görseller
+Wikimedia Commons'tan (CC) çalışma anında çekilir; bir dosya adı bulunamazsa sonraki
+alternatif denenir.
 
 ### Nil Boyunca (`rota.html`)
 

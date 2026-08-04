@@ -84,7 +84,7 @@
   .budget .sec-head h2{color:var(--limestone)}
   .budget .sec-head .eyebrow{color:var(--gold)}
   .budget .sec-head p{color:#AEB6D6}
-  .stele{background:var(--lapis-deep);border:1px solid rgba(201,162,39,.4);border-radius:6px;overflow:hidden}
+  .stele{background:var(--lapis-deep);border:1px solid rgba(201,162,39,.4);border-radius:6px;overflow-x:auto}
   .stele table{width:100%;border-collapse:collapse}
   .stele th{font-family:'Cinzel',serif;text-align:left;font-size:.78rem;letter-spacing:.18em;color:var(--gold);padding:16px 22px;border-bottom:1px solid rgba(201,162,39,.35);text-transform:uppercase}
   .stele th:last-child,.stele td:last-child{text-align:right;white-space:nowrap}
@@ -128,23 +128,123 @@
     .day-card{transition:transform .25s ease,box-shadow .25s ease}
     .day-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(38,34,26,.12)}
   }
+
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* ——— Bölüm çubuğu ——— */
+  .topnav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(242,234,218,.94);backdrop-filter:blur(12px);border-bottom:1px solid #E2D6BC;transform:translateY(-101%);transition:transform .32s ease}
+  .topnav.acik{transform:none}
+  .topnav-inner{width:min(1050px,92%);margin:0 auto;display:flex;align-items:center;gap:6px;padding:10px 0}
+  .nav-brand{font-family:'Cinzel',serif;font-weight:600;font-size:.8rem;letter-spacing:.14em;color:var(--lapis);text-decoration:none;margin-right:auto;white-space:nowrap}
+  .nav-links{display:flex;gap:4px;list-style:none;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-link{display:block;font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.11em;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:3px;white-space:nowrap;transition:color .2s ease,background .2s ease}
+  .nav-link:hover{color:var(--lapis)}
+  .nav-link[aria-current="true"]{color:var(--lapis);background:rgba(201,162,39,.18)}
+  .nav-map{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;color:var(--lapis-deep);background:var(--gold);padding:8px 14px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+  .nav-map:hover{background:var(--sand)}
+
+  /* ——— Geri sayım ——— */
+  .countdown{display:inline-flex;align-items:baseline;gap:9px;margin-top:26px;font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.1em;color:var(--sand);border:1px solid rgba(201,162,39,.42);border-radius:999px;padding:9px 20px}
+  .countdown b{color:var(--gold);font-size:1.08rem}
+
+  /* ——— Bütçe hesabı ——— */
+  .kur-satir{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;font-size:.86rem;color:#AEB6D6}
+  .kur-giris{font-family:'Figtree',sans-serif;width:96px;background:var(--lapis-deep);border:1px solid rgba(201,162,39,.4);color:var(--limestone);border-radius:3px;padding:7px 10px;font-size:.9rem}
+  .kur-giris:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+  .kur-sifirla{background:none;border:0;padding:0;color:var(--gold);cursor:pointer;font-size:.82rem;font-family:'Figtree',sans-serif;text-decoration:underline}
+  .stele td.sec{width:46px;text-align:center;padding-right:0}
+  .stele th.sec{width:46px;padding-right:0}
+  .b-check{appearance:none;-webkit-appearance:none;width:17px;height:17px;border:1px solid rgba(201,162,39,.6);border-radius:3px;background:transparent;cursor:pointer;position:relative;vertical-align:middle;transition:background .18s ease,border-color .18s ease}
+  .b-check:checked{background:var(--gold);border-color:var(--gold)}
+  .b-check:checked::after{content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;border:solid var(--lapis-deep);border-width:0 2px 2px 0;transform:rotate(42deg)}
+  .b-check:focus-visible{outline:2px solid var(--limestone);outline-offset:2px}
+  tr.kapali td{opacity:.35}
+  tr.kapali td.sec{opacity:1}
+  .stele tr.total td{transition:color .2s ease}
+  .toplam-usd{display:block;font-family:'Figtree',sans-serif;font-size:.76rem;letter-spacing:.02em;color:#8E96B8;margin-top:3px}
+
+  /* ——— Hazırlık listesi ——— */
+  .hz-ust{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+  .hz-bar{flex:1 1 220px;height:6px;background:#E2D6BC;border-radius:999px;overflow:hidden}
+  .hz-bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--nile),var(--gold));transition:width .45s ease}
+  .hz-sayac{font-family:'Cinzel',serif;font-size:.88rem;letter-spacing:.06em;color:var(--lapis);white-space:nowrap}
+  .hz-sifirla{background:none;border:0;padding:0;color:var(--nile);cursor:pointer;font-size:.8rem;font-family:'Figtree',sans-serif;text-decoration:underline}
+  .hz-liste{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px}
+  .hz-oge{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:5px;transition:background .2s ease,border-color .2s ease}
+  .hz-oge label{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;cursor:pointer}
+  .hz-oge input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:18px;height:18px;margin-top:2px;border:1.5px solid var(--sand);border-radius:3px;background:#fff;cursor:pointer;position:relative;transition:background .18s ease,border-color .18s ease}
+  .hz-oge input:checked{background:var(--nile);border-color:var(--nile)}
+  .hz-oge input:checked::after{content:"";position:absolute;left:5.5px;top:1.5px;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+  .hz-oge input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .hz-oge .yazi b{display:block;font-weight:600;font-size:.92rem;color:var(--ink);transition:color .2s ease}
+  .hz-oge .yazi span{display:block;font-size:.82rem;color:var(--muted);margin-top:2px}
+  .hz-oge.bitti{background:rgba(47,109,98,.07);border-color:rgba(47,109,98,.32)}
+  .hz-oge.bitti .yazi b{color:var(--muted);text-decoration:line-through}
+
+  /* ——— Kaydırma belirmesi (yalnızca JS varsa uygulanır) ——— */
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.gorundu{opacity:1;transform:none}
+  }
+
+  @media (max-width:640px){
+    .nav-brand{display:none}
+    .topnav-inner{padding:8px 0}
+    .nav-link{font-size:.7rem;padding:6px 9px}
+    .hz-liste{grid-template-columns:1fr}
+    .stele td,.stele th{padding:11px 13px}
+    .stele td.sec,.stele th.sec{width:38px;padding-left:11px}
+    .stele td small{font-size:.72rem}
+    .stele tr.total td{padding:15px 13px}
+    .kur-satir{gap:9px}
+    .countdown{padding:8px 16px;font-size:.76rem}
+  }
+
+  @media print{
+    .topnav,.hero img,.hero-cta,.countdown,.kur-satir,.hz-ust,.stele td.sec,.stele th.sec{display:none}
+    body{background:#fff;color:#000}
+    .hero{min-height:auto;background:#fff;padding-top:20px}
+    .hero::after{display:none}
+    .hero h1,.hero p,.eyebrow,.hstat b{color:#000}
+    .budget,.close{background:#fff;color:#000}
+    .stele{background:#fff;border-color:#999}
+    .stele td,.stele th,.budget .sec-head h2,.stele tr.total td{color:#000;border-color:#ccc}
+    .day-card,.tip,.hz-oge{break-inside:avoid;box-shadow:none}
+    section{padding:24px 0}
+  }
 </style>
 </head>
 <body>
 
+<!-- BÖLÜM ÇUBUĞU -->
+<nav class="topnav" id="topnav" aria-label="Bölümler">
+  <div class="topnav-inner">
+    <a class="nav-brand" href="#top">KAHİRE + LUXOR</a>
+    <ul class="nav-links">
+      <li><a class="nav-link" href="#program">Program</a></li>
+      <li><a class="nav-link" href="#butce">Bütçe</a></li>
+      <li><a class="nav-link" href="#hazirlik">Hazırlık</a></li>
+      <li><a class="nav-link" href="#ipuclari">İpuçları</a></li>
+    </ul>
+    <a class="nav-map" href="rota.html">Harita &rarr;</a>
+  </div>
+</nav>
+
 <!-- HERO -->
-<header class="hero">
+<header class="hero" id="top">
   <img class="wm" data-f='["All Gizah Pyramids.jpg"]' data-w="1600" alt="Gize Piramitleri">
   <div class="hero-inner">
     <div class="eyebrow">İki Kişi · 24 – 30 Ekim 2026 · 6 Gece 7 Gün</div>
     <h1>Kahire <em>+</em> Luxor<br>Kültür Odaklı Mısır</h1>
     <p>Firavunlardan Memlüklere, Kavalalı Mehmet Ali Paşa'dan Krallar Vadisi'ne — cruise yok, plaj yok, zorunlu bahşiş yok. Bütçenin tamamı tarihe.</p>
     <div class="hero-stats">
-      <div class="hstat"><b>70–90 bin ₺</b><span>2 kişi toplam</span></div>
+      <div class="hstat"><b id="hero-toplam">70–90 bin ₺</b><span>2 kişi toplam</span></div>
       <div class="hstat"><b>16+ eser</b><span>antik + islami miras</span></div>
       <div class="hstat"><b>%30–50</b><span>paket tura göre tasarruf</span></div>
     </div>
-    <a class="hero-cta" href="rota.html">Haritalı rotayı aç &rarr;</a>
+    <p class="countdown" id="countdown" hidden></p>
+    <div><a class="hero-cta" href="rota.html">Haritalı rotayı aç &rarr;</a></div>
   </div>
 </header>
 
@@ -162,7 +262,7 @@
 </div>
 
 <!-- GÜN GÜN -->
-<section>
+<section id="program">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Program · 24–30 Ekim</div>
@@ -304,39 +404,79 @@
 </section>
 
 <!-- BÜTÇE -->
-<section class="budget">
+<section class="budget" id="butce">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Bütçe</div>
       <h2>İki Kişilik Hesap</h2>
       <p>Temmuz 2026 araştırma fiyatlarıyla. İslami Kahire eklemeleri bütçeyi neredeyse değiştirmiyor: camilerin çoğu ücretsiz veya birkaç dolar. Sürpriz kalem yok.</p>
     </div>
+
+    <div class="kur-satir">
+      <label for="kur">Dolar kuru</label>
+      <input class="kur-giris" id="kur" type="text" inputmode="decimal" value="46,6" aria-describedby="kur-not">
+      <span id="kur-not">₺ · kuru güncelleyin, toplam yeniden hesaplansın</span>
+      <button class="kur-sifirla" id="kur-sifirla" type="button">sıfırla</button>
+    </div>
+
     <div class="stele">
       <table>
-        <tr><th>Kalem</th><th>2 Kişi</th></tr>
-        <tr><td>İstanbul – Kahire gidiş-dönüş<small>24 Eki gidiş / 30 Eki dönüş — Cumhuriyet Bayramı haftası, erken alın!</small></td><td>260–340 $</td></tr>
-        <tr><td>Kahire – Luxor gidiş-dönüş iç hat<small>27 Eki gidiş / 29 Eki akşam dönüş; EgyptAir / Nile Air</small></td><td>280–320 $</td></tr>
-        <tr><td>Kahire oteli — 3 gece + havalimanı 1 gece<small>Downtown/Zamalek 4* veya Gize'de piramit manzaralı butik</small></td><td>230–300 $</td></tr>
-        <tr><td>Luxor oteli — 2 gece<small>Doğu yakası, Nil'e yakın</small></td><td>100–150 $</td></tr>
-        <tr><td>Tüm girişler<small>Gize, GEM, Sakkara, Sultan Hasan+Rifai, Karnak, Krallar Vadisi, Medinet Habu…</small></td><td>170–200 $</td></tr>
-        <tr><td>Batı yakası rehberli yarım gün</td><td>80–100 $</td></tr>
-        <tr><td>Yemekler — 6 gün<small>Yerel lokantalarda ikiniz 10–15 $'a doyarsınız</small></td><td>180–250 $</td></tr>
-        <tr><td>Şehir içi ulaşım + felluka + bahşişler<small>Uber Kahire'de çok ucuz; bahşiş tamamen sizin takdiriniz</small></td><td>130–180 $</td></tr>
-        <tr><td>Vize — kapıda<small>25 $/kişi</small></td><td>50 $</td></tr>
-        <tr><td>Yurt dışı çıkış harcı<small>1.250 ₺/kişi, gitmeden dijital ödeyin</small></td><td>2.500 ₺</td></tr>
-        <tr class="total"><td>TOPLAM</td><td>≈ 72 – 92 bin ₺</td></tr>
+        <tr><th class="sec"><span class="sr-only">Dahil</span></th><th>Kalem</th><th>2 Kişi</th></tr>
+        <tr data-min="260" data-max="340"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="İstanbul – Kahire uçuşunu hesaba dahil et"></td><td>İstanbul – Kahire gidiş-dönüş<small>24 Eki gidiş / 30 Eki dönüş — Cumhuriyet Bayramı haftası, erken alın!</small></td><td>260–340 $</td></tr>
+        <tr data-min="280" data-max="320"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire – Luxor iç hattını hesaba dahil et"></td><td>Kahire – Luxor gidiş-dönüş iç hat<small>27 Eki gidiş / 29 Eki akşam dönüş; EgyptAir / Nile Air</small></td><td>280–320 $</td></tr>
+        <tr data-min="230" data-max="300"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire otelini hesaba dahil et"></td><td>Kahire oteli — 3 gece + havalimanı 1 gece<small>Downtown/Zamalek 4* veya Gize'de piramit manzaralı butik</small></td><td>230–300 $</td></tr>
+        <tr data-min="100" data-max="150"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Luxor otelini hesaba dahil et"></td><td>Luxor oteli — 2 gece<small>Doğu yakası, Nil'e yakın</small></td><td>100–150 $</td></tr>
+        <tr data-min="170" data-max="200"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Ören yeri girişlerini hesaba dahil et"></td><td>Tüm girişler<small>Gize, GEM, Sakkara, Sultan Hasan+Rifai, Karnak, Krallar Vadisi, Medinet Habu…</small></td><td>170–200 $</td></tr>
+        <tr data-min="80" data-max="100"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Rehberli yarım günü hesaba dahil et"></td><td>Batı yakası rehberli yarım gün<small>İsteğe bağlı — kendi başınıza da gezebilirsiniz</small></td><td>80–100 $</td></tr>
+        <tr data-min="180" data-max="250"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Yemekleri hesaba dahil et"></td><td>Yemekler — 6 gün<small>Yerel lokantalarda ikiniz 10–15 $'a doyarsınız</small></td><td>180–250 $</td></tr>
+        <tr data-min="130" data-max="180"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şehir içi ulaşım ve fellukayı hesaba dahil et"></td><td>Şehir içi ulaşım + felluka + bahşişler<small>Uber Kahire'de çok ucuz; bahşiş tamamen sizin takdiriniz</small></td><td>130–180 $</td></tr>
+        <tr data-min="50" data-max="50"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Vizeyi hesaba dahil et"></td><td>Vize — kapıda<small>25 $/kişi</small></td><td>50 $</td></tr>
+        <tr data-try-min="2500" data-try-max="2500"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Yurt dışı çıkış harcını hesaba dahil et"></td><td>Yurt dışı çıkış harcı<small>1.250 ₺/kişi, gitmeden dijital ödeyin</small></td><td>2.500 ₺</td></tr>
+        <tr class="total"><td class="sec"></td><td>TOPLAM</td><td id="toplam">≈ 72 – 92 bin ₺<span class="toplam-usd" id="toplam-usd"></span></td></tr>
       </table>
     </div>
     <div class="budget-note">
       <div class="bnote"><b>~117 bin ₺</b><span>Kralların İzinde paketi — piramitler ve İslami Kahire yok</span></div>
       <div class="bnote"><b>~155 bin ₺</b><span>Kadim Rotalar paketi</span></div>
-      <div class="bnote"><b>25–60 bin ₺</b><span>bu planla cebinizde kalan fark</span></div>
+      <div class="bnote"><b id="fark">25–60 bin ₺</b><span>iki pakete göre cebinizde kalan</span></div>
     </div>
   </div>
 </section>
 
+<!-- HAZIRLIK -->
+<section id="hazirlik">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Gitmeden Önce</div>
+      <h2>Hazırlık Listesi</h2>
+      <p>Bu planın işe yaraması için önceden halledilmesi gereken her şey. İşaretledikleriniz bu tarayıcıda saklanır.</p>
+    </div>
+
+    <div class="hz-ust">
+      <span class="hz-sayac" id="hz-sayac">0 / 12 tamam</span>
+      <div class="hz-bar"><i id="hz-bar"></i></div>
+      <button class="hz-sifirla" id="hz-sifirla" type="button">listeyi sıfırla</button>
+    </div>
+
+    <ul class="hz-liste">
+      <li class="hz-oge"><label><input type="checkbox" data-hz="ucak"><span class="yazi"><b>Uçak biletlerini al</b><span>Bayram haftası — İstanbul çıkışlı biletler hızlı dolar ve pahalanır.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat"><span class="yazi"><b>Kahire–Luxor iç hattını al</b><span>27 Ekim gidiş, 29 Ekim akşam dönüş. EgyptAir veya Nile Air.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="gem"><span class="yazi"><b>GEM biletini online al</b><span>visit-gem.com — müzede gişe satışı yok.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="otel"><span class="yazi"><b>Otelleri ücretsiz iptalli rezerve et</b><span>Kahire 4 gece, Luxor 2 gece.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="harc"><span class="yazi"><b>Çıkış harcını dijital öde</b><span>Kişi başı 1.250 ₺. Havalimanında pul satışı kalktı.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="kart"><span class="yazi"><b>Yurt dışına açık kart + yedek kart</b><span>Piramitler ve Karnak dahil girişler yalnızca kartla.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="pasaport"><span class="yazi"><b>Pasaport geçerliliğini kontrol et</b><span>Dönüş tarihinden sonra en az 6 ay geçerli olmalı.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="vize"><span class="yazi"><b>Vize için 50 $ ayır</b><span>Kapıda alınıyor, kişi başı 25 $. Kartınız da yanınızda olsun.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="sigorta"><span class="yazi"><b>Seyahat sigortası yaptır</b><span>Çoğu kredi kartı paketinde hazır geliyor, önce onu kontrol edin.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="tur"><span class="yazi"><b>Batı yakası turunu ayır</b><span>GetYourGuide veya Viator üzerinden, ücretsiz iptalli tarifeyle.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="sal"><span class="yazi"><b>Cami ziyaretleri için şal / uzun kollu</b><span>Omuz ve diz kapalı olmalı; ince bir şal pratik çözüm.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="gunes"><span class="yazi"><b>Şapka, güneş kremi, matara</b><span>Krallar Vadisi kayalık bir çanak — öğleden sonra fırına döner.</span></span></label></li>
+    </ul>
+  </div>
+</section>
+
 <!-- İPUÇLARI -->
-<section>
+<section id="ipuclari">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Bilmeden Gitmeyin</div>
@@ -363,7 +503,7 @@
     <div class="vs">
       <div class="card"><b>~155 bin ₺</b><span>Kadim Rotalar</span></div>
       <div class="card"><b>~117 bin ₺</b><span>Kralların İzinde</span></div>
-      <div class="card win"><b>72–92 bin ₺</b><span>Bu plan · 2 kişi</span></div>
+      <div class="card win"><b id="kapanis-toplam">72–92 bin ₺</b><span>Bu plan · 2 kişi</span></div>
     </div>
   </div>
 </section>
@@ -388,6 +528,197 @@
     img.addEventListener('error',tryNext);
     tryNext();
   });
+})();
+</script>
+
+<script>
+(function(){
+  var sakin = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s){ return document.querySelector(s); };
+
+  /* ——— Geri sayım ——— */
+  (function(){
+    var kutu = document.getElementById('countdown');
+    if(!kutu) return;
+    var kalkis = new Date(2026, 9, 24);           // 24 Ekim 2026
+    var donus  = new Date(2026, 9, 30, 23, 59);
+    var bugun  = new Date(); bugun.setHours(0,0,0,0);
+    var gun = Math.round((kalkis - bugun) / 86400000);
+    var metin;
+    if(gun > 1)       metin = '<b>' + gun + ' gün</b> kaldı · 24 Ekim 2026';
+    else if(gun === 1) metin = '<b>Yarın</b> yola çıkıyorsunuz';
+    else if(gun === 0) metin = '<b>Bugün</b> yola çıkıyorsunuz';
+    else if(new Date() <= donus) metin = '<b>Gezi sürüyor</b> · iyi yolculuklar';
+    else return;                                   // gezi geçmiş, gösterme
+    kutu.innerHTML = metin;
+    kutu.hidden = false;
+  })();
+
+  /* ——— Bölüm çubuğu: hero geçilince belirir, bulunduğun bölümü vurgular ——— */
+  (function(){
+    var nav = document.getElementById('topnav');
+    var linkler = [].slice.call(document.querySelectorAll('.nav-link'));
+    var bolumler = linkler.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    var hero = document.querySelector('.hero');
+    if(!nav || !hero) return;
+
+    new IntersectionObserver(function(g){
+      nav.classList.toggle('acik', !g[0].isIntersecting);
+    }, { threshold: 0, rootMargin: '-70px 0px 0px 0px' }).observe(hero);
+
+    // Ekranın üst üçte birine giren son bölüm etkin sayılır.
+    var izleyici = new IntersectionObserver(function(girisler){
+      girisler.forEach(function(g){
+        if(!g.isIntersecting) return;
+        var i = bolumler.indexOf(g.target);
+        linkler.forEach(function(a, j){ a.setAttribute('aria-current', String(i === j)); });
+      });
+    }, { rootMargin: '-18% 0px -72% 0px', threshold: 0 });
+    bolumler.forEach(function(b){ if(b) izleyici.observe(b); });
+  })();
+
+  /* ——— Bütçe: kur ve seçili kalemlere göre canlı toplam ——— */
+  (function(){
+    var kurGiris = document.getElementById('kur');
+    var toplamHucre = document.getElementById('toplam');
+    if(!kurGiris || !toplamHucre) return;
+
+    var usdAlt = document.getElementById('toplam-usd');
+    var farkKutu = document.getElementById('fark');
+    var satirlar = [].slice.call(document.querySelectorAll('.stele tr[data-min], .stele tr[data-try-min]'));
+    var VARSAYILAN_KUR = 46.6;
+    var UCUZ_PAKET = 117000;   // karşılaştırma: Kralların İzinde
+    var PAHALI_PAKET = 155000; // karşılaştırma: Kadim Rotalar
+
+    var binlik = function(n){ return Math.round(n).toLocaleString('tr-TR'); };
+    var bin = function(n){ return Math.round(n / 1000); };
+
+    function kuruOku(){
+      var s = String(kurGiris.value).replace(/\s/g, '').replace(',', '.');
+      var n = parseFloat(s);
+      return (isFinite(n) && n > 0) ? n : VARSAYILAN_KUR;
+    }
+
+    function hesapla(){
+      var kur = kuruOku(), usdMin = 0, usdMax = 0, tryMin = 0, tryMax = 0;
+
+      satirlar.forEach(function(tr){
+        var kutu = tr.querySelector('.b-check');
+        var acik = !kutu || kutu.checked;
+        tr.classList.toggle('kapali', !acik);
+        if(!acik) return;
+        usdMin += parseFloat(tr.dataset.min || 0);
+        usdMax += parseFloat(tr.dataset.max || 0);
+        tryMin += parseFloat(tr.dataset.tryMin || 0);
+        tryMax += parseFloat(tr.dataset.tryMax || 0);
+      });
+
+      var altTL = usdMin * kur + tryMin;
+      var ustTL = usdMax * kur + tryMax;
+
+      toplamHucre.firstChild.nodeValue =
+        (altTL === 0 && ustTL === 0) ? '—'
+        : (bin(altTL) === bin(ustTL) ? '≈ ' + bin(altTL) + ' bin ₺'
+                                     : '≈ ' + bin(altTL) + ' – ' + bin(ustTL) + ' bin ₺');
+
+      usdAlt.textContent = (usdMin || usdMax)
+        ? binlik(usdMin) + ' – ' + binlik(usdMax) + ' $' + (tryMax ? ' + ' + binlik(tryMax) + ' ₺' : '')
+        : '';
+
+      if(farkKutu){
+        var azFark = UCUZ_PAKET - ustTL, cokFark = PAHALI_PAKET - altTL;
+        farkKutu.textContent = (azFark > 0)
+          ? bin(azFark) + '–' + bin(cokFark) + ' bin ₺'
+          : 'paketlerin üstünde';
+      }
+
+      // Giriş ve kapanıştaki özetler de aynı hesabı göstersin.
+      var ozet = (bin(altTL) === bin(ustTL))
+        ? bin(altTL) + ' bin ₺'
+        : bin(altTL) + '–' + bin(ustTL) + ' bin ₺';
+      ['kapanis-toplam', 'hero-toplam'].forEach(function(kimlik){
+        var e = document.getElementById(kimlik);
+        if(e) e.textContent = ozet;
+      });
+    }
+
+    satirlar.forEach(function(tr){
+      var k = tr.querySelector('.b-check');
+      if(k) k.addEventListener('change', hesapla);
+    });
+    kurGiris.addEventListener('input', hesapla);
+    document.getElementById('kur-sifirla').addEventListener('click', function(){
+      kurGiris.value = '46,6';
+      satirlar.forEach(function(tr){
+        var k = tr.querySelector('.b-check'); if(k) k.checked = true;
+      });
+      hesapla();
+    });
+
+    hesapla();
+  })();
+
+  /* ——— Hazırlık listesi: işaretler tarayıcıda saklanır ——— */
+  (function(){
+    var kutular = [].slice.call(document.querySelectorAll('[data-hz]'));
+    var sayac = document.getElementById('hz-sayac');
+    var bar = document.getElementById('hz-bar');
+    if(!kutular.length || !sayac) return;
+
+    var ANAHTAR = 'misir-hazirlik';
+
+    function oku(){
+      try { return JSON.parse(localStorage.getItem(ANAHTAR)) || {}; }
+      catch(e){ return {}; }
+    }
+    function yaz(veri){
+      try { localStorage.setItem(ANAHTAR, JSON.stringify(veri)); } catch(e){}
+    }
+    function ciz(){
+      var bitti = 0;
+      kutular.forEach(function(k){
+        k.closest('.hz-oge').classList.toggle('bitti', k.checked);
+        if(k.checked) bitti++;
+      });
+      sayac.textContent = bitti + ' / ' + kutular.length + ' tamam';
+      bar.style.width = (bitti / kutular.length * 100) + '%';
+    }
+
+    var veri = oku();
+    kutular.forEach(function(k){
+      k.checked = !!veri[k.dataset.hz];
+      k.addEventListener('change', function(){
+        var v = oku();
+        if(k.checked) v[k.dataset.hz] = 1; else delete v[k.dataset.hz];
+        yaz(v);
+        ciz();
+      });
+    });
+    document.getElementById('hz-sifirla').addEventListener('click', function(){
+      kutular.forEach(function(k){ k.checked = false; });
+      yaz({});
+      ciz();
+    });
+    ciz();
+  })();
+
+  /* ——— Kaydırınca belirme: sınıf JS ile ekleniyor, script yoksa içerik zaten görünür ——— */
+  (function(){
+    if(sakin || !('IntersectionObserver' in window)) return;
+    var hedefler = [].slice.call(document.querySelectorAll('.day, .tip, .bnote, .hz-oge'));
+    var izleyici = new IntersectionObserver(function(girisler){
+      girisler.forEach(function(g){
+        if(!g.isIntersecting) return;
+        g.target.classList.add('gorundu');
+        izleyici.unobserve(g.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+
+    hedefler.forEach(function(h){
+      h.classList.add('reveal');
+      izleyici.observe(h);
+    });
+  })();
 })();
 </script>
 </body>
