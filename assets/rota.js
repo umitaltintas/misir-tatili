@@ -18,6 +18,15 @@ const el = (tag, sinif, metin) => {
 
 const sakin = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/**
+ * Kamera dönüşünü kuzey üstte kalacak şekilde sınırlar.
+ * ±45°'ye kadar eğim manzaraya karakter katıyor; ötesi haritayı okunmaz kılıyor.
+ */
+function kuzeyKoru(aci) {
+  const n = ((aci % 360) + 540) % 360 - 180;   // -180..180 aralığına indir
+  return Math.max(-45, Math.min(45, n));
+}
+
 /** İki nokta arası mesafe, km. */
 function mesafe([lon1, lat1], [lon2, lat2]) {
   const R = 6371, rad = Math.PI / 180;
@@ -55,6 +64,9 @@ const durum = {
 
 const isaretler = new Map();  // durak.id -> maplibregl.Marker
 const kartlar = new Map();    // durak.id -> HTMLElement
+
+/** Gün seçiciyle atlarken gözlemcinin araya girmemesi için kısa süreli kilit. */
+let secimKilidi = 0;
 
 let map = null;
 let haritaHazir = false;
@@ -162,8 +174,13 @@ function seritKur() {
     b.setAttribute("aria-label", `Gün ${g.no}: ${g.baslik}`);
     b.addEventListener("click", () => {
       // Bloğun başına git: gün başlığı ve o güne geçişi anlatan ulaşım şeridi de görünsün.
+      // Blok başında ilk durak kartı gözlemcinin bandının altında kaldığı için
+      // etkin durağı elle seçip kaydırma bitene kadar gözlemciyi susturuyoruz.
+      const ilk = DURAKLAR.find((d) => d.gun === g.no);
+      secimKilidi = Date.now() + 1600;
       document.getElementById(`gun-${g.no}`)
         ?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "start" });
+      if (ilk) etkinlestir(ilk.id, true);
     });
     li.append(b);
     gunListe.append(li);
@@ -396,7 +413,9 @@ function etkinlestir(id, ucur) {
       center: d.konum,
       zoom: k.zoom ?? 15.5,
       pitch: durum.arazi ? Math.min((k.pitch ?? 55) + 8, 78) : (k.pitch ?? 55),
-      bearing: k.bearing ?? 0,
+      // Kuzey her zaman üst yarıda kalsın: sayfa "aşağı kaydırmak güneye
+      // gitmektir" diyor, harita bunun tersini gösterirse iki sinyal çelişir.
+      bearing: kuzeyKoru(k.bearing ?? 0),
       duration: sakin ? 0 : 2100,
       curve: 1.3,
       essential: true,
@@ -415,6 +434,7 @@ function durumYaz(d) {
 
 function gozlemciKur() {
   const gozlemci = new IntersectionObserver((girisler) => {
+    if (Date.now() < secimKilidi) return;
     const gorunen = girisler
       .filter((g) => g.isIntersecting)
       .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];

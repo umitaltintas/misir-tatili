@@ -62,7 +62,7 @@ export const DURAKLAR = [
     alt: "Kalkış",
     konum: [28.7519, 41.2753],
     aciklama: "Kahire'ye uçuş yaklaşık 2 saat 15 dakika. Cumhuriyet Bayramı haftası olduğu için bileti erkenden almış olun.",
-    kamera: { zoom: 9, pitch: 30, bearing: 160 },
+    kamera: { zoom: 9, pitch: 30, bearing: 20 },
   },
   {
     id: "cai-varis", gun: 1, saat: "09:00", kategori: "ulasim", kaynak: "plan",
@@ -71,7 +71,7 @@ export const DURAKLAR = [
     konum: [31.4056, 30.1219],
     aciklama: "Vize kapıda alınıyor: kişi başı 25 $. Kartınızı hazır bulundurun, kuyruk bankonun hemen solunda.",
     ipucu: "Pasaport kontrolünden önce vize bandrolü satan bankoya uğrayın — sırayı karıştırmak yaygın hata.",
-    kamera: { zoom: 12, pitch: 40, bearing: 200 },
+    kamera: { zoom: 12, pitch: 40, bearing: -20 },
   },
   {
     id: "kale", gun: 1, saat: "14:00", kategori: "islami", kaynak: "plan",
@@ -108,7 +108,7 @@ export const DURAKLAR = [
     konum: [31.1342, 29.9792],
     aciklama: "Kapı açılışında girin: serin, tenha ve ışık ideal. Giriş kişi başı yaklaşık 700 EGP.",
     ipucu: "Ödeme yalnızca kartla — gişede nakit geçmiyor.",
-    kamera: { zoom: 15, pitch: 65, bearing: 135 },
+    kamera: { zoom: 15, pitch: 65, bearing: 35 },
   },
   {
     id: "sfenks", gun: 2, saat: "10:30", kategori: "antik", kaynak: "plan",
@@ -116,7 +116,7 @@ export const DURAKLAR = [
     alt: "Kefren'in bekçisi",
     konum: [31.1376, 29.9753],
     aciklama: "Tek parça kayadan oyulmuş 73 metrelik aslan gövdesi. Doğuya, gün doğumuna bakar.",
-    kamera: { zoom: 17.5, pitch: 70, bearing: 95 },
+    kamera: { zoom: 17.5, pitch: 70, bearing: 30 },
   },
   {
     id: "gem", gun: 2, saat: "14:00", kategori: "muze", kaynak: "plan",
@@ -126,7 +126,7 @@ export const DURAKLAR = [
     aciklama: "Dünyanın en büyük arkeoloji müzesi, piramitlerin hemen yanında. Tutankhamun koleksiyonunun tamamı ilk kez tek çatı altında.",
     ipucu: "Gişe satışı yok. Bileti gitmeden visit-gem.com üzerinden alın (~1.450 EGP).",
     etiket: "Paket turlarda yok",
-    kamera: { zoom: 16, pitch: 55, bearing: -60 },
+    kamera: { zoom: 16, pitch: 55, bearing: -35 },
   },
   {
     id: "abou-tarek", gun: 2, saat: "20:00", kategori: "yemek", kaynak: "oneri",
@@ -144,7 +144,7 @@ export const DURAKLAR = [
     alt: "Coser'in Basamaklı Piramidi",
     konum: [31.2165, 29.8712],
     aciklama: "Mısır'ın en eski piramidi — Gize'dekilerden yaklaşık bir asır önce, mimar İmhotep tarafından tasarlandı.",
-    kamera: { zoom: 16, pitch: 62, bearing: 110 },
+    kamera: { zoom: 16, pitch: 62, bearing: 30 },
   },
   {
     id: "ibn-tulun", gun: 3, saat: "12:30", kategori: "islami", kaynak: "plan",
@@ -197,7 +197,7 @@ export const DURAKLAR = [
     alt: "İç hat, ~1 saat",
     konum: [31.4056, 30.1219],
     aciklama: "EgyptAir veya Nile Air, kişi başı yaklaşık 70–80 $. Otele valiz bırakıp doğrudan geziye çıkabilirsiniz.",
-    kamera: { zoom: 6.5, pitch: 45, bearing: 175 },
+    kamera: { zoom: 6.5, pitch: 45, bearing: 15 },
   },
   {
     id: "karnak", gun: 4, saat: "14:00", kategori: "antik", kaynak: "plan",
@@ -233,7 +233,7 @@ export const DURAKLAR = [
     konum: [32.6014, 25.7402],
     aciklama: "Yeni Krallık firavunlarının kaya mezarları. Standart bilet yaklaşık 750 EGP ve üç mezar içeriyor; Tutankhamun ayrı bilet.",
     ipucu: "Erken gidin: vadi kayalık bir çanak, öğleden sonra fırına dönüyor.",
-    kamera: { zoom: 15.3, pitch: 68, bearing: 55 },
+    kamera: { zoom: 15.3, pitch: 68, bearing: 35 },
   },
   {
     id: "hatsepsut", gun: 5, saat: "10:00", kategori: "antik", kaynak: "plan",
@@ -241,7 +241,7 @@ export const DURAKLAR = [
     alt: "Deir el-Bahri",
     konum: [32.6068, 25.7381],
     aciklama: "Kadın firavunun kayalığa oyulmuş üç teraslı tapınağı. Arkasındaki 300 metrelik uçurum yapının bir parçası gibi durur.",
-    kamera: { zoom: 15.8, pitch: 70, bearing: -75 },
+    kamera: { zoom: 15.8, pitch: 70, bearing: -35 },
   },
   {
     id: "memnon", gun: 5, saat: "12:00", kategori: "antik", kaynak: "plan",
@@ -250,7 +250,7 @@ export const DURAKLAR = [
     konum: [32.6106, 25.7205],
     aciklama: "3.400 yıldır ayakta duran 18 metrelik ikiz heykeller. III. Amenhotep'in bugün yok olmuş tapınağının kapı bekçileriydi.",
     etiket: "Ücretsiz",
-    kamera: { zoom: 17, pitch: 65, bearing: 90 },
+    kamera: { zoom: 17, pitch: 65, bearing: 30 },
   },
   {
     id: "luxor-muze", gun: 5, saat: "16:00", kategori: "muze", kaynak: "plan",
