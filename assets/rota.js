@@ -1,6 +1,26 @@
 import { DURAKLAR, GUNLER, KATEGORILER, UCUSLAR } from "./duraklar.js";
 import { ZEMINLER, UYDU_STILI, boya, binaKabart } from "./zeminler.js";
 import { BAGLANTILAR, TURLER, baglanti } from "./baglantilar.js";
+import { mekanBilgi } from "./mekan-bilgi.js";
+
+/* Wikimedia Commons görselleri: dosya adları sırayla denenir, hiçbiri
+   bulunamazsa görsel alanı sessizce kaldırılır. */
+const COMMONS = "https://commons.wikimedia.org/wiki/Special:FilePath/";
+
+function commonsGorsel(dosyalar, genislik, altMetin) {
+  const img = el("img", "durak-foto");
+  img.alt = altMetin;
+  img.loading = "lazy";
+  img.decoding = "async";
+  let i = 0;
+  const dene = () => {
+    if (i >= dosyalar.length) { img.remove(); return; }
+    img.src = `${COMMONS}${encodeURIComponent(dosyalar[i++])}?width=${genislik}`;
+  };
+  img.addEventListener("error", dene);
+  dene();
+  return img;
+}
 
 /* MapLibre 6 yalnızca adlandırılmış dışa aktarım sunar, varsayılan yok.
    Dinamik yüklüyoruz: harita açılmazsa zaman çizelgesi tek başına ayakta kalsın. */
@@ -137,9 +157,29 @@ function kartYap(d) {
 
   k.append(el("div", "saat", d.saat));
 
+  const bilgi = mekanBilgi(d.id);
   const govde = el("div", "govde");
   govde.append(el("h3", null, d.ad));
   if (d.alt) govde.append(el("p", "alt", d.alt));
+
+  if (bilgi.gorsel) {
+    const cerceve = el("div", "foto-cerceve");
+    cerceve.append(commonsGorsel(bilgi.gorsel, 640, d.ad));
+    govde.append(cerceve);
+  }
+
+  // Puan yerine doğrulanabilir künye: dönem, önerilen süre, UNESCO alanı.
+  if (bilgi.donem || bilgi.sure || bilgi.unesco) {
+    const kunye = el("dl", "kunye");
+    const satir = (etiket, deger) => {
+      kunye.append(el("dt", null, etiket), el("dd", null, deger));
+    };
+    if (bilgi.donem) satir("Dönem", bilgi.donem);
+    if (bilgi.sure) satir("Ayırın", bilgi.sure);
+    if (bilgi.unesco) satir("UNESCO", bilgi.unesco);
+    govde.append(kunye);
+  }
+
   govde.append(el("p", "metin", d.aciklama));
   if (d.ipucu) govde.append(el("span", "ipucu", d.ipucu));
 
@@ -358,9 +398,15 @@ function isaretleriKur() {
     knt.style.setProperty("--m-renk", kat.renk);
     knt.setAttribute("aria-label", `${d.ad} — gün ${d.gun}, ${d.saat}`);
 
+    const bilgi = mekanBilgi(d.id);
     const popup = new maplibregl.Popup({ offset: 16, closeButton: false, closeOnClick: false })
-      .setLngLat(d.konum)
-      .setHTML(`<b>${d.ad}</b>${d.saat} · Gün ${d.gun}`);
+      .setLngLat(d.konum);
+
+    const icerik = el("div", "balon");
+    if (bilgi.gorsel) icerik.append(commonsGorsel(bilgi.gorsel, 320, d.ad));
+    icerik.append(el("b", null, d.ad));
+    icerik.append(el("span", null, `${d.saat} · Gün ${d.gun}${bilgi.sure ? ` · ${bilgi.sure}` : ""}`));
+    popup.setDOMContent(icerik);
 
     const isaret = new maplibregl.Marker({ element: knt })
       .setLngLat(d.konum)

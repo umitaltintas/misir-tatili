@@ -30,6 +30,8 @@ alternatif denenir.
 
 27 durağın tamamı saatiyle, kategorisiyle ve harita üzerindeki yeriyle.
 
+- **Görsel ve künye** — 22 mekân için Wikimedia Commons fotoğrafı, dönem bilgisi,
+  önerilen süre ve UNESCO alanı. Görsel yüklenemezse çerçeve iz bırakmadan kalkar.
 - **Duraklar arası ulaşım** — her geçiş için araç türü, süre, ücret ve dikkat notu:
   hangi noktada Uber çalışır, nerede şoförü bekletmek gerekir, feribot mu köprü mü.
   Yürünen bacaklar haritada noktalı çizgiyle ayrılır.
@@ -54,6 +56,7 @@ index.html              Programın tamamı (kendi içinde bağımsız)
 rota.html               İnteraktif harita + zaman çizelgesi
 assets/duraklar.js      Rota verisi: koordinat, saat, kategori, kamera
 assets/baglantilar.js   Duraklar arası ulaşım: tür, süre, ücret, uyarılar
+assets/mekan-bilgi.js   Görsel dosya adları ve künye (dönem, süre, UNESCO)
 assets/zeminler.js      Harita zeminleri ve palet renklendirmesi
 assets/rota.js          Harita, scroll senkronu, süzgeçler
 assets/rota.css         Tasarım katmanı
@@ -91,6 +94,11 @@ Harita konumları yaklaşıktır: ören yerleri isabetli, restoran ve çarşı n
 doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi" rozetli duraklar
 ana programda geçmez, rotaya uyduğu için eklenmiştir — gitmeden önce güncel adres
 ve çalışma saatlerini doğrulayın.
+
+Sayfalarda bilinçli olarak puan veya kullanıcı yorumu yok. Bunlar Google ve
+Tripadvisor gibi kaynaklara ait canlı verilerdir; uydurulmuş bir puan gerçek
+sanılacağı için hiç konmadı. Yerine doğrulanabilir künye tercih edildi: yapının
+dönemi, önerilen süre, UNESCO alanı.
 
 Ulaşım süreleri ve EGP tutarları da tahmindir. Mısır'da enflasyon yüksek seyrettiği
 için yerel para birimindeki rakamlar hızla eskiyor; taksi ve feribot ücretlerini
