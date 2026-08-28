@@ -35,6 +35,17 @@ alternatif denenir.
 - **Duraklar arası ulaşım** — her geçiş için araç türü, süre, ücret ve dikkat notu:
   hangi noktada Uber çalışır, nerede şoförü bekletmek gerekir, feribot mu köprü mü.
   Yürünen bacaklar haritada noktalı çizgiyle ayrılır.
+- **Yol ipliği** — zaman çizelgesi kesintisiz bir hatla örülü: duraklar kategori
+  renginde boncuk, geçişler ulaşım türünün renginde segment, yürüyüşler noktalı.
+- **Gezi modu** — boncuğa dokununca durak "gezildi" işaretlenir (`localStorage`);
+  günün tüm durakları bitince gün çipine ✓ düşer. Gezi haftasında sayfa, bugünün
+  ilk gezilmemiş durağına açılır.
+- **Adım pili** — haritanın altındaki ‹ n/27 › denetimiyle dokunmatikte de durak
+  durak gezilir.
+- **Durak modali** — haritadaki işarete tıklayınca fotoğraf, künye, açıklama ve
+  ipucuyla ayrıntı penceresi açılır; "gezildi" işareti buradan da atılabilir.
+- **Sakin kamera** — kaydırma durulana dek kamera bekler; komşu duraklara kısa
+  geçiş (`easeTo`), şehirler arasında gerçek uçuş (`flyTo`).
 
 - **Kaydırdıkça harita güneye iner** — sayfanın dikey ekseni gerçek enlemi izler,
   Kahire 30.1°K'den Luxor 25.7°K'ye. Soldaki *nilometre* o anki enlemi gösterir.
@@ -56,6 +67,7 @@ index.html              Programın tamamı (kendi içinde bağımsız)
 rota.html               İnteraktif harita + zaman çizelgesi
 assets/duraklar.js      Rota verisi: koordinat, saat, kategori, kamera
 assets/baglantilar.js   Duraklar arası ulaşım: tür, süre, ücret, uyarılar
+assets/gezi-modu.js     "Gezildi" işaretleri (localStorage) ve gezi haftası yardımcıları
 assets/mekan-bilgi.js   Görsel dosya adları ve künye (dönem, süre, UNESCO)
 assets/zeminler.js      Harita zeminleri ve palet renklendirmesi
 assets/rota.js          Harita, scroll senkronu, süzgeçler

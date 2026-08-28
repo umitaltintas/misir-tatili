@@ -24,6 +24,7 @@
 
   --ust-h: 128px;
   --panel-w: 484px;
+  --ip-x: 66px;   /* yol ipliğinin kart içindeki yatay ekseni */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -121,6 +122,11 @@ a { color: inherit; }
   background: var(--gold); border-color: var(--gold);
   color: var(--abyss); font-weight: 600;
 }
+.gun-chip.tamam::after { content: " ✓"; }
+.gun-chip.tamam:not([aria-current="true"]) {
+  color: var(--faience);
+  border-color: rgba(63, 167, 160, .55);
+}
 
 /* Kategori filtreleri */
 
@@ -200,6 +206,30 @@ a { color: inherit; }
 }
 .harita-durum b { color: var(--gold); font-weight: 500; }
 
+/* Adım pili: dokunmatikte klavye oklarının karşılığı + ilerleme hissi */
+.adimlar {
+  position: absolute; z-index: 5;
+  left: 50%; bottom: 14px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 2px;
+  background: rgba(8, 13, 30, .82);
+  border: 1px solid var(--hairline); border-radius: 999px;
+  padding: 3px; backdrop-filter: blur(8px);
+}
+.adimlar button {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: none; border: 0; cursor: pointer;
+  color: var(--sand); font-size: 1.05rem; line-height: 1;
+  display: grid; place-items: center;
+  transition: color .18s ease, background .18s ease;
+}
+.adimlar button:hover:not(:disabled) { background: var(--lapis); color: var(--limestone); }
+.adimlar button:disabled { opacity: .3; cursor: default; }
+#adim-sayac {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .7rem; letter-spacing: .05em; color: var(--gold);
+  min-width: 46px; text-align: center;
+}
+
 /* Yükleme / hata perdesi */
 
 .perde {
@@ -247,6 +277,7 @@ a { color: inherit; }
 }
 .isaret.soluk { opacity: .2; }
 .isaret.kapali { display: none; }
+.isaret.gidildi { background: color-mix(in srgb, var(--m-renk, var(--gold)) 35%, var(--abyss)); }
 
 .maplibregl-popup-content {
   background: var(--lapis-deep); color: var(--limestone);
@@ -407,11 +438,6 @@ a { color: inherit; }
   color: var(--limestone);
   display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
 }
-.durak h3::before {
-  content: ""; flex: 0 0 auto;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--d-renk, var(--gold));
-}
 .durak .alt { font-size: .82rem; color: var(--sand); opacity: .78; margin-top: 1px; }
 .durak .metin { font-size: .86rem; color: var(--dim); margin-top: 8px; }
 
@@ -469,13 +495,57 @@ a { color: inherit; }
 .rozet.vurgu { color: var(--gold); border-color: rgba(201, 162, 39, .45); }
 .rozet.oneri { color: var(--k-yemek); border-color: rgba(196, 96, 63, .5); }
 
+/* ————————————————————————————————— YOL İPLİĞİ */
+
+/* Zaman çizelgesi, haritadaki rotanın kendisi: kartların solundan kesintisiz
+   bir hat iner. Duraklar boncuk, geçişler ulaşım türünün renginde segment. */
+.durak::after {
+  content: ""; position: absolute;
+  left: calc(var(--ip-x) - 1px); top: 0; bottom: 0;
+  width: 2px; background: var(--hairline);
+}
+.gun-basi + .durak::after { top: 18px; } /* günün ilk kartında iplik boncuktan başlar */
+
+/* Boncuk: kategori renginde durak işareti, aynı zamanda "gezildi" düğmesi. */
+.boncuk {
+  position: absolute; z-index: 2;
+  left: var(--ip-x); top: 17px; transform: translateX(-50%);
+  width: 26px; height: 26px; padding: 0;
+  display: grid; place-items: center;
+  background: none; border: 0; cursor: pointer;
+}
+.boncuk::before {
+  content: ""; grid-area: 1 / 1;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--abyss);
+  border: 2px solid var(--d-renk, var(--gold));
+  transition: transform .2s ease, background .2s ease;
+}
+.boncuk:hover::before { transform: scale(1.3); }
+.boncuk .im {
+  grid-area: 1 / 1; position: relative; z-index: 1;
+  font-size: .6rem; font-weight: 700; line-height: 1;
+  color: var(--abyss); opacity: 0; transition: opacity .2s ease;
+}
+.durak.gidildi .boncuk::before { background: var(--d-renk, var(--gold)); }
+.durak.gidildi .boncuk .im { opacity: 1; }
+
+/* Gezilen durak arkada kalır ama okunur kalır. */
+.durak.gidildi .saat,
+.durak.gidildi .govde { opacity: .45; transition: opacity .25s ease; }
+.durak.gidildi.etkin .saat,
+.durak.gidildi.etkin .govde { opacity: .8; }
+.durak.gidildi .durak-foto { filter: saturate(.25) contrast(1.02); }
+
 /* ————————————————————————————————— ULAŞIM ŞERİDİ */
 
 .gecis {
-  margin: 2px 0 2px 74px;
-  padding: 13px 0 15px 17px;
-  border-left: 1px dashed color-mix(in srgb, var(--g-renk, var(--dim)) 55%, transparent);
+  margin: 0 0 0 calc(var(--ip-x) - 1px);
+  padding: 15px 0 17px 24px;
+  border-left: 2px solid color-mix(in srgb, var(--g-renk, var(--dim)) 55%, transparent);
 }
+/* Yürünen bacaklar haritadaki gibi noktalı */
+.gecis[data-tur="yuruyus"] { border-left-style: dashed; }
 .gun-basi-gecis { margin-top: 6px; }
 
 .gecis-bas {
@@ -519,6 +589,80 @@ a { color: inherit; }
 .durak.etkin::before { opacity: 1; transform: scaleY(1); }
 .durak.etkin h3 { color: var(--gold); }
 .durak.suzuldu { opacity: .22; }
+
+/* ————————————————————————————————— DURAK MODALİ */
+
+.durak-modal {
+  width: min(430px, calc(100vw - 32px));
+  max-height: min(82vh, 640px);
+  margin: auto; padding: 0;
+  background: var(--lapis-deep); color: var(--limestone);
+  border: 1px solid var(--hairline); border-radius: 6px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+  overflow: auto;
+}
+.durak-modal[open] { animation: modal-gir .25s ease; }
+@keyframes modal-gir {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+.durak-modal::backdrop {
+  background: rgba(8, 13, 30, .72);
+  backdrop-filter: blur(4px);
+}
+
+.modal-kapat {
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(8, 13, 30, .72); color: var(--limestone);
+  border: 1px solid var(--hairline); cursor: pointer;
+  font-size: 1.05rem; line-height: 1;
+  transition: border-color .18s ease;
+}
+.modal-kapat:hover { border-color: var(--sand); }
+
+.modal-foto {
+  border-bottom: 1px solid var(--hairline);
+  background: var(--lapis); line-height: 0;
+}
+.modal-foto:empty { display: none; }
+.modal-foto img { width: 100%; height: 190px; object-fit: cover; }
+
+.modal-govde { padding: 18px 20px 20px; }
+.modal-ust {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--d-renk, var(--gold));
+}
+.durak-modal h3 {
+  font-family: "Cinzel", serif; font-weight: 600;
+  font-size: 1.2rem; letter-spacing: .02em;
+  color: var(--limestone); margin-top: 4px;
+}
+.durak-modal .alt { font-size: .84rem; color: var(--sand); opacity: .85; margin-top: 2px; }
+.durak-modal .metin { font-size: .86rem; color: var(--dim); margin-top: 10px; }
+.durak-modal .ipucu {
+  display: block; margin-top: 10px; padding-left: 11px;
+  border-left: 2px solid var(--faience);
+  font-size: .81rem; color: var(--sand); opacity: .9;
+}
+.durak-modal .rozetler { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+
+.modal-eylemler { display: flex; gap: 8px; margin-top: 16px; }
+.modal-eylem {
+  flex: 1;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--hairline); border-radius: 3px;
+  color: var(--limestone); padding: 9px 10px; cursor: pointer;
+  transition: border-color .18s ease, color .18s ease, background .18s ease;
+}
+.modal-eylem:hover { border-color: var(--sand); }
+.modal-eylem.secili {
+  color: var(--abyss);
+  background: var(--d-renk, var(--gold));
+  border-color: var(--d-renk, var(--gold));
+}
 
 /* ————————————————————————————————— KAPANIŞ */
 
@@ -580,10 +724,11 @@ a { color: inherit; }
 }
 
 @media (max-width: 560px) {
+  :root { --ip-x: 52px; }
   .durak { grid-template-columns: 46px 1fr; gap: 12px; }
   .giris-olcu { gap: 18px; }
   .marka b { font-size: .92rem; }
-  .gecis { margin-left: 58px; padding-left: 14px; }
+  .gecis { padding-left: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

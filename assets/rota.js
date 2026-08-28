@@ -2,6 +2,7 @@ import { DURAKLAR, GUNLER, KATEGORILER, UCUSLAR } from "./duraklar.js";
 import { ZEMINLER, UYDU_STILI, boya, binaKabart } from "./zeminler.js";
 import { BAGLANTILAR, TURLER, baglanti } from "./baglantilar.js";
 import { mekanBilgi } from "./mekan-bilgi.js";
+import { gidildiMi, gidildiDegistir, gunTamamMi, bugununGunu, ilkGezilmemis } from "./gezi-modu.js";
 
 /* Wikimedia Commons görselleri: dosya adları sırayla denenir, hiçbiri
    bulunamazsa görsel alanı sessizce kaldırılır. */
@@ -84,6 +85,7 @@ const durum = {
 
 const isaretler = new Map();  // durak.id -> maplibregl.Marker
 const kartlar = new Map();    // durak.id -> HTMLElement
+const boncukYenileyiciler = new Map();  // durak.id -> boncuğu tazeleyen fn (modal senkronu)
 
 /** Gün seçiciyle atlarken gözlemcinin araya girmemesi için kısa süreli kilit. */
 let secimKilidi = 0;
@@ -125,6 +127,7 @@ function baglantiYap(b) {
   const tur = TURLER[b.tur] || { ad: b.tur.toUpperCase(), renk: "#7A7160" };
   const k = el("div", "gecis");
   k.style.setProperty("--g-renk", tur.renk);
+  k.dataset.tur = b.tur;
   if (b.gunBasi) k.classList.add("gun-basi-gecis");
 
   const bas = el("div", "gecis-bas");
@@ -143,6 +146,19 @@ function baglantiYap(b) {
   return k;
 }
 
+/** Puan yerine doğrulanabilir künye: dönem, önerilen süre, UNESCO alanı. */
+function kunyeYap(bilgi) {
+  if (!bilgi.donem && !bilgi.sure && !bilgi.unesco) return null;
+  const kunye = el("dl", "kunye");
+  const satir = (etiket, deger) => {
+    kunye.append(el("dt", null, etiket), el("dd", null, deger));
+  };
+  if (bilgi.donem) satir("Dönem", bilgi.donem);
+  if (bilgi.sure) satir("Ayırın", bilgi.sure);
+  if (bilgi.unesco) satir("UNESCO", bilgi.unesco);
+  return kunye;
+}
+
 function kartYap(d) {
   const kat = KATEGORILER[d.kategori];
   const k = el("article", "durak");
@@ -157,6 +173,30 @@ function kartYap(d) {
 
   k.append(el("div", "saat", d.saat));
 
+  // Yol ipliği üstündeki boncuk aynı zamanda "gezildi" düğmesi.
+  const boncuk = el("button", "boncuk");
+  boncuk.type = "button";
+  boncuk.append(el("span", "im", "✓"));
+  const boncukYaz = () => {
+    const g = gidildiMi(d.id);
+    k.classList.toggle("gidildi", g);
+    isaretler.get(d.id)?.getElement().classList.toggle("gidildi", g);
+    boncuk.setAttribute("aria-pressed", String(g));
+    boncuk.setAttribute("aria-label", g
+      ? `${d.ad} — gezildi işaretini kaldır`
+      : `${d.ad} — gezildi olarak işaretle`);
+    boncuk.title = g ? "Gezildi — kaldırmak için tıklayın" : "Gezildi olarak işaretle";
+  };
+  boncuk.addEventListener("click", (e) => {
+    e.stopPropagation();
+    gidildiDegistir(d.id);
+    boncukYaz();
+    gunIsaretleriGuncelle();
+  });
+  boncukYaz();
+  boncukYenileyiciler.set(d.id, boncukYaz);
+  k.append(boncuk);
+
   const bilgi = mekanBilgi(d.id);
   const govde = el("div", "govde");
   govde.append(el("h3", null, d.ad));
@@ -168,17 +208,8 @@ function kartYap(d) {
     govde.append(cerceve);
   }
 
-  // Puan yerine doğrulanabilir künye: dönem, önerilen süre, UNESCO alanı.
-  if (bilgi.donem || bilgi.sure || bilgi.unesco) {
-    const kunye = el("dl", "kunye");
-    const satir = (etiket, deger) => {
-      kunye.append(el("dt", null, etiket), el("dd", null, deger));
-    };
-    if (bilgi.donem) satir("Dönem", bilgi.donem);
-    if (bilgi.sure) satir("Ayırın", bilgi.sure);
-    if (bilgi.unesco) satir("UNESCO", bilgi.unesco);
-    govde.append(kunye);
-  }
+  const kunye = kunyeYap(bilgi);
+  if (kunye) govde.append(kunye);
 
   govde.append(el("p", "metin", d.aciklama));
   if (d.ipucu) govde.append(el("span", "ipucu", d.ipucu));
@@ -194,6 +225,7 @@ function kartYap(d) {
   const sec = () => { history.replaceState(null, "", `#durak-${d.id}`); etkinlestir(d.id, true); };
   k.addEventListener("click", sec);
   k.addEventListener("keydown", (e) => {
+    if (e.target !== k) return;  // boncuğun kendi Enter'ına karışma
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sec(); }
   });
 
@@ -250,6 +282,15 @@ function suzgecUygula() {
     const kapali = durum.kapali.has(d.kategori);
     kartlar.get(d.id)?.classList.toggle("suzuldu", kapali);
     isaretler.get(d.id)?.getElement().classList.toggle("kapali", kapali);
+  }
+}
+
+/** Günün bütün durakları gezildiyse gün çipine onay işareti düşer. */
+function gunIsaretleriGuncelle() {
+  for (const b of document.querySelectorAll(".gun-chip")) {
+    const no = Number(b.dataset.gun);
+    const idler = DURAKLAR.filter((d) => d.gun === no).map((d) => d.id);
+    b.classList.toggle("tamam", gunTamamMi(idler));
   }
 }
 
@@ -397,6 +438,7 @@ function isaretleriKur() {
     knt.type = "button";
     knt.style.setProperty("--m-renk", kat.renk);
     knt.setAttribute("aria-label", `${d.ad} — gün ${d.gun}, ${d.saat}`);
+    if (gidildiMi(d.id)) knt.classList.add("gidildi");
 
     const bilgi = mekanBilgi(d.id);
     const popup = new maplibregl.Popup({ offset: 16, closeButton: false, closeOnClick: false })
@@ -420,7 +462,9 @@ function isaretleriKur() {
     knt.addEventListener("blur", kapa);
     knt.addEventListener("click", (e) => {
       e.stopPropagation();
-      kartlar.get(d.id)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
+      kapa();                    // hover balonu modalın altında kalmasın
+      etkinlestir(d.id, false);  // kart vurgulansın ama kamera yerinde kalsın
+      modalAc(d);
     });
 
     isaretler.set(d.id, isaret);
@@ -429,7 +473,35 @@ function isaretleriKur() {
 
 /* ————————————————————————————————— Etkin durak */
 
-function etkinlestir(id, ucur) {
+/** Gözlemciden gelen kamera istekleri kaydırma durulana dek bekletilir;
+    komşu duraklar arasında kısa geçiş, şehirler arasında gerçek uçuş yapılır. */
+let kameraZamanlayici = null;
+let kameraHedef = null;
+
+function kameraGit(d, beklet) {
+  clearTimeout(kameraZamanlayici);
+  const git = () => {
+    if (!haritaHazir) return;
+    const k = d.kamera || {};
+    const goruntu = {
+      center: d.konum,
+      zoom: k.zoom ?? 15.5,
+      pitch: durum.arazi ? Math.min((k.pitch ?? 55) + 8, 78) : (k.pitch ?? 55),
+      // Kuzey her zaman üst yarıda kalsın: sayfa "aşağı kaydırmak güneye
+      // gitmektir" diyor, harita bunun tersini gösterirse iki sinyal çelişir.
+      bearing: kuzeyKoru(k.bearing ?? 0),
+      essential: true,
+    };
+    const yakin = kameraHedef && mesafe(kameraHedef, d.konum) < 3;
+    kameraHedef = d.konum;
+    if (yakin) map.easeTo({ ...goruntu, duration: sakin ? 0 : 850 });
+    else map.flyTo({ ...goruntu, duration: sakin ? 0 : 2100, curve: 1.3 });
+  };
+  if (beklet && !sakin) kameraZamanlayici = setTimeout(git, 320);
+  else git();
+}
+
+function etkinlestir(id, ucur, beklet = false) {
   if (durum.etkin === id) return;
   const d = DURAKLAR.find((x) => x.id === id);
   if (!d) return;
@@ -452,21 +524,16 @@ function etkinlestir(id, ucur) {
 
   nilometreGuncelle(d);
   durumYaz(d);
+  adimYaz(d);
 
-  if (ucur && haritaHazir) {
-    const k = d.kamera || {};
-    map.flyTo({
-      center: d.konum,
-      zoom: k.zoom ?? 15.5,
-      pitch: durum.arazi ? Math.min((k.pitch ?? 55) + 8, 78) : (k.pitch ?? 55),
-      // Kuzey her zaman üst yarıda kalsın: sayfa "aşağı kaydırmak güneye
-      // gitmektir" diyor, harita bunun tersini gösterirse iki sinyal çelişir.
-      bearing: kuzeyKoru(k.bearing ?? 0),
-      duration: sakin ? 0 : 2100,
-      curve: 1.3,
-      essential: true,
-    });
-  }
+  if (ucur) kameraGit(d, beklet);
+}
+
+function adimYaz(d) {
+  const sira = DURAKLAR.indexOf(d) + 1;
+  $("#adim-sayac").textContent = `${sira}/${DURAKLAR.length}`;
+  $("#adim-geri").disabled = sira === 1;
+  $("#adim-ileri").disabled = sira === DURAKLAR.length;
 }
 
 function durumYaz(d) {
@@ -474,6 +541,86 @@ function durumYaz(d) {
   $("#harita-durum").innerHTML =
     `<b>${d.saat}</b> · Gün ${d.gun} · ${kat.ad}<br>${d.ad}<br>` +
     `${d.konum[1].toFixed(4)}°K, ${d.konum[0].toFixed(4)}°D`;
+}
+
+/* ————————————————————————————————— Durak modali */
+
+/** Haritadaki işarete tıklayınca açılan ayrıntı penceresi. */
+function modalAc(d) {
+  const modal = $("#durak-modal");
+  const kat = KATEGORILER[d.kategori];
+  const bilgi = mekanBilgi(d.id);
+  modal.innerHTML = "";
+  modal.style.setProperty("--d-renk", kat.renk);
+
+  const kapat = el("button", "modal-kapat", "×");
+  kapat.type = "button";
+  kapat.setAttribute("aria-label", "Kapat");
+  kapat.addEventListener("click", () => modal.close());
+  modal.append(kapat);
+
+  if (bilgi.gorsel) {
+    const cerceve = el("div", "modal-foto");
+    cerceve.append(commonsGorsel(bilgi.gorsel, 960, d.ad));
+    modal.append(cerceve);
+  }
+
+  const govde = el("div", "modal-govde");
+  govde.append(el("p", "modal-ust", `${d.saat} · Gün ${d.gun} · ${kat.ad}`));
+  const baslik = el("h3", null, d.ad);
+  baslik.id = "modal-baslik";
+  govde.append(baslik);
+  if (d.alt) govde.append(el("p", "alt", d.alt));
+
+  const kunye = kunyeYap(bilgi);
+  if (kunye) govde.append(kunye);
+
+  govde.append(el("p", "metin", d.aciklama));
+  if (d.ipucu) govde.append(el("span", "ipucu", d.ipucu));
+
+  if (d.etiket || d.kaynak === "oneri") {
+    const rozetler = el("div", "rozetler");
+    if (d.etiket) rozetler.append(el("span", "rozet vurgu", d.etiket));
+    if (d.kaynak === "oneri") rozetler.append(el("span", "rozet oneri", "Sofra önerisi"));
+    govde.append(rozetler);
+  }
+
+  const eylemler = el("div", "modal-eylemler");
+
+  const gezildiBtn = el("button", "modal-eylem");
+  gezildiBtn.type = "button";
+  const gezildiYaz = () => {
+    const g = gidildiMi(d.id);
+    gezildiBtn.textContent = g ? "✓ Gezildi" : "Gezildi işaretle";
+    gezildiBtn.setAttribute("aria-pressed", String(g));
+    gezildiBtn.classList.toggle("secili", g);
+  };
+  gezildiBtn.addEventListener("click", () => {
+    gidildiDegistir(d.id);
+    boncukYenileyiciler.get(d.id)?.();
+    gunIsaretleriGuncelle();
+    gezildiYaz();
+  });
+  gezildiYaz();
+
+  const cizelgeBtn = el("button", "modal-eylem", "Zaman çizelgesinde gör");
+  cizelgeBtn.type = "button";
+  cizelgeBtn.addEventListener("click", () => {
+    modal.close();
+    kartlar.get(d.id)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
+  });
+
+  eylemler.append(gezildiBtn, cizelgeBtn);
+  govde.append(eylemler);
+  modal.append(govde);
+
+  modal.showModal();
+}
+
+function modalKur() {
+  const modal = $("#durak-modal");
+  // Karartıya tıklayınca kapat; Esc'i <dialog> kendisi karşılıyor.
+  modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
 }
 
 /* ————————————————————————————————— Scroll senkronu */
@@ -484,23 +631,29 @@ function gozlemciKur() {
     const gorunen = girisler
       .filter((g) => g.isIntersecting)
       .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-    if (gorunen) etkinlestir(gorunen.target.dataset.id, true);
+    if (gorunen) etkinlestir(gorunen.target.dataset.id, true, true);
   }, { rootMargin: "-22% 0px -58% 0px", threshold: 0 });
 
   for (const k of kartlar.values()) gozlemci.observe(k);
 }
 
-function klavyeKur() {
+function komsuyaGit(adim) {
+  const sira = DURAKLAR.map((d) => d.id);
+  const i = sira.indexOf(durum.etkin);
+  const sonraki = sira[i + adim];
+  if (!sonraki) return false;
+  kartlar.get(sonraki)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
+  return true;
+}
+
+function gezinmeKur() {
   document.addEventListener("keydown", (e) => {
     if (e.target instanceof Element && e.target.closest("input, textarea")) return;
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    const sira = DURAKLAR.map((d) => d.id);
-    const i = sira.indexOf(durum.etkin);
-    const sonraki = sira[i + (e.key === "ArrowRight" ? 1 : -1)];
-    if (!sonraki) return;
-    e.preventDefault();
-    kartlar.get(sonraki)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
+    if (komsuyaGit(e.key === "ArrowRight" ? 1 : -1)) e.preventDefault();
   });
+  $("#adim-geri").addEventListener("click", () => komsuyaGit(-1));
+  $("#adim-ileri").addEventListener("click", () => komsuyaGit(1));
 }
 
 /* ————————————————————————————————— Zemin değişimi */
@@ -612,12 +765,17 @@ async function baslat() {
   seritYuksekligiIzle();
   nilometreKur();
   olculeriYaz();
-  klavyeKur();
+  gezinmeKur();
+  modalKur();
   gozlemciKur();
+  gunIsaretleriGuncelle();
 
+  // Derin bağlantı öncelikli; yoksa gezi haftasındaysak bugünün ilk
+  // gezilmemiş durağına açıl — sayfa yolda, cepte kullanılacak.
+  const geziGunu = bugununGunu(GUNLER);
   const hedef = location.hash.startsWith("#durak-")
     ? DURAKLAR.find((d) => `#durak-${d.id}` === location.hash)
-    : null;
+    : (geziGunu ? ilkGezilmemis(DURAKLAR, geziGunu) : null);
   const ilk = hedef || DURAKLAR[0];
 
   try {

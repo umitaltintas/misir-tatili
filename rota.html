@@ -58,7 +58,9 @@
 
       <p class="ipucu-satir">
         Bir durağa tıklayın, harita oraya uçsun. <kbd>←</kbd> <kbd>→</kbd> ile
-        duraklar arasında gezinin. Üstteki renkli süzgeçlerle katmanları kapatabilirsiniz.
+        duraklar arasında gezinin. Yol ipliğindeki boncuğa dokunarak gittiğiniz
+        durakları işaretleyin — işaretler bu tarayıcıda saklanır. Üstteki renkli
+        süzgeçlerle katmanları kapatabilirsiniz.
       </p>
     </section>
 
@@ -92,6 +94,12 @@
 
     <p class="harita-durum" id="harita-durum" aria-live="polite"></p>
 
+    <div class="adimlar" role="group" aria-label="Durak gezintisi">
+      <button id="adim-geri" type="button" aria-label="Önceki durak">‹</button>
+      <span id="adim-sayac">—</span>
+      <button id="adim-ileri" type="button" aria-label="Sonraki durak">›</button>
+    </div>
+
     <div class="perde" id="perde">
       <div class="sonar"></div>
       <p>KARO VERİSİ YÜKLENİYOR</p>
@@ -99,6 +107,8 @@
   </div>
 
 </main>
+
+<dialog class="durak-modal" id="durak-modal" aria-labelledby="modal-baslik"></dialog>
 
 <script type="module" src="assets/rota.js"></script>
 </body>
