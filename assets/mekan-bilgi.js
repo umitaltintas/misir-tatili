@@ -44,10 +44,6 @@ export const MEKAN_BILGI = {
     gorsel: ["Saqqara pyramid ver 2.jpg", "Saqqara pyramid.jpg", "Step Pyramid of Djoser.jpg"],
     donem: "MÖ 2650 civarı", sure: "2 saat", unesco: "Memphis ve Nekropolü",
   },
-  "ibn-tulun": {
-    gorsel: ["Mosque of Ibn Tulun.jpg", "Ibn Tulun Mosque.jpg", "Ibn Tulun Mosque, Cairo.jpg"],
-    donem: "879", sure: "1 saat", unesco: "Tarihi Kahire",
-  },
   "sultan-hasan": {
     gorsel: ["Mosque-Madrassa of Sultan Hassan.jpg", "Sultan Hassan Mosque.jpg", "Mosque of Sultan Hassan.jpg"],
     donem: "1356–1363", sure: "1 saat", unesco: "Tarihi Kahire",
@@ -55,10 +51,6 @@ export const MEKAN_BILGI = {
   rifai: {
     gorsel: ["Al-Rifa'i Mosque.jpg", "Al Rifai Mosque.jpg", "Al-Rifai Mosque, Cairo.jpg", "Rifai Mosque.jpg"],
     donem: "1869–1912", sure: "30 dk", unesco: "Tarihi Kahire",
-  },
-  "bab-zuveyla": {
-    gorsel: ["Bab Zuweila.jpg", "Bab Zuwayla.jpg", "Bab Zuweila, Cairo.jpg"],
-    donem: "1092", sure: "45 dk", unesco: "Tarihi Kahire",
   },
   muizz: {
     gorsel: ["Al-Muizz Street.jpg", "Muizz Street.jpg", "Al-Muizz li-Din Allah Street.jpg", "El Moez Street.jpg"],
@@ -99,6 +91,22 @@ export const MEKAN_BILGI = {
   sofra: {
     gorsel: ["Egyptian food.jpg", "Egyptian cuisine.jpg", "Tagine.jpg"],
     sure: "1,5 saat",
+  },
+  soho: {
+    gorsel: ["Soho Square Sharm El Sheikh.jpg", "SOHO Square, Sharm el-Sheikh.jpg", "Sharm el-Sheikh SOHO Square.jpg"],
+    sure: "2 saat",
+  },
+  "ras-mohammed": {
+    gorsel: ["Ras Muhammad National Park.jpg", "Ras Mohammed National Park.jpg", "Ras Muhammad nature reserve.jpg", "Shark Reef Ras Muhammad.jpg"],
+    donem: "1983'ten beri milli park", sure: "Tam gün",
+  },
+  "old-market": {
+    gorsel: ["Sharm el-Sheikh Old Market.jpg", "Old Market, Sharm el-Sheikh.jpg", "Sharm El Sheikh Old Market.jpg", "Sharm el-Sheikh.jpg"],
+    sure: "2 saat",
+  },
+  "sharks-bay": {
+    gorsel: ["Sharks Bay Sharm el-Sheikh.jpg", "Shark's Bay.jpg", "Coral reef Sharm el-Sheikh.jpg", "Red Sea coral reef, Sharm el-Sheikh.jpg"],
+    sure: "Yarım gün",
   },
 };
 

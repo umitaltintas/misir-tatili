@@ -3,6 +3,7 @@ import { ZEMINLER, UYDU_STILI, boya, binaKabart } from "./zeminler.js";
 import { BAGLANTILAR, TURLER, baglanti } from "./baglantilar.js";
 import { mekanBilgi } from "./mekan-bilgi.js";
 import { gidildiMi, gidildiDegistir, gunTamamMi, bugununGunu, ilkGezilmemis } from "./gezi-modu.js";
+import { kmlOlustur, gunRotasiUrl, noktaUrl } from "./disari-aktar.js";
 
 /* Wikimedia Commons görselleri: dosya adları sırayla denenir, hiçbiri
    bulunamazsa görsel alanı sessizce kaldırılır. */
@@ -106,9 +107,19 @@ function panelKur() {
     const sira = el("div", "sira");
     sira.append(el("b", null, `GÜN ${gun.no}`), el("span", null, `${gun.tarih} · ${gun.gunAdi} · ${gun.sehir}`));
     bas.append(sira, el("h2", null, gun.baslik), el("p", "tema", gun.tema));
-    blok.append(bas);
 
     const gunDuraklari = DURAKLAR.filter((x) => x.gun === gun.no);
+
+    // Günün karayolu kesiti için Google Maps yol tarifi (uçuş bacakları atlanır).
+    const tarif = gunRotasiUrl(gunDuraklari);
+    if (tarif) {
+      const a = el("a", "gun-gmaps", "Günün rotası Google Maps'te ↗");
+      a.href = tarif;
+      a.target = "_blank";
+      a.rel = "noopener";
+      bas.append(a);
+    }
+    blok.append(bas);
     gunDuraklari.forEach((d, i) => {
       // Günün ilk durağından önce, bir önceki günün son durağından gelen bağlantı.
       const oncekiId = i === 0
@@ -603,18 +614,37 @@ function modalAc(d) {
   });
   gezildiYaz();
 
-  const cizelgeBtn = el("button", "modal-eylem", "Zaman çizelgesinde gör");
+  const cizelgeBtn = el("button", "modal-eylem", "Çizelgede gör");
   cizelgeBtn.type = "button";
   cizelgeBtn.addEventListener("click", () => {
     modal.close();
     kartlar.get(d.id)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
   });
 
-  eylemler.append(gezildiBtn, cizelgeBtn);
+  const gmapsA = el("a", "modal-eylem", "Google Maps ↗");
+  gmapsA.href = noktaUrl(d);
+  gmapsA.target = "_blank";
+  gmapsA.rel = "noopener";
+
+  eylemler.append(gezildiBtn, cizelgeBtn, gmapsA);
   govde.append(eylemler);
   modal.append(govde);
 
   modal.showModal();
+}
+
+/** KML indirme: My Maps'e içe aktarılınca rota Google Maps'te açılır. */
+function disariAktarKur() {
+  $("#kml-btn")?.addEventListener("click", () => {
+    const blob = new Blob([kmlOlustur(GUNLER, DURAKLAR, KATEGORILER)],
+      { type: "application/vnd.google-earth.kml+xml" });
+    const url = URL.createObjectURL(blob);
+    const a = el("a");
+    a.href = url;
+    a.download = "nilden-kizildenize-rota.kml";
+    a.click();
+    URL.revokeObjectURL(url);
+  });
 }
 
 function modalKur() {
@@ -767,6 +797,7 @@ async function baslat() {
   olculeriYaz();
   gezinmeKur();
   modalKur();
+  disariAktarKur();
   gozlemciKur();
   gunIsaretleriGuncelle();
 

@@ -1,36 +1,41 @@
-# Kahire + Luxor — 24–30 Ekim 2026
+# Kahire + Luxor + Şarm El-Şeyh — 24–30 Ekim 2026
 
-İki kişilik, 6 gece 7 günlük kültür odaklı Mısır gezisi planı. Cruise ve plaj yok;
-bütçenin tamamı antik ve İslami mirasa ayrılmış.
+İki kişilik, 6 gece 7 günlük Mısır gezisi planı: beş gün antik ve İslami miras,
+son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan zaman
+Şarm El-Şeyh'e ayrıldı ve dönüş uçuşu Şarm'dan (açık çeneli bilet).
 
 ## Sayfalar
 
 | Sayfa | Adres |
 |---|---|
-| Programın tamamı — gün gün plan, bütçe tablosu, ipuçları | [/](https://umitaltintas.github.io/misir-tatili/) |
-| Nil Boyunca — interaktif harita ve zaman çizelgesi | [/rota.html](https://umitaltintas.github.io/misir-tatili/rota.html) |
+| Programın tamamı — gün gün plan, bütçe tablosu, konaklama, ipuçları | [/](https://umitaltintas.github.io/misir-tatili/) |
+| Nil'den Kızıldeniz'e — interaktif harita ve zaman çizelgesi | [/rota.html](https://umitaltintas.github.io/misir-tatili/rota.html) |
 
 ### Programın tamamı (`index.html`)
 
-- **Gün gün program** — Gize, Sakkara, İslami Kahire, Karnak, Krallar Vadisi, Medinet Habu
+- **Gün gün program** — Gize, Sakkara, İslami Kahire (tek günde), Karnak, Krallar
+  Vadisi, Medinet Habu, Ras Mohammed ve Sharks Bay
 - **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; toplam, paket
   turlarla fark ve giriş/kapanış özetleri anında yeniden hesaplanır
+- **Konaklama rehberi** — üç şehir için araştırılmış otel önerileri: gecelik fiyat
+  aralığı, konum gerekçesi ve artı/eksiler (Ağustos 2026 araştırması)
 - **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
-  trafik saatleri ve kaçınılacaklar
-- **Hazırlık listesi** — 12 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
+  Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
+- **Hazırlık listesi** — 15 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
 - **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
-- **Sekiz altın kural** — bayram haftası bilet uyarısı, GEM ön bileti, kartla ödeme zorunluluğu
+- **Dokuz altın kural** — bayram haftası bilet uyarısı, Luxor–Şarm direkt sefer günleri,
+  GEM ön bileti, kartla ödeme zorunluluğu
 - Kalkışa kalan gün sayısı ve yazdırmaya uygun çıktı düzeni
 
 Tek dosyalık statik sayfa — CSS ve JS gömülü, `file://` üzerinden de açılır. Görseller
 Wikimedia Commons'tan (CC) çalışma anında çekilir; bir dosya adı bulunamazsa sonraki
 alternatif denenir.
 
-### Nil Boyunca (`rota.html`)
+### Nil'den Kızıldeniz'e (`rota.html`)
 
-27 durağın tamamı saatiyle, kategorisiyle ve harita üzerindeki yeriyle.
+29 durağın tamamı saatiyle, kategorisiyle ve harita üzerindeki yeriyle.
 
-- **Görsel ve künye** — 22 mekân için Wikimedia Commons fotoğrafı, dönem bilgisi,
+- **Görsel ve künye** — 24 mekân için Wikimedia Commons fotoğrafı, dönem bilgisi,
   önerilen süre ve UNESCO alanı. Görsel yüklenemezse çerçeve iz bırakmadan kalkar.
 - **Duraklar arası ulaşım** — her geçiş için araç türü, süre, ücret ve dikkat notu:
   hangi noktada Uber çalışır, nerede şoförü bekletmek gerekir, feribot mu köprü mü.
@@ -44,14 +49,19 @@ alternatif denenir.
   durak gezilir.
 - **Durak modali** — haritadaki işarete tıklayınca fotoğraf, künye, açıklama ve
   ipucuyla ayrıntı penceresi açılır; "gezildi" işareti buradan da atılabilir.
+- **Google Maps aktarımı** — kapanıştaki düğme rotayı KML indirir
+  ([My Maps](https://mymaps.google.com)'e içe aktarınca telefonda *Kayıtlı → Haritalar*
+  altında gün gün klasörlü açılır). Gün başlıkları günün karayolu kesiti için yol
+  tarifi bağlantısı taşır, modaldeki *Google Maps ↗* tek durağı iğneyle açar.
 - **Sakin kamera** — kaydırma durulana dek kamera bekler; komşu duraklara kısa
   geçiş (`easeTo`), şehirler arasında gerçek uçuş (`flyTo`).
 
 - **Kaydırdıkça harita güneye iner** — sayfanın dikey ekseni gerçek enlemi izler,
-  Kahire 30.1°K'den Luxor 25.7°K'ye. Soldaki *nilometre* o anki enlemi gösterir.
+  Kahire 30.1°K'den Luxor 25.7°K'ye; son günlerde Sina'nın ucuna, Şarm'a (27.9°K)
+  sıçrar. Soldaki *nilometre* o anki enlemi gösterir.
 - **Her durağın kendi kamera açısı var** — Gize'ye güneybatıdan, Hatşepsut'a
   kayalığın üstünden bakılır.
-- **Katman süzgeçleri** — antik miras, İslami Kahire, müze, sofra, deneyim, ulaşım
+- **Katman süzgeçleri** — antik miras, İslami Kahire, müze, sofra, deneyim, Kızıldeniz, ulaşım
 - **Üç zemin** — uydu (raster), gece ve papirüs (vektör). Vektör zeminler sayfanın
   paletine göre çalışma anında yeniden renklendirilir; yüksek yakınlaştırmada
   binalar kabarır. Vektör servisi yanıt vermezse harita kendiliğinden uyduya döner.
@@ -68,6 +78,7 @@ rota.html               İnteraktif harita + zaman çizelgesi
 assets/duraklar.js      Rota verisi: koordinat, saat, kategori, kamera
 assets/baglantilar.js   Duraklar arası ulaşım: tür, süre, ücret, uyarılar
 assets/gezi-modu.js     "Gezildi" işaretleri (localStorage) ve gezi haftası yardımcıları
+assets/disari-aktar.js  Google Maps aktarımı: KML üretimi ve yol tarifi URL'leri
 assets/mekan-bilgi.js   Görsel dosya adları ve künye (dönem, süre, UNESCO)
 assets/zeminler.js      Harita zeminleri ve palet renklendirmesi
 assets/rota.js          Harita, scroll senkronu, süzgeçler
@@ -100,7 +111,10 @@ python3 -m http.server 8000
 
 ## Notlar
 
-Fiyatlar Temmuz 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) ve bağlayıcı değildir.
+Fiyatlar Ağustos 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) ve bağlayıcı değildir.
+Otel fiyatları çift kişilik oda gecelik tahminleridir; Ekim yüksek sezonda artabilir.
+Luxor→Şarm direkt seferi (Air Cairo, pzt/çrş/cmt) plana temel alınmıştır — bilet
+almadan önce o haftaki sefer gün ve saatini doğrulayın.
 
 Harita konumları yaklaşıktır: ören yerleri isabetli, restoran ve çarşı noktaları
 doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi" rozetli duraklar

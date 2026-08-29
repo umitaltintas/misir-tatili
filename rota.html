@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nil Boyunca — Kahire + Luxor rotası</title>
+<title>Nil'den Kızıldeniz'e — Kahire + Luxor + Şarm rotası</title>
 <meta name="description" content="24–30 Ekim 2026 Mısır programının interaktif haritası ve zaman çizelgesi: her durak, saati ve konumuyla.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,8 @@
 <header class="ust">
   <div class="ust-sira">
     <a class="marka" href="./">
-      <b>NİL BOYUNCA</b>
-      <span>24–30 EKİM 2026 · KAHİRE + LUXOR</span>
+      <b>NİL'DEN KIZILDENİZ'E</b>
+      <span>24–30 EKİM 2026 · KAHİRE + LUXOR + ŞARM</span>
     </a>
     <ul class="gunler" id="gunler" aria-label="Günler"></ul>
     <a class="geri" href="./">← Programın tamamı</a>
@@ -42,12 +42,13 @@
     </aside>
 
     <section class="giris">
-      <p class="eyebrow">Yedi gün · iki şehir · tek çizgi</p>
-      <h1>Nil Boyunca<br><em>Gün Gün Rota</em></h1>
+      <p class="eyebrow">Yedi gün · üç şehir · tek çizgi</p>
+      <h1>Nil'den Kızıldeniz'e<br><em>Gün Gün Rota</em></h1>
       <p>
         Programdaki her durak burada saatiyle ve haritadaki yeriyle duruyor.
-        Aşağı kaydırdıkça harita da güneye iniyor — Kahire'den Luxor'a, tıpkı
-        yolculuğun kendisi gibi. Soldaki ölçek o an nerede olduğunuzun enlemini gösterir.
+        Aşağı kaydırdıkça harita önce güneye, Kahire'den Luxor'a iniyor; son
+        günlerde Sina'nın ucuna, Şarm El-Şeyh'e sıçrıyor. Soldaki ölçek o an
+        nerede olduğunuzun enlemini gösterir.
       </p>
 
       <div class="giris-olcu">
@@ -70,9 +71,20 @@
       <h2>Rotayı kendinize göre esnetin</h2>
       <p>
         Saatler kesin randevu değil, sıralama önerisi: sabahları ören yerlerine, öğleden
-        sonraları müzelere ve şehre ayrılmış. Ekim sonunda Kahire yaklaşık 28°C, Luxor 33°C —
-        sıcak saatleri kapalı mekâna denk getirmek işe yarıyor.
+        sonraları müzelere ve şehre ayrılmış. Ekim sonunda Kahire yaklaşık 28°C, Luxor 33°C,
+        Şarm'da deniz suyu 27°C — sıcak saatleri kapalı mekâna, son günleri denize denk
+        getirmek işe yarıyor.
       </p>
+      <div class="aktar">
+        <button class="aktar-btn" id="kml-btn" type="button">⤓ Rotayı KML olarak indir</button>
+        <p>
+          Dosyayı <a href="https://mymaps.google.com" target="_blank" rel="noopener">Google My Maps</a>'e
+          içe aktarın; rota, telefonunuzdaki Google Maps'te <em>Kayıtlı → Haritalar</em> altında
+          gün gün klasörlenmiş olarak açılır. Gün başlıklarındaki bağlantılar ise o günün
+          durakları arasında doğrudan yol tarifi başlatır.
+        </p>
+      </div>
+
       <p class="uyari">
         Konumlar harita üzerinde yaklaşık işaretlenmiştir; ören yerleri isabetli, restoran
         ve çarşı noktaları ise doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi"
