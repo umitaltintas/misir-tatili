@@ -15,6 +15,12 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
 
 - **Gün gün program** — Gize, Sakkara, İslami Kahire (tek günde), Karnak, Krallar
   Vadisi, Medinet Habu, Ras Mohammed ve Sharks Bay
+- **İbadet planı** — yedi günün vakit namazları, o gün bulunulan şehrin koordinatından
+  çalışma anında hesaplanır (Diyanet açıları 18°/17°, **Hanefî** ikindi); aktarma
+  günlerinde tablo şehri vakit vakit değiştirir. Her gün için vaktin programda nereye
+  denk geldiği yazılı: ikindi Sultan Hasan'da, akşam Luxor Tapınağı'ndaki Ebu'l-Haccac
+  Camii'nde, öğle Ras Mohammed teknesinde. Üç şehir için kıble açısı, ve Mısır'daki iki
+  fark: camiler ikindiyi Şafiî ölçüsüyle ~45 dk önce, imsakı ~7 dk erken okur
 - **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; toplam, paket
   turlarla fark ve giriş/kapanış özetleri anında yeniden hesaplanır
 - **Konaklama rehberi** — üç şehir için araştırılmış otel önerileri: gecelik fiyat
@@ -23,7 +29,7 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
   o oteli arayan bir bağlantı
 - **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
   Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
-- **Hazırlık listesi** — 15 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
+- **Hazırlık listesi** — 16 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
 - **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
 - **Dokuz altın kural** — yüksek sezon bilet uyarısı, Luxor–Şarm direkt sefer günleri,
   GEM ön bileti, kartla ödeme zorunluluğu
