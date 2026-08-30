@@ -7,6 +7,10 @@
  *
  * Ücretler Ağustos 2026 araştırmasına dayalı tahmindir. Mısır'da enflasyon
  * yüksek seyrettiği için EGP tutarlarını gitmeden doğrulayın.
+ *
+ * `mesafe` yalnızca yürünen bacaklarda var ve OpenStreetMap yol ağı üzerinden
+ * yaya profiliyle ölçülmüştür (Valhalla; BRouter ile çapraz kontrol edildi,
+ * ikisi %5 içinde örtüşüyor). Kapıdan kapıya kuş uçuşu değil, gerçek yürüme yolu.
  */
 
 export const TURLER = {
@@ -30,12 +34,13 @@ export const BAGLANTILAR = [
     from: "cai-varis", to: "kale", tur: "uber",
     sure: "45–70 dk", ucret: "200–300 EGP",
     ozet: "Havalimanından şehre",
-    detay: "Uber ve Careem havalimanında çalışıyor; uygulama sizi belirlenmiş buluşma noktasına yönlendirir. Önce otele valiz bırakıp Kale'ye geçin.",
-    dikkat: "Terminal çıkışında \"taxi?\" diye yaklaşanlarla pazarlık etmeyin — fiyat üç katına çıkabiliyor. Uygulamadan çağırmak hem ucuz hem tartışmasız.",
+    detay: "Uber, Careem ve InDrive havalimanında çalışıyor; uygulama sizi belirlenmiş buluşma noktasına yönlendirir. Önce otele valiz bırakıp Kale'ye geçin. Gidenlerin ortak tavsiyesi InDrive: aynı yolu Uber'den ucuza götürüyor, Uber'in araçları biraz daha iyi.",
+    dikkat: "Terminal çıkışında \"taxi?\" diye yaklaşanlarla pazarlık etmeyin — fiyat üç katına çıkabiliyor. Uygulamadan çağırmak hem ucuz hem tartışmasız. Binmeden plakayı doğrulayın: Mısır plakaları Arap rakamlı, yanlış araca binen turist çok.",
   },
   {
     from: "kale", to: "sultan-hasan", tur: "yuruyus",
     sure: "12–15 dk", ucret: "—",
+    mesafe: "1,1 km",
     ozet: "Kaleden aşağı iniş",
     detay: "Sultan Hasan, kalenin eteğindeki Salah El-Din Meydanı'nda — kale kapısından inen yol doğrudan oraya çıkar.",
     dikkat: "Meydanda trafik yoğun ve yaya geçidi nadir; karşıya yerlilerle birlikte geçin.",
@@ -43,24 +48,28 @@ export const BAGLANTILAR = [
   {
     from: "sultan-hasan", to: "rifai", tur: "yuruyus",
     sure: "1 dk", ucret: "—",
+    mesafe: "110 m",
     ozet: "Tam karşısında",
     detay: "İki dev yapı dar bir geçitle ayrılıyor. Ortak bilet ikisini de kapsıyor.",
   },
   {
     from: "rifai", to: "muizz", tur: "yuruyus",
     sure: "25–35 dk", ucret: "—",
+    mesafe: "2,2 km",
     ozet: "Darb el-Ahmar'dan eski şehre",
     detay: "Yaklaşık 2 km; yol Orta Çağ'dan kalma Bab Zuveyla kapısının altından geçer — minaresine çıkarsanız İslami Kahire'nin damları ayaklarınızın altında. Yorgunsanız 50–70 EGP'ye araç çağırın.",
   },
   {
     from: "muizz", to: "khan", tur: "yuruyus",
     sure: "10 dk", ucret: "—",
+    mesafe: "270 m",
     ozet: "Cadde çarşıya çıkar",
     detay: "El-Muizz Caddesi'ni kuzeye doğru yürüyün; akşam ışıklandırması gün batımından sonra en güzel hâlini alıyor ve yol sizi Khan el-Khalili'ye bırakır.",
   },
   {
     from: "khan", to: "fishawy", tur: "yuruyus",
     sure: "2 dk", ucret: "—",
+    mesafe: "40 m",
     ozet: "Çarşının içinde",
     detay: "El Fishawy, Khan el-Khalili'nin göbeğinde dar bir aralıkta. Ana caddeden içeri sapınca aynalı cephesinden tanırsınız.",
   },
@@ -74,6 +83,7 @@ export const BAGLANTILAR = [
   {
     from: "keops", to: "sfenks", tur: "yuruyus",
     sure: "20–25 dk", ucret: "—",
+    mesafe: "1,3 km",
     ozet: "Plato içinde yürüyüş",
     detay: "Keops'tan Sfenks'e inen yol çöl zemininde, gölgesiz. Plato içinde ücretli elektrikli araç servisi de var.",
     dikkat: "Yol boyunca deve ve at turu teklifleri gelir; \"la şükran\" (hayır teşekkürler) deyip yürümeye devam edin. Binmek isterseniz fiyatı önce ve yazılı netleştirin, hayvanın durumuna bakın.",
@@ -82,7 +92,7 @@ export const BAGLANTILAR = [
     from: "sfenks", to: "gem", tur: "uber",
     sure: "10–20 dk", ucret: "60–90 EGP",
     ozet: "Müzeye geçiş",
-    detay: "Yaklaşık 2,5 km. Plato çıkışında araç çağırmak sorunsuz.",
+    detay: "Yaklaşık 2,5 km. Plato çıkışında araç çağırmak sorunsuz. Plato içinde ücretsiz elektrikli servis dolaşıyor; Keops–Sfenks arasını yürümek istemezseniz onu kullanın.",
   },
   {
     from: "gem", to: "abou-tarek", tur: "uber",
@@ -95,7 +105,7 @@ export const BAGLANTILAR = [
     sure: "50–70 dk", ucret: "250–350 EGP",
     ozet: "Valizlerle çöle doğru güneye",
     detay: "Otelden çıkış yapıp valizleri de alın: Sakkara'dan doğruca havalimanına geçilecek. Yol tarım arazileri arasından geçiyor.",
-    dikkat: "Sakkara'da araç bulmak zor — en pratiği sabah aracı yarım gün için tutup (2 kişi 30–45 $) bekletmek; aynı araç sizi havalimanına bırakır.",
+    dikkat: "Sakkara'da araç bulmak zor — en pratiği sabah aracı yarım gün için tutup (2 kişi 30–45 $) bekletmek; aynı araç sizi havalimanına bırakır. Şoför yol üstünde halı ya da papirüs atölyesine sokmak isteyecek: komisyon aldığı duraklar, baştan \"durak yok\" deyin.",
   },
   {
     from: "sakkara", to: "cai-lxr", tur: "uber",
@@ -115,12 +125,13 @@ export const BAGLANTILAR = [
     from: "karnak", to: "luxor-tapinak", tur: "taksi",
     sure: "10–15 dk", ucret: "80–120 EGP",
     ozet: "İki tapınak arası",
-    detay: "Yaklaşık 3 km. Nil kıyısındaki Corniche boyunca yürümek de mümkün (40 dk) ve akşamüstü keyifli.",
+    detay: "Yaklaşık 3 km. Nil kıyısındaki Corniche boyunca yürümek de mümkün (2,9 km, 35 dk, düz yol) ve akşamüstü keyifli — Karnak 15:30, Luxor Tapınağı 18:30, arada fazlasıyla vakit var.",
     dikkat: "Kaleş (at arabası) teklifleri yoğun. Hayvanların durumu çoğu zaman kötü; taksi hem daha hızlı hem daha az sorunlu.",
   },
   {
     from: "luxor-tapinak", to: "sofra", tur: "yuruyus",
     sure: "10–15 dk", ucret: "—",
+    mesafe: "410 m",
     ozet: "Akşam yemeğine",
     detay: "Tapınağın doğusundaki sokaklarda. Karanlıkta yol sormaktan çekinmeyin, mesafe kısa.",
   },
@@ -135,7 +146,7 @@ export const BAGLANTILAR = [
     from: "krallar-vadisi", to: "hatsepsut", tur: "taksi",
     sure: "10–15 dk", ucret: "Günlük araca dahil",
     ozet: "Vadiden tapınağa",
-    detay: "Yaklaşık 3 km. Batı yakada tek tek araç aramak yerine sabah tuttuğunuz aracı gün boyu elinizde tutmak çok daha rahat.",
+    detay: "Araç dağı dolaştığı için yol 5,8 km sürüyor; sırttan geçen patika ise 1,7 km (25 dk) ama 82 m tırmanışlı — tepeden Hatşepsut'a yukarıdan bakmak için değer, sıcakta zorlar. Batı yakada tek tek araç aramak yerine sabah tuttuğunuz aracı gün boyu elinizde tutmak çok daha rahat.",
   },
   {
     from: "hatsepsut", to: "memnon", tur: "taksi",
@@ -147,7 +158,7 @@ export const BAGLANTILAR = [
     from: "memnon", to: "medinet-habu", tur: "taksi",
     sure: "5–10 dk", ucret: "Günlük araca dahil",
     ozet: "Biraz ötede",
-    detay: "Medinet Habu, Memnon Devleri'nin 2 km güneybatısında. Aynı araçla devam edin; tapınak öğlen saatinde bile sakin.",
+    detay: "Medinet Habu, Memnon Devleri'nin 1,7 km güneybatısında. Aynı araçla devam edin; tapınak öğlen saatinde bile sakin.",
   },
   {
     from: "medinet-habu", to: "felluka", tur: "feribot",
@@ -159,6 +170,7 @@ export const BAGLANTILAR = [
   {
     from: "felluka", to: "luxor-muze", tur: "yuruyus", gunBasi: true,
     sure: "10–20 dk", ucret: "—",
+    mesafe: "1,3 km",
     ozet: "Corniche boyunca sakin sabah",
     detay: "Müze Corniche üzerinde, doğu yaka otellerinin çoğuna yürüme mesafesinde. Uçuş akşam olduğu için sabah aceleye gerek yok; geç çıkış (late checkout) isteyin.",
   },

@@ -144,6 +144,7 @@ function baglantiYap(b) {
   const bas = el("div", "gecis-bas");
   bas.append(el("span", "gecis-tur", tur.ad));
   if (b.sure) bas.append(el("span", "gecis-veri", b.sure));
+  if (b.mesafe) bas.append(el("span", "gecis-veri", b.mesafe));
   if (b.ucret && b.ucret !== "—") bas.append(el("span", "gecis-veri", b.ucret));
   k.append(bas);
 

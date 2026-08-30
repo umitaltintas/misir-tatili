@@ -29,10 +29,11 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
   o oteli arayan bir bağlantı
 - **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
   Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
-- **Hazırlık listesi** — 16 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
+- **Hazırlık listesi** — 18 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
 - **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
-- **Dokuz altın kural** — yüksek sezon bilet uyarısı, Luxor–Şarm direkt sefer günleri,
-  GEM ön bileti, kartla ödeme zorunluluğu
+- **On iki altın kural** — yüksek sezon bilet uyarısı, Luxor–Şarm direkt sefer günleri,
+  GEM ön bileti, ören girişlerinde kart zorunluluğu, şişe suyu kuralı, "bedava" tuzağı
+  ve pazarlıkta anchor fiyat
 - Kalkışa kalan gün sayısı ve yazdırmaya uygun çıktı düzeni
 
 Tek dosyalık statik sayfa — CSS ve JS gömülü, `file://` üzerinden de açılır. Görseller
@@ -47,7 +48,10 @@ alternatif denenir.
   önerilen süre ve UNESCO alanı. Görsel yüklenemezse çerçeve iz bırakmadan kalkar.
 - **Duraklar arası ulaşım** — her geçiş için araç türü, süre, ücret ve dikkat notu:
   hangi noktada Uber çalışır, nerede şoförü bekletmek gerekir, feribot mu köprü mü.
-  Yürünen bacaklar haritada noktalı çizgiyle ayrılır.
+  Yürünen bacaklar haritada noktalı çizgiyle ayrılır ve **ölçülmüş mesafe** taşır:
+  OpenStreetMap yol ağı üzerinden yaya profiliyle (Valhalla, BRouter ile çapraz
+  kontrollü) — kuş uçuşu değil, gerçek yürüme yolu. Hafta boyunca yürünen toplam
+  6,7 km.
 - **Yol ipliği** — zaman çizelgesi kesintisiz bir hatla örülü: duraklar kategori
   renginde boncuk, geçişler ulaşım türünün renginde segment, yürüyüşler noktalı.
 - **Gezi modu** — boncuğa dokununca durak "gezildi" işaretlenir (`localStorage`);
@@ -81,6 +85,7 @@ alternatif denenir.
 Derleme adımı yok — dosyalar olduğu gibi yayınlanıyor.
 
 ```
+bloglar/                Planın karşılaştırıldığı sekiz gezi yazısı (ham kaynak)
 index.html              Programın tamamı (kendi içinde bağımsız)
 rota.html               İnteraktif harita + zaman çizelgesi
 assets/duraklar.js      Rota verisi: koordinat, saat, kategori, kamera
@@ -116,6 +121,16 @@ python3 -m http.server 8000
 | Uydu etiketleri | CARTO, © OpenStreetMap katkıcıları |
 | Vektör karolar (gece / papirüs) | OpenFreeMap, © OpenStreetMap katkıcıları — API anahtarı gerektirmez |
 | Yükseklik (3D) | AWS Terrain Tiles (terrarium) |
+
+## Kaynaklar
+
+Plan Ağustos 2026 masabaşı araştırmasıyla kuruldu; sonra `bloglar/` altındaki sekiz
+gezi yazısı (kişisel seyahat notları, tur operatörü rehberleri ve 190 girdilik bir
+ekşi sözlük başlığı) okunup her iddia planla karşılaştırıldı. Birden fazla bağımsız
+kaynakta tekrar eden ve somut olan bilgiler alındı; tek kişilik anekdotlar ve
+gitmemiş kişilerin yorumları elendi. Fiyat ve prosedür gibi hızlı eskiyen kalemler
+ayrıca güncel web kaynaklarından doğrulandı — kapıda vize ücretinin Mart 2026'da
+25 $'dan 30 $'a çıktığı bu şekilde yakalandı.
 
 ## Notlar
 

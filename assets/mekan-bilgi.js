@@ -34,7 +34,7 @@ export const MEKAN_BILGI = {
   },
   gem: {
     gorsel: ["Grand Egyptian Museum.jpg", "Grand Egyptian Museum, Giza.jpg", "The Grand Egyptian Museum.jpg"],
-    donem: "2025'te açıldı", sure: "3–4 saat",
+    donem: "2025'te açıldı", sure: "4–5 saat",
   },
   "abou-tarek": {
     gorsel: ["Koshary.jpg", "Kushari.jpg", "Koshari.jpg"],
