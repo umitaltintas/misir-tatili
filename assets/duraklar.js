@@ -1,5 +1,5 @@
 /**
- * Rota verisi — Kahire + Luxor + Şarm El-Şeyh, 24–30 Ekim 2026.
+ * Rota verisi — Kahire + Luxor + Şarm El-Şeyh, 21–27 Kasım 2026.
  *
  * konum: [boylam, enlem] — MapLibre sırası.
  * kaynak: 'plan'   → ana programda geçen durak
@@ -19,37 +19,37 @@ export const KATEGORILER = {
 
 export const GUNLER = [
   {
-    no: 1, tarih: "24 Ekim", gunAdi: "Cumartesi", sehir: "Kahire",
+    no: 1, tarih: "21 Kasım", gunAdi: "Cumartesi", sehir: "Kahire",
     baslik: "İstanbul → Kahire",
     tema: "Varış — Osmanlı ve Memlük Kahiresi tek günde",
   },
   {
-    no: 2, tarih: "25 Ekim", gunAdi: "Pazar", sehir: "Kahire",
+    no: 2, tarih: "22 Kasım", gunAdi: "Pazar", sehir: "Kahire",
     baslik: "Gize Günü",
     tema: "Piramitler ve Büyük Mısır Müzesi",
   },
   {
-    no: 3, tarih: "26 Ekim", gunAdi: "Pazartesi", sehir: "Luxor",
+    no: 3, tarih: "23 Kasım", gunAdi: "Pazartesi", sehir: "Luxor",
     baslik: "Sakkara, sonra Luxor",
     tema: "MÖ 2650'den tapınaklar şehrine",
   },
   {
-    no: 4, tarih: "27 Ekim", gunAdi: "Salı", sehir: "Luxor",
+    no: 4, tarih: "24 Kasım", gunAdi: "Salı", sehir: "Luxor",
     baslik: "Batı Yakası",
     tema: "Ölüler şehri: Krallar Vadisi",
   },
   {
-    no: 5, tarih: "28 Ekim", gunAdi: "Çarşamba", sehir: "Şarm El-Şeyh",
+    no: 5, tarih: "25 Kasım", gunAdi: "Çarşamba", sehir: "Şarm El-Şeyh",
     baslik: "Luxor → Şarm El-Şeyh",
     tema: "Nil'den Kızıldeniz'e",
   },
   {
-    no: 6, tarih: "29 Ekim", gunAdi: "Perşembe", sehir: "Şarm El-Şeyh",
+    no: 6, tarih: "26 Kasım", gunAdi: "Perşembe", sehir: "Şarm El-Şeyh",
     baslik: "Ras Mohammed",
     tema: "Cumhuriyet Bayramı'nı Kızıldeniz'de kutlayın",
   },
   {
-    no: 7, tarih: "30 Ekim", gunAdi: "Cuma", sehir: "Şarm El-Şeyh",
+    no: 7, tarih: "27 Kasım", gunAdi: "Cuma", sehir: "Şarm El-Şeyh",
     baslik: "Şarm → İstanbul",
     tema: "Son bir deniz sabahı ve dönüş",
   },
@@ -267,7 +267,7 @@ export const DURAKLAR = [
     ad: "Luxor → Şarm El-Şeyh",
     alt: "Air Cairo direkt, ~1 saat",
     konum: [32.7066, 25.6710],
-    aciklama: "Air Cairo'nun direkt seferi pazartesi, çarşamba ve cumartesi günleri uçuyor — 28 Ekim çarşambaya denk geliyor. Sefer saati değişirse Kahire aktarmalı EgyptAir yedek plan.",
+    aciklama: "Air Cairo'nun direkt seferi pazartesi, çarşamba ve cumartesi günleri uçuyor — 25 Kasım çarşambaya denk geliyor. Sefer saati değişirse Kahire aktarmalı EgyptAir yedek plan.",
     ipucu: "Direkt seferin o haftaki gün ve saatini bilet almadan önce doğrulayın; plan bu sefere göre kurulu.",
     kamera: { zoom: 12, pitch: 40, bearing: 350 },
   },
@@ -288,7 +288,7 @@ export const DURAKLAR = [
     konum: [34.2455, 27.7237],
     aciklama: "Sina'nın ucunda, Kızıldeniz'in en ünlü resifleri: Shark ve Yolanda. Tam günlük tekne turu öğle yemeği dahil; ekim sonunda deniz hâlâ 26–27°C.",
     ipucu: "Turu otelden değil, ücretsiz iptalli olarak önceden ayırtın; maske-şnorkel tekneden veriliyor ama deniz ayakkabısı işe yarar.",
-    etiket: "29 Ekim",
+    etiket: "26 Kasım",
     kamera: { zoom: 13.5, pitch: 60, bearing: 20 },
   },
   {

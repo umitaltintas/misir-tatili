@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kahire + Luxor + Şarm — 24–30 Ekim 2026</title>
+<title>Kahire + Luxor + Şarm — 21–27 Kasım 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -166,12 +166,19 @@
 
   /* ——— Ulaşım rehberi ——— */
   .ul-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
-  .ul-kart{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;padding:24px}
+  .ul-kart{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;padding:24px;overflow:hidden}
+  .ul-kart .photo{height:172px;margin:-24px -24px 18px;border-radius:0}
   .ul-kart h3{font-family:'Cinzel',serif;color:var(--lapis);font-size:1rem;letter-spacing:.03em;margin-bottom:10px}
   .ul-kart p{color:var(--muted);font-size:.88rem}
   .ul-kart p b{color:var(--ink)}
   .ul-kart .ul-not{margin-top:12px;padding-left:12px;border-left:2px solid var(--nile);font-size:.83rem}
   .ul-kart .ul-not b{color:var(--nile);text-transform:uppercase;letter-spacing:.06em;font-size:.72rem}
+  .otel-l{color:inherit;text-decoration:none;border-bottom:1px dotted var(--gold);transition:color .18s ease,border-color .18s ease}
+  .otel-l b{color:var(--ink)}
+  .otel-l::after{content:"↗";font-size:.68em;color:var(--gold);margin-left:3px;vertical-align:super}
+  .otel-l:hover{border-bottom-color:var(--nile)}
+  .otel-l:hover b{color:var(--nile)}
+  .ul-not .otel-l b{color:var(--ink);text-transform:none;letter-spacing:0;font-size:1em}
 
   /* ——— Hazırlık listesi ——— */
   .hz-ust{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:24px}
@@ -246,7 +253,7 @@
 <header class="hero" id="top">
   <img class="wm" data-f='["All Gizah Pyramids.jpg"]' data-w="1600" alt="Gize Piramitleri">
   <div class="hero-inner">
-    <div class="eyebrow">İki Kişi · 24 – 30 Ekim 2026 · 6 Gece 7 Gün</div>
+    <div class="eyebrow">İki Kişi · 21 – 27 Kasım 2026 · 6 Gece 7 Gün</div>
     <h1>Kahire · Luxor · <em>Şarm</em><br>Tarihten Kızıldeniz'e</h1>
     <p>Firavunlardan Memlüklere, Kavalalı'dan Krallar Vadisi'ne — ve finalde Ras Mohammed'in resifleri. Beş gün tarih, iki gün deniz; dönüş Şarm'dan, valiz bavula değmeden.</p>
     <div class="hero-stats">
@@ -262,15 +269,15 @@
 <!-- ROTA -->
 <div class="route">
   <div class="route-inner">
-    <div>İSTANBUL<small>24 Ekim sabahı</small></div>
+    <div>İSTANBUL<small>21 Kasım sabahı</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>KAHİRE<small>2 gece · 24–26 Eki</small></div>
+    <div>KAHİRE<small>2 gece · 24–23 Kas</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>LUXOR<small>2 gece · 26–28 Eki</small></div>
+    <div>LUXOR<small>2 gece · 26–25 Kas</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>ŞARM EL-ŞEYH<small>2 gece · 28–30 Eki</small></div>
+    <div>ŞARM EL-ŞEYH<small>2 gece · 28–27 Kas</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>İSTANBUL<small>30 Ekim</small></div>
+    <div>İSTANBUL<small>27 Kasım</small></div>
   </div>
 </div>
 
@@ -278,7 +285,7 @@
 <section id="program">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Program · 24–30 Ekim</div>
+      <div class="eyebrow">Program · 21–27 Kasım</div>
       <h2>Nil'den Kızıldeniz'e Yedi Gün</h2>
       <p>Sabahlar ören yerlerine (serin ve tenha), öğleden sonralar müzelere ve şehre; İslami Kahire tek yoğun güne toplandı, kazanılan iki gün Şarm El-Şeyh'te denize ayrıldı. Ekim sonu Kahire ~28°C, Luxor ~33°C, Şarm'da deniz ~27°C.</p>
     </div>
@@ -376,7 +383,7 @@
             <div class="theme">Nil'den Kızıldeniz'e</div>
             <ul class="stops">
               <li><span class="t">Sabah</span><div class="what"><b>Luxor Müzesi + Corniche</b><span>Uçuş akşamüstü — sabah aceleye gerek yok. Küçük ama seçkin koleksiyon, ardından Nil kıyısında veda yürüyüşü. Geç çıkış isteyin.</span></div></li>
-              <li><span class="t">Öğleden sonra</span><div class="what"><b>Air Cairo direkt uçuşu</b><span>~1 saat, 2 kişi ~220–260 $. Direkt sefer pazartesi/çarşamba/cumartesi uçuyor — 28 Ekim çarşamba, plana tam oturuyor; saati yine de doğrulayın.</span></div></li>
+              <li><span class="t">Öğleden sonra</span><div class="what"><b>Air Cairo direkt uçuşu</b><span>~1 saat, 2 kişi ~220–260 $. Direkt sefer pazartesi/çarşamba/cumartesi uçuyor — 25 Kasım çarşamba, plana tam oturuyor; saati yine de doğrulayın.</span></div></li>
               <li><span class="t">Akşam</span><div class="what"><b>Sharks Bay'e yerleşme + SOHO Square</b><span>Havalimanından otele 10–15 dk. Akşam yemeği için ışıklı meydan: restoranlar, fıskiyeler, deniz havası.</span></div></li>
             </ul>
           </div>
@@ -392,7 +399,7 @@
           </div>
           <div class="day-body">
             <h3>Ras Mohammed</h3>
-            <div class="theme">29 Ekim'i Kızıldeniz'de Kutlayın 🇹🇷</div>
+            <div class="theme">26 Kasım'i Kızıldeniz'de Kutlayın 🇹🇷</div>
             <ul class="stops">
               <li><span class="t">08:30</span><div class="what"><b>Ras Mohammed tekne + şnorkel turu</b><span>Sina'nın ucunda Shark &amp; Yolanda resifleri; 2–3 şnorkel durağı, öğle yemeği teknede. 2 kişi ~50–90 $ + park ücretleri ~30 $ (nakit).</span></div></li>
               <li><span class="t">İkindi</span><div class="what"><b>Otele dönüş + havuz/plaj</b><span>Tur ~16:00'da bırakır; gün batımına kadar deniz sizin. Ekim sonunda su ~27°C.</span></div></li>
@@ -439,10 +446,10 @@
     <div class="stele">
       <table>
         <tr><th class="sec"><span class="sr-only">Dahil</span></th><th>Kalem</th><th>2 Kişi</th></tr>
-        <tr data-min="210" data-max="380"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="İstanbul – Kahire uçuşunu hesaba dahil et"></td><td>İstanbul → Kahire tek yön<small>24 Eki — Cumhuriyet Bayramı haftası, erken alın! Pegasus/AJet tek yönde ceza kesmiyor</small></td><td>210–380 $</td></tr>
-        <tr data-min="160" data-max="220"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire – Luxor iç hattını hesaba dahil et"></td><td>Kahire → Luxor tek yön iç hat<small>26 Eki öğlen; EgyptAir / Nile Air</small></td><td>160–220 $</td></tr>
-        <tr data-min="220" data-max="260"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Luxor – Şarm uçuşunu hesaba dahil et"></td><td>Luxor → Şarm El-Şeyh direkt<small>28 Eki — Air Cairo pzt/çrş/cmt uçuyor, 28'i çarşamba; sefer saatini doğrulayın</small></td><td>220–260 $</td></tr>
-        <tr data-min="130" data-max="260"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm – İstanbul uçuşunu hesaba dahil et"></td><td>Şarm El-Şeyh → İstanbul tek yön<small>30 Eki — Pegasus/AJet (SAW) veya THY (IST) direkt, ~3 saat</small></td><td>130–260 $</td></tr>
+        <tr data-min="210" data-max="380"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="İstanbul – Kahire uçuşunu hesaba dahil et"></td><td>İstanbul → Kahire tek yön<small>21 Kas — Cumhuriyet Bayramı haftası, erken alın! Pegasus/AJet tek yönde ceza kesmiyor</small></td><td>210–380 $</td></tr>
+        <tr data-min="160" data-max="220"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire – Luxor iç hattını hesaba dahil et"></td><td>Kahire → Luxor tek yön iç hat<small>23 Kas öğlen; EgyptAir / Nile Air</small></td><td>160–220 $</td></tr>
+        <tr data-min="220" data-max="260"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Luxor – Şarm uçuşunu hesaba dahil et"></td><td>Luxor → Şarm El-Şeyh direkt<small>25 Kas — Air Cairo pzt/çrş/cmt uçuyor, 28'i çarşamba; sefer saatini doğrulayın</small></td><td>220–260 $</td></tr>
+        <tr data-min="130" data-max="260"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm – İstanbul uçuşunu hesaba dahil et"></td><td>Şarm El-Şeyh → İstanbul tek yön<small>27 Kas — Pegasus/AJet (SAW) veya THY (IST) direkt, ~3 saat</small></td><td>130–260 $</td></tr>
         <tr data-min="100" data-max="200"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire otelini hesaba dahil et"></td><td>Kahire oteli — 2 gece<small>Downtown/Tahrir 4* veya Gize'de piramit manzaralı butik</small></td><td>100–200 $</td></tr>
         <tr data-min="70" data-max="180"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Luxor otelini hesaba dahil et"></td><td>Luxor oteli — 2 gece<small>Doğu yakası, Nil'e yakın</small></td><td>70–180 $</td></tr>
         <tr data-min="240" data-max="400"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm otelini hesaba dahil et"></td><td>Şarm oteli — 2 gece her şey dahil<small>Sharks Bay / Ras Umm el Sid, house reef'li resort</small></td><td>240–400 $</td></tr>
@@ -475,21 +482,24 @@
 
     <div class="ul-grid">
       <article class="ul-kart">
-        <h3>Kahire · 24–26 Ekim (2 gece)</h3>
-        <p><b>Steigenberger Hotel El Tahrir</b> (Downtown, ~100–115 $/gece) — Tahrir'in dibinde, İslami Kahire'ye ve Kale'ye 15–20 dk. Kültür programı için en dengeli seçim.</p>
-        <p class="ul-not"><b>Alternatifler:</b> Zamalek'te <b>Novotel El Borg</b> (~85 $, sakin ada, Nil kıyısı) daha uygun fiyatlı; piramit manzarası isterseniz Gize'de <b>Marvel Stone</b> (~50–70 $) veya <b>Great Pyramid Inn</b> (~40–60 $) — çatı terasından piramitler, ama çevre kaotik ve merkeze uzak.</p>
+        <div class="photo"><img class="wm" data-f='["CairoSteigenbergerHotelElTahrir.jpg","Tahrir Square, Cairo, Egypt 1.jpg"]' data-w="800" alt="Steigenberger Hotel El Tahrir, Kahire"><span class="cap">Steigenberger El Tahrir, Downtown</span></div>
+        <h3>Kahire · 21–23 Kasım (2 gece)</h3>
+        <p><a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Steigenberger+Hotel+El+Tahrir+Cairo" target="_blank" rel="noopener"><b>Steigenberger Hotel El Tahrir</b></a> (Downtown, ~100–115 $/gece) — Tahrir'in dibinde, İslami Kahire'ye ve Kale'ye 15–20 dk. Kültür programı için en dengeli seçim.</p>
+        <p class="ul-not"><b>Alternatifler:</b> Zamalek'te <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Novotel+Cairo+El+Borg+Zamalek" target="_blank" rel="noopener"><b>Novotel El Borg</b></a> (~85 $, sakin ada, Nil kıyısı) daha uygun fiyatlı; piramit manzarası isterseniz Gize'de <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Marvel+Stone+Hotel+Giza" target="_blank" rel="noopener"><b>Marvel Stone</b></a> (~50–70 $) veya <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Great+Pyramid+Inn+Giza" target="_blank" rel="noopener"><b>Great Pyramid Inn</b></a> (~40–60 $) — çatı terasından piramitler, ama çevre kaotik ve merkeze uzak.</p>
       </article>
 
       <article class="ul-kart">
-        <h3>Luxor · 26–28 Ekim (2 gece)</h3>
-        <p><b>Nefertiti Hotel</b> (~35–55 $/gece) — Luxor Tapınağı'na yürüme mesafesi, tapınak manzaralı ünlü çatı restoranı, övülen aile işletmesi. Batı yakası feribotu birkaç dakika. Odalar basit ama konum ve karakter birinci sınıf.</p>
-        <p class="ul-not"><b>Yükseltmeler:</b> <b>Steigenberger Nile Palace</b> (~60–120 $, Nil kıyısı 5*, havuz) veya 1886'dan kalma <b>Sofitel Winter Palace</b> (~250 $+, Agatha Christie'nin oteli, tapınağa 500 m) — tarihi deneyim bütçeye değerse.</p>
+        <div class="photo"><img class="wm" data-f='["Luxor Winter Palace R01.jpg","Winter Palace Luxor front.jpg","Luxor Temple at night, Luxor, Egypt.jpg"]' data-w="800" alt="Sofitel Winter Palace, Luxor"><span class="cap">Winter Palace — Luxor Kornişi</span></div>
+        <h3>Luxor · 23–25 Kasım (2 gece)</h3>
+        <p><a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Nefertiti+Hotel+Luxor" target="_blank" rel="noopener"><b>Nefertiti Hotel</b></a> (~35–55 $/gece) — Luxor Tapınağı'na yürüme mesafesi, tapınak manzaralı ünlü çatı restoranı, övülen aile işletmesi. Batı yakası feribotu birkaç dakika. Odalar basit ama konum ve karakter birinci sınıf.</p>
+        <p class="ul-not"><b>Yükseltmeler:</b> <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Steigenberger+Nile+Palace+Luxor" target="_blank" rel="noopener"><b>Steigenberger Nile Palace</b></a> (~60–120 $, Nil kıyısı 5*, havuz) veya 1886'dan kalma <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Sofitel+Winter+Palace+Luxor" target="_blank" rel="noopener"><b>Sofitel Winter Palace</b></a> (~250 $+, Agatha Christie'nin oteli, tapınağa 500 m) — tarihi deneyim bütçeye değerse.</p>
       </article>
 
       <article class="ul-kart">
-        <h3>Şarm El-Şeyh · 28–30 Ekim (2 gece)</h3>
-        <p><b>Sultan Gardens Resort</b> (Sharks Bay, ~150–250 $/gece her şey dahil) — iyi house reef, korunaklı koy, havalimanına 10–15 dk; 30 Ekim uçuşu için ideal konum. <b>Reef Oasis Blue Bay</b> (Ras Umm el Sid, ~120–200 $ AI) iki house reef'iyle şnorkelde en güçlüsü ama havalimanına 25–30 dk.</p>
-        <p class="ul-not"><b>Uçlar:</b> Sessiz üst segment için <b>Rixos Adults Only</b> (Nabq, ~230 $+ ultra AI, resif zayıf); bütçe için Naama'da <b>Falcon Naama Star</b> (~20–50 $, plajsız şehir oteli).</p>
+        <div class="photo"><img class="wm" data-f='["Sharm el Sheikh, Sultan Gardens Resort - panoramio.jpg","Sharm el Sheikh, Sultan Gardens Resort - panoramio (2).jpg","SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG"]' data-w="800" alt="Sultan Gardens Resort, Sharks Bay"><span class="cap">Sultan Gardens Resort, Sharks Bay</span></div>
+        <h3>Şarm El-Şeyh · 25–27 Kasım (2 gece)</h3>
+        <p><a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Sultan+Gardens+Resort+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Sultan Gardens Resort</b></a> (Sharks Bay, ~150–250 $/gece her şey dahil) — iyi house reef, korunaklı koy, havalimanına 10–15 dk; 27 Kasım uçuşu için ideal konum. <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Reef+Oasis+Blue+Bay+Resort+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Reef Oasis Blue Bay</b></a> (Ras Umm el Sid, ~120–200 $ AI) iki house reef'iyle şnorkelde en güçlüsü ama havalimanına 25–30 dk.</p>
+        <p class="ul-not"><b>Uçlar:</b> Sessiz üst segment için <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Rixos+Sharm+El+Sheikh+Nabq+Bay" target="_blank" rel="noopener"><b>Rixos Adults Only</b></a> (Nabq, ~230 $+ ultra AI, resif zayıf); bütçe için Naama'da <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Falcon+Naama+Star+Hotel+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Falcon Naama Star</b></a> (~20–50 $, plajsız şehir oteli).</p>
       </article>
     </div>
   </div>
@@ -525,7 +535,7 @@
 
       <article class="ul-kart">
         <h3>Şehirler arası · uçak</h3>
-        <p>Kahire–Luxor uçakla 1 saat (EgyptAir/Nile Air, günde birkaç sefer). Luxor–Şarm bacağında Air Cairo'nun <b>direkt seferi pazartesi, çarşamba ve cumartesi</b> uçuyor — plandaki 28 Ekim çarşamba. Direkt kaçarsa Kahire aktarması toplam 4–6 saate ve yaklaşık iki katı fiyata çıkıyor.</p>
+        <p>Kahire–Luxor uçakla 1 saat (EgyptAir/Nile Air, günde birkaç sefer). Luxor–Şarm bacağında Air Cairo'nun <b>direkt seferi pazartesi, çarşamba ve cumartesi</b> uçuyor — plandaki 25 Kasım çarşamba. Direkt kaçarsa Kahire aktarması toplam 4–6 saate ve yaklaşık iki katı fiyata çıkıyor.</p>
         <p class="ul-not"><b>Önce bu bileti alın:</b> Bütün plan çarşamba direktine kurulu; sefer saatini doğrulamadan diğer biletleri almayın.</p>
       </article>
 
@@ -566,9 +576,9 @@
     </div>
 
     <ul class="hz-liste">
-      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat"><span class="yazi"><b>Önce Luxor–Şarm direktini al</b><span>Air Cairo, 28 Ekim çarşamba. Plan bu sefere kurulu — önce bunu, sonra diğerlerini alın.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="ucak"><span class="yazi"><b>Dış hat biletlerini al — iki tek yön</b><span>İstanbul→Kahire (24 Eki) ve Şarm→İstanbul (30 Eki). Bayram haftası, hızlı dolar.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat2"><span class="yazi"><b>Kahire–Luxor iç hattını al</b><span>26 Ekim öğlen seferi — sabah Sakkara'ya yetecek şekilde. EgyptAir veya Nile Air.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat"><span class="yazi"><b>Önce Luxor–Şarm direktini al</b><span>Air Cairo, 25 Kasım çarşamba. Plan bu sefere kurulu — önce bunu, sonra diğerlerini alın.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="ucak"><span class="yazi"><b>Dış hat biletlerini al — iki tek yön</b><span>İstanbul→Kahire (21 Kas) ve Şarm→İstanbul (27 Kas). Bayram haftası, hızlı dolar.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat2"><span class="yazi"><b>Kahire–Luxor iç hattını al</b><span>23 Kasım öğlen seferi — sabah Sakkara'ya yetecek şekilde. EgyptAir veya Nile Air.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="gem"><span class="yazi"><b>GEM biletini online al</b><span>visit-gem.com — müzede gişe satışı yok.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="otel"><span class="yazi"><b>Otelleri ücretsiz iptalli rezerve et</b><span>Kahire 2, Luxor 2, Şarm 2 gece — öneriler Konaklama bölümünde.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="harc"><span class="yazi"><b>Çıkış harcını dijital öde</b><span>Kişi başı 1.250 ₺. Havalimanında pul satışı kalktı.</span></span></label></li>
@@ -577,7 +587,7 @@
       <li class="hz-oge"><label><input type="checkbox" data-hz="vize"><span class="yazi"><b>Vize için 50 $ ayır</b><span>Kapıda alınıyor, kişi başı 25 $. Kartınız da yanınızda olsun.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="sigorta"><span class="yazi"><b>Seyahat sigortası yaptır</b><span>Çoğu kredi kartı paketinde hazır geliyor, önce onu kontrol edin.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="tur"><span class="yazi"><b>Batı yakası turunu ayır</b><span>GetYourGuide veya Viator üzerinden, ücretsiz iptalli tarifeyle.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="rasmo"><span class="yazi"><b>Ras Mohammed teknesini ayır</b><span>29 Ekim tam gün. Park (~5 $) + marina (~10 $) kişi başı, nakit — pakete dahil mi sorun.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="rasmo"><span class="yazi"><b>Ras Mohammed teknesini ayır</b><span>26 Kasım tam gün. Park (~5 $) + marina (~10 $) kişi başı, nakit — pakete dahil mi sorun.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="deniz"><span class="yazi"><b>Mayo, deniz gözlüğü, deniz ayakkabısı</b><span>Maske-şnorkel teknede veriliyor ama kendi gözlüğünüz hijyenik; mercanda ayakkabı işe yarar.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="sal"><span class="yazi"><b>Cami ziyaretleri için şal / uzun kollu</b><span>Omuz ve diz kapalı olmalı; ince bir şal pratik çözüm.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="gunes"><span class="yazi"><b>Şapka, güneş kremi, matara</b><span>Krallar Vadisi kayalık bir çanak — öğleden sonra fırına döner.</span></span></label></li>
@@ -593,8 +603,8 @@
       <h2>Dokuz Altın Kural</h2>
     </div>
     <div class="tips-grid">
-      <div class="tip" data-g="📅"><h4>Bayram haftası uyarısı</h4><p>24–30 Ekim, Cumhuriyet Bayramı dönemine denk geliyor — İstanbul bacakları hızlı dolar ve pahalanır. <b>Uçakları ilk iş olarak, hemen alın.</b></p></div>
-      <div class="tip" data-g="🛫"><h4>Çarşamba direktine kurulu plan</h4><p>Luxor→Şarm'ı Air Cairo <b>pzt/çrş/cmt</b> direkt uçuyor; 28 Ekim çarşamba. Önce bu bileti doğrulayıp alın — kaçarsa Kahire aktarması yarım gün ve iki kat para.</p></div>
+      <div class="tip" data-g="📅"><h4>Bayram haftası uyarısı</h4><p>21–27 Kasım, Cumhuriyet Bayramı dönemine denk geliyor — İstanbul bacakları hızlı dolar ve pahalanır. <b>Uçakları ilk iş olarak, hemen alın.</b></p></div>
+      <div class="tip" data-g="🛫"><h4>Çarşamba direktine kurulu plan</h4><p>Luxor→Şarm'ı Air Cairo <b>pzt/çrş/cmt</b> direkt uçuyor; 25 Kasım çarşamba. Önce bu bileti doğrulayıp alın — kaçarsa Kahire aktarması yarım gün ve iki kat para.</p></div>
       <div class="tip" data-g="🎫"><h4>GEM bileti önceden</h4><p>Büyük Mısır Müzesi'nde gişe satışı yok — bileti <b>visit-gem.com</b> üzerinden gitmeden alın.</p></div>
       <div class="tip" data-g="💳"><h4>Nakit geçmiyor — bir istisnayla</h4><p>2026'dan itibaren Piramitler ve Karnak dahil ören girişleri <b>yalnızca kartla</b>. İstisna Şarm: Ras Mohammed park ve marina ücretleri <b>nakit</b> isteniyor.</p></div>
       <div class="tip" data-g="🕌"><h4>Cami adabı</h4><p>Omuz ve diz kapalı; kadınlar için ince bir şal pratik olur. Camilerin çoğu <b>ücretsiz</b> — İslami Kahire bütçe dostudur.</p></div>
@@ -619,7 +629,7 @@
   </div>
 </section>
 
-<footer>24–30 Ekim 2026 · Fiyatlar Ağustos 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) · Görseller: Wikimedia Commons (CC)</footer>
+<footer>21–27 Kasım 2026 · Fiyatlar Ağustos 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) · Görseller: Wikimedia Commons (CC)</footer>
 
 <script>
 (function(){
@@ -651,12 +661,12 @@
   (function(){
     var kutu = document.getElementById('countdown');
     if(!kutu) return;
-    var kalkis = new Date(2026, 9, 24);           // 24 Ekim 2026
+    var kalkis = new Date(2026, 9, 24);           // 21 Kasım 2026
     var donus  = new Date(2026, 9, 30, 23, 59);
     var bugun  = new Date(); bugun.setHours(0,0,0,0);
     var gun = Math.round((kalkis - bugun) / 86400000);
     var metin;
-    if(gun > 1)       metin = '<b>' + gun + ' gün</b> kaldı · 24 Ekim 2026';
+    if(gun > 1)       metin = '<b>' + gun + ' gün</b> kaldı · 21 Kasım 2026';
     else if(gun === 1) metin = '<b>Yarın</b> yola çıkıyorsunuz';
     else if(gun === 0) metin = '<b>Bugün</b> yola çıkıyorsunuz';
     else if(new Date() <= donus) metin = '<b>Gezi sürüyor</b> · iyi yolculuklar';

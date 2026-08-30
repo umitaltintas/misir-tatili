@@ -1,4 +1,4 @@
-# Kahire + Luxor + Şarm El-Şeyh — 24–30 Ekim 2026
+# Kahire + Luxor + Şarm El-Şeyh — 21–27 Kasım 2026
 
 İki kişilik, 6 gece 7 günlük Mısır gezisi planı: beş gün antik ve İslami miras,
 son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan zaman
@@ -18,7 +18,9 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
 - **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; toplam, paket
   turlarla fark ve giriş/kapanış özetleri anında yeniden hesaplanır
 - **Konaklama rehberi** — üç şehir için araştırılmış otel önerileri: gecelik fiyat
-  aralığı, konum gerekçesi ve artı/eksiler (Ağustos 2026 araştırması)
+  aralığı, konum gerekçesi ve artı/eksiler (Ağustos 2026 araştırması). Her kartın
+  başında şehrin otelinden bir Commons fotoğrafı, her otel adı da Google Maps'te
+  o oteli arayan bir bağlantı
 - **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
   Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
 - **Hazırlık listesi** — 15 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
