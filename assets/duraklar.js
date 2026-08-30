@@ -46,7 +46,7 @@ export const GUNLER = [
   {
     no: 6, tarih: "26 Kasım", gunAdi: "Perşembe", sehir: "Şarm El-Şeyh",
     baslik: "Ras Mohammed",
-    tema: "Cumhuriyet Bayramı'nı Kızıldeniz'de kutlayın",
+    tema: "Shark ve Yolanda: Kızıldeniz'de tam gün",
   },
   {
     no: 7, tarih: "27 Kasım", gunAdi: "Cuma", sehir: "Şarm El-Şeyh",
@@ -62,7 +62,7 @@ export const DURAKLAR = [
     ad: "İstanbul Havalimanı",
     alt: "Kalkış",
     konum: [28.7519, 41.2753],
-    aciklama: "Kahire'ye uçuş yaklaşık 2 saat 15 dakika. Dönüş Şarm El-Şeyh'ten olduğu için bileti tek yön alın — Cumhuriyet Bayramı haftası, erken davranın.",
+    aciklama: "Kahire'ye uçuş yaklaşık 2 saat 15 dakika. Dönüş Şarm El-Şeyh'ten olduğu için bileti tek yön alın — yüksek sezon, erken davranın.",
     kamera: { zoom: 9, pitch: 30, bearing: 20 },
   },
   {
@@ -286,7 +286,7 @@ export const DURAKLAR = [
     ad: "Ras Mohammed Milli Parkı",
     alt: "Tekne + şnorkel turu",
     konum: [34.2455, 27.7237],
-    aciklama: "Sina'nın ucunda, Kızıldeniz'in en ünlü resifleri: Shark ve Yolanda. Tam günlük tekne turu öğle yemeği dahil; ekim sonunda deniz hâlâ 26–27°C.",
+    aciklama: "Sina'nın ucunda, Kızıldeniz'in en ünlü resifleri: Shark ve Yolanda. Tam günlük tekne turu öğle yemeği dahil; kasım sonunda deniz hâlâ 25–26°C.",
     ipucu: "Turu otelden değil, ücretsiz iptalli olarak önceden ayırtın; maske-şnorkel tekneden veriliyor ama deniz ayakkabısı işe yarar.",
     etiket: "26 Kasım",
     kamera: { zoom: 13.5, pitch: 60, bearing: 20 },
@@ -296,7 +296,7 @@ export const DURAKLAR = [
     ad: "Sharm Old Market",
     alt: "Balık ızgarası akşamı",
     konum: [34.2997, 27.8595],
-    aciklama: "Şarm'ın eski çarşısı: baharatçılar, nargile kahveleri ve tezgâhtan seçilen balığın kilosuyla fiyatlandığı ızgaracılar. Bayram akşamı için resort dışına çıkın.",
+    aciklama: "Şarm'ın eski çarşısı: baharatçılar, nargile kahveleri ve tezgâhtan seçilen balığın kilosuyla fiyatlandığı ızgaracılar. Son akşam için resort dışına çıkın.",
     kamera: { zoom: 16, pitch: 50, bearing: 0 },
   },
 

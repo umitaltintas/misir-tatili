@@ -25,7 +25,7 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
   Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
 - **Hazırlık listesi** — 15 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
 - **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
-- **Dokuz altın kural** — bayram haftası bilet uyarısı, Luxor–Şarm direkt sefer günleri,
+- **Dokuz altın kural** — yüksek sezon bilet uyarısı, Luxor–Şarm direkt sefer günleri,
   GEM ön bileti, kartla ödeme zorunluluğu
 - Kalkışa kalan gün sayısı ve yazdırmaya uygun çıktı düzeni
 
@@ -114,7 +114,7 @@ python3 -m http.server 8000
 ## Notlar
 
 Fiyatlar Ağustos 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) ve bağlayıcı değildir.
-Otel fiyatları çift kişilik oda gecelik tahminleridir; Ekim yüksek sezonda artabilir.
+Otel fiyatları çift kişilik oda gecelik tahminleridir; Kasım yüksek sezonda artabilir.
 Luxor→Şarm direkt seferi (Air Cairo, pzt/çrş/cmt) plana temel alınmıştır — bilet
 almadan önce o haftaki sefer gün ve saatini doğrulayın.
 
