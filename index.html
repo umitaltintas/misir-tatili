@@ -204,6 +204,23 @@
   .yontem p{color:var(--muted);font-size:.83rem;margin-bottom:8px}
   .yontem p:last-child{margin-bottom:0}
   .yontem b{color:var(--ink)}
+  /* ——— Para ve nakit paneli ——— */
+  .para{margin-top:26px;background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;padding:26px 28px}
+  .para > h3{font-family:'Cinzel',serif;color:var(--lapis);font-size:1.05rem;letter-spacing:.04em;margin-bottom:6px}
+  .para > p.gir{color:var(--muted);font-size:.87rem;margin-bottom:20px}
+  .para-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .para-kutu h4{font-family:'Cinzel',serif;color:var(--nile);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .para-kutu ul{list-style:none}
+  .para-kutu li{font-size:.85rem;color:var(--muted);padding:5px 0;border-top:1px dashed #DCCFAF;display:flex;gap:10px}
+  .para-kutu li:first-child{border-top:0}
+  .para-kutu li b{color:var(--ink);flex:0 0 auto}
+  .para-kutu li .sag{margin-left:auto;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .cuzdan{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+  .cuzdan div{flex:1 1 140px;border-left:2px solid var(--gold);padding:2px 0 2px 12px}
+  .cuzdan b{display:block;font-family:'Cinzel',serif;color:var(--lapis);font-size:1.05rem}
+  .cuzdan span{font-size:.76rem;color:var(--muted)}
+  .para-uyari{margin-top:18px;padding:14px 16px;background:rgba(201,162,39,.1);border-left:2px solid var(--gold);border-radius:0 4px 4px 0;font-size:.84rem;color:var(--muted)}
+  .para-uyari b{color:var(--ink)}
   .otel-l{color:inherit;text-decoration:none;border-bottom:1px dotted var(--gold);transition:color .18s ease,border-color .18s ease}
   .otel-l b{color:var(--ink)}
   .otel-l::after{content:"↗";font-size:.68em;color:var(--gold);margin-left:3px;vertical-align:super}
@@ -257,7 +274,7 @@
     .budget,.close{background:#fff;color:#000}
     .stele{background:#fff;border-color:#999}
     .stele td,.stele th,.budget .sec-head h2,.stele tr.total td{color:#000;border-color:#ccc}
-    .day-card,.tip,.hz-oge,.ibadet-gun,.kible-kart{break-inside:avoid;box-shadow:none}
+    .day-card,.tip,.hz-oge,.ibadet-gun,.kible-kart,.para-kutu{break-inside:avoid;box-shadow:none}
     .vakit-tablo td,.vakit-tablo td small,.vakit-tablo td.gecis b{color:#000}
     section{padding:24px 0}
   }
@@ -592,7 +609,7 @@
         <tr data-min="240" data-max="400"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm otelini hesaba dahil et"></td><td>Şarm oteli — 2 gece her şey dahil<small>Sharks Bay / Ras Umm el Sid, house reef'li resort</small></td><td>240–400 $</td></tr>
         <tr data-min="170" data-max="200"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Ören yeri girişlerini hesaba dahil et"></td><td>Tüm girişler<small>Gize (700 EGP/kişi), GEM (35 $/kişi — 1 Kas 2026 zamlı), Sakkara, Sultan Hasan+Rifai, Karnak, Krallar Vadisi, Medinet Habu… Keops'un içi ayrı ve pahalı (1.500 EGP), bu tutara dahil değil</small></td><td>170–200 $</td></tr>
         <tr data-min="80" data-max="100"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Rehberli yarım günü hesaba dahil et"></td><td>Batı yakası rehberli yarım gün<small>İsteğe bağlı — kendi başınıza da gezebilirsiniz</small></td><td>80–100 $</td></tr>
-        <tr data-min="80" data-max="120"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Ras Mohammed turunu hesaba dahil et"></td><td>Ras Mohammed tekne turu + park ücretleri<small>Tam gün, öğle yemeği teknede; park ~5 $ + marina ~10 $/kişi nakit</small></td><td>80–120 $</td></tr>
+        <tr data-min="80" data-max="120"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Ras Mohammed turunu hesaba dahil et"></td><td>Ras Mohammed tekne turu + park ücretleri<small>Tam gün, öğle yemeği teknede; park + marina kişi başı <b>nakit</b> — park için 2026 kaynakları 5–15 $ arası veriyor, üst uçtan hesaplayın. Turların çoğu dahil ediyor, rezervasyonda sorun</small></td><td>80–120 $</td></tr>
         <tr data-min="150" data-max="220"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Yemekleri hesaba dahil et"></td><td>Yemekler — Kahire + Luxor + Şarm akşamları<small>Yerel lokantalarda ikiniz 10–15 $'a doyarsınız; Şarm'da otel her şey dahil. Oturmalı restoranlarda hesabın üstüne %12 servis + %14 vergi biniyor — menü fiyatını dörtte bir fazlasıyla okuyun</small></td><td>150–220 $</td></tr>
         <tr data-min="140" data-max="190"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şehir içi ulaşım ve fellukayı hesaba dahil et"></td><td>Şehir içi ulaşım + felluka + bahşişler + transferler<small>Uber Kahire'de çok ucuz; Şarm'da otel transferi ayarlatın</small></td><td>140–190 $</td></tr>
         <tr data-min="60" data-max="72"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Vizeyi hesaba dahil et"></td><td>Vize — kapıda<small>Mart 2026'da 25 $'dan <b>30 $/kişi</b>'ye çıktı; bankodan nakit 60 $, dijital QR ile kartla 72 $. Sina uyarısı: yalnız Şarm'a gelenlerin ücretsiz Sina pulu Luxor'dan gelen için geçerli değil, normal vize sizde zaten olacak</small></td><td>60–72 $</td></tr>
@@ -604,6 +621,71 @@
       <div class="bnote"><b>~117 bin ₺</b><span>Kralların İzinde paketi — piramitler, İslami Kahire ve Kızıldeniz yok</span></div>
       <div class="bnote"><b>~155 bin ₺</b><span>Kadim Rotalar paketi — Şarm yine yok</span></div>
       <div class="bnote"><b id="fark">25–60 bin ₺</b><span>pakete göre fark — üstelik bu planda 2 gün deniz dahil</span></div>
+    </div>
+    <div class="para">
+      <h3>Para ve Nakit</h3>
+      <p class="gir">Mısır lirası (EGP) Mart 2024 dalgalanmasından beri 47–52 bandında yatay: <b>1 $ ≈ 50 EGP</b> (Ağustos 2026). İşinize yarayacak kafa hesabı: <b>1 EGP ≈ 1 ₺</b> — Mısır fiyatlarını neredeyse birebir TL gibi okuyabilirsiniz. Kur seyahate kadar oynayabilir, gitmeden bakın.</p>
+
+      <div class="cuzdan">
+        <div><b>60 $</b><span>vize bankosu — nakit, tam para</span></div>
+        <div><b>250 $</b><span>EGP'ye bozdurulacak (≈ 12.500 EGP)</span></div>
+        <div><b>100 $</b><span>rezerv — kart çalışmazsa</span></div>
+        <div><b>≈ 430 $</b><span>2 kişi, 6 gece · nakit toplamı</span></div>
+      </div>
+
+      <div class="para-grid">
+        <div class="para-kutu">
+          <h4>Nakit şart</h4>
+          <ul>
+            <li><b>Vize bankosu</b><span class="sag">60 $</span></li>
+            <li><b>Taksi / InDrive</b><span class="sag">200–400 EGP/gün</span></li>
+            <li><b>Çarşı, yerel lokanta</b><span class="sag">—</span></li>
+            <li><b>Luxor feribotu</b><span class="sag">15–25 EGP</span></li>
+            <li><b>Ras Mohammed park + marina</b><span class="sag">nakit, kart yok</span></li>
+            <li><b>Bahşiş, tuvalet, ayakkabılık</b><span class="sag">bozuk para</span></li>
+          </ul>
+        </div>
+
+        <div class="para-kutu">
+          <h4>Kart zorunlu</h4>
+          <ul>
+            <li><b>Tüm ören ve müze girişleri</b><span class="sag">nakit geçmiyor</span></li>
+            <li><b>GEM</b><span class="sag">yalnız online</span></li>
+            <li><b>Oteller, marketler</b><span class="sag">—</span></li>
+          </ul>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:10px">Gize, Karnak, Luxor Tapınağı, Hatşepsut ve Krallar Vadisi dahil 110+ alan kartlı sisteme geçti. <b>Visa + Mastercard</b> götürün, ikisi farklı bankadan olsun; <b>Troy Mısır'da çalışmıyor</b>.</p>
+        </div>
+
+        <div class="para-kutu">
+          <h4>Günlük EGP · 2 kişi</h4>
+          <ul>
+            <li><b>Kahire</b><span class="sag">1.000–1.500</span></li>
+            <li><b>Luxor</b><span class="sag">1.000–1.800</span></li>
+            <li><b>Şarm (her şey dahil)</b><span class="sag">550–1.100</span></li>
+            <li><b>Ras Mohammed günü</b><span class="sag">+1.500–2.500</span></li>
+          </ul>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:10px">Luxor en nakit-yoğun şehir: uygulama taksi yok, bahşiş baskısı en yüksek.</p>
+        </div>
+
+        <div class="para-kutu">
+          <h4>Bahşiş · makul aralık</h4>
+          <ul>
+            <li><b>Oda temizliği</b><span class="sag">20–50 EGP/gece</span></li>
+            <li><b>Hamal</b><span class="sag">10–20 EGP/valiz</span></li>
+            <li><b>Restoran</b><span class="sag">servis üstüne %5–10</span></li>
+            <li><b>Tam gün şoför</b><span class="sag">100–200 EGP</span></li>
+            <li><b>Tuvalet, ayakkabılık</b><span class="sag">5–20 EGP</span></li>
+          </ul>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:10px">Dolarla değil <b>EGP</b> ile verin — 20 ve 50'lik notlar ideal. Bozdurma zahmeti olmadığı için yerel para daha makbul.</p>
+        </div>
+      </div>
+
+      <div class="para-uyari">
+        <b>Bozdurma sırası:</b> Havalimanında yalnızca <b>100–150 $</b> bozdurun (kur şehirden %3–5 kötü), gerisini şehirdeki banka ATM'sinden çekin — CIB, NBE, Banque Misr. Otel resepsiyonunda ve sokakta asla bozdurmayın. <b>Türkiye'den EGP almayın:</b> makas kötü, üstelik ülkeye en fazla 5.000 EGP sokulabiliyor.<br><br>
+        <b>ATM'de tek soru önemli:</b> "TRY mi EGP mi çekmek istersiniz?" diye sorduğunda <b>daima EGP</b> seçin. TL'yi seçerseniz kuru ATM sahibi belirler ve %3–7 kaybedersiniz. Aynı tuzak POS'ta da var.<br><br>
+        <b>Çarşıda döviz uzatmayın.</b> Satıcı "50 dolar" der, euro verirsiniz, kendi lehine kur uygular — kayıp %5–15. Han el-Halili'de her zaman EGP ile ödeyin. Yanınıza <b>temiz ve yeni seri</b> dolar alın: 2006 öncesi banknotları Mısır bankaları reddediyor, 1'likleri de döviz büroları almıyor (bahşiş için işe yarar, bozdurmaya değil).<br><br>
+        <b>21 Kasım cumartesi geliyorsunuz</b> — Mısır'da bankalar cuma ve cumartesi kapalı. Varış günü için havalimanı gişesi ya da ATM planlayın. Döviz bürosunda <b>pasaport</b> isteniyor; <b>fişleri saklayın</b>, artan EGP'yi geri bozdurmak için gerekiyor. En iyisi son gün elinizde 1.000–2.000 EGP'den fazla kalmasın: EGP'yi Türkiye'de bozduramazsınız.
+      </div>
     </div>
   </div>
 </section>
@@ -725,8 +807,9 @@
       <li class="hz-oge"><label><input type="checkbox" data-hz="sigorta"><span class="yazi"><b>Seyahat sigortası yaptır</b><span>Çoğu kredi kartı paketinde hazır geliyor, önce onu kontrol edin.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="tur"><span class="yazi"><b>Batı yakası turunu ayır</b><span>GetYourGuide veya Viator üzerinden, ücretsiz iptalli tarifeyle.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="cuma"><span class="yazi"><b>Cuma–uçuş çakışmasını çöz</b><span>27 Kasım cuma; hutbe ~12:00, uçuş 15:00. Otele en yakın caminin mesafesini ve hutbe saatini sordurun — kararı bilet alırken verin.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="rasmo"><span class="yazi"><b>Ras Mohammed teknesini ayır</b><span>26 Kasım tam gün. Park (~5 $) + marina (~10 $) kişi başı, nakit — pakete dahil mi sorun.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="rasmo"><span class="yazi"><b>Ras Mohammed teknesini ayır</b><span>26 Kasım tam gün. Park girişi + marina ücreti kişi başı, <b>nakit</b> — park için kaynaklar 5–15 $ arası veriyor, 15 $ üstünden hazırlanın. Turların çoğu bunu fiyata dahil ediyor: <b>rezervasyonda mutlaka sorun.</b></span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="ecza"><span class="yazi"><b>Mide ve ishal ilacı, ıslak mendil</b><span>Lokantalarda el yıkayacak lavabo çoğu zaman yok. Şişe suyu kuralına gitmeden alışın.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="doviz"><span class="yazi"><b>Temiz, yeni seri dolar çek</b><span>Bankadan "yeni banknot" isteyin — Mısır 2006 öncesi serileri reddediyor. 2 kişi 6 gece için ≈430 $ nakit. EGP'yi Türkiye'den almayın, ülkeye 5.000 EGP sınırı var.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="bozuk"><span class="yazi"><b>Bozuk para hazırla</b><span>1'lik dolar ve küçük EGP: bahşiş, tuvalet, camide ayakkabılık (5 EGP). Büyük banknot verirseniz para üstü geri gelmiyor.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="deniz"><span class="yazi"><b>Mayo, deniz gözlüğü, deniz ayakkabısı</b><span>Maske-şnorkel teknede veriliyor ama kendi gözlüğünüz hijyenik; mercanda ayakkabı işe yarar.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="sal"><span class="yazi"><b>Cami ziyaretleri için şal / uzun kollu</b><span>Omuz ve diz kapalı olmalı; ince bir şal pratik çözüm.</span></span></label></li>

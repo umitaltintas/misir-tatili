@@ -23,13 +23,17 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
   fark: camiler ikindiyi Şafiî ölçüsüyle ~45 dk önce, imsakı ~7 dk erken okur
 - **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; toplam, paket
   turlarla fark ve giriş/kapanış özetleri anında yeniden hesaplanır
+- **Para ve nakit paneli** — ne kadar nakit alınacağı (2 kişi ≈430 $), nerede
+  bozdurulacağı, hangi harcamanın nakit hangisinin kart olduğu, şehir bazında
+  günlük EGP ihtiyacı ve bahşiş aralıkları. ATM'de DCC tuzağı, çarşıda döviz
+  uzatmama kuralı ve varış günü bankaların kapalı olması ayrıca işaretli
 - **Konaklama rehberi** — üç şehir için araştırılmış otel önerileri: gecelik fiyat
   aralığı, konum gerekçesi ve artı/eksiler (Ağustos 2026 araştırması). Her kartın
   başında şehrin otelinden bir Commons fotoğrafı, her otel adı da Google Maps'te
   o oteli arayan bir bağlantı
 - **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
   Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
-- **Hazırlık listesi** — 18 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
+- **Hazırlık listesi** — 19 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
 - **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
 - **On iki altın kural** — yüksek sezon bilet uyarısı, Luxor–Şarm direkt sefer günleri,
   GEM ön bileti, ören girişlerinde kart zorunluluğu, şişe suyu kuralı, "bedava" tuzağı
