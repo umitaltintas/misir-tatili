@@ -387,7 +387,7 @@ a { color: inherit; }
 .durak {
   position: relative;
   display: grid; grid-template-columns: 58px 1fr;
-  gap: 16px; padding: 15px 0;
+  gap: 28px; padding: 15px 0;
   border-top: 1px solid var(--hairline);
   cursor: pointer;
   transition: opacity .28s ease;
@@ -478,7 +478,7 @@ a { color: inherit; }
 /* Boncuk: kategori renginde durak işareti, aynı zamanda "gezildi" düğmesi. */
 .boncuk {
   position: absolute; z-index: 2;
-  left: var(--ip-x); top: 17px; transform: translateX(-50%);
+  left: var(--ip-x); top: 11px; transform: translateX(-50%);
   width: 26px; height: 26px; padding: 0;
   display: grid; place-items: center;
   background: none; border: 0; cursor: pointer;
@@ -896,7 +896,7 @@ body.hepsi-acik .ozet-ad h3::after { display: none; }
 .durak:hover .ozet-ad h3::after { opacity: 1; }
 
 /* Geçiş şeridi tek satır: tür, süre, mesafe, ücret ve özet yan yana. */
-.gecis { padding: 7px 0 8px 24px; }
+.gecis { padding: 7px 0 8px 19px; }
 .gecis-ozet {
   font-size: .78rem; color: var(--dim); margin: 0;
 }
