@@ -156,3 +156,25 @@ dönemi, önerilen süre, UNESCO alanı.
 Ulaşım süreleri ve EGP tutarları da tahmindir. Mısır'da enflasyon yüksek seyrettiği
 için yerel para birimindeki rakamlar hızla eskiyor; taksi ve feribot ücretlerini
 gitmeden doğrulayın.
+
+## Araçlar
+
+`rota.html` ES modülü kullandığı için çift tıklayarak açılmıyor, sunucu ister.
+Yerelde bakarken:
+
+```bash
+node araclar/sunucu.mjs
+```
+
+Sıradan statik sunuculardan farkı, her yanıta `Cache-Control: no-store`
+koyması — tarayıcı eski CSS/JS'i önbellekten okuyup düzelttiğiniz şeyi hâlâ
+bozuk göstermiyor.
+
+`index.html` sunucu istemez; çift tıklayınca çevrimdışı açılır. Program
+listesini `assets/duraklar.js`'ten üretiyor:
+
+```bash
+node araclar/program-uret.mjs
+```
+
+Veriyi değiştirdikten sonra bunu çalıştırmayı unutursanız `--kontrol` uyarır.

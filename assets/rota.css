@@ -708,7 +708,10 @@ a { color: inherit; }
 
 @media (max-width: 560px) {
   :root { --ip-x: 52px; }
-  .durak { grid-template-columns: 46px 1fr; gap: 12px; }
+  /* İplik ekseni de sola kayar, yoksa 46+12=58px'lik başlık sütunu
+     boncuğun (57–75px) tam içine düşüyor. */
+  :root { --ip-x: 52px; }
+  .durak { grid-template-columns: 46px 1fr; gap: 26px; }
   .giris-olcu { gap: 18px; }
   .marka b { font-size: .92rem; }
   .gecis { padding-left: 16px; }
