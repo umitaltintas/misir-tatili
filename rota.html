@@ -4,16 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nil'den Kızıldeniz'e — Kahire + Luxor + Şarm rotası</title>
-<meta name="description" content="21–27 Kasım 2026 Mısır programının interaktif haritası ve zaman çizelgesi: her durak, saati ve konumuyla.">
+<meta name="description" content="21–27 Kasım 2026 Mısır programının gün gün zaman çizelgesi: her durak saati, süresi ve aralarındaki ulaşımla.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Cinzel:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link href="assets/vendor/maplibre/maplibre-gl.css" rel="stylesheet">
 <link href="assets/rota.css" rel="stylesheet">
 </head>
 <body>
-
-<a class="atla" href="#panel">Zaman çizelgesine geç</a>
 
 <header class="ust">
   <div class="ust-sira">
@@ -38,8 +35,8 @@
       <h1>Nil'den Kızıldeniz'e<br><em>Gün Gün Rota</em></h1>
       <p>
         Ekranda tek gün duruyor: o günün durakları saatiyle, aralarındaki
-        ulaşım da iki durağın arasında. Üstteki harita seçili durağa uçar —
-        nerede olduğunuzu göstermeye yeter, gerisini duraklara bırakır.
+        ulaşım da iki durağın arasında. Bir durağa dokununca açıklaması,
+        ipucu ve konum bağlantısı altında açılır.
       </p>
 
       <div class="giris-olcu">
@@ -93,8 +90,8 @@
       </div>
 
       <p class="uyari">
-        Konumlar harita üzerinde yaklaşık işaretlenmiştir; ören yerleri isabetli, restoran
-        ve çarşı noktaları ise doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi"
+        Duraklardaki konum bağlantıları yaklaşık işaretlenmiştir; ören yerleri isabetli,
+        restoran ve çarşı noktaları ise doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi"
         rozetli duraklar ana programda geçmiyor, gezi rotasına uyduğu için eklendi —
         gitmeden önce güncel adres ve çalışma saatlerini doğrulayın.
       </p>
@@ -103,31 +100,8 @@
 
   </div>
 
-  <div class="harita-sarmal">
-    <div id="harita" role="application" aria-label="Rota haritası"></div>
-
-    <div class="harita-arac">
-      <button class="arac" id="zemin-btn" type="button" aria-pressed="false" title="Zemini değiştir: uydu → gece → papirüs">UYDU</button>
-      <button class="arac" id="arazi-btn" type="button" aria-pressed="false" title="Yükseklik verisiyle araziyi kabartır">3D ARAZİ</button>
-    </div>
-
-    <p class="harita-durum" id="harita-durum" aria-live="polite"></p>
-
-    <div class="adimlar" role="group" aria-label="Durak gezintisi">
-      <button id="adim-geri" type="button" aria-label="Önceki durak">‹</button>
-      <span id="adim-sayac">—</span>
-      <button id="adim-ileri" type="button" aria-label="Sonraki durak">›</button>
-    </div>
-
-    <div class="perde" id="perde">
-      <div class="sonar"></div>
-      <p>KARO VERİSİ YÜKLENİYOR</p>
-    </div>
-  </div>
-
 </main>
 
-<dialog class="durak-modal" id="durak-modal" aria-labelledby="modal-baslik"></dialog>
 
 <script type="module" src="assets/rota.js"></script>
 </body>

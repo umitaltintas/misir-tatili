@@ -54,14 +54,6 @@ a { color: inherit; }
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-.atla {
-  position: absolute; left: 12px; top: -60px; z-index: 100;
-  background: var(--gold); color: var(--abyss);
-  padding: 10px 16px; font-weight: 600; border-radius: 3px;
-  transition: top .18s ease;
-}
-.atla:focus { top: 12px; }
-
 /* ————————————————————————————————— ÜST ŞERİT */
 
 .ust {
@@ -159,35 +151,6 @@ a { color: inherit; }
   max-width: 940px; margin: 0 auto;
 }
 
-/* ————————————————————————————————— HARİTA */
-
-.harita-sarmal {
-  order: -1;                       /* duraklardan önce, üstte */
-  position: sticky; top: var(--ust-h); z-index: 4;
-  height: 250px; margin: 0 26px 4px;
-  border: 1px solid var(--hairline); border-radius: 4px;
-  overflow: hidden;
-  background: var(--lapis-deep);
-}
-
-#harita { width: 100%; height: 100%; background: var(--lapis-deep); }
-
-.harita-arac {
-  position: absolute; z-index: 5; right: 14px; top: 14px;
-  display: flex; flex-direction: column; gap: 7px; align-items: flex-end;
-}
-.arac {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: .7rem; letter-spacing: .07em;
-  background: rgba(8, 13, 30, .82); color: var(--limestone);
-  border: 1px solid var(--hairline); border-radius: 3px;
-  padding: 7px 12px; cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: border-color .18s ease, color .18s ease;
-}
-.arac:hover { border-color: var(--sand); }
-.arac[aria-pressed="true"] { color: var(--gold); border-color: var(--gold); }
-
 .zemin-not {
   position: absolute; z-index: 6; right: 14px; top: 92px;
   max-width: 250px;
@@ -199,105 +162,15 @@ a { color: inherit; }
   transition: opacity .3s ease, transform .3s ease;
 }
 .zemin-not.gorunur { opacity: 1; transform: none; }
-
-.harita-durum {
-  position: absolute; z-index: 5; left: 14px; bottom: 30px;
-  font-family: "IBM Plex Mono", monospace; font-size: .68rem;
-  color: var(--dim); background: rgba(8, 13, 30, .78);
-  border: 1px solid var(--hairline); border-radius: 3px;
-  padding: 8px 12px; backdrop-filter: blur(8px);
-  max-width: 260px; line-height: 1.5;
-}
-.harita-durum b { color: var(--gold); font-weight: 500; }
-
-/* Adım pili: dokunmatikte klavye oklarının karşılığı + ilerleme hissi */
-.adimlar {
-  position: absolute; z-index: 5;
-  left: 50%; bottom: 14px; transform: translateX(-50%);
-  display: flex; align-items: center; gap: 2px;
-  background: rgba(8, 13, 30, .82);
-  border: 1px solid var(--hairline); border-radius: 999px;
-  padding: 3px; backdrop-filter: blur(8px);
-}
-.adimlar button {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: none; border: 0; cursor: pointer;
-  color: var(--sand); font-size: 1.05rem; line-height: 1;
-  display: grid; place-items: center;
-  transition: color .18s ease, background .18s ease;
-}
-.adimlar button:hover:not(:disabled) { background: var(--lapis); color: var(--limestone); }
-.adimlar button:disabled { opacity: .3; cursor: default; }
 #adim-sayac {
   font-family: "IBM Plex Mono", monospace;
   font-size: .7rem; letter-spacing: .05em; color: var(--gold);
   min-width: 46px; text-align: center;
 }
-
-/* Yükleme / hata perdesi */
-
-.perde {
-  position: absolute; inset: 0; z-index: 8;
-  display: grid; place-content: center; gap: 14px;
-  text-align: center; padding: 32px;
-  background: var(--lapis-deep);
-  transition: opacity .5s ease;
-}
-.perde[hidden] { display: none; }
-.perde.cikiyor { opacity: 0; pointer-events: none; }
-.perde p {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: .76rem; letter-spacing: .1em; color: var(--dim);
-  max-width: 44ch; margin: 0 auto; line-height: 1.7;
-}
-.perde .hata-baslik {
-  font-family: "Cinzel", serif; font-size: 1.05rem;
-  letter-spacing: .1em; color: var(--gold);
-}
-.perde .sonar {
-  width: 46px; height: 46px; margin: 0 auto;
-  border: 1px solid var(--gold); border-radius: 50%;
-  animation: sonar 1.9s ease-out infinite;
-}
 @keyframes sonar {
   0%   { transform: scale(.35); opacity: 1; }
   100% { transform: scale(1);   opacity: 0; }
 }
-
-/* Marker */
-
-.isaret {
-  width: 16px; height: 16px; border-radius: 50%;
-  background: var(--m-renk, var(--gold));
-  border: 2px solid rgba(8, 13, 30, .85);
-  cursor: pointer;
-  transition: transform .22s cubic-bezier(.2, .8, .3, 1), box-shadow .22s ease;
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--m-renk, var(--gold)) 42%, transparent);
-}
-.isaret:hover { transform: scale(1.45); }
-.isaret.etkin {
-  transform: scale(1.75);
-  box-shadow: 0 0 0 9px color-mix(in srgb, var(--m-renk, var(--gold)) 20%, transparent);
-}
-.isaret.soluk { opacity: .2; }
-.isaret.kapali { display: none; }
-.isaret.gidildi { background: color-mix(in srgb, var(--m-renk, var(--gold)) 35%, var(--abyss)); }
-
-.maplibregl-popup-content {
-  background: var(--lapis-deep); color: var(--limestone);
-  border: 1px solid var(--hairline); border-radius: 4px;
-  padding: 10px 13px; font-family: "Archivo", sans-serif; font-size: .8rem;
-}
-.maplibregl-popup-content b {
-  display: block; font-family: "Cinzel", serif;
-  letter-spacing: .06em; color: var(--gold); margin-bottom: 2px;
-}
-.maplibregl-popup-tip { border-top-color: var(--lapis-deep) !important; }
-.maplibregl-ctrl-attrib {
-  background: rgba(8, 13, 30, .8) !important;
-  font-size: 10px;
-}
-.maplibregl-ctrl-attrib a { color: var(--dim) !important; }
 
 /* ————————————————————————————————— PANEL + NİLOMETRE */
 
@@ -354,8 +227,7 @@ a { color: inherit; }
   scroll-margin-top: calc(var(--ust-h) + 8px);
 }
 
-/* Tek gün modunda yapışkan olmasına gerek yok: sayfada zaten tek gün var.
-   Yapışkanken z-index 20 ile haritanın (z-index 4) üstüne biniyordu. */
+/* Tek gün modunda yapışkan olmasına gerek yok: sayfada zaten tek gün var. */
 .gun-basi {
   position: static;
   padding: 16px 0 12px;
@@ -438,14 +310,6 @@ a { color: inherit; }
 .kunye-ayrac { opacity: .45; }
 .kunye .k-sure { color: var(--faience); }
 
-/* Harita balonu */
-.balon { display: block; max-width: 220px; }
-.balon img {
-  width: 100%; height: 96px; object-fit: cover; display: block;
-  border-radius: 3px; margin-bottom: 8px;
-}
-.balon span { display: block; font-size: .76rem; color: var(--dim); margin-top: 2px; }
-
 .durak .ipucu {
   display: block; margin-top: 8px; padding-left: 11px;
   border-left: 2px solid var(--faience);
@@ -466,7 +330,7 @@ a { color: inherit; }
 
 /* ————————————————————————————————— YOL İPLİĞİ */
 
-/* Zaman çizelgesi, haritadaki rotanın kendisi: kartların solundan kesintisiz
+/* Yol ipliği: kartların solundan kesintisiz
    bir hat iner. Duraklar boncuk, geçişler ulaşım türünün renginde segment. */
 .durak::after {
   content: ""; position: absolute;
@@ -513,7 +377,7 @@ a { color: inherit; }
   padding: 9px 0 10px 24px;
   border-left: 2px solid color-mix(in srgb, var(--g-renk, var(--dim)) 55%, transparent);
 }
-/* Yürünen bacaklar haritadaki gibi noktalı */
+/* Yürünen bacaklar noktalı çizgiyle */
 .gecis[data-tur="yuruyus"] { border-left-style: dashed; }
 .gun-basi-gecis { margin-top: 6px; }
 
@@ -558,81 +422,6 @@ a { color: inherit; }
 .durak.etkin::before { opacity: 1; transform: scaleY(1); }
 .durak.etkin h3 { color: var(--gold); }
 .durak.suzuldu { opacity: .22; }
-
-/* ————————————————————————————————— DURAK MODALİ */
-
-.durak-modal {
-  width: min(430px, calc(100vw - 32px));
-  max-height: min(82vh, 640px);
-  margin: auto; padding: 0;
-  background: var(--lapis-deep); color: var(--limestone);
-  border: 1px solid var(--hairline); border-radius: 6px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
-  overflow: auto;
-}
-.durak-modal[open] { animation: modal-gir .25s ease; }
-@keyframes modal-gir {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: none; }
-}
-.durak-modal::backdrop {
-  background: rgba(8, 13, 30, .72);
-  backdrop-filter: blur(4px);
-}
-
-.modal-kapat {
-  position: absolute; top: 10px; right: 10px; z-index: 2;
-  width: 32px; height: 32px; border-radius: 50%;
-  background: rgba(8, 13, 30, .72); color: var(--limestone);
-  border: 1px solid var(--hairline); cursor: pointer;
-  font-size: 1.05rem; line-height: 1;
-  transition: border-color .18s ease;
-}
-.modal-kapat:hover { border-color: var(--sand); }
-
-.modal-foto {
-  border-bottom: 1px solid var(--hairline);
-  background: var(--lapis); line-height: 0;
-}
-.modal-foto:empty { display: none; }
-.modal-foto img { width: 100%; height: 190px; object-fit: cover; }
-
-.modal-govde { padding: 18px 20px 20px; }
-.modal-ust {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--d-renk, var(--gold));
-}
-.durak-modal h3 {
-  font-family: "Cinzel", serif; font-weight: 600;
-  font-size: 1.2rem; letter-spacing: .02em;
-  color: var(--limestone); margin-top: 4px;
-}
-.durak-modal .alt { font-size: .84rem; color: var(--sand); opacity: .85; margin-top: 2px; }
-.durak-modal .metin { font-size: .86rem; color: var(--dim); margin-top: 10px; }
-.durak-modal .ipucu {
-  display: block; margin-top: 10px; padding-left: 11px;
-  border-left: 2px solid var(--faience);
-  font-size: .81rem; color: var(--sand); opacity: .9;
-}
-.durak-modal .rozetler { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
-
-.modal-eylemler { display: flex; gap: 8px; margin-top: 16px; }
-.modal-eylem {
-  flex: 1;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: .68rem; letter-spacing: .06em;
-  background: none; border: 1px solid var(--hairline); border-radius: 3px;
-  color: var(--limestone); padding: 9px 8px; cursor: pointer;
-  text-align: center; text-decoration: none;
-  transition: border-color .18s ease, color .18s ease, background .18s ease;
-}
-.modal-eylem:hover { border-color: var(--sand); }
-.modal-eylem.secili {
-  color: var(--abyss);
-  background: var(--d-renk, var(--gold));
-  border-color: var(--d-renk, var(--gold));
-}
 
 /* ————————————————————————————————— KAPANIŞ */
 
@@ -680,14 +469,11 @@ a { color: inherit; }
 
 @media (max-width: 1000px) {
   :root { --ust-h: 150px; }
-
-  .harita-sarmal { height: 190px; margin: 0 14px 4px; }
   .panel { padding: 0 16px; }
   .gun-nav { margin: 0 16px 16px; gap: 8px; }
   .gun-nav button { padding: 9px 8px; font-size: .74rem; }
   .giris { padding-top: 42px; }
   .durak::before { left: -10px; }
-  .harita-durum { display: none; }
 
   /* Şerit üç satıra sığsın: marka + çıkış, günler, süzgeçler. */
   .ust-sira { gap: 10px; padding: 10px 16px; }
@@ -799,7 +585,7 @@ a { color: inherit; }
 @media print {
   .ipucu-kat > summary, .gecis-kat > summary { display: none; }
   .gun-blok { display: block !important; }
-  .gun-nav, .harita-sarmal { display: none; }
+  .gun-nav { display: none; }
 }
 
 /* Dar ekranda gün düğmesinde şehir adı gizlenir; numara yeter. */
@@ -825,12 +611,6 @@ a { color: inherit; }
 .rozet { font-size: .6rem; padding: 1px 6px; }
 .durak .rozetler { margin-top: 8px; }
 
-/* Harita 250 px'e inince üstündeki durum kutusu alanın üçte birini
-   kaplıyordu; etkin kart zaten vurgulu, bilgi orada. */
-.harita-durum { display: none; }
-
-.adimlar { transform: scale(.88); transform-origin: bottom center; }
-
 /* Giriş bir ekran yer kaplamasın: sayfa hızlı bakılacak bir referans. */
 .giris { padding: 40px 0 30px; }
 .giris h1 { margin-bottom: 10px; }
@@ -841,27 +621,14 @@ a { color: inherit; }
   .durak-foto { height: 150px; }
 }
 
-/* ————————————————————————————————— YAPIŞKAN ALAN PAYI
-   Üst şerit (113px) ve harita üst üste binince ekranın tepesinde sabit bir
-   bant oluşuyor. Harita kısaldı ve kartlara pay verildi ki durağa
-   atlandığında başlık bandın altında kalmasın. */
-
-.harita-sarmal { height: 180px; }
-
 .durak, .gun-basi, .gun-blok {
   scroll-margin-top: calc(var(--ust-h) + 200px);
 }
 
 @media (max-width: 1000px) {
-  .harita-sarmal { height: 150px; }
   .durak, .gun-basi, .gun-blok { scroll-margin-top: calc(var(--ust-h) + 168px); }
 }
 
-/* Kısa ekranda harita daha da küçülsün, yoksa okunacak yer kalmıyor. */
-@media (max-height: 720px) {
-  .harita-sarmal { height: 130px; }
-  .durak, .gun-basi, .gun-blok { scroll-margin-top: calc(var(--ust-h) + 148px); }
-}
 
 /* ————————————————————————————————— ÖZET SATIRI + AÇILAN AYRINTI
    Gezi listesi önce taranabilir olmalı: her durak tek satırlık bir özet,
@@ -942,3 +709,13 @@ body.hepsi-acik .ozet-ad h3::after { display: none; }
 @media (max-width: 620px) {
   .ozet-sure { margin-left: 0; }
 }
+
+/* Gömülü harita yerine durak başına konum bağlantısı. */
+.konum-bag {
+  display: inline-block; margin-top: 10px;
+  font-size: .74rem; letter-spacing: .04em;
+  color: var(--faience); text-decoration: none;
+  border-bottom: 1px dotted currentColor; padding-bottom: 1px;
+  transition: color .2s ease;
+}
+.konum-bag:hover { color: var(--gold); }

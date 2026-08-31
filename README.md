@@ -9,7 +9,7 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
 | Sayfa | Adres |
 |---|---|
 | Programın tamamı — gün gün plan, bütçe tablosu, konaklama, ipuçları | [/](https://umitaltintas.github.io/misir-tatili/) |
-| Nil'den Kızıldeniz'e — interaktif harita ve zaman çizelgesi | [/rota.html](https://umitaltintas.github.io/misir-tatili/rota.html) |
+| Nil'den Kızıldeniz'e — gün gün zaman çizelgesi | [/rota.html](https://umitaltintas.github.io/misir-tatili/rota.html) |
 
 ### Programın tamamı (`index.html`)
 
@@ -46,13 +46,14 @@ alternatif denenir.
 
 ### Nil'den Kızıldeniz'e (`rota.html`)
 
-29 durağın tamamı saatiyle, kategorisiyle ve harita üzerindeki yeriyle.
+32 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
+durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
 
 - **Görsel ve künye** — 24 mekân için Wikimedia Commons fotoğrafı, dönem bilgisi,
   önerilen süre ve UNESCO alanı. Görsel yüklenemezse çerçeve iz bırakmadan kalkar.
 - **Duraklar arası ulaşım** — her geçiş için araç türü, süre, ücret ve dikkat notu:
   hangi noktada Uber çalışır, nerede şoförü bekletmek gerekir, feribot mu köprü mü.
-  Yürünen bacaklar haritada noktalı çizgiyle ayrılır ve **ölçülmüş mesafe** taşır:
+  Yürünen bacaklar noktalı çizgiyle ayrılır ve **ölçülmüş mesafe** taşır:
   OpenStreetMap yol ağı üzerinden yaya profiliyle (Valhalla, BRouter ile çapraz
   kontrollü) — kuş uçuşu değil, gerçek yürüme yolu. Hafta boyunca yürünen toplam
   8,7 km.
@@ -61,27 +62,14 @@ alternatif denenir.
 - **Gezi modu** — boncuğa dokununca durak "gezildi" işaretlenir (`localStorage`);
   günün tüm durakları bitince gün çipine ✓ düşer. Gezi haftasında sayfa, bugünün
   ilk gezilmemiş durağına açılır.
-- **Adım pili** — haritanın altındaki ‹ n/27 › denetimiyle dokunmatikte de durak
-  durak gezilir.
-- **Durak modali** — haritadaki işarete tıklayınca fotoğraf, künye, açıklama ve
-  ipucuyla ayrıntı penceresi açılır; "gezildi" işareti buradan da atılabilir.
+- **Özet satırı, istendiğinde ayrıntı** — her durak tek satır: saat, ad, alt
+  başlık ve önerilen süre. Dokununca açıklama, fotoğraf, künye, ipucu ve konum
+  bağlantısı altında açılır. Günün tamamını okumak isteyenler için *Hepsini aç*.
 - **Google Maps aktarımı** — kapanıştaki düğme rotayı KML indirir
   ([My Maps](https://mymaps.google.com)'e içe aktarınca telefonda *Kayıtlı → Haritalar*
   altında gün gün klasörlü açılır). Gün başlıkları günün karayolu kesiti için yol
-  tarifi bağlantısı taşır, modaldeki *Google Maps ↗* tek durağı iğneyle açar.
-- **Sakin kamera** — kaydırma durulana dek kamera bekler; komşu duraklara kısa
-  geçiş (`easeTo`), şehirler arasında gerçek uçuş (`flyTo`).
-
-- **Kaydırdıkça harita güneye iner** — sayfanın dikey ekseni gerçek enlemi izler,
-  Kahire 30.1°K'den Luxor 25.7°K'ye; son günlerde Sina'nın ucuna, Şarm'a (27.9°K)
-  sıçrar. Soldaki *nilometre* o anki enlemi gösterir.
-- **Her durağın kendi kamera açısı var** — Gize'ye güneybatıdan, Hatşepsut'a
-  kayalığın üstünden bakılır.
+  tarifi bağlantısı taşır; her durakta *Haritada aç ↗* o noktayı iğneyle açar.
 - **Katman süzgeçleri** — antik miras, İslami Kahire, müze, sofra, deneyim, Kızıldeniz, ulaşım
-- **Üç zemin** — uydu (raster), gece ve papirüs (vektör). Vektör zeminler sayfanın
-  paletine göre çalışma anında yeniden renklendirilir; yüksek yakınlaştırmada
-  binalar kabarır. Vektör servisi yanıt vermezse harita kendiliğinden uyduya döner.
-- **3D arazi** — yükseklik verisiyle kabartma (Krallar Vadisi'nde belirgin)
 - Klavyeyle gezinme (`←` `→`), durak bazlı derin bağlantı (`#durak-karnak`)
 
 ## Teknik
@@ -91,40 +79,23 @@ Derleme adımı yok — dosyalar olduğu gibi yayınlanıyor.
 ```
 bloglar/                Planın karşılaştırıldığı sekiz gezi yazısı (ham kaynak)
 index.html              Programın tamamı (kendi içinde bağımsız)
-rota.html               İnteraktif harita + zaman çizelgesi
-assets/duraklar.js      Rota verisi: koordinat, saat, kategori, kamera
+rota.html               Gün gün zaman çizelgesi
+assets/duraklar.js      Rota verisi: koordinat, saat, kategori, açıklama
 assets/baglantilar.js   Duraklar arası ulaşım: tür, süre, ücret, uyarılar
 assets/gezi-modu.js     "Gezildi" işaretleri (localStorage) ve gezi haftası yardımcıları
 assets/disari-aktar.js  Google Maps aktarımı: KML üretimi ve yol tarifi URL'leri
 assets/mekan-bilgi.js   Görsel dosya adları ve künye (dönem, süre, UNESCO)
-assets/zeminler.js      Harita zeminleri ve palet renklendirmesi
-assets/rota.js          Harita, scroll senkronu, süzgeçler
+assets/rota.js          Gün görünümü, açılır ayrıntı, süzgeçler
 assets/rota.css         Tasarım katmanı
-assets/vendor/maplibre  MapLibre GL JS 6.1.0 (BSD-3-Clause, repoda sabit)
 ```
-
-Vektör zeminler katmanları kaynak adına göre değil `source-layer` değerine göre
-eşleştirir (OpenMapTiles şeması), böylece taban stil değişse de renklendirme
-çalışmaya devam eder.
-
-MapLibre CDN yerine repoda tutuluyor: sürüm sabit kalıyor ve web worker
-same-origin çalıştığı için CORS sorunu çıkmıyor.
 
 Yerelde çalıştırmak için bir HTTP sunucusu gerekir (ES modülleri `file://`
 üzerinden yüklenmez):
 
 ```sh
-python3 -m http.server 8000
+node araclar/sunucu.mjs
 ```
 
-### Harita veri kaynakları
-
-| Katman | Kaynak |
-|---|---|
-| Uydu | Esri World Imagery (Esri, Maxar, Earthstar Geographics) |
-| Uydu etiketleri | CARTO, © OpenStreetMap katkıcıları |
-| Vektör karolar (gece / papirüs) | OpenFreeMap, © OpenStreetMap katkıcıları — API anahtarı gerektirmez |
-| Yükseklik (3D) | AWS Terrain Tiles (terrarium) |
 
 ## Kaynaklar
 
@@ -143,7 +114,7 @@ Otel fiyatları çift kişilik oda gecelik tahminleridir; Kasım yüksek sezonda
 Luxor→Şarm direkt seferi (Air Cairo, pzt/çrş/cmt) plana temel alınmıştır — bilet
 almadan önce o haftaki sefer gün ve saatini doğrulayın.
 
-Harita konumları yaklaşıktır: ören yerleri isabetli, restoran ve çarşı noktaları
+Konum bağlantıları yaklaşıktır: ören yerleri isabetli, restoran ve çarşı noktaları
 doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi" rozetli duraklar
 ana programda geçmez, rotaya uyduğu için eklenmiştir — gitmeden önce güncel adres
 ve çalışma saatlerini doğrulayın.
