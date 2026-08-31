@@ -33,22 +33,13 @@
 
   <div class="panel">
 
-    <aside class="nilometre" aria-hidden="true">
-      <span class="nil-yon">KUZEY</span>
-      <div class="nil-hat" id="nil-hat">
-        <div class="nil-imlec" id="nil-imlec"></div>
-      </div>
-      <span class="nil-etiket" id="nil-etiket">30.12°K</span>
-    </aside>
-
     <section class="giris">
       <p class="eyebrow">Yedi gün · üç şehir · tek çizgi</p>
       <h1>Nil'den Kızıldeniz'e<br><em>Gün Gün Rota</em></h1>
       <p>
-        Programdaki her durak burada saatiyle ve haritadaki yeriyle duruyor.
-        Aşağı kaydırdıkça harita önce güneye, Kahire'den Luxor'a iniyor; son
-        günlerde Sina'nın ucuna, Şarm El-Şeyh'e sıçrıyor. Soldaki ölçek o an
-        nerede olduğunuzun enlemini gösterir.
+        Ekranda tek gün duruyor: o günün durakları saatiyle, aralarındaki
+        ulaşım da iki durağın arasında. Üstteki harita seçili durağa uçar —
+        nerede olduğunuzu göstermeye yeter, gerisini duraklara bırakır.
       </p>
 
       <div class="giris-olcu">
@@ -58,14 +49,28 @@
       </div>
 
       <p class="ipucu-satir">
-        Bir durağa tıklayın, harita oraya uçsun. <kbd>←</kbd> <kbd>→</kbd> ile
-        duraklar arasında gezinin. Yol ipliğindeki boncuğa dokunarak gittiğiniz
-        durakları işaretleyin — işaretler bu tarayıcıda saklanır. Üstteki renkli
-        süzgeçlerle katmanları kapatabilirsiniz.
+        Gün değiştirmek için üstteki numaralara ya da ileri-geri düğmelerine
+        basın. <kbd>←</kbd> <kbd>→</kbd> duraklar arasında gezdirir ve gün
+        sınırını kendiliğinden geçer. <b>İpucu ve pratik bilgi</b> satırları
+        katlı gelir, dokununca açılır. Yol ipliğindeki boncuğa basarak
+        gittiğiniz durakları işaretleyin — işaretler bu tarayıcıda saklanır.
       </p>
     </section>
 
+    <nav class="gun-nav" aria-label="Gün değiştir">
+      <button class="gun-nav-geri" type="button"></button>
+      <span class="gun-nav-etiket"></span>
+      <button class="gun-nav-ileri" type="button"></button>
+    </nav>
+
     <div id="panel"></div>
+
+    <nav class="gun-nav" aria-label="Gün değiştir">
+      <button class="gun-nav-geri" type="button"></button>
+      <span class="gun-nav-etiket"></span>
+      <button class="gun-nav-ileri" type="button"></button>
+    </nav>
+
 
     <section class="kapanis">
       <h2>Rotayı kendinize göre esnetin</h2>

@@ -152,18 +152,22 @@ a { color: inherit; }
 
 /* ————————————————————————————————— SAHNE */
 
+/* Tek sütun: odak duraklarda. Harita üstte, küçük ve yapışkan —
+   nerede olduğunuzu göstermeye yeter, ekranı kaplamaz. */
 .sahne {
-  display: grid;
-  grid-template-columns: var(--panel-w) 1fr;
-  align-items: start;
+  display: flex; flex-direction: column;
+  max-width: 940px; margin: 0 auto;
 }
 
 /* ————————————————————————————————— HARİTA */
 
 .harita-sarmal {
-  position: sticky; top: var(--ust-h);
-  height: calc(100vh - var(--ust-h));
-  border-left: 1px solid var(--hairline);
+  order: -1;                       /* duraklardan önce, üstte */
+  position: sticky; top: var(--ust-h); z-index: 4;
+  height: 250px; margin: 0 26px 4px;
+  border: 1px solid var(--hairline); border-radius: 4px;
+  overflow: hidden;
+  background: var(--lapis-deep);
 }
 
 #harita { width: 100%; height: 100%; background: var(--lapis-deep); }
@@ -299,48 +303,9 @@ a { color: inherit; }
 
 .panel {
   position: relative;
-  padding: 0 26px 0 76px;
+  padding: 0 26px;
 }
 
-/* Nilometre: antik Mısır'da Nil'in seviyesini ölçen kuyu.
-   Burada enlem ölçeği — işaretçi aşağı indikçe güneye gidiyorsunuz. */
-.nilometre {
-  position: fixed; left: 22px; top: calc(var(--ust-h) + 26px);
-  z-index: 15;
-  width: 44px; height: calc(100vh - var(--ust-h) - 96px);
-  display: flex; flex-direction: column; align-items: center;
-  pointer-events: none;
-}
-.nil-hat {
-  position: relative; flex: 1; width: 2px;
-  background: linear-gradient(var(--faience), var(--gold));
-  opacity: .45; border-radius: 2px;
-}
-.nil-cetel {
-  position: absolute; left: -6px; width: 14px; height: 1px;
-  background: var(--hairline);
-}
-.nil-imlec {
-  position: absolute; left: 50%; top: 0;
-  width: 30px; height: 30px; margin-left: -15px; margin-top: -15px;
-  transition: top .55s cubic-bezier(.3, .9, .3, 1);
-}
-.nil-imlec::before {
-  content: ""; position: absolute; inset: 10px;
-  background: var(--gold); border-radius: 50%;
-  box-shadow: 0 0 0 5px rgba(201, 162, 39, .22);
-}
-.nil-etiket {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: .6rem; letter-spacing: .06em; color: var(--sand);
-  writing-mode: vertical-rl; text-orientation: mixed;
-  margin-top: 10px; opacity: .75;
-}
-.nil-yon {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: .58rem; letter-spacing: .16em; color: var(--dim);
-  writing-mode: vertical-rl; margin-bottom: 10px;
-}
 
 /* ————————————————————————————————— GİRİŞ BLOĞU */
 
@@ -721,15 +686,10 @@ a { color: inherit; }
 @media (max-width: 1000px) {
   :root { --ust-h: 150px; }
 
-  .sahne { grid-template-columns: 1fr; }
-
-  .harita-sarmal {
-    order: -1; height: 44vh; min-height: 280px;
-    border-left: 0; border-bottom: 1px solid var(--hairline);
-  }
-
-  .panel { padding: 0 20px; }
-  .nilometre { display: none; }
+  .harita-sarmal { height: 190px; margin: 0 14px 4px; }
+  .panel { padding: 0 16px; }
+  .gun-nav { margin: 0 16px 16px; gap: 8px; }
+  .gun-nav button { padding: 9px 8px; font-size: .74rem; }
   .giris { padding-top: 42px; }
   .durak::before { left: -10px; }
   .harita-durum { display: none; }
@@ -766,4 +726,86 @@ a { color: inherit; }
     animation-iteration-count: 1 !important;
     transition-duration: .001ms !important;
   }
+}
+
+/* ————————————————————————————————— GÜN GÜN GÖRÜNÜM
+   Ekranda tek gün durur; günler çiplerle ya da aşağıdaki/yukarıdaki
+   ileri-geri düğmeleriyle değişir. */
+
+.gun-blok { display: none; }
+.gun-blok.acik { display: block; }
+
+.gun-nav {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 26px 18px; padding: 10px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.gun-nav:first-of-type { margin-top: 4px; }
+
+.gun-nav button {
+  flex: 1 1 0; min-width: 0;
+  font: inherit; font-size: .78rem; letter-spacing: .04em;
+  color: var(--sand); background: none;
+  border: 1px solid var(--hairline); border-radius: 4px;
+  padding: 9px 12px; cursor: pointer;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: border-color .2s ease, color .2s ease;
+}
+.gun-nav button:hover:not(:disabled) { border-color: var(--gold); color: var(--limestone); }
+.gun-nav button:disabled { opacity: .3; cursor: default; }
+.gun-nav-geri { text-align: left; }
+.gun-nav-ileri { text-align: right; }
+
+.gun-nav-etiket {
+  flex: 0 0 auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .72rem; letter-spacing: .1em; color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ————————————————————————————————— KATLANABİLİR DETAY
+   Zaman çizelgesi tek bakışta okunsun diye ipuçları ve geçiş ayrıntıları
+   kapalı geliyor. */
+
+.ipucu-kat, .gecis-kat { margin-top: 9px; }
+
+.ipucu-kat > summary, .gecis-kat > summary {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .66rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--dim); cursor: pointer; list-style: none;
+  padding: 3px 0; user-select: none;
+  transition: color .2s ease;
+}
+.ipucu-kat > summary::-webkit-details-marker,
+.gecis-kat > summary::-webkit-details-marker { display: none; }
+
+.ipucu-kat > summary::before, .gecis-kat > summary::before {
+  content: "＋"; font-size: .8em; color: var(--gold);
+  transition: transform .2s ease;
+}
+.ipucu-kat[open] > summary::before, .gecis-kat[open] > summary::before { content: "－"; }
+.ipucu-kat > summary:hover, .gecis-kat > summary:hover { color: var(--sand); }
+
+.katlanir-govde {
+  margin-top: 7px; padding-left: 11px;
+  border-left: 2px solid var(--faience);
+  font-size: .81rem; line-height: 1.62; color: var(--sand); opacity: .92;
+}
+.gecis-kat .katlanir-govde { border-left-color: color-mix(in srgb, var(--g-renk, var(--dim)) 55%, transparent); }
+.katlanir-govde p + p { margin-top: 7px; }
+.katlanir-govde b { color: var(--limestone); }
+
+/* Baskıda her şey açık olsun. */
+@media print {
+  .ipucu-kat > summary, .gecis-kat > summary { display: none; }
+  .gun-blok { display: block !important; }
+  .gun-nav, .harita-sarmal { display: none; }
+}
+
+/* Dar ekranda gün düğmesinde şehir adı gizlenir; numara yeter. */
+@media (max-width: 560px) {
+  .gun-nav-sehir { display: none; }
+  .gun-nav-etiket { font-size: .64rem; letter-spacing: .06em; }
 }

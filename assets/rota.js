@@ -43,6 +43,20 @@ const el = (tag, sinif, metin) => {
  * veri dosyalarından geliyor, kullanıcı girdisi yok — innerHTML güvenli.
  * Düz metin alanlarında el() kullanmaya devam edin.
  */
+/** Katlanabilir detay bloğu: özet hep görünür, gövde istendiğinde açılır. */
+const katlanir = (sinif, baslik, html) => {
+  const d = document.createElement("details");
+  d.className = sinif;
+  const s = document.createElement("summary");
+  s.textContent = baslik;
+  d.append(s);
+  const g = document.createElement("div");
+  g.className = "katlanir-govde";
+  g.innerHTML = html;
+  d.append(g);
+  return d;
+};
+
 const zenginEl = (tag, sinif, html) => {
   const d = document.createElement(tag);
   if (sinif) d.className = sinif;
@@ -91,6 +105,7 @@ function yay(a, b, kavis = 0.18, adim = 72) {
 const durum = {
   etkin: null,
   gun: 1,
+  gorunenGun: null,   // ekranda açık olan gün (tek gün modu)
   kapali: new Set(),
   zemin: 0,        // ZEMINLER dizisindeki sıra
   arazi: false,
@@ -114,6 +129,7 @@ function panelKur() {
   for (const gun of GUNLER) {
     const blok = el("section", "gun-blok");
     blok.id = `gun-${gun.no}`;
+    blok.dataset.gun = gun.no;
 
     const bas = el("header", "gun-basi");
     const sira = el("div", "sira");
@@ -161,12 +177,13 @@ function baglantiYap(b) {
   k.append(bas);
 
   if (b.ozet) k.append(el("p", "gecis-ozet", b.ozet));
-  if (b.detay) k.append(el("p", "gecis-detay", b.detay));
-  if (b.dikkat) {
-    const uyari = el("p", "gecis-dikkat");
-    uyari.append(el("b", null, "Dikkat "), document.createTextNode(b.dikkat));
-    k.append(uyari);
-  }
+
+  // Ayrıntı ve uyarı katlı gelir: şerit tek bakışta okunsun, gerisi istendiğinde.
+  const ek = [];
+  if (b.detay) ek.push(`<p>${b.detay}</p>`);
+  if (b.dikkat) ek.push(`<p class="gecis-dikkat"><b>Dikkat </b>${b.dikkat}</p>`);
+  if (ek.length) k.append(katlanir("gecis-kat", "Ayrıntı", ek.join("")));
+
   return k;
 }
 
@@ -236,7 +253,7 @@ function kartYap(d) {
   if (kunye) govde.append(kunye);
 
   govde.append(zenginEl("p", "metin", d.aciklama));
-  if (d.ipucu) govde.append(zenginEl("span", "ipucu", d.ipucu));
+  if (d.ipucu) govde.append(katlanir("ipucu-kat", "İpucu ve pratik bilgi", d.ipucu));
 
   const rozetler = el("div", "rozetler");
   rozetler.append(el("span", "rozet", kat.ad));
@@ -257,6 +274,69 @@ function kartYap(d) {
   return k;
 }
 
+/* ————————————————————————————————— Gün gün görünüm
+
+   Sayfa 32 durağı tek akışta gösterince 28.000 pikseli aşıyordu ve harita
+   metnin ihtiyacı olan genişliği yiyordu. Artık ekranda tek gün duruyor;
+   günler arasında çipler ya da alt/üstteki ileri-geri düğmeleriyle geçiliyor. */
+
+/** Ekranda yalnızca verilen günü bırakır. */
+function gunGoster(no, odakla = true) {
+  if (durum.gorunenGun === no) return;
+  durum.gorunenGun = no;
+
+  for (const blok of document.querySelectorAll(".gun-blok")) {
+    blok.classList.toggle("acik", Number(blok.dataset.gun) === no);
+  }
+  for (const b of document.querySelectorAll(".gun-chip")) {
+    b.setAttribute("aria-current", String(Number(b.dataset.gun) === no));
+  }
+  gunNavYaz(no);
+  rotaVurgula(no);
+
+  if (odakla) {
+    const ilk = DURAKLAR.find((d) => d.gun === no);
+    if (ilk) {
+      secimKilidi = Date.now() + 900;
+      etkinlestir(ilk.id, true);
+      window.scrollTo({ top: 0, behavior: sakin ? "auto" : "smooth" });
+    }
+  }
+}
+
+/** Alt gezinme: önceki/sonraki gün düğmeleri ve ortadaki etiket. */
+function gunNavYaz(no) {
+  const g = GUNLER.find((x) => x.no === no);
+  const onceki = GUNLER.find((x) => x.no === no - 1);
+  const sonraki = GUNLER.find((x) => x.no === no + 1);
+
+  for (const kutu of document.querySelectorAll(".gun-nav")) {
+    const geri = kutu.querySelector(".gun-nav-geri");
+    const ileri = kutu.querySelector(".gun-nav-ileri");
+    const etiket = kutu.querySelector(".gun-nav-etiket");
+
+    geri.disabled = !onceki;
+    ileri.disabled = !sonraki;
+    // Şehir adı ayrı span: dar ekranda gizlenip düğme metni kırpılmasın.
+    geri.innerHTML = onceki
+      ? `‹ Gün ${onceki.no}<span class="gun-nav-sehir"> · ${onceki.sehir}</span>`
+      : "‹ İlk gün";
+    ileri.innerHTML = sonraki
+      ? `Gün ${sonraki.no}<span class="gun-nav-sehir"> · ${sonraki.sehir}</span> ›`
+      : "Son gün ›";
+    if (etiket) etiket.textContent = g ? `${g.tarih} ${g.gunAdi}` : "";
+  }
+}
+
+function gunNavKur() {
+  for (const kutu of document.querySelectorAll(".gun-nav")) {
+    kutu.querySelector(".gun-nav-geri")
+      .addEventListener("click", () => gunGoster(durum.gorunenGun - 1));
+    kutu.querySelector(".gun-nav-ileri")
+      .addEventListener("click", () => gunGoster(durum.gorunenGun + 1));
+  }
+}
+
 /* ————————————————————————————————— Üst şerit */
 
 function seritKur() {
@@ -268,16 +348,7 @@ function seritKur() {
     b.dataset.gun = g.no;
     b.title = `${g.tarih} — ${g.baslik}`;
     b.setAttribute("aria-label", `Gün ${g.no}: ${g.baslik}`);
-    b.addEventListener("click", () => {
-      // Bloğun başına git: gün başlığı ve o güne geçişi anlatan ulaşım şeridi de görünsün.
-      // Blok başında ilk durak kartı gözlemcinin bandının altında kaldığı için
-      // etkin durağı elle seçip kaydırma bitene kadar gözlemciyi susturuyoruz.
-      const ilk = DURAKLAR.find((d) => d.gun === g.no);
-      secimKilidi = Date.now() + 1600;
-      document.getElementById(`gun-${g.no}`)
-        ?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "start" });
-      if (ilk) etkinlestir(ilk.id, true);
-    });
+    b.addEventListener("click", () => gunGoster(g.no));
     li.append(b);
     gunListe.append(li);
   }
@@ -320,28 +391,8 @@ function gunIsaretleriGuncelle() {
 
 /* ————————————————————————————————— Nilometre */
 
-const NIL_UST = 30.25, NIL_ALT = 25.55;
 
-function nilometreKur() {
-  const hat = $("#nil-hat");
-  for (let i = 0; i <= 8; i++) {
-    const c = el("i", "nil-cetel");
-    c.style.top = `${(i / 8) * 100}%`;
-    hat.append(c);
-  }
-}
 
-function nilometreGuncelle(d) {
-  const imlec = $("#nil-imlec"), etiket = $("#nil-etiket");
-  const oran = (NIL_UST - d.konum[1]) / (NIL_UST - NIL_ALT);
-  imlec.style.top = `${Math.min(100, Math.max(0, oran * 100))}%`;
-  const kuzeyDisi = d.konum[1] > NIL_UST;
-  etiket.textContent = `${d.konum[1].toFixed(2)}°K`;
-  etiket.style.opacity = kuzeyDisi ? ".4" : ".75";
-  etiket.title = kuzeyDisi
-    ? "Ölçeğin kuzeyinde — İstanbul, Mısır penceresinin dışında"
-    : "Rotanın o anki enlemi";
-}
 
 /* ————————————————————————————————— Harita katmanları */
 
@@ -540,13 +591,9 @@ function etkinlestir(id, ucur, beklet = false) {
 
   if (durum.gun !== d.gun) {
     durum.gun = d.gun;
-    for (const b of document.querySelectorAll(".gun-chip")) {
-      b.setAttribute("aria-current", String(Number(b.dataset.gun) === d.gun));
-    }
-    rotaVurgula(d.gun);
+    gunGoster(d.gun, false);
   }
 
-  nilometreGuncelle(d);
   durumYaz(d);
   adimYaz(d);
 
@@ -660,6 +707,20 @@ function disariAktarKur() {
   });
 }
 
+/* <details> baskıda CSS ile açılmıyor; yazdırmadan önce elle açıp sonra
+   eski hâline döndürüyoruz ki çıktıda hiçbir bilgi eksik kalmasın. */
+function baskiKur() {
+  let acilanlar = [];
+  addEventListener("beforeprint", () => {
+    acilanlar = [...document.querySelectorAll("details:not([open])")];
+    for (const d of acilanlar) d.open = true;
+  });
+  addEventListener("afterprint", () => {
+    for (const d of acilanlar) d.open = false;
+    acilanlar = [];
+  });
+}
+
 function modalKur() {
   const modal = $("#durak-modal");
   // Karartıya tıklayınca kapat; Esc'i <dialog> kendisi karşılıyor.
@@ -681,11 +742,17 @@ function gozlemciKur() {
 }
 
 function komsuyaGit(adim) {
-  const sira = DURAKLAR.map((d) => d.id);
-  const i = sira.indexOf(durum.etkin);
-  const sonraki = sira[i + adim];
+  const i = DURAKLAR.findIndex((d) => d.id === durum.etkin);
+  const sonraki = DURAKLAR[i + adim];
   if (!sonraki) return false;
-  kartlar.get(sonraki)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
+
+  // Gün sınırını geçiyorsak önce o günü aç, yoksa kart gizli kalır.
+  if (sonraki.gun !== durum.gorunenGun) {
+    secimKilidi = Date.now() + 900;
+    gunGoster(sonraki.gun, false);
+  }
+  etkinlestir(sonraki.id, true);
+  kartlar.get(sonraki.id)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
   return true;
 }
 
@@ -805,11 +872,12 @@ async function baslat() {
   // Harita olsun olmasın çalışması gereken her şey önce kurulur.
   panelKur();
   seritKur();
+  gunNavKur();
   seritYuksekligiIzle();
-  nilometreKur();
   olculeriYaz();
   gezinmeKur();
   modalKur();
+  baskiKur();
   disariAktarKur();
   gozlemciKur();
   gunIsaretleriGuncelle();
@@ -821,6 +889,9 @@ async function baslat() {
     ? DURAKLAR.find((d) => `#durak-${d.id}` === location.hash)
     : (geziGunu ? ilkGezilmemis(DURAKLAR, geziGunu) : null);
   const ilk = hedef || DURAKLAR[0];
+
+  // Açılışta o günü göster: derin bağlantı varsa onunki, gezi haftasındaysak bugünkü.
+  gunGoster(ilk.gun, false);
 
   try {
     maplibregl = await import("./vendor/maplibre/maplibre-gl.mjs");
