@@ -16,11 +16,81 @@ function commonsGorsel(dosyalar, genislik, altMetin) {
   let i = 0;
   const dene = () => {
     if (i >= dosyalar.length) { img.remove(); return; }
+    img.dataset.dosya = dosyalar[i];
     img.src = `${COMMONS}${encodeURIComponent(dosyalar[i++])}?width=${genislik}`;
   };
   img.addEventListener("error", dene);
   dene();
   return img;
+}
+
+
+/* ————————————————————————————————— Görsel büyüteci
+
+   Ayrıntıdaki fotoğraf 640 piksel: satır düzenini bozmasın diye küçük.
+   Üzerine dokununca aynı dosyanın 1600 piksellik hâli tam ekran açılır —
+   Krallar Vadisi'nin duvar resmi ya da Karnak'ın sütun kabartması ancak
+   o boyutta okunuyor. Esc ya da görselin dışına dokunmak kapatır. */
+
+let buyutec = null;
+
+function buyutecKur() {
+  buyutec = el("dialog", "buyutec");
+  buyutec.append(
+    Object.assign(el("button", "buyutec-kapat", "✕"), { type: "button", ariaLabel: "Kapat" }),
+    el("img", "buyutec-foto"),
+    el("figcaption", "buyutec-alt"),
+  );
+  const alt = $(".buyutec-alt", buyutec);
+  alt.append(el("span", "buyutec-ad"), Object.assign(el("a", "buyutec-kaynak", "Commons ↗"), {
+    target: "_blank", rel: "noopener",
+  }));
+  document.body.append(buyutec);
+
+  // Görselin dışına — yani dialog kutusunun kendisine — düşen tıklama kapatır.
+  buyutec.addEventListener("click", (e) => {
+    if (e.target === buyutec || e.target.closest(".buyutec-kapat")) buyutecKapat();
+  });
+  // Esc: dialog kendi kapanışını yapar, biz yalnızca kaynağı bırakırız.
+  // ("close" olayı her motorda güvenilir düşmediği için "cancel" ile birlikte.)
+  buyutec.addEventListener("cancel", temizle);
+  buyutec.addEventListener("close", temizle);
+}
+
+/* 1600 piksellik görsel açık kalmasın: kapanışta kaynağı bırak.
+   "open" kontrolü şart — bazı motorlarda "close" olayı gecikmeli düşüyor
+   ve araya yeni bir açılış girerse onun görselini silerdi. */
+function temizle() {
+  if (!buyutec.open) $(".buyutec-foto", buyutec)?.removeAttribute("src");
+}
+
+function buyutecKapat() {
+  buyutec.close();
+  temizle();
+}
+
+/* Hangi açılışın sürdüğünü sayar: 1600 piksellik görsel geç gelirse,
+   o sırada büyüteç kapanmış ya da başka bir durağa geçilmiş olabilir. */
+let buyutecSayac = 0;
+
+/** Bir durak fotoğrafını tam ekran açar. */
+function buyut(dosya, baslik, kucukSrc) {
+  if (!buyutec) return;
+  const foto = $(".buyutec-foto", buyutec);
+  foto.alt = baslik;
+  // Önce önbellekteki küçük hâl — Commons'un büyük türevi bazen saniyeler
+  // sürüyor, o arada ekran boş kalmasın. Yumuşak görünür, sonra keskinleşir.
+  foto.src = kucukSrc;
+  $(".buyutec-ad", buyutec).textContent = baslik;
+  $(".buyutec-kaynak", buyutec).href = `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(dosya)}`;
+  buyutec.showModal();
+
+  const bu = ++buyutecSayac;
+  const buyuk = new Image();
+  buyuk.addEventListener("load", () => {
+    if (bu === buyutecSayac && buyutec.open) foto.src = buyuk.src;
+  });
+  buyuk.src = `${COMMONS}${encodeURIComponent(dosya)}?width=1600`;
 }
 
 
@@ -219,7 +289,13 @@ function kartYap(d) {
 
   if (bilgi.gorsel) {
     const cerceve = el("div", "foto-cerceve");
-    cerceve.append(commonsGorsel(bilgi.gorsel, 640, d.ad));
+    const foto = commonsGorsel(bilgi.gorsel, 640, d.ad);
+    cerceve.append(foto);
+    // Tıklama karta ulaşırsa ayrıntı kapanırdı; büyüteçte kalması gerekiyor.
+    cerceve.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (foto.dataset.dosya) buyut(foto.dataset.dosya, d.ad, foto.currentSrc || foto.src);
+    });
     detay.append(cerceve);
   }
 
@@ -536,6 +612,7 @@ function baslat() {
   olculeriYaz();
   gezinmeKur();
   baskiKur();
+  buyutecKur();
   disariAktarKur();
   gunIsaretleriGuncelle();
   suzgecUygula();

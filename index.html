@@ -66,6 +66,22 @@
   .photo.gone{display:flex;align-items:center;justify-content:center}
   .photo.gone img,.photo.gone .cap{display:none}
   .photo.gone::after{content:"𓂀";font-size:3.2rem;color:rgba(242,234,218,.4)}
+  /* Fotoğrafı tam ekran büyütme: karttaki görsel 240 piksel yüksek, ayrıntısı
+     ancak büyütünce okunuyor. Esc ya da dışına tıklamak kapatır. */
+  .photo:not(.gone){cursor:zoom-in}
+  .photo:not(.gone)::after{content:"⤢";position:absolute;left:10px;bottom:8px;z-index:2;width:22px;height:22px;display:grid;place-items:center;font-size:.72rem;color:var(--limestone);background:rgba(20,29,59,.72);border-radius:3px;opacity:0;transition:opacity .25s ease;pointer-events:none}
+  .photo:not(.gone):hover::after{opacity:1}
+  .buyutec{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;padding:28px;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:zoom-out;overflow:hidden}
+  .buyutec::backdrop{background:rgba(20,29,59,.93)}
+  .buyutec img{width:auto;height:auto;max-width:100%;max-height:100%;min-height:0;flex:0 1 auto;object-fit:contain;border-radius:4px;cursor:default}
+  .buyutec img:not([src]){display:none}
+  .buyutec figcaption{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:center;font-size:.8rem;color:var(--sand);cursor:default}
+  .buyutec .b-ad{color:var(--limestone)}
+  .buyutec .b-kaynak{color:var(--nile-lt,#5FBFA8);text-decoration:none}
+  .buyutec .b-kaynak:hover{text-decoration:underline}
+  .buyutec .b-kapat{position:absolute;top:14px;right:16px;z-index:1;width:36px;height:36px;border:1px solid rgba(217,195,154,.2);border-radius:50%;background:rgba(20,29,59,.85);color:var(--limestone);font-size:.9rem;line-height:1;cursor:pointer}
+  .buyutec .b-kapat:hover{background:var(--lapis)}
+  @media (max-width:720px){.buyutec{padding:16px}.buyutec .b-kapat{top:8px;right:8px}}
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#FBF7EC}
   .duo .photo{height:210px}
   .day-body{padding:24px 28px 26px}
@@ -380,7 +396,7 @@
         <div class="day-card">
           <div class="duo">
             <div class="photo"><img class="wm" data-f='["Great Sphinx of Giza - 20080716a.jpg"]' alt="Sfenks"><span class="cap">Sfenks &amp; Kefren Piramidi</span></div>
-            <div class="photo"><img class="wm" data-f='["Grand Egyptian Museum.jpg","Grand Egyptian Museum, Giza.jpg","The Grand Egyptian Museum.jpg","Grand Egyptian Museum 2023.jpg"]' alt="Büyük Mısır Müzesi"><span class="cap">Büyük Mısır Müzesi (GEM)</span></div>
+            <div class="photo"><img class="wm" data-f='["Grand Egyptian Museum 2025.jpg","Grand Egyptian Museum 2025 (70046).jpg"]' alt="Büyük Mısır Müzesi"><span class="cap">Büyük Mısır Müzesi (GEM)</span></div>
           </div>
           <div class="day-body">
             <h3>Gize Günü</h3>
@@ -442,7 +458,7 @@
         <div class="cartouche"><b>5</b><span>ÇRŞ<br>28 EKİ</span></div>
         <div class="day-card">
           <div class="duo">
-            <div class="photo"><img class="wm" data-f='["Luxor Museum.jpg","Luxor museum.jpg","Luxor Museum entrance.jpg"]' alt="Luxor Müzesi"><span class="cap">Luxor Müzesi</span></div>
+            <div class="photo"><img class="wm" data-f='["By ovedc - Luxor Museum - 01.jpg","Luxor Museum 01.jpg","Luxor Museum 2010.jpg"]' alt="Luxor Müzesi"><span class="cap">Luxor Müzesi</span></div>
             <div class="photo"><img class="wm" data-f='["Sharm el-Sheikh.jpg","Sharm El Sheikh.jpg","Naama Bay.jpg","Sharm el-Sheikh beach.jpg"]' alt="Şarm El-Şeyh kıyısı"><span class="cap">Şarm El-Şeyh, Kızıldeniz</span></div>
           </div>
           <div class="day-body">
@@ -462,7 +478,7 @@
         <div class="cartouche"><b>6</b><span>PRŞ<br>29 EKİ</span></div>
         <div class="day-card">
           <div class="duo">
-            <div class="photo"><img class="wm" data-f='["Ras Muhammad National Park.jpg","Ras Mohammed National Park.jpg","Ras Muhammad nature reserve.jpg","Red Sea coral reef.jpg"]' alt="Ras Mohammed resifleri"><span class="cap">Ras Mohammed Milli Parkı</span></div>
+            <div class="photo"><img class="wm" data-f='["Ras Mohammed Bay.jpg","Tortuga carey (Eretmochelys imbricata), parque nacional Ras Muhammad, Egipto, 2022-03-28, DD 56.jpg"]' alt="Ras Mohammed resifleri"><span class="cap">Ras Mohammed Milli Parkı</span></div>
             <div class="photo"><img class="wm" data-f='["Sharm el-Sheikh Old Market.jpg","Old Market, Sharm el-Sheikh.jpg","Sharm El Sheikh Old Market.jpg","Sharm el-Sheikh.jpg"]' alt="Sharm Old Market"><span class="cap">Old Market — akşam çarşısı</span></div>
           </div>
           <div class="day-body">
@@ -1023,10 +1039,59 @@
         if(p){p.classList.add('gone');}else{img.style.display='none';}
         return;
       }
+      img.dataset.dosya=files[i];
       img.src=base+encodeURIComponent(files[i++])+'?width='+w;
     }
     img.addEventListener('error',tryNext);
     tryNext();
+  });
+})();
+</script>
+
+<script>
+/* Fotoğraf büyüteci: karttaki görsele dokununca aynı dosyanın 1600
+   piksellik hâli tam ekran açılır. Kaynak bağlantısı Commons'taki
+   dosya sayfasına gider (lisans ve fotoğrafçı orada). */
+(function(){
+  var base='https://commons.wikimedia.org/wiki/Special:FilePath/';
+  var d=document.createElement('dialog');
+  d.className='buyutec';
+  d.innerHTML='<button type="button" class="b-kapat" aria-label="Kapat">\u2715</button>'
+    +'<img alt=""><figcaption><span class="b-ad"></span>'
+    +'<a class="b-kaynak" target="_blank" rel="noopener">Commons \u2197</a></figcaption>';
+  document.body.appendChild(d);
+  var foto=d.querySelector('img'), ad=d.querySelector('.b-ad'), kaynak=d.querySelector('.b-kaynak');
+  var sayac=0;  /* geç gelen büyük görsel kapanmış büyütece yazmasın */
+
+  /* "open" kontrolü şart: "close" olayı bazı motorlarda gecikmeli düşüyor,
+     araya yeni bir açılış girerse onun görselini silerdi. */
+  function temizle(){if(!d.open)foto.removeAttribute('src');}
+  function kapat(){d.close();temizle();}
+  d.addEventListener('click',function(e){
+    if(e.target===d||e.target.closest('.b-kapat'))kapat();
+  });
+  // "close" olayı her motorda güvenilir düşmüyor; ikisini de dinliyoruz.
+  d.addEventListener('cancel',temizle);
+  d.addEventListener('close',temizle);
+
+  document.addEventListener('click',function(e){
+    var p=e.target.closest('.photo');
+    if(!p||p.classList.contains('gone'))return;
+    var img=p.querySelector('img.wm');
+    if(!img||!img.dataset.dosya)return;  /* henüz yüklenmemişse de açılsın */
+    var dosya=img.dataset.dosya;
+    foto.alt=img.alt||'';
+    // Önce önbellekteki küçük hâl: Commons'un 1600 piksellik türevi bazen
+    // saniyeler sürüyor, o arada ekran boş kalmasın.
+    foto.src=img.currentSrc||img.src;
+    ad.textContent=(p.querySelector('.cap')||{}).textContent||img.alt||'';
+    kaynak.href='https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(dosya);
+    d.showModal();
+    var bu=++sayac, buyuk=new Image();
+    buyuk.addEventListener('load',function(){
+      if(bu===sayac&&d.open)foto.src=buyuk.src;
+    });
+    buyuk.src=base+encodeURIComponent(dosya)+'?width=1600';
   });
 })();
 </script>

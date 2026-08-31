@@ -21,7 +21,7 @@ export const MEKAN_BILGI = {
     donem: "1382", sure: "2 saat", unesco: "Tarihi Kahire",
   },
   fishawy: {
-    gorsel: ["El Fishawi.jpg", "El Fishawy Cafe.jpg", "Fishawi cafe.jpg", "El-Fishawi Cafe.jpg"],
+    gorsel: ["Flickr - Gaspa - Cairo, Caffè Fishawi.jpg", "Cairo FishawyCafé1 byDanielCsorfoly.JPG"],
     donem: "1797", sure: "1 saat",
   },
   keops: {
@@ -33,7 +33,7 @@ export const MEKAN_BILGI = {
     donem: "MÖ 2500 civarı", sure: "30–45 dk", unesco: "Memphis ve Nekropolü",
   },
   gem: {
-    gorsel: ["Grand Egyptian Museum.jpg", "Grand Egyptian Museum, Giza.jpg", "The Grand Egyptian Museum.jpg"],
+    gorsel: ["Grand Egyptian Museum 2025.jpg", "Grand Egyptian Museum 2025 (70046).jpg"],
     donem: "2025'te açıldı", sure: "4–5 saat",
   },
   "abou-tarek": {
@@ -52,6 +52,10 @@ export const MEKAN_BILGI = {
     gorsel: ["Al-Rifa'i Mosque.jpg", "Al Rifai Mosque.jpg", "Al-Rifai Mosque, Cairo.jpg", "Rifai Mosque.jpg"],
     donem: "1869–1912", sure: "30 dk", unesco: "Tarihi Kahire",
   },
+  "ezher-parki": {
+    gorsel: ["Al Azhar Park 3.jpg", "Al-Azhar Park Cairo (1).jpg", "Al-Azhar Sunset.jpg"],
+    donem: "2005'te açıldı", sure: "1–1,5 saat",
+  },
   muizz: {
     gorsel: ["Al-Muizz Street.jpg", "Muizz Street.jpg", "Al-Muizz li-Din Allah Street.jpg", "El Moez Street.jpg"],
     donem: "Fatımi dönemi, 10. yüzyıl", sure: "2 saat", unesco: "Tarihi Kahire",
@@ -65,7 +69,7 @@ export const MEKAN_BILGI = {
     donem: "MÖ 1400 civarı", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
   },
   "krallar-vadisi": {
-    gorsel: ["Valley of the Kings.jpg", "Valley of the Kings, Luxor.jpg", "ValleyOfTheKingsPano.jpg"],
+    gorsel: ["Thebes, Luxor, Egypt, Panoramic view of the Valley of the Kings.jpg", "Thebes, Luxor, Egypt, Valley of the Kings from above.jpg"],
     donem: "MÖ 1539 – MÖ 1075", sure: "3 saat", unesco: "Antik Teb ve Nekropolü",
   },
   hatsepsut: {
@@ -77,12 +81,20 @@ export const MEKAN_BILGI = {
     donem: "MÖ 1350 civarı", sure: "15 dk", unesco: "Antik Teb ve Nekropolü",
   },
   "luxor-muze": {
-    gorsel: ["Luxor Museum.jpg", "Luxor museum.jpg", "Luxor Museum entrance.jpg"],
+    gorsel: ["By ovedc - Luxor Museum - 01.jpg", "Luxor Museum 01.jpg", "Luxor Museum 2010.jpg"],
     donem: "1975", sure: "1,5 saat",
   },
   "medinet-habu": {
     gorsel: ["Medinet Habu.jpg", "Medinet Habu temple.jpg", "Mortuary Temple of Ramesses III.jpg"],
     donem: "MÖ 1180 civarı", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
+  },
+  "deir-el-medina": {
+    gorsel: ["Deir el-Medina ruins (2009a).jpg", "Deir al Medineh near Luxor.jpg"],
+    donem: "MÖ 1550–1080", sure: "1–1,5 saat", unesco: "Antik Teb ve Nekropolü",
+  },
+  mumyalama: {
+    gorsel: ["Musée Momification - Louxor (EG) - 2025-12-10 - 1.jpg", "Musée Momification - Louxor (EG) - 2025-12-10 - 10.jpg"],
+    donem: "1997'de açıldı", sure: "45 dk – 1 saat",
   },
   felluka: {
     gorsel: ["Felucca on the Nile.jpg", "Feluccas on the Nile.jpg", "Felucca Luxor.jpg"],
@@ -93,11 +105,11 @@ export const MEKAN_BILGI = {
     sure: "1,5 saat",
   },
   soho: {
-    gorsel: ["Soho Square Sharm El Sheikh.jpg", "SOHO Square, Sharm el-Sheikh.jpg", "Sharm el-Sheikh SOHO Square.jpg"],
+    gorsel: ["Sharm Soho Square R01.jpg", "02 SOHO Square.jpg"],
     sure: "2 saat",
   },
   "ras-mohammed": {
-    gorsel: ["Ras Muhammad National Park.jpg", "Ras Mohammed National Park.jpg", "Ras Muhammad nature reserve.jpg", "Shark Reef Ras Muhammad.jpg"],
+    gorsel: ["Ras Mohammed Bay.jpg", "Tortuga carey (Eretmochelys imbricata), parque nacional Ras Muhammad, Egipto, 2022-03-28, DD 56.jpg"],
     donem: "1983'ten beri milli park", sure: "Tam gün",
   },
   "old-market": {
@@ -105,8 +117,24 @@ export const MEKAN_BILGI = {
     sure: "2 saat",
   },
   "sharks-bay": {
-    gorsel: ["Sharks Bay Sharm el-Sheikh.jpg", "Shark's Bay.jpg", "Coral reef Sharm el-Sheikh.jpg", "Red Sea coral reef, Sharm el-Sheikh.jpg"],
+    gorsel: ["SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG", "Sharm el-Sheikh , photo by Hatem Moushir 71.jpg"],
     sure: "Yarım gün",
+  },
+  // Ulaşım durakları: künye yerine yalnızca havalimanı görseli.
+  "ist-kalkis": {
+    gorsel: ["İstanbul Havalimanı Airport 2019 16.jpg", "Istanbul Airport, Arnavutköy (P1090184).jpg"],
+  },
+  "cai-varis": {
+    gorsel: ["Cairo Airport Terminal 3.jpg", "Gate at Terminal 3 Cairo International Airport - panoramio.jpg"],
+  },
+  "cai-lxr": {
+    gorsel: ["Luxor International Airport (14023866758).jpg", "Luxor International Airport (14207238921).jpg"],
+  },
+  "lxr-ssh": {
+    gorsel: ["Arival Hall At Sharm El-Sheikh Airport - panoramio.jpg", "Airport of Sharm El Sheikh - panoramio.jpg"],
+  },
+  "ssh-donus": {
+    gorsel: ["Sharm el-Sheikh Airport-01.jpg", "Sharm airport.JPG"],
   },
 };
 

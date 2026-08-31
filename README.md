@@ -30,7 +30,7 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
 - **Konaklama rehberi** — üç şehir için araştırılmış otel önerileri: gecelik fiyat
   aralığı, konum gerekçesi ve artı/eksiler (Ağustos 2026 araştırması). Her kartın
   başında şehrin otelinden bir Commons fotoğrafı, her otel adı da Google Maps'te
-  o oteli arayan bir bağlantı
+  o oteli arayan bir bağlantı. Sayfadaki fotoğraflar tıklanınca tam ekran açılır
 - **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
   Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
 - **Hazırlık listesi** — 19 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
@@ -49,8 +49,12 @@ alternatif denenir.
 32 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
 durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
 
-- **Görsel ve künye** — 24 mekân için Wikimedia Commons fotoğrafı, dönem bilgisi,
-  önerilen süre ve UNESCO alanı. Görsel yüklenemezse çerçeve iz bırakmadan kalkar.
+- **Görsel ve künye** — 32 durağın tamamı için Wikimedia Commons fotoğrafı, dönem
+  bilgisi, önerilen süre ve UNESCO alanı. Görsele dokununca aynı dosyanın 1600
+  piksellik hâli tam ekran açılır: önce önbellekteki küçük hâl görünür, büyüğü
+  gelince yerine geçer. Altında mekânın adı ve Commons'taki dosya sayfasına
+  (lisans ve fotoğrafçı orada) bağlantı. Görsel yüklenemezse çerçeve iz
+  bırakmadan kalkar.
 - **Duraklar arası ulaşım** — her geçiş için araç türü, süre, ücret ve dikkat notu:
   hangi noktada Uber çalışır, nerede şoförü bekletmek gerekir, feribot mu köprü mü.
   Yürünen bacaklar noktalı çizgiyle ayrılır ve **ölçülmüş mesafe** taşır:
