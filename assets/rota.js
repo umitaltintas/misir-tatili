@@ -176,7 +176,7 @@ function baglantiYap(b) {
   if (b.ucret && b.ucret !== "—") bas.append(el("span", "gecis-veri", b.ucret));
   k.append(bas);
 
-  if (b.ozet) k.append(el("p", "gecis-ozet", b.ozet));
+  if (b.ozet) bas.append(el("span", "gecis-ozet", b.ozet));
 
   // Ayrıntı ve uyarı katlı gelir: şerit tek bakışta okunsun, gerisi istendiğinde.
   const ek = [];
@@ -188,15 +188,21 @@ function baglantiYap(b) {
 }
 
 /** Puan yerine doğrulanabilir künye: dönem, önerilen süre, UNESCO alanı. */
+/** Künye tek satır: "1176 · 2 saat · Tarihi Kahire".
+    Üç satırlık etiket-değer listesi kartın yarısını yiyordu. */
 function kunyeYap(bilgi) {
-  if (!bilgi.donem && !bilgi.sure && !bilgi.unesco) return null;
-  const kunye = el("dl", "kunye");
-  const satir = (etiket, deger) => {
-    kunye.append(el("dt", null, etiket), el("dd", null, deger));
-  };
-  if (bilgi.donem) satir("Dönem", bilgi.donem);
-  if (bilgi.sure) satir("Ayırın", bilgi.sure);
-  if (bilgi.unesco) satir("UNESCO", bilgi.unesco);
+  if (!bilgi.donem && !bilgi.unesco) return null;
+  const kunye = el("p", "kunye");
+  // Süre özet satırında zaten var, burada tekrarlamıyoruz.
+  const parcalar = [];
+  if (bilgi.donem) parcalar.push(["donem", bilgi.donem]);
+  if (bilgi.unesco) parcalar.push(["unesco", bilgi.unesco]);
+  parcalar.forEach(([tip, deger], i) => {
+    if (i) kunye.append(el("span", "kunye-ayrac", "·"));
+    const e = el("span", `kunye-parca k-${tip}`, deger);
+    e.title = { donem: "Yapım/kuruluş tarihi", sure: "Önerilen süre", unesco: "UNESCO Dünya Mirası alanı" }[tip];
+    kunye.append(e);
+  });
   return kunye;
 }
 
@@ -240,30 +246,51 @@ function kartYap(d) {
 
   const bilgi = mekanBilgi(d.id);
   const govde = el("div", "govde");
-  govde.append(el("h3", null, d.ad));
-  if (d.alt) govde.append(el("p", "alt", d.alt));
+
+  /* Satır = özet. Gezi listesi önce taranabilir olmalı; paragrafı her satıra
+     yaymak dikey ritmi bozuyordu. Ayrıntı, durak seçilince altında açılır. */
+  const ozet = el("div", "ozet");
+  const ad = el("div", "ozet-ad");
+  ad.append(el("h3", null, d.ad));
+  if (d.alt) ad.append(el("p", "alt", d.alt));
+  ozet.append(ad);
+
+  // Satırda yalnızca süre: tararken işe yarayan tek künye alanı o.
+  // Dönem ve UNESCO ayrıntıya iniyor.
+  if (bilgi.sure) ozet.append(el("span", "ozet-sure", bilgi.sure));
+  govde.append(ozet);
+
+  const detay = el("div", "detay");
+  const kunye = kunyeYap(bilgi);
+  if (kunye) detay.append(kunye);
 
   if (bilgi.gorsel) {
     const cerceve = el("div", "foto-cerceve");
     cerceve.append(commonsGorsel(bilgi.gorsel, 640, d.ad));
-    govde.append(cerceve);
+    detay.append(cerceve);
   }
 
-  const kunye = kunyeYap(bilgi);
-  if (kunye) govde.append(kunye);
+  detay.append(zenginEl("p", "metin", d.aciklama));
+  if (d.ipucu) detay.append(katlanir("ipucu-kat", "İpucu", d.ipucu));
 
-  govde.append(zenginEl("p", "metin", d.aciklama));
-  if (d.ipucu) govde.append(katlanir("ipucu-kat", "İpucu ve pratik bilgi", d.ipucu));
+  // Kategori rozeti yok: ipliğin boncuk rengi ve üstteki süzgeç zaten söylüyor.
+  if (d.etiket || d.kaynak === "oneri") {
+    const rozetler = el("div", "rozetler");
+    if (d.etiket) rozetler.append(el("span", "rozet vurgu", d.etiket));
+    if (d.kaynak === "oneri") rozetler.append(el("span", "rozet oneri", "Sofra önerisi"));
+    detay.append(rozetler);
+  }
 
-  const rozetler = el("div", "rozetler");
-  rozetler.append(el("span", "rozet", kat.ad));
-  if (d.etiket) rozetler.append(el("span", "rozet vurgu", d.etiket));
-  if (d.kaynak === "oneri") rozetler.append(el("span", "rozet oneri", "Sofra önerisi"));
-  govde.append(rozetler);
-
+  govde.append(detay);
   k.append(govde);
 
-  const sec = () => { history.replaceState(null, "", `#durak-${d.id}`); etkinlestir(d.id, true); };
+  /* Açılma tıklamaya bağlı, kaydırmaya değil: gözlemci etkin durağı
+     değiştirdikçe kartlar açılıp kapansa sayfa okurken altınızda zıplardı. */
+  const sec = () => {
+    history.replaceState(null, "", `#durak-${d.id}`);
+    k.classList.toggle("acilmis");
+    etkinlestir(d.id, true);
+  };
   k.addEventListener("click", sec);
   k.addEventListener("keydown", (e) => {
     if (e.target !== k) return;  // boncuğun kendi Enter'ına karışma
@@ -334,6 +361,24 @@ function gunNavKur() {
       .addEventListener("click", () => gunGoster(durum.gorunenGun - 1));
     kutu.querySelector(".gun-nav-ileri")
       .addEventListener("click", () => gunGoster(durum.gorunenGun + 1));
+  }
+
+  // Okuma modu: taramak yerine günün tamamını okumak isteyenler için
+  // bütün ayrıntılar açık kalır. Tercih tarayıcıda saklanır.
+  const dugmeler = [...document.querySelectorAll(".hepsi-btn")];
+  const yaz = (acik) => {
+    document.body.classList.toggle("hepsi-acik", acik);
+    for (const b of dugmeler) {
+      b.setAttribute("aria-pressed", String(acik));
+      b.textContent = acik ? "Hepsini kapat" : "Hepsini aç";
+    }
+    try { localStorage.setItem("rota-hepsi-acik", acik ? "1" : "0"); } catch {}
+  };
+  let baslangic = false;
+  try { baslangic = localStorage.getItem("rota-hepsi-acik") === "1"; } catch {}
+  yaz(baslangic);
+  for (const b of dugmeler) {
+    b.addEventListener("click", () => yaz(!document.body.classList.contains("hepsi-acik")));
   }
 }
 
@@ -752,7 +797,9 @@ function komsuyaGit(adim) {
     gunGoster(sonraki.gun, false);
   }
   etkinlestir(sonraki.id, true);
-  kartlar.get(sonraki.id)?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
+  const hedefKart = kartlar.get(sonraki.id);
+  hedefKart?.classList.add("acilmis");
+  hedefKart?.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "center" });
   return true;
 }
 

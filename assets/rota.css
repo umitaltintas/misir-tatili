@@ -337,7 +337,7 @@ a { color: inherit; }
 }
 
 .ipucu-satir {
-  margin-top: 30px; padding: 12px 15px;
+  margin-top: 18px; padding: 11px 14px;
   border: 1px dashed var(--hairline); border-radius: 4px;
   font-size: .78rem; color: var(--dim);
 }
@@ -354,16 +354,11 @@ a { color: inherit; }
   scroll-margin-top: calc(var(--ust-h) + 8px);
 }
 
+/* Tek gün modunda yapışkan olmasına gerek yok: sayfada zaten tek gün var.
+   Yapışkanken z-index 20 ile haritanın (z-index 4) üstüne biniyordu. */
 .gun-basi {
-  position: sticky; top: calc(var(--ust-h) - 1px); z-index: 20;
-  background: var(--abyss);
-  padding: 20px 0 14px;
-}
-/* Sticky başlığın altında sert kesim yerine kısa bir sönüm */
-.gun-basi::after {
-  content: ""; position: absolute; left: 0; right: 0; top: 100%;
-  height: 16px; pointer-events: none;
-  background: linear-gradient(var(--abyss), transparent);
+  position: static;
+  padding: 16px 0 12px;
 }
 .gun-basi .sira {
   font-family: "IBM Plex Mono", monospace;
@@ -416,14 +411,17 @@ a { color: inherit; }
 .durak .metin { font-size: .86rem; color: var(--dim); margin-top: 8px; }
 
 /* Görsel: yüklenemezse img kendini kaldırır, çerçeve de boş kalmasın. */
+/* Görsel metnin yanında küçük durur: tam genişlik şerit hem kötü kırpıyordu
+   hem de her kartta göz önce fotoğrafa gidiyordu. */
 .foto-cerceve {
-  margin-top: 11px; border-radius: 4px; overflow: hidden;
+  float: right; width: 190px; margin: 3px 0 10px 16px;
+  border-radius: 4px; overflow: hidden;
   border: 1px solid var(--hairline); background: var(--lapis-deep);
   line-height: 0;
 }
 .foto-cerceve:empty { display: none; }
 .durak-foto {
-  width: 100%; height: 132px; object-fit: cover; display: block;
+  width: 100%; height: 124px; object-fit: cover; display: block;
   filter: saturate(.86) contrast(1.04);
   transition: transform .4s cubic-bezier(.2, .8, .3, 1), filter .3s ease;
 }
@@ -432,16 +430,13 @@ a { color: inherit; }
 
 /* Künye: puan değil, doğrulanabilir bilgi */
 .kunye {
-  display: grid; grid-template-columns: auto 1fr; gap: 3px 12px;
-  margin-top: 11px; padding-top: 10px;
-  border-top: 1px solid var(--hairline);
-}
-.kunye dt {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  margin: 7px 0 0;
   font-family: "IBM Plex Mono", monospace;
-  font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--faience); padding-top: 2px;
+  font-size: .68rem; letter-spacing: .04em; color: var(--dim);
 }
-.kunye dd { font-size: .82rem; color: var(--sand); opacity: .9; }
+.kunye-ayrac { opacity: .45; }
+.kunye .k-sure { color: var(--faience); }
 
 /* Harita balonu */
 .balon { display: block; max-width: 220px; }
@@ -515,7 +510,7 @@ a { color: inherit; }
 
 .gecis {
   margin: 0 0 0 calc(var(--ip-x) - 1px);
-  padding: 15px 0 17px 24px;
+  padding: 9px 0 10px 24px;
   border-left: 2px solid color-mix(in srgb, var(--g-renk, var(--dim)) 55%, transparent);
 }
 /* Yürünen bacaklar haritadaki gibi noktalı */
@@ -537,7 +532,7 @@ a { color: inherit; }
 }
 .gecis-veri + .gecis-veri::before { content: "· "; opacity: .6; }
 
-.gecis-ozet { font-size: .84rem; color: var(--sand); margin-top: 8px; opacity: .92; }
+.gecis-ozet { font-size: .8rem; color: var(--dim); margin-top: 4px; }
 .gecis-detay { font-size: .8rem; color: var(--dim); margin-top: 4px; }
 
 .gecis-dikkat {
@@ -808,4 +803,139 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .gun-nav-sehir { display: none; }
   .gun-nav-etiket { font-size: .64rem; letter-spacing: .06em; }
+}
+
+/* ————————————————————————————————— YOĞUNLUK AYARI
+   Kart içinde yedi ayrı tipografik ağırlık vardı; sıralama artık
+   saat → ad → künye → metin şeklinde, gerisi geri planda. */
+
+.durak .govde::after { content: ""; display: block; clear: both; }
+
+/* Katlanır tetikleyicileri gürültü yapmasın: küçük, sakin, hep aynı yerde. */
+.ipucu-kat > summary, .gecis-kat > summary {
+  font-size: .68rem; letter-spacing: .04em; text-transform: none;
+  font-family: inherit; color: var(--faience); opacity: .75;
+}
+.ipucu-kat > summary:hover, .gecis-kat > summary:hover { opacity: 1; color: var(--sand); }
+
+/* Rozet yalnızca gerçekten ayırt edici olanlarda kaldı; onlar da hafif. */
+.rozet { font-size: .6rem; padding: 1px 6px; }
+.durak .rozetler { margin-top: 8px; }
+
+/* Harita 250 px'e inince üstündeki durum kutusu alanın üçte birini
+   kaplıyordu; etkin kart zaten vurgulu, bilgi orada. */
+.harita-durum { display: none; }
+
+.adimlar { transform: scale(.88); transform-origin: bottom center; }
+
+/* Giriş bir ekran yer kaplamasın: sayfa hızlı bakılacak bir referans. */
+.giris { padding: 40px 0 30px; }
+.giris h1 { margin-bottom: 10px; }
+
+@media (max-width: 700px) {
+  /* Dar ekranda yan görsel metni 100 pikselden dar bırakıyor: tam genişliğe dön. */
+  .foto-cerceve { float: none; width: 100%; margin: 10px 0 0; }
+  .durak-foto { height: 150px; }
+}
+
+/* ————————————————————————————————— YAPIŞKAN ALAN PAYI
+   Üst şerit (113px) ve harita üst üste binince ekranın tepesinde sabit bir
+   bant oluşuyor. Harita kısaldı ve kartlara pay verildi ki durağa
+   atlandığında başlık bandın altında kalmasın. */
+
+.harita-sarmal { height: 180px; }
+
+.durak, .gun-basi, .gun-blok {
+  scroll-margin-top: calc(var(--ust-h) + 200px);
+}
+
+@media (max-width: 1000px) {
+  .harita-sarmal { height: 150px; }
+  .durak, .gun-basi, .gun-blok { scroll-margin-top: calc(var(--ust-h) + 168px); }
+}
+
+/* Kısa ekranda harita daha da küçülsün, yoksa okunacak yer kalmıyor. */
+@media (max-height: 720px) {
+  .harita-sarmal { height: 130px; }
+  .durak, .gun-basi, .gun-blok { scroll-margin-top: calc(var(--ust-h) + 148px); }
+}
+
+/* ————————————————————————————————— ÖZET SATIRI + AÇILAN AYRINTI
+   Gezi listesi önce taranabilir olmalı: her durak tek satırlık bir özet,
+   ayrıntı yalnızca seçili durakta açılır. Wanderlog/TripIt kalıbı. */
+
+.durak .ozet {
+  display: flex; align-items: baseline; gap: 10px 14px; flex-wrap: wrap;
+}
+.durak .ozet-ad { flex: 1 1 260px; min-width: 0; }
+.durak .ozet h3 { display: inline; }
+.durak .ozet .alt {
+  display: inline; margin-left: 9px;
+  font-size: .82rem; color: var(--dim);
+}
+.durak .ozet .alt::before { content: "· "; opacity: .5; }
+.durak .kunye { flex: 0 0 auto; margin: 0; }
+
+/* Ayrıntı kapalı: yükseklik animasyonu yok, anlık açılıyor —
+   dokuz durağı tararken geçiş beklemek yorucu olurdu. */
+.durak .detay { display: none; padding-top: 10px; }
+.durak.acilmis .detay,
+body.hepsi-acik .durak .detay { display: block; }
+
+/* Satırın tıklanabilir olduğunu gösteren ince işaret. */
+.durak .ozet-ad h3::after {
+  content: "›"; margin-left: 8px;
+  color: var(--faience); opacity: .5;
+  font-weight: 400; transition: transform .2s ease, opacity .2s ease;
+  display: inline-block;
+}
+.durak.acilmis .ozet-ad h3::after { transform: rotate(90deg); opacity: .9; }
+body.hepsi-acik .ozet-ad h3::after { display: none; }
+
+.durak { padding: 11px 0; }
+.durak:hover .ozet-ad h3::after { opacity: 1; }
+
+/* Geçiş şeridi tek satır: tür, süre, mesafe, ücret ve özet yan yana. */
+.gecis { padding: 7px 0 8px 24px; }
+.gecis-ozet {
+  font-size: .78rem; color: var(--dim); margin: 0;
+}
+.gecis-ozet::before { content: "— "; opacity: .5; }
+
+/* Okuma modu anahtarı */
+.hepsi-btn {
+  flex: 0 0 auto; font: inherit; font-size: .7rem; letter-spacing: .06em;
+  color: var(--faience); background: none; border: 1px solid var(--hairline);
+  border-radius: 4px; padding: 7px 10px; cursor: pointer; white-space: nowrap;
+  transition: border-color .2s ease, color .2s ease;
+}
+.hepsi-btn:hover { border-color: var(--gold); color: var(--limestone); }
+.hepsi-btn[aria-pressed="true"] { color: var(--gold); border-color: rgba(201,162,39,.45); }
+
+@media print { .durak .detay { display: block !important; } }
+
+@media (max-width: 620px) {
+  .durak .ozet .alt { display: block; margin-left: 0; }
+  .durak .ozet .alt::before { content: none; }
+  .hepsi-btn { display: none; }
+}
+
+/* Satırda yalnızca süre durur; başlıktan kopmasın diye sağa yaslı ama sakin. */
+.ozet-sure {
+  flex: 0 0 auto; margin-left: auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .68rem; color: var(--faience); opacity: .8;
+  white-space: nowrap;
+}
+.durak.etkin .ozet-sure { opacity: 1; }
+
+/* Giriş kısalsın: sayfaya gelen önce duraklara baksın, açıklamaya değil. */
+.giris { padding: 28px 0 22px; }
+.giris h1 { font-size: clamp(1.5rem, 3.2vw, 2.2rem); margin-bottom: 8px; }
+.giris > p { font-size: .86rem; max-width: 62ch; }
+.giris-olcu { margin-top: 16px; }
+.ipucu-satir { margin-top: 14px; font-size: .74rem; }
+
+@media (max-width: 620px) {
+  .ozet-sure { margin-left: 0; }
 }
