@@ -315,6 +315,9 @@ a { color: inherit; }
 
 /* ————————————————————————————————— Görsel büyüteci */
 
+/* Yazar stili tarayıcının dialog:not([open]){display:none} kuralını ezer:
+   bu satır olmadan büyüteç kapalıyken de sayfanın altında duruyordu. */
+.buyutec:not([open]) { display: none; }
 .buyutec {
   width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh;
   margin: 0; padding: 28px; border: 0; background: transparent;
