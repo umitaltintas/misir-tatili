@@ -8,13 +8,13 @@
  */
 
 export const KATEGORILER = {
-  antik:   { ad: "Antik miras",    renk: "#C9A227" },
-  islami:  { ad: "İslami Kahire",  renk: "#3FA7A0" },
-  muze:    { ad: "Müze",           renk: "#6C8BD9" },
-  yemek:   { ad: "Sofra",          renk: "#C4603F" },
-  deneyim: { ad: "Deneyim",        renk: "#A87BC7" },
-  deniz:   { ad: "Kızıldeniz",     renk: "#3F7FC4" },
-  ulasim:  { ad: "Ulaşım",         renk: "#7A7160" },
+  antik:   { ad: "Antik miras",    renk: "#8A6E13" },
+  islami:  { ad: "İslami Kahire",  renk: "#217F78" },
+  muze:    { ad: "Müze",           renk: "#425FB5" },
+  yemek:   { ad: "Sofra",          renk: "#A8492B" },
+  deneyim: { ad: "Deneyim",        renk: "#7B4D9E" },
+  deniz:   { ad: "Kızıldeniz",     renk: "#2F63A8" },
+  ulasim:  { ad: "Ulaşım",         renk: "#6B6250" },
 };
 
 export const GUNLER = [

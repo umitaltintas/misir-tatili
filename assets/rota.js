@@ -187,7 +187,7 @@ function panelKur() {
 
 /** İki durak arasındaki ulaşım şeridi. */
 function baglantiYap(b) {
-  const tur = TURLER[b.tur] || { ad: b.tur.toUpperCase(), renk: "#7A7160" };
+  const tur = TURLER[b.tur] || { ad: b.tur.toUpperCase(), renk: "#6B6250" };
   const k = el("div", "gecis");
   k.style.setProperty("--g-renk", tur.renk);
   k.dataset.tur = b.tur;

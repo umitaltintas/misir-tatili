@@ -14,12 +14,12 @@
  */
 
 export const TURLER = {
-  ucak:    { ad: "UÇAK",    renk: "#3FA7A0" },
-  uber:    { ad: "UBER",    renk: "#C9A227" },
-  taksi:   { ad: "TAKSİ",   renk: "#D9A441" },
-  yuruyus: { ad: "YÜRÜYÜŞ", renk: "#8FAF7E" },
-  feribot: { ad: "FERİBOT", renk: "#6C8BD9" },
-  tekne:   { ad: "TEKNE",   renk: "#3F7FC4" },
+  ucak:    { ad: "UÇAK",    renk: "#1B655F" },
+  uber:    { ad: "UBER",    renk: "#7C6210" },
+  taksi:   { ad: "TAKSİ",   renk: "#82580E" },
+  yuruyus: { ad: "YÜRÜYÜŞ", renk: "#4C633E" },
+  feribot: { ad: "FERİBOT", renk: "#425FB5" },
+  tekne:   { ad: "TEKNE",   renk: "#2F63A8" },
 };
 
 export const BAGLANTILAR = [
