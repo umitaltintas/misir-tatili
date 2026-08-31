@@ -55,7 +55,7 @@ alternatif denenir.
   Yürünen bacaklar haritada noktalı çizgiyle ayrılır ve **ölçülmüş mesafe** taşır:
   OpenStreetMap yol ağı üzerinden yaya profiliyle (Valhalla, BRouter ile çapraz
   kontrollü) — kuş uçuşu değil, gerçek yürüme yolu. Hafta boyunca yürünen toplam
-  6,7 km.
+  8,7 km.
 - **Yol ipliği** — zaman çizelgesi kesintisiz bir hatla örülü: duraklar kategori
   renginde boncuk, geçişler ulaşım türünün renginde segment, yürüyüşler noktalı.
 - **Gezi modu** — boncuğa dokununca durak "gezildi" işaretlenir (`localStorage`);

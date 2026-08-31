@@ -38,6 +38,18 @@ const el = (tag, sinif, metin) => {
   return d;
 };
 
+/**
+ * Vurgu etiketi (<b>, <i>) içerebilen alanlar için. İçerik bu repodaki
+ * veri dosyalarından geliyor, kullanıcı girdisi yok — innerHTML güvenli.
+ * Düz metin alanlarında el() kullanmaya devam edin.
+ */
+const zenginEl = (tag, sinif, html) => {
+  const d = document.createElement(tag);
+  if (sinif) d.className = sinif;
+  if (html != null) d.innerHTML = html;
+  return d;
+};
+
 const sakin = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
@@ -223,8 +235,8 @@ function kartYap(d) {
   const kunye = kunyeYap(bilgi);
   if (kunye) govde.append(kunye);
 
-  govde.append(el("p", "metin", d.aciklama));
-  if (d.ipucu) govde.append(el("span", "ipucu", d.ipucu));
+  govde.append(zenginEl("p", "metin", d.aciklama));
+  if (d.ipucu) govde.append(zenginEl("span", "ipucu", d.ipucu));
 
   const rozetler = el("div", "rozetler");
   rozetler.append(el("span", "rozet", kat.ad));
@@ -587,8 +599,8 @@ function modalAc(d) {
   const kunye = kunyeYap(bilgi);
   if (kunye) govde.append(kunye);
 
-  govde.append(el("p", "metin", d.aciklama));
-  if (d.ipucu) govde.append(el("span", "ipucu", d.ipucu));
+  govde.append(zenginEl("p", "metin", d.aciklama));
+  if (d.ipucu) govde.append(zenginEl("span", "ipucu", d.ipucu));
 
   if (d.etiket || d.kaynak === "oneri") {
     const rozetler = el("div", "rozetler");
