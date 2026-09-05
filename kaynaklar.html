@@ -41,6 +41,9 @@
   .nav-link:hover{color:var(--lapis)}
   .nav-map{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;color:var(--lapis-deep);background:var(--gold);padding:8px 14px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s ease}
   .nav-map:hover{background:var(--sand)}
+  .nav-cikis{display:flex;gap:6px;flex:0 0 auto}
+  .nav-map.ikincil{background:transparent;color:var(--lapis);border:1px solid var(--sand)}
+  .nav-map.ikincil:hover{background:rgba(201,162,39,.16)}
 
   /* ——— Hero ——— */
   .hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;background:var(--lapis-deep);overflow:hidden}
@@ -180,7 +183,10 @@
       <li><a class="nav-link" href="#bloglar">Bloglar</a></li>
       <li><a class="nav-link" href="#takvim">Takvim</a></li>
     </ul>
-    <a class="nav-map" href="./">Program &rarr;</a>
+    <div class="nav-cikis">
+      <a class="nav-map ikincil" href="rota.html">Rota</a>
+      <a class="nav-map" href="./">Program &rarr;</a>
+    </div>
   </div>
 </nav>
 
