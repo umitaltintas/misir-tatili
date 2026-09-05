@@ -127,7 +127,7 @@ export const BAGLANTILAR = [
     sure: "1 sa uçuş + 30 dk yol", ucret: "160–220 $ (2 kişi, tek yön)",
     ozet: "Luxor'a uçuş, otele bırakış, tapınağa geçiş",
     detay: "Air Cairo'nun 14:00 seferi 15:00'te iniyor. Luxor havalimanı şehre 10 km; taksi 150–250 EGP. Otele valiz bırakıp doğrudan Luxor Tapınağı'na geçin — Karnak bu güne değil, yarın sabaha alındı.",
-    dikkat: "Luxor'da Uber çalışmıyor — burada taksi pazarlığı normal. Binmeden önce fiyatı netleştirin. Otelinizden araç istemek çoğu zaman daha kolay.",
+    dikkat: "Luxor'da Uber çalışmıyor ama InDrive var — sabit fiyat, pazarlık yok, uygulamadan çağırın. InDrive'ın kapsamadığı bir güzergahta kalırsanız taksi pazarlığına dönün, fiyatı binmeden netleştirin.",
   },
   {
     from: "luxor-tapinak", to: "sofra", tur: "yuruyus",
