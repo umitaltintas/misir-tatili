@@ -20,6 +20,7 @@ export const TURLER = {
   yuruyus: { ad: "YÜRÜYÜŞ", renk: "#4C633E" },
   feribot: { ad: "FERİBOT", renk: "#425FB5" },
   tekne:   { ad: "TEKNE",   renk: "#2F63A8" },
+  minibus: { ad: "TUR ARACI", renk: "#5E6F8C" },
 };
 
 export const BAGLANTILAR = [
@@ -222,16 +223,17 @@ export const BAGLANTILAR = [
     dikkat: "Fiyatı binmeden netleştirin — Şarm'da taksimetre fiilen kullanılmıyor.",
   },
   {
-    from: "old-market", to: "sharks-bay", tur: "taksi", gunBasi: true,
-    sure: "20–25 dk", ucret: "—",
-    ozet: "Son sabah otelde",
-    detay: "Gece otele dönmüştünüz; sabah valizi toplayıp resepsiyona bırakın, öğlene kadar house reef sizin.",
+    from: "old-market", to: "quad-safari", tur: "minibus", gunBasi: true,
+    sure: "15–20 dk", ucret: "tura dahil",
+    ozet: "Tur aracı otel kapısından alıyor",
+    detay: "Gece otele dönmüştünüz; bavulu akşamdan hazırlayın, 07:00'de kahvaltıyı hızlı geçin. Tur minibüsü 07:15–07:30 arası otel kapısından alır; Sharks Bay'in batısındaki quad istasyonu 15–20 dakika.",
+    dikkat: "Alış saatini bir gece önce WhatsApp'tan teyit ettirin — tur 09:00'a kayarsa 15:00 uçuşuna sıkışır, o durumda iptal edip house reef şnorkeline dönün.",
   },
   {
-    from: "sharks-bay", to: "ssh-donus", tur: "taksi",
-    sure: "10–15 dk", ucret: "150–250 EGP",
-    ozet: "Havalimanına",
-    detay: "Sharks Bay havalimanının hemen yanında — Şarm'ı son geceye koymanın ödülü bu kısacık transfer. Uçuştan 3 saat önce çıkın.",
+    from: "quad-safari", to: "ssh-donus", tur: "taksi",
+    sure: "10–15 dk (otelden)", ucret: "150–250 EGP",
+    ozet: "Otele bırakış, sonra havalimanı",
+    detay: "Tur ~10:30'da otele bırakır: duş, check-out, emanetteki bavul. 11:15'te otelden çıkın — Sharks Bay havalimanının hemen yanında, Şarm'ı son geceye koymanın ödülü bu kısacık transfer.",
     dikkat: "Yurt dışı çıkış harcını Türkiye'den ayrılmadan dijital ödemiş olmanız gerekiyordu — dönüşte değil, gidişte.",
   },
 ];

@@ -51,7 +51,7 @@ export const GUNLER = [
   {
     no: 7, tarih: "27 Kasım", gunAdi: "Cuma", sehir: "Şarm El-Şeyh",
     baslik: "Şarm → İstanbul",
-    tema: "Son bir deniz sabahı ve dönüş",
+    tema: "Çöl sabahı ve dönüş",
   },
 ];
 
@@ -345,13 +345,14 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 7
   {
-    id: "sharks-bay", gun: 7, saat: "09:00", kategori: "deniz", kaynak: "plan",
-    ad: "Sharks Bay — otelin resifi",
-    alt: "Son deniz sabahı",
-    konum: [34.3940, 27.9440],
-    aciklama: "Otelin house reef'inde son bir şnorkel: korunaklı koy, kıyıdan birkaç kulaçta mercan ve hemen ardından dik bir duvar. Havalimanına 10–15 dakika olması bu günün tek kurtarıcısı.",
-    ipucu: "<b>Şnorkelden sonra uçmak tıbben tamamen güvenli</b> — 18 saat kuralı yalnızca tüplü dalış için, yüzeyde azot yüklenmesi olmuyor. Asıl risk zaman: 15:00 uluslararası uçuş için 12:00'de havalimanında olmalısınız (Şarm'da iki ayrı güvenlik kontrolü var), yani 11:15'te otelden çıkış. <b>Gerçek şnorkel pencereniz 09:00–10:45.</b> Akşamdan bavulu hazırlayın, sabah 08:30'da check-out yapıp bagajı emanete bırakın, dönüş aracını bir gece önceden ayarlayın ve suda 10:45 alarmı kurun. Mercana basmayın, deniz ayakkabısı takın, cankurtaran yok — birlikte yüzün.",
-    kamera: { zoom: 15, pitch: 55, bearing: 15 },
+    id: "quad-safari", gun: 7, saat: "07:15", kategori: "deneyim", kaynak: "plan",
+    ad: "Sina'da quad + deve safarisi",
+    alt: "Çöl sabahı, Bedevi çayı",
+    konum: [34.3300, 27.9930],
+    aciklama: "Otelden tur aracıyla 15–20 dakikada çöl istasyonuna; brifing ve kask, sonra Sina dağlarına doğru ~30 km rehberli quad sürüşü. Echo Dağı'nda yankı molası, Bedevi köyünde çay ve 10–15 dakikalık deve binişi, quad ile istasyona dönüş. Toplam 3 saat; kasım sonu sabahı 18–22°C, çöl bu iş için en iyi mevsiminde.",
+    ipucu: "<b>Saat her şey:</b> uçuş 15:00, havalimanında 12:00'de olmanız gerekiyor, yani otelden 11:15 çıkış. Turun otelden <b>en geç 07:30'da</b> alması şart — rezervasyonda \"sunrise / early morning\" seçeneğini seçin, alış saatini WhatsApp'tan yazılı teyit ettirin; yalnız 09:00 veren operatöre girmeyin. Dönüş ~10:30: duş, 11:00 check-out, bavul akşamdan hazır. <b>Kişi başı tekli quad alın</b> (15–20 €): çift kişilik 10 €'luk turlarda arkada oturan toz yutar; 2 kişi için özel tur ~60 € ve 30 araçlık konvoy kuyruğundan kurtarır. GetYourGuide veya Viator'dan 24 saat ücretsiz iptalli ayırtın, bakiyeyi online ödeyin; yanınıza yalnız bahşiş için 100–200 EGP. <b>Ekipman:</b> kapalı ayakkabı zorunlu, uzun kol ve pantolon, toz için buff ya da şal (turda satılan şalı almayın, fahiş), güneş gözlüğü, sabah serin olduğu için ince bir üst. Kask tur veriyor, takmadan sürmeyin; sürücü belgesi istenmiyor. Konvoyda hız 15–20 km/s, öndekinin tozunu yutmamak için aralık bırakın. <b>Sigorta:</b> seyahat sigortalarının çoğu quad kazasını kapsam dışı tutuyor — poliçenizde \"motorlu araç / ATV\" istisnasına bakın, gerekirse ek teminat. Pasaportu yanınıza alın, Sina'da kontrol noktası var. Deve kısmında hayvanın haline bakın; kötüyse binmeden fotoğraf çekip geçin. Tur iptal olursa eski plan geçerli: 09:00–10:45 otelin house reef'inde şnorkel — şnorkelden sonra uçmak tıbben güvenli, 18 saat kuralı yalnız tüplü dalış için.",
+    etiket: "27 Kasım",
+    kamera: { zoom: 13, pitch: 60, bearing: 300 },
   },
   {
     id: "ssh-donus", gun: 7, saat: "15:00", kategori: "ulasim", kaynak: "plan",

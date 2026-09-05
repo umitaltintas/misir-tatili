@@ -116,9 +116,9 @@ export const MEKAN_BILGI = {
     gorsel: ["Sharm el-Sheikh Old Market.jpg", "Old Market, Sharm el-Sheikh.jpg", "Sharm El Sheikh Old Market.jpg", "Sharm el-Sheikh.jpg"],
     sure: "2 saat",
   },
-  "sharks-bay": {
-    gorsel: ["SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG", "Sharm el-Sheikh , photo by Hatem Moushir 71.jpg"],
-    sure: "Yarım gün",
+  "quad-safari": {
+    gorsel: ["Sharm elshiekh desert and mountains.jpg", "A local Bedouin with his camel at Yamit in the Sinai Penisula (FL62907534).jpg", "Dessert Safari.jpg"],
+    sure: "3 saat",
   },
   // Ulaşım durakları: künye yerine yalnızca havalimanı görseli.
   "ist-kalkis": {
