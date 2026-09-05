@@ -336,20 +336,20 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 7
   {
-    id: "sharks-bay", gun: 7, saat: "06:45", kategori: "deniz", kaynak: "plan",
+    id: "sharks-bay", gun: 7, saat: "05:50", kategori: "deniz", kaynak: "plan",
     ad: "Sharks Bay — otelin resifi",
     alt: "Kısa son yüzme",
     konum: [34.3940, 27.9440],
-    aciklama: "Otelin house reef'inde son, kısa bir şnorkel: korunaklı koy, kıyıdan birkaç kulaçta mercan. Dün gece çöl turundan geç dönüldüğü ve bugün uçuş 11:45 olduğu için pencere dar — yine de günü denizle kapatmaya değer.",
-    ipucu: "<b>Gerçek pencereniz 06:45–07:45.</b> THY'nin Şarm–İstanbul hattındaki tek gerçekçi seçenek 11:45 kalkış (diğerleri 03:30–10:50 arası, daha da erken) — uluslararası uçuş ve Şarm'daki çifte güvenlik kontrolü için 3 saat önce havalimanında olun, yani 08:45. Geriye sayarsanız: 08:00 check-out, 07:45 sudan çıkış, bavul akşamdan hazır olmalı. <b>Şnorkelden sonra uçmak tıbben tamamen güvenli</b> — 18 saat kuralı yalnızca tüplü dalış için. Mercana basmayın, deniz ayakkabısı takın, cankurtaran yok — birlikte yüzün.",
+    aciklama: "Otelin house reef'inde son, kısa bir şnorkel: korunaklı koy, kıyıdan birkaç kulaçta mercan. Dün gece çöl turundan geç dönüldüğü ve bugün uçuş 10:50 olduğu için pencere dar — yine de günü denizle kapatmaya değer.",
+    ipucu: "<b>Gerçek pencereniz 05:50–06:50.</b> Bu hatta Pegasus'un 10:50 seferi THY'nin 11:45'ine göre kişi başı ~4.500 ₺ daha ucuz, sadece 55 dakika erken — uluslararası uçuş ve Şarm'daki çifte güvenlik kontrolü için 3 saat önce havalimanında olun, yani 07:50. Geriye sayarsanız: 07:05 check-out, 06:50 sudan çıkış, bavul akşamdan hazır olmalı. <b>Şnorkelden sonra uçmak tıbben tamamen güvenli</b> — 18 saat kuralı yalnızca tüplü dalış için. Mercana basmayın, deniz ayakkabısı takın, cankurtaran yok — birlikte yüzün.",
     kamera: { zoom: 15, pitch: 55, bearing: 15 },
   },
   {
-    id: "ssh-donus", gun: 7, saat: "11:45", kategori: "ulasim", kaynak: "plan",
+    id: "ssh-donus", gun: 7, saat: "10:50", kategori: "ulasim", kaynak: "plan",
     ad: "Şarm → İstanbul",
-    alt: "Turkish Airlines direkt, 3 saat",
+    alt: "Pegasus direkt, 2 sa 45 dk",
     konum: [34.3950, 27.9773],
-    aciklama: "Bu hatta Pegasus, AJet ve THY'nin uçtuğu doğru ama üçü de sabaha kümelenmiş (03:30–10:50); THY'nin 11:45 seferi tek gerçek geç seçenek ve bu yüzden tercih edilmeli — daha erkeni son deniz sabahını tamamen siler. Yurt dışı çıkış harcını (kişi başı 1.250 ₺) Türkiye'den ayrılmadan dijital ödemiş olun.",
+    aciklama: "27 Kasım için tek yön fiyatları gerçekten çok farklı: THY'nin 11:45 seferi kişi başı ~11.500 ₺ iken, Pegasus'un yalnızca 55 dakika daha erken 10:50 seferi ~7.030 ₺ — 2 kişi toplamda yaklaşık 9.000 ₺ (~190 $) fark. Uçuşun kendisi neredeyse aynı saatte, yalnız havalimanına çıkış biraz erkene alınıyor. Yurt dışı çıkış harcını (kişi başı 1.250 ₺) Türkiye'den ayrılmadan dijital ödemiş olun.",
     kamera: { zoom: 12, pitch: 35, bearing: 340 },
   },
 ];

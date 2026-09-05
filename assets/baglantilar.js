@@ -219,13 +219,13 @@ export const BAGLANTILAR = [
     from: "quad-safari", to: "sharks-bay", tur: "taksi", gunBasi: true,
     sure: "10–15 dk", ucret: "150–250 EGP",
     ozet: "Çöl gecesinden son sabaha",
-    detay: "Tur ~21:00–21:15'te otele bırakır. Sabah 06:45'te house reef'te kısa bir yüzüş için erken kalkın; bavulu akşamdan hazırlamış olun.",
+    detay: "Tur ~21:00–21:15'te otele bırakır. Sabah 05:50'te house reef'te kısa bir yüzüş için erken kalkın; bavulu akşamdan hazırlamış olun (uçuş 10:50'ye alındığı için sabah 55 dakika erkene çekildi).",
   },
   {
     from: "sharks-bay", to: "ssh-donus", tur: "taksi",
     sure: "10–15 dk", ucret: "150–250 EGP",
     ozet: "Havalimanına",
-    detay: "07:45 sudan çıkış, 08:00 check-out, 08:15 otelden çıkış — Sharks Bay havalimanının hemen yanında, kısacık bir transfer. Uçuş 11:45 ve uluslararası + çifte güvenlik kontrolü var, 08:45'te havalimanında olun.",
+    detay: "06:50 sudan çıkış, 07:05 check-out, 07:20 otelden çıkış — Sharks Bay havalimanının hemen yanında, kısacık bir transfer. Uçuş 10:50 (Pegasus) ve uluslararası + çifte güvenlik kontrolü var, 07:50'de havalimanında olun.",
     dikkat: "Yurt dışı çıkış harcını Türkiye'den ayrılmadan dijital ödemiş olmanız gerekiyordu — dönüşte değil, gidişte.",
   },
 ];
