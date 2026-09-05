@@ -102,6 +102,7 @@ a { color: inherit; }
   transition: color .18s ease, border-color .18s ease;
 }
 .geri:hover { color: var(--metin); border-color: var(--metin-orta); }
+.ust-cikis { display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* Gün seçici */
 
@@ -547,6 +548,7 @@ a { color: inherit; }
   .marka b { font-size: .84rem; letter-spacing: .12em; }
   .marka span { font-size: .6rem; }
   .geri { padding: 5px 11px; font-size: .72rem; }
+  .ust-cikis { gap: 6px; }
   .gunler { order: 3; flex-basis: 100%; }
   .gun-chip { padding: 5px 10px; font-size: .7rem; }
 
