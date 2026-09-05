@@ -47,10 +47,10 @@ alternatif denenir.
 
 ### Nil'den Kızıldeniz'e (`rota.html`)
 
-32 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
+31 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
 durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
 
-- **Görsel ve künye** — 32 durağın tamamı için Wikimedia Commons fotoğrafı, dönem
+- **Görsel ve künye** — 31 durağın tamamı için Wikimedia Commons fotoğrafı, dönem
   bilgisi, önerilen süre ve UNESCO alanı. Görsele dokununca aynı dosyanın 1600
   piksellik hâli tam ekran açılır: önce önbellekteki küçük hâl görünür, büyüğü
   gelince yerine geçer. Altında mekânın adı ve Commons'taki dosya sayfasına

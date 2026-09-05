@@ -62,7 +62,7 @@ export const MEKAN_BILGI = {
   },
   karnak: {
     gorsel: ["Karnak Temple.jpg", "Great Hypostyle Hall, Karnak.jpg", "Hypostyle hall, Karnak temple.jpg"],
-    donem: "MÖ 2000 – MÖ 30", sure: "2–3 saat", unesco: "Antik Teb ve Nekropolü",
+    donem: "MÖ 2000 – MÖ 30", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
   },
   "luxor-tapinak": {
     gorsel: ["Egypt.LuxorTemple.06.jpg", "Luxor Temple.jpg", "Luxor Temple at night.jpg"],
@@ -70,11 +70,11 @@ export const MEKAN_BILGI = {
   },
   "krallar-vadisi": {
     gorsel: ["Thebes, Luxor, Egypt, Panoramic view of the Valley of the Kings.jpg", "Thebes, Luxor, Egypt, Valley of the Kings from above.jpg"],
-    donem: "MÖ 1539 – MÖ 1075", sure: "3 saat", unesco: "Antik Teb ve Nekropolü",
+    donem: "MÖ 1539 – MÖ 1075", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
   },
   hatsepsut: {
     gorsel: ["Mortuary Temple of Hatshepsut.jpg", "Temple of Hatshepsut.jpg", "Deir el-Bahari.jpg"],
-    donem: "MÖ 1470 civarı", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
+    donem: "MÖ 1470 civarı", sure: "45 dk", unesco: "Antik Teb ve Nekropolü",
   },
   memnon: {
     gorsel: ["Colossi of Memnon.jpg", "Colossi of Memnon, Luxor.jpg", "Memnon colossi.jpg"],
@@ -86,11 +86,11 @@ export const MEKAN_BILGI = {
   },
   "medinet-habu": {
     gorsel: ["Medinet Habu.jpg", "Medinet Habu temple.jpg", "Mortuary Temple of Ramesses III.jpg"],
-    donem: "MÖ 1180 civarı", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
+    donem: "MÖ 1180 civarı", sure: "1 saat", unesco: "Antik Teb ve Nekropolü",
   },
   "deir-el-medina": {
     gorsel: ["Deir el-Medina ruins (2009a).jpg", "Deir al Medineh near Luxor.jpg"],
-    donem: "MÖ 1550–1080", sure: "1–1,5 saat", unesco: "Antik Teb ve Nekropolü",
+    donem: "MÖ 1550–1080", sure: "45 dk, isteğe bağlı", unesco: "Antik Teb ve Nekropolü",
   },
   mumyalama: {
     gorsel: ["Musée Momification - Louxor (EG) - 2025-12-10 - 1.jpg", "Musée Momification - Louxor (EG) - 2025-12-10 - 10.jpg"],
@@ -104,21 +104,17 @@ export const MEKAN_BILGI = {
     gorsel: ["Egyptian food.jpg", "Egyptian cuisine.jpg", "Tagine.jpg"],
     sure: "1,5 saat",
   },
-  soho: {
-    gorsel: ["Sharm Soho Square R01.jpg", "02 SOHO Square.jpg"],
-    sure: "2 saat",
-  },
   "ras-mohammed": {
     gorsel: ["Ras Mohammed Bay.jpg", "Tortuga carey (Eretmochelys imbricata), parque nacional Ras Muhammad, Egipto, 2022-03-28, DD 56.jpg"],
     donem: "1983'ten beri milli park", sure: "Tam gün",
   },
-  "old-market": {
-    gorsel: ["Sharm el-Sheikh Old Market.jpg", "Old Market, Sharm el-Sheikh.jpg", "Sharm El Sheikh Old Market.jpg", "Sharm el-Sheikh.jpg"],
-    sure: "2 saat",
-  },
   "quad-safari": {
     gorsel: ["Sharm elshiekh desert and mountains.jpg", "A local Bedouin with his camel at Yamit in the Sinai Penisula (FL62907534).jpg", "Dessert Safari.jpg"],
     sure: "3 saat",
+  },
+  "sharks-bay": {
+    gorsel: ["SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG", "Sharm el-Sheikh , photo by Hatem Moushir 71.jpg"],
+    sure: "1 saat",
   },
   // Ulaşım durakları: künye yerine yalnızca havalimanı görseli.
   "ist-kalkis": {
