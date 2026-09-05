@@ -114,7 +114,7 @@ export function kmlOlustur(gunler, duraklar, kategoriler) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document>
-  <name>Nil Boyunca — Kahire + Luxor, 21–27 Kasım 2026</name>
+  <name>Nil Boyunca — Kahire + Luxor, 20–27 Kasım 2026</name>
   <description>Konumlar yaklaşıktır; ören yerleri isabetli, restoran ve çarşı noktaları doğru sokağı gösterir.</description>
   <Style id="rota-hatti">
     <LineStyle><color>${kmlRenk("#C9A227")}</color><width>3</width></LineStyle>

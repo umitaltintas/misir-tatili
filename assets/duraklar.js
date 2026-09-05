@@ -1,5 +1,5 @@
 /**
- * Rota verisi — Kahire + Luxor + Şarm El-Şeyh, 21–27 Kasım 2026.
+ * Rota verisi — Kahire + Luxor + Şarm El-Şeyh, 20–27 Kasım 2026.
  *
  * konum: [boylam, enlem] — MapLibre sırası.
  * kaynak: 'plan'   → ana programda geçen durak
@@ -19,37 +19,42 @@ export const KATEGORILER = {
 
 export const GUNLER = [
   {
-    no: 1, tarih: "21 Kasım", gunAdi: "Cumartesi", sehir: "Kahire",
+    no: 1, tarih: "20 Kasım", gunAdi: "Cuma", sehir: "İstanbul",
     baslik: "İstanbul → Kahire",
-    tema: "Varış — Osmanlı ve Memlük Kahiresi tek günde",
+    tema: "Akşam uçuşuyla yola çıkış",
   },
   {
-    no: 2, tarih: "22 Kasım", gunAdi: "Pazar", sehir: "Kahire",
+    no: 2, tarih: "21 Kasım", gunAdi: "Cumartesi", sehir: "Kahire",
+    baslik: "Osmanlı ve Memlük Kahiresi",
+    tema: "Kaleden çarşıya, ışıklandırmalı bir akşama",
+  },
+  {
+    no: 3, tarih: "22 Kasım", gunAdi: "Pazar", sehir: "Kahire",
     baslik: "Gize Günü",
     tema: "Piramitler ve Büyük Mısır Müzesi",
   },
   {
-    no: 3, tarih: "23 Kasım", gunAdi: "Pazartesi", sehir: "Luxor",
+    no: 4, tarih: "23 Kasım", gunAdi: "Pazartesi", sehir: "Luxor",
     baslik: "Sakkara, sonra Luxor",
     tema: "MÖ 2650'den tapınaklar şehrine",
   },
   {
-    no: 4, tarih: "24 Kasım", gunAdi: "Salı", sehir: "Luxor",
+    no: 5, tarih: "24 Kasım", gunAdi: "Salı", sehir: "Luxor",
     baslik: "Karnak ve Batı Yakası",
     tema: "Sabah ışığında Karnak, sonra ölüler şehri",
   },
   {
-    no: 5, tarih: "25 Kasım", gunAdi: "Çarşamba", sehir: "Şarm El-Şeyh",
+    no: 6, tarih: "25 Kasım", gunAdi: "Çarşamba", sehir: "Şarm El-Şeyh",
     baslik: "Luxor → Şarm El-Şeyh",
     tema: "Nil'den Kızıldeniz'e",
   },
   {
-    no: 6, tarih: "26 Kasım", gunAdi: "Perşembe", sehir: "Şarm El-Şeyh",
+    no: 7, tarih: "26 Kasım", gunAdi: "Perşembe", sehir: "Şarm El-Şeyh",
     baslik: "Ras Mohammed",
     tema: "Shark ve Yolanda: Kızıldeniz'de tam gün",
   },
   {
-    no: 7, tarih: "27 Kasım", gunAdi: "Cuma", sehir: "Şarm El-Şeyh",
+    no: 8, tarih: "27 Kasım", gunAdi: "Cuma", sehir: "Şarm El-Şeyh",
     baslik: "Şarm → İstanbul",
     tema: "Son bir deniz sabahı, erken dönüş",
   },
@@ -58,24 +63,24 @@ export const GUNLER = [
 export const DURAKLAR = [
   // ————————————————————————— GÜN 1
   {
-    id: "ist-kalkis", gun: 1, saat: "07:55", kategori: "ulasim", kaynak: "plan",
+    id: "ist-kalkis", gun: 1, saat: "22:10", kategori: "ulasim", kaynak: "plan",
     ad: "İstanbul Havalimanı",
-    alt: "Kalkış",
+    alt: "Kalkış — akşam uçuşu",
     konum: [28.7519, 41.2753],
-    aciklama: "Turkish Airlines'ın 07:55 direkt seferi, 2 saat 25 dakika — 21 Kasım 2026 için doğrulanmış gerçek sefer. Dönüş Şarm El-Şeyh'ten olduğu için bileti tek yön alın — yüksek sezon, erken davranın.",
+    aciklama: "AJet'in (Turkish Airlines operasyonu) Sabiha Gökçen'den 22:10 direkt seferi, 2 saat 30 dakika — 20 Kasım 2026 için doğrulanmış gerçek sefer. THY'nin sabah seferinden kişi başı ~11.700 ₺ (2 kişi ~500 $) daha ucuz; karşılığı bir gece erken yola çıkıp Kahire'de bir gece daha kalmak — hem tasarruf hem dinlenmiş bir ilk gün. Dönüş Şarm El-Şeyh'ten olduğu için bileti tek yön alın.",
     kamera: { zoom: 9, pitch: 30, bearing: 20 },
   },
   {
-    id: "cai-varis", gun: 1, saat: "09:20", kategori: "ulasim", kaynak: "plan",
+    id: "cai-varis", gun: 1, saat: "23:40", kategori: "ulasim", kaynak: "plan",
     ad: "Kahire Havalimanı",
-    alt: "Kapıda vize",
+    alt: "Gece yarısına yakın varış",
     konum: [31.4056, 30.1219],
     aciklama: "Vize kapıda alınıyor: kişi başı 30 $ — Mart 2026'da 25'ten yükseldi, Türkçe kaynakların çoğu hâlâ eski rakamı yazıyor. Banko nakit dolar istiyor, POS yok ve para üstü vermiyorlar; 60 $'ı tam ve küçük banknotla hazırlayın.",
-    ipucu: "Pasaport kontrolünden önce vize bandrolü satan bankoya uğrayın — sırayı karıştırmak yaygın hata. Kuyruk 40–45 dk sürebilir; \"sizi öne alalım\" diyene para vermeyin. Kuyruğu hiç beklemek istemezseniz Ağustos 2026'da başlayan dijital QR vizesini kartla önceden alabilirsiniz (36 $, apps.visaonarrival.gov.eg) — ön başvuru zorunlu değil, kağıt bandrol hâlâ geçerli.",
+    ipucu: "Gece yarısına yakın geldiğiniz için kuyruk gündüze göre genelde daha kısa. Otele varış gece yarısını bulur — resepsiyona geç check-in yapacağınızı önceden bildirin. Bu akşam için başka plan yok: doğrudan yatış, yarın (21 Kasım) tam ve dinlenmiş bir günle Kahire Kalesi'nden başlıyorsunuz. Kuyruğu hiç beklemek istemezseniz Ağustos 2026'da başlayan dijital QR vizesini kartla önceden alabilirsiniz (36 $, apps.visaonarrival.gov.eg).",
     kamera: { zoom: 12, pitch: 40, bearing: -20 },
   },
   {
-    id: "kale", gun: 1, saat: "13:30", kategori: "islami", kaynak: "plan",
+    id: "kale", gun: 2, saat: "09:30", kategori: "islami", kaynak: "plan",
     ad: "Kahire Kalesi",
     alt: "Muhammed Ali Camii ve türbesi",
     konum: [31.2599, 30.0287],
@@ -85,7 +90,7 @@ export const DURAKLAR = [
     kamera: { zoom: 16.2, pitch: 60, bearing: -35 },
   },
   {
-    id: "sultan-hasan", gun: 1, saat: "15:15", kategori: "islami", kaynak: "plan",
+    id: "sultan-hasan", gun: 2, saat: "11:45", kategori: "islami", kaynak: "plan",
     ad: "Sultan Hasan Medresesi",
     alt: "Memlük mimarisinin zirvesi",
     konum: [31.2564, 30.0325],
@@ -94,17 +99,17 @@ export const DURAKLAR = [
     kamera: { zoom: 16.8, pitch: 62, bearing: 30 },
   },
   {
-    id: "rifai", gun: 1, saat: "16:05", kategori: "islami", kaynak: "plan",
+    id: "rifai", gun: 2, saat: "12:35", kategori: "islami", kaynak: "plan",
     ad: "Rifai Camii",
     alt: "Kavalalı hanedanının türbe camii",
     konum: [31.2570, 30.0331],
     aciklama: "Kral Faruk ve son İran Şahı Rıza Pehlevi burada gömülü. Sultan Hasan'ın tam karşısında, 600 yıl sonra ona öykünerek yapıldı. Aynı bilete dahil, 20–30 dakika yeter.",
-    ipucu: "Dikkat: son giriş 16:00 civarında kesiliyor, programdaki 16:30 kapıda çevrilme riski taşıyor. Sultan Hasan'ı 15:20'de bitirip doğruca karşıya geçin — ikisi arasında yalnızca meydan var.",
+    ipucu: "Son giriş genelde 16:00 civarında kesiliyor ama bu saatte bolca vaktiniz var. Çıkışta Ezher Parkı'na (16:45) kadar uzun bir öğle molası kalıyor — yakında bir lokantada rahat bir öğle yemeği ve dinlenme için iyi bir fırsat.",
     etiket: "Osmanlı izi",
     kamera: { zoom: 17, pitch: 60, bearing: 30 },
   },
   {
-    id: "ezher-parki", gun: 1, saat: "16:45", kategori: "deneyim", kaynak: "oneri",
+    id: "ezher-parki", gun: 2, saat: "16:45", kategori: "deneyim", kaynak: "oneri",
     ad: "El-Ezher Parkı",
     alt: "Gerçek gün batımı",
     konum: [31.2637, 30.0403],
@@ -114,7 +119,7 @@ export const DURAKLAR = [
     kamera: { zoom: 16, pitch: 55, bearing: -75 },
   },
   {
-    id: "muizz", gun: 1, saat: "18:00", kategori: "deneyim", kaynak: "plan",
+    id: "muizz", gun: 2, saat: "18:00", kategori: "deneyim", kaynak: "plan",
     ad: "El-Muizz Caddesi",
     alt: "Işıklandırma yürüyüşü",
     konum: [31.2610, 30.0490],
@@ -123,7 +128,7 @@ export const DURAKLAR = [
     kamera: { zoom: 17, pitch: 60, bearing: 10 },
   },
   {
-    id: "khan", gun: 1, saat: "19:30", kategori: "deneyim", kaynak: "plan",
+    id: "khan", gun: 2, saat: "19:30", kategori: "deneyim", kaynak: "plan",
     ad: "Khan el-Khalili",
     alt: "Akşam çarşısı",
     konum: [31.2622, 30.0477],
@@ -131,7 +136,7 @@ export const DURAKLAR = [
     kamera: { zoom: 17, pitch: 55, bearing: 20 },
   },
   {
-    id: "fishawy", gun: 1, saat: "21:00", kategori: "yemek", kaynak: "plan",
+    id: "fishawy", gun: 2, saat: "21:00", kategori: "yemek", kaynak: "plan",
     ad: "El Fishawy",
     alt: "250 yıllık kahvehane",
     konum: [31.2624, 30.0476],
@@ -142,7 +147,7 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 2
   {
-    id: "keops", gun: 2, saat: "08:00", kategori: "antik", kaynak: "plan",
+    id: "keops", gun: 3, saat: "08:00", kategori: "antik", kaynak: "plan",
     ad: "Gize Platosu",
     alt: "Keops, Kefren, Mikerinos",
     konum: [31.1342, 29.9792],
@@ -151,7 +156,7 @@ export const DURAKLAR = [
     kamera: { zoom: 15, pitch: 65, bearing: 35 },
   },
   {
-    id: "sfenks", gun: 2, saat: "10:30", kategori: "antik", kaynak: "plan",
+    id: "sfenks", gun: 3, saat: "10:30", kategori: "antik", kaynak: "plan",
     ad: "Büyük Sfenks",
     alt: "Kefren'in bekçisi",
     konum: [31.1376, 29.9753],
@@ -160,7 +165,7 @@ export const DURAKLAR = [
     kamera: { zoom: 17.5, pitch: 70, bearing: 30 },
   },
   {
-    id: "gem", gun: 2, saat: "14:00", kategori: "muze", kaynak: "plan",
+    id: "gem", gun: 3, saat: "14:00", kategori: "muze", kaynak: "plan",
     ad: "Büyük Mısır Müzesi",
     alt: "GEM",
     konum: [31.1194, 29.9938],
@@ -170,7 +175,7 @@ export const DURAKLAR = [
     kamera: { zoom: 16, pitch: 55, bearing: -35 },
   },
   {
-    id: "abou-tarek", gun: 2, saat: "20:00", kategori: "yemek", kaynak: "oneri",
+    id: "abou-tarek", gun: 3, saat: "20:00", kategori: "yemek", kaynak: "oneri",
     ad: "Abou Tarek",
     alt: "Koshary",
     konum: [31.2437, 30.0505],
@@ -181,7 +186,7 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 3
   {
-    id: "sakkara", gun: 3, saat: "08:00", kategori: "antik", kaynak: "plan",
+    id: "sakkara", gun: 4, saat: "08:00", kategori: "antik", kaynak: "plan",
     ad: "Sakkara",
     alt: "Coser'in Basamaklı Piramidi",
     konum: [31.2165, 29.8712],
@@ -190,7 +195,7 @@ export const DURAKLAR = [
     kamera: { zoom: 16, pitch: 62, bearing: 30 },
   },
   {
-    id: "cai-lxr", gun: 3, saat: "14:00", kategori: "ulasim", kaynak: "plan",
+    id: "cai-lxr", gun: 4, saat: "14:00", kategori: "ulasim", kaynak: "plan",
     ad: "Kahire → Luxor",
     alt: "Air Cairo direkt, 1 saat",
     konum: [31.4056, 30.1219],
@@ -199,7 +204,7 @@ export const DURAKLAR = [
     kamera: { zoom: 6.5, pitch: 45, bearing: 15 },
   },
   {
-    id: "luxor-tapinak", gun: 3, saat: "17:00", kategori: "antik", kaynak: "plan",
+    id: "luxor-tapinak", gun: 4, saat: "17:00", kategori: "antik", kaynak: "plan",
     ad: "Luxor Tapınağı",
     alt: "Işıklandırmada",
     konum: [32.6393, 25.6996],
@@ -208,7 +213,7 @@ export const DURAKLAR = [
     kamera: { zoom: 16.8, pitch: 62, bearing: 15 },
   },
   {
-    id: "sofra", gun: 3, saat: "20:00", kategori: "yemek", kaynak: "oneri",
+    id: "sofra", gun: 4, saat: "20:00", kategori: "yemek", kaynak: "oneri",
     ad: "Sofra",
     alt: "Geleneksel Mısır sofrası",
     konum: [32.6404, 25.6975],
@@ -219,7 +224,7 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 4
   {
-    id: "karnak", gun: 4, saat: "06:00", kategori: "antik", kaynak: "plan",
+    id: "karnak", gun: 5, saat: "06:00", kategori: "antik", kaynak: "plan",
     ad: "Karnak Tapınağı",
     alt: "Hipostil Salonu, dünden kalan",
     konum: [32.6573, 25.7188],
@@ -228,7 +233,7 @@ export const DURAKLAR = [
     kamera: { zoom: 16.2, pitch: 60, bearing: -25 },
   },
   {
-    id: "krallar-vadisi", gun: 4, saat: "08:15", kategori: "antik", kaynak: "plan",
+    id: "krallar-vadisi", gun: 5, saat: "08:15", kategori: "antik", kaynak: "plan",
     ad: "Krallar Vadisi",
     alt: "62 mezar, 3'ü bilete dahil",
     konum: [32.6014, 25.7402],
@@ -237,7 +242,7 @@ export const DURAKLAR = [
     kamera: { zoom: 15.3, pitch: 68, bearing: 35 },
   },
   {
-    id: "hatsepsut", gun: 4, saat: "09:45", kategori: "antik", kaynak: "plan",
+    id: "hatsepsut", gun: 5, saat: "09:45", kategori: "antik", kaynak: "plan",
     ad: "Hatşepsut Tapınağı",
     alt: "Deir el-Bahri",
     konum: [32.6068, 25.7381],
@@ -246,7 +251,7 @@ export const DURAKLAR = [
     kamera: { zoom: 15.8, pitch: 70, bearing: -35 },
   },
   {
-    id: "memnon", gun: 4, saat: "10:45", kategori: "antik", kaynak: "plan",
+    id: "memnon", gun: 5, saat: "10:45", kategori: "antik", kaynak: "plan",
     ad: "Memnon Devleri",
     alt: "Yol üstü, 15 dakika",
     konum: [32.6106, 25.7205],
@@ -255,7 +260,7 @@ export const DURAKLAR = [
     kamera: { zoom: 17, pitch: 65, bearing: 30 },
   },
   {
-    id: "medinet-habu", gun: 4, saat: "11:05", kategori: "antik", kaynak: "plan",
+    id: "medinet-habu", gun: 5, saat: "11:05", kategori: "antik", kaynak: "plan",
     ad: "Medinet Habu",
     alt: "III. Ramses Tapınağı",
     konum: [32.6008, 25.7196],
@@ -265,7 +270,7 @@ export const DURAKLAR = [
     kamera: { zoom: 16.5, pitch: 62, bearing: -40 },
   },
   {
-    id: "deir-el-medina", gun: 4, saat: "12:15", kategori: "antik", kaynak: "oneri",
+    id: "deir-el-medina", gun: 5, saat: "12:15", kategori: "antik", kaynak: "oneri",
     ad: "Deir el-Medina",
     alt: "Ustaların kendi köyü — vaktiniz kalırsa",
     konum: [32.6019, 25.7286],
@@ -275,7 +280,7 @@ export const DURAKLAR = [
     kamera: { zoom: 17, pitch: 58, bearing: 25 },
   },
   {
-    id: "felluka", gun: 4, saat: "16:30", kategori: "deneyim", kaynak: "plan",
+    id: "felluka", gun: 5, saat: "16:30", kategori: "deneyim", kaynak: "plan",
     ad: "Nil'de felluka",
     alt: "Gün batımı yelkenlisi",
     konum: [32.6360, 25.6980],
@@ -285,7 +290,7 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 5
   {
-    id: "mumyalama", gun: 5, saat: "09:00", kategori: "muze", kaynak: "oneri",
+    id: "mumyalama", gun: 6, saat: "09:00", kategori: "muze", kaynak: "oneri",
     ad: "Mumyalama Müzesi",
     alt: "Tekniğin kendisi",
     konum: [32.6396, 25.7003],
@@ -294,7 +299,7 @@ export const DURAKLAR = [
     kamera: { zoom: 17, pitch: 50, bearing: 340 },
   },
   {
-    id: "luxor-muze", gun: 5, saat: "10:15", kategori: "muze", kaynak: "plan",
+    id: "luxor-muze", gun: 6, saat: "10:15", kategori: "muze", kaynak: "plan",
     ad: "Luxor Müzesi",
     alt: "Uçuş öncesi sakin sabah",
     konum: [32.6428, 25.7036],
@@ -303,7 +308,7 @@ export const DURAKLAR = [
     kamera: { zoom: 17, pitch: 50, bearing: 0 },
   },
   {
-    id: "lxr-ssh", gun: 5, saat: "16:50", kategori: "ulasim", kaynak: "plan",
+    id: "lxr-ssh", gun: 6, saat: "16:50", kategori: "ulasim", kaynak: "plan",
     ad: "Luxor → Şarm El-Şeyh",
     alt: "Kahire aktarmalı, ~4 saat",
     konum: [32.7066, 25.6710],
@@ -314,7 +319,7 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 6
   {
-    id: "ras-mohammed", gun: 6, saat: "08:30", kategori: "deniz", kaynak: "plan",
+    id: "ras-mohammed", gun: 7, saat: "08:30", kategori: "deniz", kaynak: "plan",
     ad: "Ras Mohammed Milli Parkı",
     alt: "Tekne + şnorkel turu",
     konum: [34.2455, 27.7237],
@@ -324,7 +329,7 @@ export const DURAKLAR = [
     kamera: { zoom: 13.5, pitch: 60, bearing: 20 },
   },
   {
-    id: "quad-safari", gun: 6, saat: "18:00", kategori: "deneyim", kaynak: "plan",
+    id: "quad-safari", gun: 7, saat: "18:00", kategori: "deneyim", kaynak: "plan",
     ad: "Sina'da quad + deve safarisi",
     alt: "Çöl akşamı, Bedevi yemeği",
     konum: [34.3300, 27.9930],
@@ -336,7 +341,7 @@ export const DURAKLAR = [
 
   // ————————————————————————— GÜN 7
   {
-    id: "sharks-bay", gun: 7, saat: "05:50", kategori: "deniz", kaynak: "plan",
+    id: "sharks-bay", gun: 8, saat: "05:50", kategori: "deniz", kaynak: "plan",
     ad: "Sharks Bay — otelin resifi",
     alt: "Kısa son yüzme",
     konum: [34.3940, 27.9440],
@@ -345,7 +350,7 @@ export const DURAKLAR = [
     kamera: { zoom: 15, pitch: 55, bearing: 15 },
   },
   {
-    id: "ssh-donus", gun: 7, saat: "10:50", kategori: "ulasim", kaynak: "plan",
+    id: "ssh-donus", gun: 8, saat: "10:50", kategori: "ulasim", kaynak: "plan",
     ad: "Şarm → İstanbul",
     alt: "Pegasus direkt, 2 sa 45 dk",
     konum: [34.3950, 27.9773],
@@ -357,7 +362,7 @@ export const DURAKLAR = [
 /** Şehirler arası uçuş bacakları — haritada kesikli yay olarak çizilir. */
 export const UCUSLAR = [
   { id: "ist-cai", from: [28.7519, 41.2753], to: [31.4056, 30.1219], gun: 1, etiket: "İstanbul → Kahire" },
-  { id: "cai-lxr", from: [31.4056, 30.1219], to: [32.7066, 25.6710], gun: 3, etiket: "Kahire → Luxor" },
-  { id: "lxr-ssh", from: [32.7066, 25.6710], to: [34.3950, 27.9773], gun: 5, etiket: "Luxor → Şarm El-Şeyh" },
-  { id: "ssh-ist", from: [34.3950, 27.9773], to: [28.7519, 41.2753], gun: 7, etiket: "Şarm → İstanbul" },
+  { id: "cai-lxr", from: [31.4056, 30.1219], to: [32.7066, 25.6710], gun: 4, etiket: "Kahire → Luxor" },
+  { id: "lxr-ssh", from: [32.7066, 25.6710], to: [34.3950, 27.9773], gun: 6, etiket: "Luxor → Şarm El-Şeyh" },
+  { id: "ssh-ist", from: [34.3950, 27.9773], to: [28.7519, 41.2753], gun: 8, etiket: "Şarm → İstanbul" },
 ];

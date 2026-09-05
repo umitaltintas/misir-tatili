@@ -1,7 +1,7 @@
-# Kahire + Luxor + Şarm El-Şeyh — 21–27 Kasım 2026
+# Kahire + Luxor + Şarm El-Şeyh — 20–27 Kasım 2026
 
-İki kişilik, 6 gece 7 günlük Mısır gezisi planı: beş gün antik ve İslami miras,
-son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan zaman
+İki kişilik, 7 gece 8 günlük Mısır gezisi planı: beş gün antik ve İslami miras,
+son iki gün Kızıldeniz. İslami Kahire tek güne toplandı; kazanılan zaman
 Şarm El-Şeyh'e ayrıldı ve dönüş uçuşu Şarm'dan (açık çeneli bilet).
 
 ## Sayfalar
@@ -16,7 +16,7 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
 
 - **Gün gün program** — Gize, Sakkara, İslami Kahire (tek günde), Karnak, Krallar
   Vadisi, Medinet Habu, Ras Mohammed ve Sina'da quad + deve safarisi
-- **İbadet planı** — yedi günün vakit namazları, o gün bulunulan şehrin koordinatından
+- **İbadet planı** — sekiz günün vakit namazları, o gün bulunulan şehrin koordinatından
   çalışma anında hesaplanır (Diyanet açıları 18°/17°, **Hanefî** ikindi); aktarma
   günlerinde tablo şehri vakit vakit değiştirir. Her gün için vaktin programda nereye
   denk geldiği yazılı: ikindi Sultan Hasan'da, akşam Luxor Tapınağı'ndaki Ebu'l-Haccac

@@ -26,16 +26,16 @@ export const TURLER = {
 export const BAGLANTILAR = [
   {
     from: "ist-kalkis", to: "cai-varis", tur: "ucak",
-    sure: "2 sa 15 dk", ucret: "210–380 $ (2 kişi, tek yön)",
-    ozet: "Doğrudan uçuş",
-    detay: "Dönüş Şarm'dan olduğu için gidiş-dönüş yerine tek yön alın. Pegasus ve AJet bacak bazlı fiyatladığından tek yön ceza yok; THY'de tek yön pahalıysa multi-city arayın.",
+    sure: "2 sa 30 dk", ucret: "220–280 $ (2 kişi, tek yön)",
+    ozet: "Akşam uçuşu, doğrudan",
+    detay: "AJet'in 20 Kasım akşamı 22:10 seferi — THY'nin sabah seferinden çok daha ucuz, karşılığında Kahire'de bir gece fazladan kalıyorsunuz. Dönüş Şarm'dan olduğu için gidiş-dönüş yerine tek yön alın; Pegasus/AJet bacak bazlı fiyatladığından tek yön ceza yok.",
     dikkat: "Kahire'de pasaport kontrolünden önce vize bandrolü satan bankoya uğrayın — sırayı karıştırmak en yaygın hata.",
   },
   {
-    from: "cai-varis", to: "kale", tur: "uber",
-    sure: "45–70 dk", ucret: "200–300 EGP",
-    ozet: "Havalimanından şehre",
-    detay: "Uber, Careem ve InDrive havalimanında çalışıyor; uygulama sizi belirlenmiş buluşma noktasına yönlendirir. Önce otele valiz bırakıp Kale'ye geçin. Gidenlerin ortak tavsiyesi InDrive: aynı yolu Uber'den ucuza götürüyor, Uber'in araçları biraz daha iyi.",
+    from: "cai-varis", to: "kale", tur: "uber", gunBasi: true,
+    sure: "45–70 dk (havalimanından otele)", ucret: "200–300 EGP",
+    ozet: "Gece yarısı otele, sabah Kale'ye",
+    detay: "Vizeden sonra Uber/Careem/InDrive ile doğrudan otele geçin — varış gece yarısına yakın, resepsiyona geç check-in yapacağınızı önceden bildirin. Sabahki kısa hareket (otelden Kale'ye, bölgeye göre 10–20 dk taksi) ayrı bir yerel bacak; burada gösterilen süre yalnızca gece yarısı transferi için.",
     dikkat: "Terminal çıkışında \"taxi?\" diye yaklaşanlarla pazarlık etmeyin — fiyat üç katına çıkabiliyor. Uygulamadan çağırmak hem ucuz hem tartışmasız. Binmeden plakayı doğrulayın: Mısır plakaları Arap rakamlı, yanlış araca binen turist çok.",
   },
   {
