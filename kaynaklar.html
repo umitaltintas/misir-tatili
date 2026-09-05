@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gitmeden Önce — Okunacak, İzlenecek · Kahire + Luxor + Şarm</title>
+<meta name="description" content="21–27 Kasım 2026 Mısır gezisi için okuma ve izleme listesi: kitaplar, belgeseller, filmler, podcastler ve dijital haritalar — her biri programdaki durağa bağlı.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lapis:#1E2A52;
+    --lapis-deep:#141D3B;
+    --limestone:#F2EADA;
+    --sand:#D9C39A;
+    --gold:#C9A227;
+    --nile:#2F6D62;
+    --ink:#26221A;
+    --muted:#6E6452;
+    --kitap:#8A6E13;
+    --belgesel:#425FB5;
+    --film:#A8492B;
+    --podcast:#7B4D9E;
+    --dijital:#217F78;
+    --blog:#6B6250;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Figtree',sans-serif;background:var(--limestone);color:var(--ink);line-height:1.6}
+  img{display:block;max-width:100%}
+  a{color:var(--nile)}
+
+  /* ——— Üst çubuk ——— */
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(242,234,218,.94);backdrop-filter:blur(12px);border-bottom:1px solid #E2D6BC}
+  .topnav-inner{width:min(1050px,92%);margin:0 auto;display:flex;align-items:center;gap:6px;padding:10px 0}
+  .nav-brand{font-family:'Cinzel',serif;font-weight:600;font-size:.8rem;letter-spacing:.14em;color:var(--lapis);text-decoration:none;margin-right:auto;white-space:nowrap}
+  .nav-links{display:flex;gap:4px;list-style:none;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-link{display:block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-decoration:none;padding:7px 10px;border-radius:3px;white-space:nowrap;transition:color .2s ease,background .2s ease}
+  .nav-link:hover{color:var(--lapis)}
+  .nav-map{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;color:var(--lapis-deep);background:var(--gold);padding:8px 14px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+  .nav-map:hover{background:var(--sand)}
+
+  /* ——— Hero ——— */
+  .hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;background:var(--lapis-deep);overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--lapis-deep) 6%,rgba(20,29,59,.5) 50%,rgba(20,29,59,.25))}
+  .hero-inner{position:relative;z-index:2;width:min(1050px,92%);margin:0 auto;padding:110px 0 64px}
+  .eyebrow{font-family:'Cinzel',serif;letter-spacing:.35em;font-size:.78rem;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-family:'Cinzel',serif;font-weight:700;color:var(--limestone);font-size:clamp(2rem,5.4vw,3.8rem);line-height:1.1}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{color:#D8D3C4;max-width:640px;margin-top:20px;font-size:1.05rem}
+  .hero-stats{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+  .hstat{border-left:2px solid var(--gold);padding-left:14px}
+  .hstat b{display:block;font-family:'Cinzel',serif;color:var(--limestone);font-size:1.35rem;letter-spacing:.04em}
+  .hstat span{color:#B9B29E;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+
+  /* ——— Bölümler ——— */
+  section{padding:70px 0}
+  section + section{padding-top:0}
+  .wrap{width:min(1050px,92%);margin:0 auto}
+  .sec-head{margin-bottom:34px}
+  .sec-head .eyebrow{color:var(--nile);margin-bottom:10px}
+  .sec-head h2{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3.2vw,2.2rem);color:var(--lapis);font-weight:600}
+  .sec-head p{color:var(--muted);max-width:680px;margin-top:10px}
+  .sec-head p b{color:var(--ink)}
+
+  /* ——— İlerleme ve süzgeçler ——— */
+  .kontrol{position:sticky;top:52px;z-index:40;background:rgba(242,234,218,.96);backdrop-filter:blur(10px);border-bottom:1px solid #E2D6BC;padding:12px 0}
+  .kontrol-inner{width:min(1050px,92%);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .ilerleme{display:flex;align-items:center;gap:12px;flex:1 1 240px}
+  .bar{flex:1 1 120px;height:6px;background:#E2D6BC;border-radius:999px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--nile),var(--gold));transition:width .45s ease}
+  .sayac{font-family:'Cinzel',serif;font-size:.84rem;letter-spacing:.06em;color:var(--lapis);white-space:nowrap}
+  .sifirla{background:none;border:0;padding:0;color:var(--nile);cursor:pointer;font-size:.78rem;font-family:'Figtree',sans-serif;text-decoration:underline}
+  .suzgec{display:flex;gap:6px;flex-wrap:wrap}
+  .cip{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;border:1px solid var(--sand);background:#FBF7EC;color:var(--muted);border-radius:999px;padding:6px 12px;cursor:pointer;transition:all .18s ease}
+  .cip:hover{border-color:var(--gold);color:var(--lapis)}
+  .cip[aria-pressed="true"]{background:var(--lapis);border-color:var(--lapis);color:var(--limestone)}
+
+  /* ——— Kartlar ——— */
+  .kartlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+  .kart{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;padding:20px 20px 18px;position:relative;display:flex;flex-direction:column;gap:10px;transition:background .2s ease,border-color .2s ease}
+  .kart.gizli{display:none}
+  .kart-ust{display:flex;align-items:flex-start;gap:12px}
+  .kart-ust input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:20px;height:20px;margin-top:3px;border:1.5px solid var(--sand);border-radius:3px;background:#fff;cursor:pointer;position:relative;transition:background .18s ease,border-color .18s ease}
+  .kart-ust input:checked{background:var(--nile);border-color:var(--nile)}
+  .kart-ust input:checked::after{content:"";position:absolute;left:6.5px;top:2px;width:4px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+  .kart-ust input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .kart-baslik{flex:1}
+  .tur{display:inline-block;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;border-radius:3px;padding:3px 7px;margin-bottom:6px}
+  .tur.kitap{background:var(--kitap)} .tur.belgesel{background:var(--belgesel)} .tur.film{background:var(--film)}
+  .tur.podcast{background:var(--podcast)} .tur.dijital{background:var(--dijital)} .tur.blog{background:var(--blog)}
+  .kart h3{font-family:'Cinzel',serif;font-size:1.02rem;color:var(--lapis);line-height:1.3;font-weight:600}
+  .kart h3 a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(30,42,82,.25)}
+  .kart h3 a:hover{border-bottom-color:var(--gold)}
+  .kunye{font-size:.8rem;color:var(--muted);margin-top:3px}
+  .kunye b{color:var(--ink);font-weight:600}
+  .neden{font-size:.9rem;color:var(--ink)}
+  .neden b{font-weight:600}
+  .nasil{font-size:.82rem;color:var(--muted);border-top:1px dashed #E2D6BC;padding-top:8px}
+  .nasil b{color:var(--ink);font-weight:600}
+  .sure{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.08em;color:var(--muted);white-space:nowrap;margin-left:auto;padding-top:4px}
+  .duraklar{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+  .durak{font-size:.72rem;letter-spacing:.03em;color:var(--lapis);background:rgba(201,162,39,.16);border:1px solid rgba(201,162,39,.35);border-radius:999px;padding:3px 10px;text-decoration:none;white-space:nowrap}
+  .durak:hover{background:rgba(201,162,39,.3)}
+  .durak b{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.1em;margin-right:5px}
+  .kart.bitti{background:rgba(47,109,98,.07);border-color:rgba(47,109,98,.32)}
+  .kart.bitti h3{color:var(--muted)}
+  .kart.bitti h3 a{text-decoration:line-through}
+  .oncelik{position:absolute;top:-9px;right:14px;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;background:var(--gold);color:var(--lapis-deep);border-radius:3px;padding:2px 8px}
+
+  /* ——— Önce bunlar ——— */
+  .once{background:var(--lapis);color:var(--limestone);padding:64px 0}
+  .once .sec-head .eyebrow{color:var(--gold)}
+  .once .sec-head h2{color:var(--limestone)}
+  .once .sec-head p{color:#B9B29E}
+  .once-liste{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;counter-reset:once}
+  .once-liste li{position:relative;padding:18px 18px 18px 58px;border:1px solid rgba(201,162,39,.35);border-radius:6px;background:rgba(20,29,59,.45)}
+  .once-liste li::before{counter-increment:once;content:counter(once);position:absolute;left:16px;top:14px;font-family:'Cinzel',serif;font-size:1.5rem;color:var(--gold);line-height:1}
+  .once-liste b{display:block;font-family:'Cinzel',serif;font-size:.92rem;letter-spacing:.03em;color:var(--limestone)}
+  .once-liste span{display:block;font-size:.84rem;color:#C9C3B1;margin-top:5px}
+  .once-liste a{color:var(--gold)}
+
+  /* ——— Takvim ——— */
+  .takvim{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .hafta{background:#FBF7EC;border:1px solid #E2D6BC;border-radius:6px;padding:20px;border-top:3px solid var(--gold)}
+  .hafta .ne-zaman{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.14em;color:var(--nile);text-transform:uppercase}
+  .hafta h4{font-family:'Cinzel',serif;font-size:1rem;color:var(--lapis);margin:6px 0 10px}
+  .hafta ul{list-style:none;font-size:.86rem;color:var(--muted)}
+  .hafta li{padding:4px 0 4px 14px;position:relative}
+  .hafta li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .hafta li b{color:var(--ink);font-weight:600}
+
+  /* ——— Ayet kutusu ——— */
+  .ayetler{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .ayet{background:#FBF7EC;border:1px solid #E2D6BC;border-left:3px solid var(--nile);border-radius:6px;padding:18px 20px}
+  .ayet b{display:block;font-family:'Cinzel',serif;font-size:.9rem;color:var(--lapis);margin-bottom:6px}
+  .ayet p{font-size:.88rem;color:var(--muted)}
+  .ayet p i{color:var(--ink)}
+
+  .not{font-size:.82rem;color:var(--muted);margin-top:22px;max-width:760px}
+  .not b{color:var(--ink)}
+
+  footer{background:var(--lapis-deep);color:#7F86A8;text-align:center;font-size:.78rem;padding:26px 16px;letter-spacing:.04em}
+  footer a{color:#AEB6D6}
+
+  @media (max-width:640px){
+    .nav-brand{display:none}
+    .hero-inner{padding:80px 0 48px}
+    .kontrol{top:44px}
+    .kartlar,.once-liste{grid-template-columns:1fr}
+  }
+  @media print{
+    .topnav,.kontrol,.hero img{display:none}
+    .hero{min-height:0;background:#fff}
+    .hero h1,.hero p,.eyebrow,.hstat b,.hstat span{color:#000}
+    .hero::after{display:none}
+    .kart,.hafta,.ayet,.once-liste li{break-inside:avoid;box-shadow:none}
+    .once{background:#fff;color:#000}
+    .once .sec-head h2,.once-liste b,.once-liste span{color:#000}
+    section{padding:24px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Bölümler">
+  <div class="topnav-inner">
+    <a class="nav-brand" href="./">KAHİRE + LUXOR + ŞARM</a>
+    <ul class="nav-links">
+      <li><a class="nav-link" href="#once">Önce Bunlar</a></li>
+      <li><a class="nav-link" href="#kitaplar">Kitaplar</a></li>
+      <li><a class="nav-link" href="#belgeseller">Belgesel</a></li>
+      <li><a class="nav-link" href="#filmler">Film</a></li>
+      <li><a class="nav-link" href="#podcast">Podcast</a></li>
+      <li><a class="nav-link" href="#dijital">Dijital</a></li>
+      <li><a class="nav-link" href="#kuran">Kur'an</a></li>
+      <li><a class="nav-link" href="#bloglar">Bloglar</a></li>
+      <li><a class="nav-link" href="#takvim">Takvim</a></li>
+    </ul>
+    <a class="nav-map" href="./">Program &rarr;</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img class="wm" data-f='["Templo de Karnak, Luxor, Egipto, 2022-04-03, DD 168.jpg","Templo de Karnak, Luxor, Egipto, 2022-04-03, DD 146.jpg"]' data-w="1600" alt="Karnak Tapınağı, Hipostil Salonu">
+  <div class="hero-inner">
+    <div class="eyebrow">Gitmeden Önce · 21 Kasım'a Kadar</div>
+    <h1>Okunacak, <em>İzlenecek</em><br>Dinlenecek</h1>
+    <p>Programdaki her durağın arkasında bir hikâye var: Sultan Hasan'ın Memlükleri, Sakkara'nın yeni açılan mezarları, Kurna köylülerinin sakladığı mumyalar. Bu sayfa o hikâyeleri, gideceğiniz güne bağlı olarak sıralıyor. İşaretler tarayıcıda saklanır.</p>
+    <div class="hero-stats">
+      <div class="hstat"><b id="ozet-toplam">—</b><span>kaynak</span></div>
+      <div class="hstat"><b id="ozet-turkce">—</b><span>türkçe</span></div>
+      <div class="hstat"><b id="ozet-ucretsiz">—</b><span>ücretsiz</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="kontrol" id="kontrol">
+  <div class="kontrol-inner">
+    <div class="ilerleme">
+      <span class="sayac" id="sayac">0 / 0</span>
+      <div class="bar"><i id="bar"></i></div>
+      <button class="sifirla" id="sifirla" type="button">sıfırla</button>
+    </div>
+    <div class="suzgec" id="suzgec" role="group" aria-label="Güne göre süz">
+      <button class="cip" type="button" data-gun="" aria-pressed="true">Hepsi</button>
+      <button class="cip" type="button" data-gun="1" aria-pressed="false">G1 İslami Kahire</button>
+      <button class="cip" type="button" data-gun="2" aria-pressed="false">G2 Gize · GEM</button>
+      <button class="cip" type="button" data-gun="3" aria-pressed="false">G3 Sakkara · Karnak</button>
+      <button class="cip" type="button" data-gun="4" aria-pressed="false">G4 Batı Yakası</button>
+      <button class="cip" type="button" data-gun="5" aria-pressed="false">G5 Luxor · Şarm</button>
+      <button class="cip" type="button" data-gun="6" aria-pressed="false">G6 Ras Mohammed</button>
+      <button class="cip" type="button" data-gun="7" aria-pressed="false">G7 Sina</button>
+    </div>
+  </div>
+</div>
+
+<!-- ÖNCE BUNLAR -->
+<section class="once" id="once">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Zaman Azsa</div>
+      <h2>Önce Bunlar</h2>
+      <p>Aşağıdaki listenin tamamı on bir haftaya sığmaz; sığması da gerekmiyor. Yalnız şu altısını bitirmiş biri, programdaki durakların yüzde doksanına <b>ne gördüğünü bilerek</b> girer. Toplam yük: bir kitap, bir roman, dört akşam ekran, birkaç saat kulaklık.</p>
+    </div>
+    <ol class="once-liste">
+      <li><b>Toby Wilkinson — Eski Mısır</b><span>Tek ciltte üç bin yıl. Gize, Sakkara, Karnak ve Krallar Vadisi'nin hangi yüzyıla ait olduğunu bu kitaptan sonra karıştırmazsınız. Türkçe, Say Yayınları.</span></li>
+      <li><b>Sakkara'nın Sırları (Netflix)</b><span>3. gün sabahı yürüyeceğiniz nekropolde 2018–19'da açılan Wahtye mezarı; kazıyı kazan ekipten izliyorsunuz. 113 dakika.</span></li>
+      <li><b>Necib Mahfuz — Midak Sokağı</b><span>Khan el-Khalili'nin bir arka sokağı, 1940'lar. İlk akşam çarşıda yürürken bu romanın içinde olursunuz. İnce, hızlı okunur.</span></li>
+      <li><b>El-Mumya / Yılları Sayma Gecesi (1969)</b><span>Krallar Vadisi'nin karşı köyü Kurna, 1881: köylülerin sakladığı kraliyet mumyaları. Mısır sinemasının en iyi filmi; Internet Archive'da ücretsiz.</span></li>
+      <li><b>The History of Egypt Podcast — Hatşepsut ve Tutankhamun bölümleri</b><span>İngilizce ama yavaş ve net anlatım. Uçakta ve Luxor'a inerken dinlenecek 4–5 bölüm.</span></li>
+      <li><b>Digital Giza 3D turu (Harvard)</b><span>Platoyu üç boyutlu gezen 15 dakikalık video: 2. gün sabahı hangi kapıdan girip nereye yürüyeceğinizi kafanızda oturtur. Ücretsiz.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- KİTAPLAR -->
+<section id="kitaplar">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Okumak</div>
+      <h2>Kitaplar</h2>
+      <p>Hepsi Türkçede var; yayınevi ve çevirmen künyede. Sıra: önce genel tarih, sonra gideceğiniz şehrin romanı, en sonda ağır olanlar. <b>Kalın olanları baştan sona okumak şart değil</b>; kartta hangi bölümlerin bu geziye baktığı yazıyor.</p>
+    </div>
+    <div class="kartlar">
+
+      <article class="kart" data-id="wilkinson" data-gun="2 3 4" data-turkce="1">
+        <span class="oncelik">Önce</span>
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Eski Mısır — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Kitap · Tarih</span>
+            <h3><a href="https://www.kitapyurdu.com/kitap/eski-misir/295046.html" target="_blank" rel="noopener">Eski Mısır — MÖ 3000'den Kleopatra'ya Bir Uygarlığın Tarihi</a></h3>
+            <div class="kunye"><b>Toby Wilkinson</b> · Say Yayınları · çev. Ümit Hüsrev Yolsal · 688 s.</div>
+          </div>
+          <span class="sure">~3 hafta</span>
+        </div>
+        <p class="neden">Tek ciltlik, akıcı, güncel. Eski Krallık bölümleri (Gize, Sakkara) ile Yeni Krallık bölümleri (Karnak, Hatşepsut, Tutankhamun, III. Ramses) programın tam karşılığı.</p>
+        <p class="nasil"><b>Nasıl okunur:</b> Zaman darsa Eski Krallık (piramitler) ve Yeni Krallık (Teb, Amarna, Ramsesler) kısımları; Ptolemaios ve Kleopatra bölümleri bu rotada yok, atlanabilir.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a><a class="durak" href="rota.html#durak-sakkara"><b>G3</b>Sakkara</a><a class="durak" href="rota.html#durak-karnak"><b>G3</b>Karnak</a><a class="durak" href="rota.html#durak-krallar-vadisi"><b>G4</b>Krallar Vadisi</a></div>
+      </article>
+
+      <article class="kart" data-id="herodot" data-gun="2 5" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Herodotos Tarih — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Kitap · Klasik</span>
+            <h3><a href="https://www.iskultur.com.tr/tarih.aspx" target="_blank" rel="noopener">Tarih — II. Kitap (Mısır)</a></h3>
+            <div class="kunye"><b>Herodotos</b> · İş Bankası Kültür Yayınları · çev. Müntekim Ökmen</div>
+          </div>
+          <span class="sure">1 akşam</span>
+        </div>
+        <p class="neden">Mısır'ı gezip yazan ilk turist, MÖ 450. Piramitlerin nasıl yapıldığını rahiplerden dinliyor, mumyalamanın üç fiyat kademesini anlatıyor, Nil'in taşkınına şaşıyor. 2.500 yıl sonra aynı yerlerde aynı soruları soracaksınız.</p>
+        <p class="nasil"><b>Nasıl okunur:</b> Yalnız II. Kitap, 80–90 sayfa. Mumyalama pasajı (86–89) 5. gün sabahı Mumyalama Müzesi için birebir.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a><a class="durak" href="rota.html#durak-mumyalama"><b>G5</b>Mumyalama Müzesi</a></div>
+      </article>
+
+      <article class="kart" data-id="midak" data-gun="1" data-turkce="1">
+        <span class="oncelik">Önce</span>
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Midak Sokağı — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Roman</span>
+            <h3><a href="https://www.kitapyurdu.com/kitap/midak-sokagi/261358.html" target="_blank" rel="noopener">Midak Sokağı</a></h3>
+            <div class="kunye"><b>Necib Mahfuz</b> · Kırmızı Kedi · Nobel 1988</div>
+          </div>
+          <span class="sure">3–4 gün</span>
+        </div>
+        <p class="neden">Khan el-Khalili'nin hemen arkasındaki çıkmaz bir sokak, 1940'ların Kahiresi: berber, kahveci, çöpçatan, Abbas ve Hamide. İlk akşam çarşıda ve El Fishawy'de otururken bu insanların torunlarını görürsünüz.</p>
+        <p class="nasil"><b>Daha fazlası:</b> Beğenirseniz <b>Kahire Üçlemesi</b> (Saray Gezisi, Şevk Sarayı, Şeker Sokağı) aynı mahallede üç kuşak; adları El-Muizz çevresindeki gerçek sokaklardan. Dönüş sonrasına saklayın.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-khan"><b>G1</b>Khan el-Khalili</a><a class="durak" href="rota.html#durak-fishawy"><b>G1</b>El Fishawy</a><a class="durak" href="rota.html#durak-muizz"><b>G1</b>El-Muizz</a></div>
+      </article>
+
+      <article class="kart" data-id="yakupyan" data-gun="1 2" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Yakupyan Apartmanı — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Roman</span>
+            <h3><a href="https://www.kitapyurdu.com/kitap/yakupyan-apartmani-/406556.html" target="_blank" rel="noopener">Yakupyan Apartmanı</a></h3>
+            <div class="kunye"><b>Ala el-Asvani</b> · Maya Kitap · çev. Avi Pardo · 264 s.</div>
+          </div>
+          <span class="sure">3–4 gün</span>
+        </div>
+        <p class="neden">Downtown Kahire'de 1930'lardan kalma bir apartman ve içindeki herkes: eski aristokrat, kapıcının oğlu, çatı katındaki yoksullar. Bugünün Mısır'ını, otelinizin sokağındaki binaları anlamak için en kestirme roman.</p>
+        <p class="nasil"><b>Not:</b> Cinsellik ve siyaset açık anlatılır; çekiniyorsanız Mahfuz'da kalın. 2006 film uyarlaması aşağıda.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-abou-tarek"><b>G2</b>Downtown</a></div>
+      </article>
+
+      <article class="kart" data-id="evliya" data-gun="1" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Evliya Çelebi Seyahatnamesi 10. Kitap — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Seyahatname</span>
+            <h3><a href="https://www.yapikrediyayinlari.com.tr/gunumuz-turkcesiyle-evliya-celebi-seyahatnamesi-10-kitap.aspx" target="_blank" rel="noopener">Seyahatname 10. Kitap — Mısır, Kahire</a></h3>
+            <div class="kunye"><b>Evliyâ Çelebi</b> · Yapı Kredi Yayınları · günümüz Türkçesiyle, 2 cilt kutulu</div>
+          </div>
+          <span class="sure">seçme</span>
+        </div>
+        <p class="neden">Evliya son on yılını Kahire'de geçirdi ve Seyahatname'nin son cildini oraya ayırdı: Kale, camiler, çarşı esnafı, mevlit kutlamaları, Nil'in taşması. Kahire Kalesi'nde Osmanlı valisinin kapısından girerken 1670'lerin gözüyle bakmak için.</p>
+        <p class="nasil"><b>Nasıl okunur:</b> Baştan sona değil: Kahire Kalesi, Ezher ve Hân el-Halîlî başlıklarını fihristten seçin; bir hafta sonu yeter. Sahaf ya da kütüphane baskısı da olur.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-kale"><b>G1</b>Kahire Kalesi</a><a class="durak" href="rota.html#durak-khan"><b>G1</b>Khan el-Khalili</a></div>
+      </article>
+
+      <article class="kart" data-id="fahmy" data-gun="1" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Paşanın Adamları — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Kitap · Tarih</span>
+            <h3><a href="https://bilgiyay.com/kitap/pasanin-adamlari-kavalali-mehmed-ali-pasa-ordu-ve-modern-misir/" target="_blank" rel="noopener">Paşanın Adamları — Kavalalı Mehmed Ali Paşa, Ordu ve Modern Mısır</a></h3>
+            <div class="kunye"><b>Khaled Fahmy</b> · İstanbul Bilgi Üniversitesi Yayınları · çev. Deniz Zarakolu</div>
+          </div>
+          <span class="sure">akademik</span>
+        </div>
+        <p class="neden">Kale'deki Muhammed Ali Camii'nin, Rifai'deki hanedan türbelerinin ve Kavalalı'nın Osmanlı'dan nasıl koptuğunun hikâyesi; askerin gözünden. Türk okur için ekstra ilginç: Kavalalı bir Osmanlı paşasıydı, ordusu 1833'te Kütahya'ya kadar geldi.</p>
+        <p class="nasil"><b>Nasıl okunur:</b> Giriş ve 1–2. bölümler yeter; gerisi ordu teşkilatı.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-kale"><b>G1</b>Muhammed Ali Camii</a><a class="durak" href="rota.html#durak-rifai"><b>G1</b>Rifai Camii</a></div>
+      </article>
+
+      <article class="kart" data-id="christie" data-gun="3" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Nil'de Ölüm — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Roman · Polisiye</span>
+            <h3>Nil'de Ölüm</h3>
+            <div class="kunye"><b>Agatha Christie</b> · Altın Kitaplar · 1937</div>
+          </div>
+          <span class="sure">2 gün</span>
+        </div>
+        <p class="neden">Christie romanı Asvan'daki Old Cataract'ta yazdı; Poirot'nun vapuru Karnak'ta durur. Luxor'da Winter Palace'a yükseltme yaparsanız Christie'nin oteli orası. Hafif, uçakta bitecek cinsten.</p>
+        <p class="nasil"><b>Eşleştirin:</b> 1978 filmi aşağıda; Karnak sahnesi gerçek tapınakta çekildi.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-karnak"><b>G3</b>Karnak</a><a class="durak" href="rota.html#durak-luxor-tapinak"><b>G3</b>Luxor Tapınağı</a></div>
+      </article>
+
+      <article class="kart" data-id="jacq" data-gun="3 4" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Ramses: Işığın Oğlu — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Roman · Tarihî</span>
+            <h3><a href="https://www.kitapyurdu.com/kitap/ramses-1-isigin-oglu/21609.html" target="_blank" rel="noopener">Ramses 1 — Işığın Oğlu</a></h3>
+            <div class="kunye"><b>Christian Jacq</b> · Remzi Kitabevi · çev. A. Rıza Yalt · 5 ciltlik serinin ilki</div>
+          </div>
+          <span class="sure">1 hafta</span>
+        </div>
+        <p class="neden">Egyptolog bir yazarın popüler romanı: Seti ve II. Ramses'in Karnak'ı, Luxor Tapınağı'nın avlusu, Batı Yakası'ndaki tapınak inşaatları. Tarih kitabı okumak istemeyenler için Yeni Krallık'a arka kapı.</p>
+        <p class="nasil"><b>Not:</b> Kurgu payı yüksek; tarihi Wilkinson'dan, atmosferi buradan alın.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-karnak"><b>G3</b>Karnak</a><a class="durak" href="rota.html#durak-medinet-habu"><b>G4</b>Medinet Habu</a></div>
+      </article>
+
+      <article class="kart" data-id="battuta" data-gun="1" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="İbn Battûta Seyahatnamesi — okundu">
+          <div class="kart-baslik">
+            <span class="tur kitap">Seyahatname</span>
+            <h3>İbn Battûta Seyahatnâmesi — Kahire bölümü</h3>
+            <div class="kunye"><b>İbn Battûta</b> · Yapı Kredi Yayınları · çev. A. Sait Aykut</div>
+          </div>
+          <span class="sure">1 saat</span>
+        </div>
+        <p class="neden">1326'da Kahire'ye giren Tancalı seyyah: "Şehirlerin anası" diye başlar, Memlük sultanının Kale'sini, Nil'de otuz altı bin tekneyi, hastaneyi anlatır. Sultan Hasan'dan otuz yıl önce; aynı şehir, aynı taşlar.</p>
+        <p class="nasil"><b>Nasıl okunur:</b> Yalnız Mısır faslı; 20–30 sayfa. Sultan Hasan Medresesi ziyaretinden önceki akşam için ideal.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-sultan-hasan"><b>G1</b>Sultan Hasan</a><a class="durak" href="rota.html#durak-kale"><b>G1</b>Kahire Kalesi</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- BELGESELLER -->
+<section id="belgeseller">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">İzlemek</div>
+      <h2>Belgeseller</h2>
+      <p>Platform bilgisi Eylül 2026 itibarıyla ve Türkiye kataloğuna göre; Netflix ve Disney+ içerikleri bölgeye göre değişebiliyor, izlemeden önce arayın. <b>Dikkat:</b> Netflix'in "Kadim Uygarlıklar" dizisi (Graham Hancock) bu listede yok; arkeologların reddettiği kayıp uygarlık tezleri anlatıyor, Sakkara belgeseliyle karıştırmayın.</p>
+    </div>
+    <div class="kartlar">
+
+      <article class="kart" data-id="sakkara" data-gun="3" data-turkce="1">
+        <span class="oncelik">Önce</span>
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Sakkara'nın Sırları — izlendi">
+          <div class="kart-baslik">
+            <span class="tur belgesel">Belgesel</span>
+            <h3><a href="https://www.netflix.com/search?q=Sakkara" target="_blank" rel="noopener">Sakkara'nın Sırları</a></h3>
+            <div class="kunye"><b>Netflix</b> · 2020 · 113 dk · Türkçe altyazı ve dublaj</div>
+          </div>
+          <span class="sure">1 akşam</span>
+        </div>
+        <p class="neden">Sakkara'da 4.400 yıllık, hiç açılmamış Wahtye mezarının bulunuşu; kazıyı yapan Mısırlı ekibin gözünden. 3. gün sabahı Coser'in Basamaklı Piramidi'nin birkaç yüz metre ötesinde bu mezarın önünden geçeceksiniz.</p>
+        <p class="nasil"><b>Ne zaman:</b> Sakkara'dan en fazla iki hafta önce, taze kalsın.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-sakkara"><b>G3</b>Sakkara</a></div>
+      </article>
+
+      <article class="kart" data-id="kayip-piramit" data-gun="3" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Bilinmeyenler: Kayıp Piramit — izlendi">
+          <div class="kart-baslik">
+            <span class="tur belgesel">Belgesel</span>
+            <h3><a href="https://www.netflix.com/search?q=Kay%C4%B1p%20Piramit" target="_blank" rel="noopener">Bilinmeyenler: Kayıp Piramit</a></h3>
+            <div class="kunye"><b>Netflix</b> · 2023 · 83 dk · Zahi Hawass ve Mostafa Waziri</div>
+          </div>
+          <span class="sure">1 akşam</span>
+        </div>
+        <p class="neden">Yine Sakkara: Hawass 3. Hanedan kralı Huni'nin kayıp piramidini, eski öğrencisi Waziri soyulmamış bir mezarı arıyor. Mısır arkeolojisinin egoları ve tozu; Hawass'ı tanımadan Mısır'a gitmek olmaz, GEM'in vitrinlerinde adını göreceksiniz.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-sakkara"><b>G3</b>Sakkara</a><a class="durak" href="rota.html#durak-gem"><b>G2</b>GEM</a></div>
+      </article>
+
+      <article class="kart" data-id="natgeo" data-gun="4" data-turkce="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Mısır'ın Kayıp Hazinelerinin Peşinde — izlendi">
+          <div class="kart-baslik">
+            <span class="tur belgesel">Belgesel dizisi</span>
+            <h3><a href="https://www.natgeotv.com/tr/belgeseller/natgeo/misirin-kayip-hazineleri-ozel" target="_blank" rel="noopener">Mısır'ın Kayıp Hazinelerinin Peşinde</a></h3>
+            <div class="kunye"><b>National Geographic · Disney+</b> · 2019– · 45 dk bölümler · Türkçe dublaj</div>
+          </div>
+          <span class="sure">seçme bölüm</span>
+        </div>
+        <p class="neden">Her sezon bir kazı mevsimi; ekipler Krallar Vadisi, Deir el-Bahri ve Deir el-Medina'da çalışıyor. Bugün gördüğünüz mezarların nasıl belgelendiğini, Hatşepsut'un neden silindiğini, ustalar köyünde ne bulunduğunu bölüm bölüm anlatır.</p>
+        <p class="nasil"><b>Nasıl izlenir:</b> Bölüm adlarında "Valley of the Kings", "Hatshepsut", "Tutankhamun" geçenleri seçin; 3–4 bölüm yeter.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-krallar-vadisi"><b>G4</b>Krallar Vadisi</a><a class="durak" href="rota.html#durak-hatsepsut"><b>G4</b>Hatşepsut</a><a class="durak" href="rota.html#durak-deir-el-medina"><b>G4</b>Deir el-Medina</a></div>
+      </article>
+
+      <article class="kart" data-id="tut-colour" data-gun="2 4" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Tutankhamun in Colour — izlendi">
+          <div class="kart-baslik">
+            <span class="tur belgesel">Belgesel</span>
+            <h3><a href="https://www.youtube.com/watch?v=SP3f1QL_cW4" target="_blank" rel="noopener">Tutankhamun in Colour</a></h3>
+            <div class="kunye"><b>BBC</b> · 2020 · 59 dk · İngilizce, YouTube'da</div>
+          </div>
+          <span class="sure">1 saat</span>
+        </div>
+        <p class="neden">Harry Burton'ın 1922 fotoğrafları renklendirilmiş: Carter'ın mezara ilk girişi, eşyaların Winter Palace'a taşınması. KV62'ye girdiğinizde o boş odaya nelerin doldurulmuş olduğunu, GEM'de ise o eşyaların kendisini görürsünüz.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-krallar-vadisi"><b>G4</b>KV62</a><a class="durak" href="rota.html#durak-gem"><b>G2</b>GEM</a></div>
+      </article>
+
+      <article class="kart" data-id="giza3d" data-gun="2" data-ucretsiz="1">
+        <span class="oncelik">Önce</span>
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Digital Giza 3D turu — izlendi">
+          <div class="kart-baslik">
+            <span class="tur belgesel">3D tur</span>
+            <h3><a href="https://www.youtube.com/watch?v=KGRBikmjN_M" target="_blank" rel="noopener">Digital Giza — Giza 3D Tour of the Plateau</a></h3>
+            <div class="kunye"><b>Harvard Giza Project</b> · YouTube · İngilizce, ücretsiz</div>
+          </div>
+          <span class="sure">15 dk</span>
+        </div>
+        <p class="neden">Platonun MÖ 2500'deki hâlinin üç boyutlu rekonstrüksiyonu: kaplaması yerinde piramitler, vadi tapınakları, rampa yolları. Sabah kapıdan girince "şu tümsek neydi" sorusunun cevabı burada.</p>
+        <p class="nasil"><b>Devamı:</b> Aynı kanalda "Tour of the Khufu Pyramid Complex"; site <a href="https://giza.fas.harvard.edu/" target="_blank" rel="noopener">giza.fas.harvard.edu</a>.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a><a class="durak" href="rota.html#durak-sfenks"><b>G2</b>Sfenks</a></div>
+      </article>
+
+      <article class="kart" data-id="redsea" data-gun="6">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Red Sea belgeseli — izlendi">
+          <div class="kart-baslik">
+            <span class="tur belgesel">Doğa belgeseli</span>
+            <h3><a href="https://www.netflix.com/title/81408986" target="_blank" rel="noopener">Red Sea</a></h3>
+            <div class="kunye"><b>Netflix</b> · Alman yapımı · bölgeye göre kataloğu kontrol edin</div>
+          </div>
+          <span class="sure">1 saat</span>
+        </div>
+        <p class="neden">Kızıldeniz'in mercan resifleri, akıntıları ve balıkları: Ras Mohammed'de maskeyi suya soktuğunuzda göreceğiniz türlerin adları. Şnorkelde ne gördüğünü bilen insan iki kat keyif alır.</p>
+        <p class="nasil"><b>Yedek:</b> Türkiye kataloğunda yoksa Netflix'te "Mercanlar İçin Mücadele" (Suudi Kızıldeniz kıyısı) ya da YouTube'da "Ras Mohammed snorkeling 4K" araması.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-ras-mohammed"><b>G6</b>Ras Mohammed</a></div>
+      </article>
+
+      <article class="kart" data-id="vlog-kahire" data-gun="1 2" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Tursuz Kahire gezi rehberi — izlendi">
+          <div class="kart-baslik">
+            <span class="tur belgesel">YouTube · Türkçe</span>
+            <h3><a href="https://www.youtube.com/watch?v=rJZ9C3cgxBw" target="_blank" rel="noopener">Kahire Nasıl Gezilir? Tursuz Kahire Gezi Rehberi</a></h3>
+            <div class="kunye"><b>YouTube</b> · Türkçe vlog · piramidin içine giriyor</div>
+          </div>
+          <span class="sure">~30 dk</span>
+        </div>
+        <p class="neden">Tursuz gezen bir Türk'ün pratik kaydı: giriş kapıları, taksi, kalabalık. Bilgi değil <b>ölçek</b> için izleyin; kuyrukların ve satıcı yoğunluğunun ne demek olduğunu gözünüz görsün.</p>
+        <p class="nasil"><b>Yanına:</b> <a href="https://www.youtube.com/watch?v=cbSPfKPIwCY" target="_blank" rel="noopener">KAHİRE (1. Bölüm) — Büyük Mısır Müzesi &amp; Kahire Müzesi</a> ve <a href="https://www.youtube.com/watch?v=fBQ7f75dguU" target="_blank" rel="noopener">Giza ve Saqara Piramitleri — MISIR VLOG #1</a>.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a><a class="durak" href="rota.html#durak-gem"><b>G2</b>GEM</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FİLMLER -->
+<section id="filmler">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Sinema</div>
+      <h2>Filmler</h2>
+      <p>Hollywood'un Mısır'ı değil, mümkün olduğunca Mısır'ın kendi sineması ve gerçek mekânda çekilenler.</p>
+    </div>
+    <div class="kartlar">
+
+      <article class="kart" data-id="mumya" data-gun="4" data-ucretsiz="1">
+        <span class="oncelik">Önce</span>
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="El-Mumya — izlendi">
+          <div class="kart-baslik">
+            <span class="tur film">Film · Mısır</span>
+            <h3><a href="https://archive.org/details/The_Night_of_Counting_the_Years_DVD" target="_blank" rel="noopener">El-Mumya — Yılları Sayma Gecesi</a></h3>
+            <div class="kunye"><b>Shadi Abdel Salam</b> · 1969 · 102 dk · Arapça, İngilizce altyazı · Internet Archive</div>
+          </div>
+          <span class="sure">1 akşam</span>
+        </div>
+        <p class="neden">1881, Kurna köyü: Abd el-Rasul ailesi yıllardır Deir el-Bahri'deki bir kuyudan kraliyet mumyalarını çıkarıp satıyor. Hatşepsut Tapınağı'nın hemen yanındaki tepede geçen gerçek olay; Mısır sinemasının en iyi filmi kabul edilir. Scorsese'nin vakfı restore etti.</p>
+        <p class="nasil"><b>Ne zaman:</b> Batı Yakası gününden bir iki hafta önce. Yavaş, ağır, görsel bir film; telefon elden bırakılarak izlenir.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-hatsepsut"><b>G4</b>Deir el-Bahri</a><a class="durak" href="rota.html#durak-krallar-vadisi"><b>G4</b>Krallar Vadisi</a></div>
+      </article>
+
+      <article class="kart" data-id="nil-1978" data-gun="3">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Nil'de Ölüm 1978 — izlendi">
+          <div class="kart-baslik">
+            <span class="tur film">Film · Polisiye</span>
+            <h3>Nil'de Ölüm (Death on the Nile)</h3>
+            <div class="kunye"><b>John Guillermin</b> · 1978 · Peter Ustinov, Maggie Smith, Bette Davis · dijital kiralama</div>
+          </div>
+          <span class="sure">2 saat 20 dk</span>
+        </div>
+        <p class="neden">Yedi hafta Mısır'da, gerçek mekânlarda çekildi: Karnak'ta sütundan düşen taş sahnesi, Old Cataract, Ebu Simbel. 2022 Branagh versiyonu ise neredeyse tamamen stüdyoda çekildi; manzara istiyorsanız 1978'i seçin.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-karnak"><b>G3</b>Karnak</a></div>
+      </article>
+
+      <article class="kart" data-id="yakupyan-film" data-gun="1 2">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Yakupyan Apartmanı filmi — izlendi">
+          <div class="kart-baslik">
+            <span class="tur film">Film · Mısır</span>
+            <h3>Yakupyan Apartmanı (Omaret Yakobean)</h3>
+            <div class="kunye"><b>Marwan Hamed</b> · 2006 · 165 dk · Adel Imam, Nour El-Sherif</div>
+          </div>
+          <span class="sure">1 uzun akşam</span>
+        </div>
+        <p class="neden">Romanın uyarlaması, Mısır'ın o güne kadarki en pahalı filmi. Downtown Kahire'nin sokakları, Talaat Harb'ın binaları, Adel Imam'ın Mısır sinemasındaki yeri. Kitabı okumayacaksanız film yeter.</p>
+        <p class="nasil"><b>Not:</b> Romandaki gibi açık sahneler var.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-abou-tarek"><b>G2</b>Downtown</a></div>
+      </article>
+
+      <article class="kart" data-id="cairo-time" data-gun="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Cairo Time — izlendi">
+          <div class="kart-baslik">
+            <span class="tur film">Film</span>
+            <h3>Cairo Time</h3>
+            <div class="kunye"><b>Ruba Nadda</b> · 2009 · 90 dk · Patricia Clarkson, Alexander Siddig</div>
+          </div>
+          <span class="sure">1,5 saat</span>
+        </div>
+        <p class="neden">Kocasını bekleyen bir kadının Kahire'de geçirdiği bir hafta: İslami Kahire'nin damları, Nil kıyısı, kahvehaneler, gün batımında Gize. Olay az, şehir çok; gezinin havasına en yakın film.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-ezher-parki"><b>G1</b>El-Ezher Parkı</a><a class="durak" href="rota.html#durak-muizz"><b>G1</b>El-Muizz</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST -->
+<section id="podcast">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Dinlemek</div>
+      <h2>Podcast ve Radyo</h2>
+      <p>Uçuşlar için: İstanbul–Kahire 2 saat 15, Kahire–Luxor 1 saat, Luxor–Şarm 1 saat, dönüş 3 saat. Toplam yedi saatten fazla kulaklık zamanı; aşağıdakiler bu saatlere göre seçildi.</p>
+    </div>
+    <div class="kartlar">
+
+      <article class="kart" data-id="hoe" data-gun="3 4" data-ucretsiz="1">
+        <span class="oncelik">Önce</span>
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="The History of Egypt Podcast — dinlendi">
+          <div class="kart-baslik">
+            <span class="tur podcast">Podcast · İngilizce</span>
+            <h3><a href="https://podcasts.apple.com/us/podcast/the-history-of-egypt-podcast/id626129639" target="_blank" rel="noopener">The History of Egypt Podcast</a></h3>
+            <div class="kunye"><b>Dominic Perry</b> · Egyptolog · Apple, Spotify, egyptianhistorypodcast.com</div>
+          </div>
+          <span class="sure">4–5 bölüm</span>
+        </div>
+        <p class="neden">Kronolojik, birincil kaynaklara dayalı, sakin anlatım; İngilizcesi orta seviye için rahat. Hatşepsut bölümleri Deir el-Bahri'nin her teraslı katını, Tutankhamun'un mezarını anlatan altı bölümlük dizi KV62'nin her odasını önceden gezdirir.</p>
+        <p class="nasil"><b>Hangi bölümler:</b> Arşivde "Hatshepsut", "Karnak" ve "Tutankhamun's Tomb" başlıklılar. Uçak için önceden indirin.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-hatsepsut"><b>G4</b>Hatşepsut</a><a class="durak" href="rota.html#durak-karnak"><b>G3</b>Karnak</a><a class="durak" href="rota.html#durak-krallar-vadisi"><b>G4</b>KV62</a></div>
+      </article>
+
+      <article class="kart" data-id="iot-mamluks" data-gun="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="In Our Time: The Mamluks — dinlendi">
+          <div class="kart-baslik">
+            <span class="tur podcast">Radyo · İngilizce</span>
+            <h3><a href="https://www.bbc.co.uk/programmes/b006qykl" target="_blank" rel="noopener">In Our Time — The Mamluks</a></h3>
+            <div class="kunye"><b>BBC Radio 4</b> · Melvyn Bragg · ~50 dk</div>
+          </div>
+          <span class="sure">50 dk</span>
+        </div>
+        <p class="neden">Köle asker olarak alınıp Mısır'ı 250 yıl yöneten Memlükler: Sultan Hasan'ı, Kalavun'u, El-Muizz Caddesi'nin bütün o taş cephelerini kim yaptı, parayı nereden buldu, Osmanlı gelince ne oldu. Üç akademisyen, tek oturuş.</p>
+        <p class="nasil"><b>Nasıl bulunur:</b> Program arşivinde "Mamluks" araması; podcast olarak da yayınlanıyor.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-sultan-hasan"><b>G1</b>Sultan Hasan</a><a class="durak" href="rota.html#durak-muizz"><b>G1</b>El-Muizz</a></div>
+      </article>
+
+      <article class="kart" data-id="ohp" data-gun="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Ottoman History Podcast: Life in the Mamluk Sultanate — dinlendi">
+          <div class="kart-baslik">
+            <span class="tur podcast">Podcast · İngilizce</span>
+            <h3><a href="https://www.ottomanhistorypodcast.com/2020/11/life-in-mamluk-sultanate.html" target="_blank" rel="noopener">Ottoman History Podcast — Life in the Mamluk Sultanate</a></h3>
+            <div class="kunye"><b>Ottoman History Podcast</b> · 2020 · ~45 dk</div>
+          </div>
+          <span class="sure">45 dk</span>
+        </div>
+        <p class="neden">Memlük Kahiresi'nde gündelik hayat: medreseler, imarethaneler, sokak protestoları ve Kale ile mahalle arasındaki gerilim. In Our Time devlet katından bakıyorsa bu bölüm sokak katından bakıyor.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-kale"><b>G1</b>Kahire Kalesi</a><a class="durak" href="rota.html#durak-khan"><b>G1</b>Khan el-Khalili</a></div>
+      </article>
+
+      <article class="kart" data-id="tozlu" data-gun="2 3" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Tarihin Tozlu Sayfaları — dinlendi">
+          <div class="kart-baslik">
+            <span class="tur podcast">Podcast · Türkçe</span>
+            <h3><a href="https://podcasts.apple.com/us/podcast/tarihin-tozlu-sayfalar%C4%B1/id1827813973" target="_blank" rel="noopener">Tarihin Tozlu Sayfaları — Eski Mısır bölümleri</a></h3>
+            <div class="kunye"><b>Türkçe</b> · Apple Podcasts, Spotify</div>
+          </div>
+          <span class="sure">seçme</span>
+        </div>
+        <p class="neden">İngilizce dinlemek istemeyen için Türkçe alternatif: antik uygarlıklar dizisinde Eski Mısır'a ayrılan bölümler. Derinlik Perry kadar değil ama araba yolunda dinlenecek kıvamda.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a><a class="durak" href="rota.html#durak-sakkara"><b>G3</b>Sakkara</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- DİJİTAL -->
+<section id="dijital">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Ekranda Gezmek</div>
+      <h2>Haritalar ve Dijital Arşivler</h2>
+      <p>Üniversite projeleri, ücretsiz. En işe yarayanı Theban Mapping Project: Krallar Vadisi biletine üç mezar dahil ve hangi üçünü seçeceğinize <b>orada</b> karar verirsiniz, gişede değil.</p>
+    </div>
+    <div class="kartlar">
+
+      <article class="kart" data-id="tmp" data-gun="4" data-ucretsiz="1">
+        <span class="oncelik">Önce</span>
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Theban Mapping Project — bakıldı">
+          <div class="kart-baslik">
+            <span class="tur dijital">Arşiv</span>
+            <h3><a href="https://thebanmappingproject.com/" target="_blank" rel="noopener">Theban Mapping Project</a></h3>
+            <div class="kunye"><b>ARCE</b> · thebanmappingproject.com · İngilizce</div>
+          </div>
+          <span class="sure">1 saat</span>
+        </div>
+        <p class="neden">Krallar Vadisi'ndeki 60'tan fazla mezarın planı, kesiti, fotoğrafı ve o gün açık olup olmadığı. Standart biletle üç mezar seçiyorsunuz; KV17 Seti I ve KV62 Tutankhamun ayrı bilet. Hangi üçü: buradan bakıp karar verin, kapıda acele etmeyin.</p>
+        <p class="nasil"><b>Yanına:</b> <a href="https://www.osirisnet.net/" target="_blank" rel="noopener">Osirisnet</a>: aynı mezarların duvar duvar fotoğrafı, sahnelerin ne anlattığı yazılı.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-krallar-vadisi"><b>G4</b>Krallar Vadisi</a><a class="durak" href="rota.html#durak-deir-el-medina"><b>G4</b>Deir el-Medina</a></div>
+      </article>
+
+      <article class="kart" data-id="karnak-dijital" data-gun="3" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Digital Karnak — bakıldı">
+          <div class="kart-baslik">
+            <span class="tur dijital">3D model</span>
+            <h3><a href="https://digitalkarnak.ucsc.edu/" target="_blank" rel="noopener">Digital Karnak</a></h3>
+            <div class="kunye"><b>UC Santa Cruz / UCLA</b> · digitalkarnak.ucsc.edu · İngilizce</div>
+          </div>
+          <span class="sure">30 dk</span>
+        </div>
+        <p class="neden">Karnak iki bin yılda otuz firavunun eklediği bir yapı yığını; yerinde hangi duvarın kimin olduğu anlaşılmaz. Bu model tapınağı hanedan hanedan büyütür: Hatşepsut'un dikilitaşı, Seti'nin hipostil salonu, Nectanebo'nun kapısı. Girmeden bir kez döndürün.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-karnak"><b>G3</b>Karnak</a></div>
+      </article>
+
+      <article class="kart" data-id="giza-arsiv" data-gun="2" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Digital Giza arşivi — bakıldı">
+          <div class="kart-baslik">
+            <span class="tur dijital">Arşiv</span>
+            <h3><a href="https://giza.fas.harvard.edu/" target="_blank" rel="noopener">Digital Giza</a></h3>
+            <div class="kunye"><b>Harvard</b> · giza.fas.harvard.edu · İngilizce</div>
+          </div>
+          <span class="sure">30 dk</span>
+        </div>
+        <p class="neden">Platonun her mezarı, kazı fotoğrafı ve buluntusu; 3D model tarayıcıda dönüyor. Sfenks kapısından Keops'a yürürken solunuzda kalan mastaba tarlasının kimlere ait olduğunu buradan öğrenirsiniz.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a></div>
+      </article>
+
+      <article class="kart" data-id="archnet" data-gun="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Archnet ve Smarthistory — bakıldı">
+          <div class="kart-baslik">
+            <span class="tur dijital">Arşiv</span>
+            <h3><a href="https://www.archnet.org/" target="_blank" rel="noopener">Archnet</a> + <a href="https://smarthistory.org/madrasa-and-friday-mosque-of-sultan-hasan-cairo/" target="_blank" rel="noopener">Smarthistory: Sultan Hasan</a></h3>
+            <div class="kunye"><b>Aga Khan Trust / MIT</b> ve <b>Smarthistory</b> · İngilizce</div>
+          </div>
+          <span class="sure">1 saat</span>
+        </div>
+        <p class="neden">İslami Kahire için belgesel yok denecek kadar az; en iyi kaynak bu iki site. Archnet'te "Cairo" araması Sultan Hasan, Rifai, Kalavun ve El-Muizz'deki her anıtın planını ve tarihini verir. Smarthistory'nin Sultan Hasan yazısı 15 dakikada dört eyvanlı medrese planını öğretir.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-sultan-hasan"><b>G1</b>Sultan Hasan</a><a class="durak" href="rota.html#durak-rifai"><b>G1</b>Rifai</a><a class="durak" href="rota.html#durak-muizz"><b>G1</b>El-Muizz</a></div>
+      </article>
+
+      <article class="kart" data-id="gem-site" data-gun="2" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="GEM sitesi — bakıldı">
+          <div class="kart-baslik">
+            <span class="tur dijital">Resmî site</span>
+            <h3><a href="https://grandegyptianmuseum.org/" target="_blank" rel="noopener">Büyük Mısır Müzesi — koleksiyon ve salon planı</a></h3>
+            <div class="kunye"><b>GEM</b> · grandegyptianmuseum.org · İngilizce, Arapça</div>
+          </div>
+          <span class="sure">20 dk</span>
+        </div>
+        <p class="neden">Bileti zaten buradan alıyorsunuz; bir de galeri planına bakın. Tutankhamun galerileri, Büyük Merdiven ve Hufu'nun güneş teknesi ayrı katlarda; 3–4 saatlik ziyarette rotayı önceden çizmek yorulmayı yarıya indirir.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-gem"><b>G2</b>GEM</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- KUR'AN -->
+<section id="kuran">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Yolda Okumak İçin</div>
+      <h2>Kur'an'da Mısır</h2>
+      <p>Mısır, Kur'an'da adı en çok geçen ülkelerden biri. Gideceğiniz yerlerin bir de bu tarafı var; uçakta ya da Nil kenarında okunacak birkaç sure ve ayet.</p>
+    </div>
+    <div class="ayetler">
+      <div class="ayet"><b>Yûsuf Sûresi (12)</b><p>Hz. Yusuf'un kuyudan Mısır'ın hazine bakanlığına uzanan hikâyesi baştan sona tek surede. Kahire'ye inerken okunur; <i>"Mısır'a güven içinde girin"</i> (12:99) ayetiyle biter.</p></div>
+      <div class="ayet"><b>Kasas (28) ve Tâhâ (20)</b><p>Hz. Musa'nın Firavun sarayında büyümesi, Nil'e bırakılan sepet, sihirbazlarla karşılaşma. Luxor'daki tapınakların yapıldığı Yeni Krallık, geleneksel olarak Hz. Musa'nın dönemiyle eşleştirilir; Karnak'ın sütunları arasında yürürken hatırlanır.</p></div>
+      <div class="ayet"><b>Yûnus 10:90–92</b><p>Firavun'un denizde boğulması ve <i>"Bugün senin bedenini kurtaracağız ki senden sonrakilere bir ibret olasın"</i> ayeti. Krallar Vadisi'nde KV62'de Tutankhamun'un kendi mumyası hâlâ mezarında yatıyor; üç bin yıl sonra bir firavunun bedenine bakarken bu ayet akla gelir.</p></div>
+      <div class="ayet"><b>Fecr 89:10 ve Zâriyât 51:38–40</b><p>"Kazıklar sahibi Firavun" ve Firavun'un <i>"sütunlarıyla"</i> yüzleşmesi; müfessirler bunu dev yapılarla ilişkilendirir. Piramitlerin dibinde ve Karnak'ta okunacak iki kısa pasaj.</p></div>
+    </div>
+    <p class="not"><b>Not:</b> Kur'an, Firavun'un adını vermez; "Musa'nın Firavunu" için II. Ramses, Merneptah ve Thutmose III gibi adaylar tartışılır, hiçbiri kesin değil. Rehberlerin "işte Musa'nın Firavunu" diye gösterdiği mumya ya da heykel bir yorumdur, bilgi değil.</p>
+  </div>
+</section>
+
+<!-- BLOGLAR -->
+<section id="bloglar">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Zaten Okuduklarımız</div>
+      <h2>Bloglar ve Gezi Notları</h2>
+      <p>Planı yaparken taranan Türkçe kaynaklar; kopyaları depoda <code>bloglar/</code> altında. Plandaki uyarıların çoğu (inerken pazarlık, şişe suyu, Luxor taksisi) buralardan süzüldü.</p>
+    </div>
+    <div class="kartlar">
+
+      <article class="kart" data-id="blog-eksi" data-gun="1 2 5 6" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Ekşi Sözlük tavsiyeleri — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Ekşi Sözlük</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/eksi-misir-da-tatil-yapacaklara-tavsiyeler.md" target="_blank" rel="noopener">mısır'da tatil yapacaklara tavsiyeler</a></h3>
+            <div class="kunye"><b>190 entry</b> · Ağustos 2025 başlığı · en zengin kaynak</div>
+          </div>
+          <span class="sure">2 saat</span>
+        </div>
+        <p class="neden">Deveden Şarm otel seçimine, taksiden ATV turlarına kadar en çok gerçek deneyim burada. Küfürlü ve dağınık; iyi tavsiyeyle kötü niyetli yorum yan yana. Süzülmüş hâli bu sitenin İpuçları bölümü.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a><a class="durak" href="rota.html#durak-old-market"><b>G6</b>Old Market</a></div>
+      </article>
+
+      <article class="kart" data-id="blog-apal" data-gun="1 2" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Cüneyt Apal seyahat notları — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Blog</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/misir-seyahat-notlarim.md" target="_blank" rel="noopener">Kadim Medeniyete Seyahat: Mısır Gezi Rehberi</a></h3>
+            <div class="kunye"><b>Cüneyt Apal</b> · Mayıs 2024 · 5 gün, tek başına</div>
+          </div>
+          <span class="sure">40 dk</span>
+        </div>
+        <p class="neden">Bu plana en yakın bakış: dindar bir gezginin İskenderiye–Kahire notları, cami ziyaretleri, vize deneyimi, "turist gibi görünmemek" taktiği. İslami Kahire gününün ruh hali burada.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-kale"><b>G1</b>Kahire Kalesi</a><a class="durak" href="rota.html#durak-khan"><b>G1</b>Khan el-Khalili</a></div>
+      </article>
+
+      <article class="kart" data-id="blog-neden" data-gun="2 3 4" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Biz Neden Gittik — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Blog</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/misir-biz-neden-gittik-ne-beklemeli-ve-gitmeden-bilmeniz-gerekenler.md" target="_blank" rel="noopener">Mısır: Biz Neden Gittik? Ne Beklemeli?</a></h3>
+            <div class="kunye"><b>Nisan 2023</b> · arkadaş grubu, kendi planlarıyla</div>
+          </div>
+          <span class="sure">30 dk</span>
+        </div>
+        <p class="neden">Beklenti yönetimi yazısı: neyin yorucu, neyin abartılı, neyin gerçekten büyüleyici olduğu. Gitmeden önce okunmalı, dönüşte tekrar okunmalı.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a><a class="durak" href="rota.html#durak-krallar-vadisi"><b>G4</b>Krallar Vadisi</a></div>
+      </article>
+
+      <article class="kart" data-id="blog-izlenim" data-gun="3 4 6" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Mısır Gezisi İzlenim ve Düşünceleri — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Blog</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/misir-gezisi-izlenim-ve-dusunceleri.md" target="_blank" rel="noopener">Mısır Gezisi İzlenim ve Düşünceleri</a></h3>
+            <div class="kunye"><b>Aralık 2022</b> · Hurghada'dan Nil'e, Alman grubuyla</div>
+          </div>
+          <span class="sure">30 dk</span>
+        </div>
+        <p class="neden">Kızıldeniz'den Luxor'a giden klasik rotanın izlenimi; Nil vadisi tarımı, köy hayatı, karşılaştırmalı gözlemler. Luxor–Şarm bacağının ters yönü.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-karnak"><b>G3</b>Karnak</a><a class="durak" href="rota.html#durak-ras-mohammed"><b>G6</b>Kızıldeniz</a></div>
+      </article>
+
+      <article class="kart" data-id="blog-plan" data-gun="2" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Mısır Gezi Planı Nasıl Yapılır — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Blog</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/misir-gezi-plani-nasil-yapilir.html.md" target="_blank" rel="noopener">Mısır Gezi Planı Nasıl Yapılır?</a></h3>
+            <div class="kunye"><b>Ayağımın Tozuyla</b> · Nisan 2019 · iki küçük çocukla</div>
+          </div>
+          <span class="sure">20 dk</span>
+        </div>
+        <p class="neden">Vize, maliyet ve gezilecek yer listesi; 2019 fiyatları eskidi ama lojistik mantığı duruyor.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-keops"><b>G2</b>Gize</a></div>
+      </article>
+
+      <article class="kart" data-id="blog-rota" data-gun="3 5" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Granikos rota önerileri — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Tur şirketi blogu</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/misir-rota.md" target="_blank" rel="noopener">Mısır Kaç Günde Gezilir? 5, 7, 10 Günlük Rotalar</a></h3>
+            <div class="kunye"><b>Granikos Travel</b> · Nisan 2026 · paket tur fiyatları</div>
+          </div>
+          <span class="sure">15 dk</span>
+        </div>
+        <p class="neden">Bütçe tablosundaki "paket turlarla fark" karşılaştırmasının kaynağı. Satış metni, tavsiyeleri ona göre okuyun; deve safarisini "unutulmaz" diye satıyor.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-lxr-ssh"><b>G5</b>Luxor → Şarm</a></div>
+      </article>
+
+      <article class="kart" data-id="blog-lider" data-gun="1 2 6" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Egypt Travel Guide — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Blog · İngilizce</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/misir-antik-lider.md" target="_blank" rel="noopener">Egypt Travel Guide — Ancient Leader</a></h3>
+            <div class="kunye"><b>Yaprak Gürdal</b> · dalgıç gözüyle, ülke geneli</div>
+          </div>
+          <span class="sure">30 dk</span>
+        </div>
+        <p class="neden">Ülkenin tamamına genel bakış; Kızıldeniz dalış bölümü ve Batı Çölü kısmı bu rotanın dışında kalanları gösterir, bir sonraki gezi için.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-ras-mohammed"><b>G6</b>Ras Mohammed</a></div>
+      </article>
+
+      <article class="kart" data-id="blog-hakkinda" data-gun="5 6" data-turkce="1" data-ucretsiz="1">
+        <div class="kart-ust">
+          <input type="checkbox" aria-label="Mısır Hakkında Bilmeniz Gerekenler — okundu">
+          <div class="kart-baslik">
+            <span class="tur blog">Tur şirketi blogu</span>
+            <h3><a href="https://github.com/umitaltintas/misir-tatili/blob/main/bloglar/misir-hakkinda.md" target="_blank" rel="noopener">Mısır Hakkında Bilmeniz Gerekenler ve Tatil Önerileri</a></h3>
+            <div class="kunye"><b>Haziran 2026</b> · genel tanıtım</div>
+          </div>
+          <span class="sure">10 dk</span>
+        </div>
+        <p class="neden">Kızıldeniz tatil bölgelerinin kısa tanıtımı; bilgi yoğunluğu düşük, Şarm–Hurghada farkını hızlı görmek için.</p>
+        <div class="duraklar"><a class="durak" href="rota.html#durak-soho"><b>G5</b>Şarm</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- TAKVİM -->
+<section id="takvim">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Kalkışa On Bir Hafta</div>
+      <h2>Okuma ve İzleme Takvimi</h2>
+      <p>Programın tersinden değil, <b>gidiş sırasıyla</b> hazırlanmak daha akılda kalıcı: önce Kahire, sonra Luxor, en son deniz. Belgeselleri gezinin yakınına bırakın, görüntü tazeyken gidin.</p>
+    </div>
+    <div class="takvim">
+      <div class="hafta">
+        <div class="ne-zaman">Eylül · 1–4. hafta</div>
+        <h4>Omurga</h4>
+        <ul>
+          <li><b>Wilkinson</b>'a başlayın; günde bir bölüm, ekim ortasında biter.</li>
+          <li><b>Digital Giza</b> 3D turu ve Herodotos II. Kitap: bir hafta sonu.</li>
+          <li>Kulaklık: The History of Egypt Podcast'in Eski Krallık bölümleri.</li>
+        </ul>
+      </div>
+      <div class="hafta">
+        <div class="ne-zaman">Ekim · 5–7. hafta</div>
+        <h4>Kahire</h4>
+        <ul>
+          <li><b>Midak Sokağı</b>, sonra isterseniz Yakupyan Apartmanı.</li>
+          <li>In Our Time "The Mamluks" + Ottoman History Podcast; Archnet'te Sultan Hasan.</li>
+          <li>Evliya Çelebi ve İbn Battûta'nın Kahire fasılları: seçme okuma.</li>
+          <li>Film: Cairo Time.</li>
+        </ul>
+      </div>
+      <div class="hafta">
+        <div class="ne-zaman">Ekim sonu · 8–9. hafta</div>
+        <h4>Luxor</h4>
+        <ul>
+          <li><b>El-Mumya</b> ve Tutankhamun in Colour.</li>
+          <li>Theban Mapping Project'te <b>üç mezarı seçin</b>, Digital Karnak'ı döndürün.</li>
+          <li>Podcast: Hatşepsut ve Tutankhamun bölümleri.</li>
+          <li>Nat Geo'dan 3–4 Luxor bölümü.</li>
+        </ul>
+      </div>
+      <div class="hafta">
+        <div class="ne-zaman">Kasım · 10–11. hafta</div>
+        <h4>Taze kalsın</h4>
+        <ul>
+          <li><b>Sakkara'nın Sırları</b> ve Kayıp Piramit: gidişten en fazla iki hafta önce.</li>
+          <li>Red Sea belgeseli; Nil'de Ölüm 1978 hafif kapanış.</li>
+          <li>Uçağa: Nil'de Ölüm romanı, indirilmiş podcast bölümleri, Yûsuf Sûresi.</li>
+          <li>Blogların İpuçları bölümüne süzülmüş hâlini son kez okuyun.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="not"><b>Gerçekçi hedef:</b> Bir tarih kitabı, bir roman, üç belgesel, bir film, beş podcast bölümü. Gerisi ekstra. İşaretler bu tarayıcıda saklanır; iki telefon iki ayrı liste tutar.</p>
+  </div>
+</section>
+
+<footer>Gitmeden önce okuma ve izleme listesi · Platform bilgileri Eylül 2026 · Görsel: Wikimedia Commons (CC) · <a href="./">Programın tamamı</a> · <a href="rota.html">Rota</a></footer>
+
+<script>
+(function(){
+  var base='https://commons.wikimedia.org/wiki/Special:FilePath/';
+  document.querySelectorAll('img.wm').forEach(function(img){
+    var files=[];
+    try{files=JSON.parse(img.dataset.f||'[]');}catch(e){}
+    var w=img.dataset.w||'1100', i=0;
+    function tryNext(){
+      if(i>=files.length){img.style.display='none';return;}
+      img.src=base+encodeURIComponent(files[i++])+'?width='+w;
+    }
+    img.addEventListener('error',tryNext);
+    tryNext();
+  });
+})();
+
+/* ——— İşaretler tarayıcıda saklanır; süzgeç güne göre ——— */
+(function(){
+  var kartlar=[].slice.call(document.querySelectorAll('.kart[data-id]'));
+  var sayac=document.getElementById('sayac'), bar=document.getElementById('bar');
+  var ANAHTAR='misir-kaynaklar';
+
+  function oku(){ try{return JSON.parse(localStorage.getItem(ANAHTAR))||{};}catch(e){return {};} }
+  function yaz(v){ try{localStorage.setItem(ANAHTAR,JSON.stringify(v));}catch(e){} }
+
+  function ciz(){
+    var bitti=0;
+    kartlar.forEach(function(k){
+      var c=k.querySelector('input[type=checkbox]');
+      k.classList.toggle('bitti',c.checked);
+      if(c.checked) bitti++;
+    });
+    sayac.textContent=bitti+' / '+kartlar.length;
+    bar.style.width=(bitti/kartlar.length*100)+'%';
+  }
+
+  var veri=oku();
+  kartlar.forEach(function(k){
+    var c=k.querySelector('input[type=checkbox]');
+    c.checked=!!veri[k.dataset.id];
+    c.addEventListener('change',function(){
+      var v=oku();
+      if(c.checked) v[k.dataset.id]=1; else delete v[k.dataset.id];
+      yaz(v); ciz();
+    });
+  });
+  document.getElementById('sifirla').addEventListener('click',function(){
+    if(!confirm('Tüm işaretler silinsin mi?')) return;
+    kartlar.forEach(function(k){k.querySelector('input[type=checkbox]').checked=false;});
+    yaz({}); ciz();
+  });
+  ciz();
+
+  /* Özet sayılar */
+  document.getElementById('ozet-toplam').textContent=kartlar.length;
+  document.getElementById('ozet-turkce').textContent=kartlar.filter(function(k){return k.dataset.turkce==='1';}).length;
+  document.getElementById('ozet-ucretsiz').textContent=kartlar.filter(function(k){return k.dataset.ucretsiz==='1';}).length;
+
+  /* Güne göre süzgeç */
+  var cipler=[].slice.call(document.querySelectorAll('#suzgec .cip'));
+  cipler.forEach(function(c){
+    c.addEventListener('click',function(){
+      cipler.forEach(function(x){x.setAttribute('aria-pressed','false');});
+      c.setAttribute('aria-pressed','true');
+      var gun=c.dataset.gun;
+      kartlar.forEach(function(k){
+        var gunler=(k.dataset.gun||'').split(' ');
+        k.classList.toggle('gizli', !!gun && gunler.indexOf(gun)<0);
+      });
+      /* Süzgeçte hiç kartı kalmayan bölümü sakla */
+      document.querySelectorAll('section .kartlar').forEach(function(g){
+        var sec=g.closest('section');
+        var gorunen=g.querySelectorAll('.kart:not(.gizli)').length;
+        sec.style.display=gorunen?'':'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -10,6 +10,7 @@ son iki gün Kızıldeniz. İslami Kahire tek yoğun güne toplandı; kazanılan
 |---|---|
 | Programın tamamı — gün gün plan, bütçe tablosu, konaklama, ipuçları | [/](https://umitaltintas.github.io/misir-tatili/) |
 | Nil'den Kızıldeniz'e — gün gün zaman çizelgesi | [/rota.html](https://umitaltintas.github.io/misir-tatili/rota.html) |
+| Gitmeden önce — okuma, izleme ve dinleme listesi | [/kaynaklar.html](https://umitaltintas.github.io/misir-tatili/kaynaklar.html) |
 
 ### Programın tamamı (`index.html`)
 
@@ -75,6 +76,14 @@ durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
   tarifi bağlantısı taşır; her durakta *Haritada aç ↗* o noktayı iğneyle açar.
 - **Katman süzgeçleri** — antik miras, İslami Kahire, müze, sofra, deneyim, Kızıldeniz, ulaşım
 - Klavyeyle gezinme (`←` `→`), durak bazlı derin bağlantı (`#durak-karnak`)
+
+### Gitmeden önce (`kaynaklar.html`)
+
+Okuma, izleme ve dinleme listesi: kitaplar (hepsi Türkçe baskısıyla), belgeseller,
+filmler, podcastler, dijital arşivler, Kur'an'da Mısır ve planı yaparken taranan
+bloglar. Her kart programdaki durağa `rota.html#durak-…` bağlantısıyla bağlı; güne
+göre süzülür. Başta "Önce bunlar" altılısı ve kalkışa kadar haftalık takvim var.
+İşaretler `localStorage`'da saklanır; platform bilgileri Eylül 2026 itibarıyla.
 
 ## Teknik
 
