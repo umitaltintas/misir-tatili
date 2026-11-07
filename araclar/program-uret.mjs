@@ -27,11 +27,12 @@ const kontrolMu = process.argv.includes("--kontrol");
 /** & < > kaçışı. Zaten <b> içeren alanlar için kullanılmaz. */
 const kacir = (t) => t.replace(/&(?!(?:amp|lt|gt|quot|#\d+);)/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-/** Vurgu etiketlerini koru, gerisini kaçır. */
+/** Vurgu etiketlerini ve bağlantıları koru, gerisini kaçır. */
+const KORUNAN = /^(<\/?[bi]>|<a href="[^"<>]*"(?: target="_blank" rel="noopener")?>|<\/a>)$/;
 function zengin(metin) {
   return metin
-    .split(/(<\/?b>|<\/?i>)/)
-    .map((p) => (/^<\/?[bi]>$/.test(p) ? p : kacir(p)))
+    .split(/(<\/?[bi]>|<a [^<>]*>|<\/a>)/)
+    .map((p) => (KORUNAN.test(p) ? p : kacir(p)))
     .join("");
 }
 
@@ -41,12 +42,24 @@ function duraklariYaz(gunNo) {
 
   return gunun
     .map((d) => {
-      const govde = [zengin(d.aciklama)];
-      if (d.ipucu) govde.push(`<span class="ipucu-mini">${zengin(d.ipucu)}</span>`);
+      // Özet hep görünür; "Neye bakmalı" anlatımı ve ipucu katlanır.
+      // <details> betiksiz de çalışır, index.html çevrimdışı kalır.
+      const NEYE = "<b>Neye bakmalı:</b>";
+      const kes = d.aciklama.indexOf(NEYE);
+      const ozet = kes < 0 ? d.aciklama : d.aciklama.slice(0, kes).trim();
+      const anlatim = kes < 0 ? "" : d.aciklama.slice(kes + NEYE.length).trim();
+
+      const ic = [];
+      if (anlatim) ic.push(`<span class="anlatim">${zengin(anlatim)}</span>`);
+      if (d.ipucu) ic.push(`<span class="ipucu-mini">${zengin(d.ipucu)}</span>`);
+      const etiket = anlatim && d.ipucu ? "Neye bakmalı · ipucu" : anlatim ? "Neye bakmalı" : "İpucu";
+      const devam = ic.length
+        ? `<details class="devam"><summary>${etiket}</summary>${ic.join("")}</details>`
+        : "";
       return (
         `<li><span class="t">${kacir(d.saat)}</span>` +
         `<div class="what"><b>${kacir(d.ad)}</b>` +
-        `<span>${govde.join(" ")}</span></div></li>`
+        `<span>${zengin(ozet)}</span>${devam}</div></li>`
       );
     })
     .join("\n              ");

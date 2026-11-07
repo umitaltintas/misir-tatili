@@ -788,3 +788,23 @@ body.hepsi-acik .ozet-ad h3::after { display: none; }
   transition: color .2s ease;
 }
 .konum-bag:hover { color: var(--altin-yazi); }
+
+/* ————————————————————————————————— TELEFON: ÜST ŞERİT VE GİRİŞ
+   Telefonda şerit ve giriş ilk ekranın yarısını kaplıyordu. Marka alt
+   satırı ve "Gitmeden önce" düğmesi şeritten çıkar (kapanışta ve
+   programda zaten var), süzgeçler tek satırda yana kayar, kısayol
+   tuşlarını anlatan yardım metni dokunmatik ekranda gizlenir. */
+.filtre { white-space: nowrap; }
+
+@media (max-width: 620px) {
+  .marka span { display: none; }
+  .ust-cikis .geri[href="kaynaklar.html"] { display: none; }
+  .ust-sira { padding: 8px 14px; gap: 8px; }
+  .ust-sira + .ust-sira { padding-bottom: 8px; }
+  .gun-chip { padding: 5px 0; min-width: 34px; text-align: center; }
+  .gunler { gap: 5px; }
+  .giris { padding: 18px 0 14px; }
+  .giris > p:not(.ipucu-satir) { font-size: .82rem; margin-top: 8px; }
+  .ipucu-satir { display: none; }
+  .giris-olcu { margin-top: 12px; }
+}

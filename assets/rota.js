@@ -580,24 +580,18 @@ function seritYuksekligiIzle() {
 
 /* ————————————————————————————————— Ölçüler */
 
-/** İki nokta arası kuş uçuşu mesafe, km. Üstteki "km yol" sayacı için. */
-function mesafe([lon1, lat1], [lon2, lat2]) {
-  const R = 6371, rad = Math.PI / 180;
-  const dLat = (lat2 - lat1) * rad, dLon = (lon2 - lon1) * rad;
-  const a = Math.sin(dLat / 2) ** 2 +
-    Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLon / 2) ** 2;
-  return 2 * R * Math.asin(Math.sqrt(a));
+/** "1,3 km" / "270 m" biçimindeki ölçülmüş yürüme mesafesini metreye çevirir. */
+function metre(metin) {
+  const n = parseFloat(metin.replace(/\./g, "").replace(",", "."));
+  return /km/.test(metin) ? n * 1000 : n;
 }
 
+/* Gezgine yarayan üç sayı: durak, uçuş bacağı ve toplam yürüyüş. */
 function olculeriYaz() {
-  let toplam = 0;
-  for (let i = 0; i < DURAKLAR.length - 1; i++) {
-    toplam += mesafe(DURAKLAR[i].konum, DURAKLAR[i + 1].konum);
-  }
+  const yuruyus = BAGLANTILAR.filter((b) => b.mesafe).reduce((t, b) => t + metre(b.mesafe), 0);
   $("#olcu-durak").textContent = DURAKLAR.length;
-  $("#olcu-km").textContent = Math.round(toplam).toLocaleString("tr-TR");
-  $("#olcu-enlem").textContent =
-    (Math.max(...DURAKLAR.map((d) => d.konum[1])) - Math.min(...DURAKLAR.map((d) => d.konum[1]))).toFixed(1) + "°";
+  $("#olcu-ucus").textContent = UCUSLAR.length;
+  $("#olcu-yuruyus").textContent = (yuruyus / 1000).toLocaleString("tr-TR", { maximumFractionDigits: 1 });
 }
 
 

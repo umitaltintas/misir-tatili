@@ -1,8 +1,10 @@
-# Kahire + Luxor + Şarm El-Şeyh — 20–27 Kasım 2026
+# Kahire + Şarm El-Şeyh + Luxor — 4–11 Aralık 2026
 
-İki kişilik, 7 gece 8 günlük Mısır gezisi planı: beş gün antik ve İslami miras,
-son iki gün Kızıldeniz. İslami Kahire tek güne toplandı; kazanılan zaman
-Şarm El-Şeyh'e ayrıldı ve dönüş uçuşu Şarm'dan (açık çeneli bilet).
+Dört kişilik, 7 gece 8 günlük Mısır gezisi planı: Kahire'de 4 gece (üç tam gün
+antik ve İslami miras), Şarm El-Şeyh'te 3 gece. Luxor'da konaklama yok; 9 Aralık
+çarşamba günü Şarm'dan uçaklı günübirlik turla (Travco) geziliyor. Gidiş
+(4 Aralık, AJet 22:10) ve dönüş (11 Aralık, Şarm'dan Pegasus 10:50) biletleri
+alındı. Güncel kararlar ve açık işler: [DURUM.md](DURUM.md).
 
 ## Sayfalar
 
@@ -14,29 +16,31 @@ son iki gün Kızıldeniz. İslami Kahire tek güne toplandı; kazanılan zaman
 
 ### Programın tamamı (`index.html`)
 
-- **Gün gün program** — Gize, Sakkara, İslami Kahire (tek günde), Karnak, Krallar
-  Vadisi, Medinet Habu, Ras Mohammed ve Sina'da quad + deve safarisi
+- **Gün gün program** — İslami Kahire (tek günde), Gize ve GEM, Sakkara, Dahşur ve
+  NMEC mumyaları, Şarm'dan günübirlik Luxor (Krallar Vadisi, Hatşepsut, Karnak),
+  Ras Mohammed, Eski Şarm ve Sina'da quad + deve safarisi. Her durakta kısa özet görünür;
+  "Neye bakmalı" anlatımı ve ipucu dokununca açılır (baskıda hepsi açık çıkar)
 - **İbadet planı** — sekiz günün vakit namazları, o gün bulunulan şehrin koordinatından
   çalışma anında hesaplanır (Diyanet açıları 18°/17°, **Hanefî** ikindi); aktarma
   günlerinde tablo şehri vakit vakit değiştirir. Her gün için vaktin programda nereye
-  denk geldiği yazılı: ikindi Sultan Hasan'da, akşam Luxor Tapınağı'ndaki Ebu'l-Haccac
-  Camii'nde, öğle Ras Mohammed teknesinde. Üç şehir için kıble açısı, ve Mısır'daki iki
+  denk geldiği yazılı: öğle Sultan Hasan'da, yatsı çölde Bedevi
+  kampında ve Eski Şarm'daki Es-Sahabe Camii'nde, öğle Ras Mohammed teknesinde. Üç şehir için kıble açısı, ve Mısır'daki iki
   fark: camiler ikindiyi Şafiî ölçüsüyle ~45 dk önce, imsakı ~7 dk erken okur
-- **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; toplam, paket
-  turlarla fark ve giriş/kapanış özetleri anında yeniden hesaplanır
-- **Para ve nakit paneli** — ne kadar nakit alınacağı (2 kişi ≈430 $), nerede
+- **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; 4 kişilik toplam,
+  kişi başı tutar ve giriş/kapanış özetleri anında yeniden hesaplanır
+- **Para ve nakit paneli** — ne kadar nakit alınacağı (4 kişi ≈720 $), nerede
   bozdurulacağı, hangi harcamanın nakit hangisinin kart olduğu, şehir bazında
   günlük EGP ihtiyacı ve bahşiş aralıkları. ATM'de DCC tuzağı, çarşıda döviz
   uzatmama kuralı ve varış günü bankaların kapalı olması ayrıca işaretli
-- **Konaklama rehberi** — üç şehir için araştırılmış otel önerileri: gecelik fiyat
+- **Konaklama rehberi** — iki şehir için araştırılmış otel önerileri: gecelik fiyat
   aralığı, konum gerekçesi ve artı/eksiler (Ağustos 2026 araştırması). Her kartın
   başında şehrin otelinden bir Commons fotoğrafı, her otel adı da Google Maps'te
   o oteli arayan bir bağlantı. Sayfadaki fotoğraflar tıklanınca tam ekran açılır
-- **Ulaşım rehberi** — Kahire'de Uber, Luxor'da taksi pazarlığı, batı yakasına geçiş,
+- **Ulaşım rehberi** — Kahire'de Uber/InDrive (dört kişiye büyük araç), iç hat uçuşu,
   Şarm'da transfer düzeni, trafik saatleri ve kaçınılacaklar
 - **Hazırlık listesi** — 20 maddelik yapılacaklar; işaretler `localStorage`'da saklanır
 - **Bölüm çubuğu** — hero geçilince belirir, bulunduğunuz bölümü vurgular
-- **On iki altın kural** — yüksek sezon bilet uyarısı, Luxor–Şarm direkt sefer günleri,
+- **On üç altın kural** — yüksek sezon uyarısı, Luxor turunun yalnız çarşamba olması,
   GEM ön bileti, ören girişlerinde kart zorunluluğu, şişe suyu kuralı, "bedava" tuzağı
   ve pazarlıkta anchor fiyat
 - Kalkışa kalan gün sayısı ve yazdırmaya uygun çıktı düzeni
@@ -47,10 +51,10 @@ alternatif denenir.
 
 ### Nil'den Kızıldeniz'e (`rota.html`)
 
-31 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
+30 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
 durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
 
-- **Görsel ve künye** — 31 durağın tamamı için Wikimedia Commons fotoğrafı, dönem
+- **Görsel ve künye** — 30 durağın tamamı için Wikimedia Commons fotoğrafı, dönem
   bilgisi, önerilen süre ve UNESCO alanı. Görsele dokununca aynı dosyanın 1600
   piksellik hâli tam ekran açılır: önce önbellekteki küçük hâl görünür, büyüğü
   gelince yerine geçer. Altında mekânın adı ve Commons'taki dosya sayfasına
@@ -61,7 +65,7 @@ durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
   Yürünen bacaklar noktalı çizgiyle ayrılır ve **ölçülmüş mesafe** taşır:
   OpenStreetMap yol ağı üzerinden yaya profiliyle (Valhalla, BRouter ile çapraz
   kontrollü) — kuş uçuşu değil, gerçek yürüme yolu. Hafta boyunca yürünen toplam
-  8,7 km.
+  6,9 km.
 - **Yol ipliği** — zaman çizelgesi kesintisiz bir hatla örülü: duraklar kategori
   renginde boncuk, geçişler ulaşım türünün renginde segment, yürüyüşler noktalı.
 - **Gezi modu** — boncuğa dokununca durak "gezildi" işaretlenir (`localStorage`);
@@ -122,10 +126,12 @@ ayrıca güncel web kaynaklarından doğrulandı — kapıda vize ücretinin Mar
 
 ## Notlar
 
-Fiyatlar Ağustos 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) ve bağlayıcı değildir.
-Otel fiyatları çift kişilik oda gecelik tahminleridir; Kasım yüksek sezonda artabilir.
-Luxor→Şarm direkt seferi (Air Cairo, pzt/çrş/cmt) plana temel alınmıştır — bilet
-almadan önce o haftaki sefer gün ve saatini doğrulayın.
+Uçuş fiyatları 6 Kasım 2026'da Google Flights'ta görülen fiyatlardır; Luxor turu
+easyJet Holidays/Travco fiyatıdır (1 £ ≈ 66 ₺); gerisi Ağustos 2026 araştırmasına
+dayalı tahmindir ($ ≈ 49,5 ₺) ve bağlayıcı değildir. Otel fiyatları çift kişilik oda
+gecelik tahminleridir (dört kişi = iki oda); Aralık yüksek sezonda artabilir.
+Şarm'dan Luxor turu yalnız çarşamba günleri var ve plan 9 Aralık'a kuruludur —
+uçuş saatleri ancak rezervasyondan sonra belli oluyor.
 
 Konum bağlantıları yaklaşıktır: ören yerleri isabetli, restoran ve çarşı noktaları
 doğru sokağı gösterir ama kapı numarası vermez. "Sofra önerisi" rozetli duraklar

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kahire + Luxor + Şarm — 20–27 Kasım 2026</title>
+<title>Kahire · Şarm · Luxor — 4–11 Aralık 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -21,6 +21,10 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'Figtree',sans-serif;background:var(--limestone);color:var(--ink);line-height:1.6}
+  /* Metin içi bağlantılar paletin yeşilinde; koyu zeminde altın. */
+  a{color:var(--nile);text-decoration-thickness:1px;text-underline-offset:2px;text-decoration-color:rgba(47,109,98,.45)}
+  a:hover{text-decoration-color:currentColor}
+  .budget a{color:var(--gold);text-decoration-color:rgba(201,162,39,.5)}
   img{display:block;max-width:100%}
 
   .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;background:var(--lapis-deep);overflow:hidden}
@@ -102,6 +106,15 @@
   .ipucu-mini{margin-top:7px;padding:7px 0 7px 11px;border-left:2px solid var(--gold);
     background:rgba(201,162,39,.05);font-size:.83rem;line-height:1.55}
   .ipucu-mini b{color:var(--ink)}
+  .devam{margin-top:6px}
+  .devam summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;list-style:none;color:var(--nile);font-size:.8rem;font-weight:600;padding:2px 0}
+  .devam summary::-webkit-details-marker{display:none}
+  .devam summary::before{content:"›";display:inline-block;font-size:1rem;line-height:1;transition:transform .15s ease}
+  .devam[open] summary::before{transform:rotate(90deg)}
+  .devam summary:hover{color:var(--lapis)}
+  .devam summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
+  .devam .anlatim{margin-top:4px}
+  .devam .anlatim::before{content:"Neye bakmalı: ";font-weight:600;color:var(--ink)}
   .tag{display:inline-block;background:var(--nile);color:#EDF5F2;font-size:.68rem;padding:2px 8px;border-radius:3px;margin-left:8px;letter-spacing:.06em;vertical-align:1px}
   .tag.ot{background:#8A2A2B}
 
@@ -140,11 +153,18 @@
   footer{background:var(--lapis-deep);color:#7F86A8;text-align:center;font-size:.78rem;padding:26px 16px;letter-spacing:.04em}
 
   @media (max-width:640px){
-    .nile-line::before{left:26px}
-    .day{padding-left:74px}
-    .cartouche{width:46px;height:70px;left:4px}
-    .cartouche b{font-size:1.1rem}
-    .stops .t{flex-basis:74px}
+    /* Telefonda dikey çizgi ve kartuş sütunu metne yer bırakmıyordu:
+       kartuş kartın üstüne yatay etiket olur, saat metnin üstüne çıkar. */
+    .nile-line::before{display:none}
+    .day{padding-left:0;padding-bottom:28px}
+    .cartouche{position:static;width:auto;height:auto;flex-direction:row;gap:8px;border-width:1px;border-radius:999px;padding:4px 14px;margin-bottom:10px;display:inline-flex}
+    .cartouche b{font-size:1rem}
+    .cartouche span{margin-top:0}
+    .cartouche span br{display:none}
+    .day-body{padding:18px 16px 20px}
+    .photo{height:170px}
+    .stops li{flex-direction:column;gap:2px;padding:11px 0}
+    .stops .t{flex-basis:auto;padding-top:0}
     .photo{height:180px}
     .duo{grid-template-columns:1fr}
     .duo .photo{height:180px}
@@ -163,10 +183,10 @@
   .nav-brand{font-family:'Cinzel',serif;font-weight:600;font-size:.8rem;letter-spacing:.14em;color:var(--lapis);text-decoration:none;margin-right:auto;white-space:nowrap}
   .nav-links{display:flex;gap:4px;list-style:none;overflow-x:auto;scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
-  .nav-link{display:block;font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.11em;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:3px;white-space:nowrap;transition:color .2s ease,background .2s ease}
+  .nav-link{display:block;font-family:'Figtree',sans-serif;font-weight:500;font-size:.84rem;letter-spacing:.01em;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:3px;white-space:nowrap;transition:color .2s ease,background .2s ease}
   .nav-link:hover{color:var(--lapis)}
   .nav-link[aria-current="true"]{color:var(--lapis);background:rgba(201,162,39,.18)}
-  .nav-map{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;color:var(--lapis-deep);background:var(--gold);padding:8px 14px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+  .nav-map{font-family:'Figtree',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.01em;color:var(--lapis-deep);background:var(--gold);padding:8px 14px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s ease}
   .nav-map:hover{background:var(--sand)}
 
   /* ——— Geri sayım ——— */
@@ -220,7 +240,7 @@
   .ibadet-gun ul{list-style:none}
   .ibadet-gun li{display:flex;gap:14px;padding:7px 0;border-top:1px dashed #DCCFAF;font-size:.87rem;color:var(--muted)}
   .ibadet-gun li:first-child{border-top:0}
-  .ibadet-gun li .v{flex:0 0 82px;font-family:'Cinzel',serif;color:var(--lapis);font-size:.78rem;letter-spacing:.04em}
+  .ibadet-gun li .v{flex:0 0 82px;font-family:'Figtree',sans-serif;font-weight:600;color:var(--lapis);font-size:.82rem}
   .ibadet-gun li b{color:var(--ink)}
   .ibadet-gun.cuma{border-color:var(--gold);border-left:3px solid var(--gold);background:#FDFAF0}
   .ibadet-gun.cuma h3{color:#8A6F12}
@@ -302,9 +322,16 @@
     /* Gün kartları zenginleşen içerikle bir sayfadan uzun olabiliyor: kartın
        tamamını bir arada tutmaya çalışmak yerine durakları bölünmez yapıyoruz. */
     .day-card{box-shadow:none}
+    .devam summary{display:none}
     .tip,.hz-oge,.ibadet-gun,.kible-kart,.para-kutu,.stops li{break-inside:avoid;box-shadow:none}
     .vakit-tablo td,.vakit-tablo td small,.vakit-tablo td.gecis b{color:#000}
     section{padding:24px 0}
+  }
+  /* Telefonda vakit etiketi metnin üstüne çıkar. Taban kuralı bu dosyada
+     telefon bloğundan sonra geldiği için burada, en sonda duruyor. */
+  @media (max-width:640px){
+    .ibadet-gun li{flex-direction:column;gap:2px}
+    .ibadet-gun li .v{flex:0 0 auto}
   }
 </style>
 </head>
@@ -313,7 +340,7 @@
 <!-- BÖLÜM ÇUBUĞU -->
 <nav class="topnav" id="topnav" aria-label="Bölümler">
   <div class="topnav-inner">
-    <a class="nav-brand" href="#top">KAHİRE + LUXOR + ŞARM</a>
+    <a class="nav-brand" href="#top">KAHİRE + ŞARM + LUXOR</a>
     <ul class="nav-links">
       <li><a class="nav-link" href="#program">Program</a></li>
       <li><a class="nav-link" href="#ibadet">İbadet</a></li>
@@ -332,13 +359,13 @@
 <header class="hero" id="top">
   <img class="wm" data-f='["All Gizah Pyramids.jpg"]' data-w="1600" alt="Gize Piramitleri">
   <div class="hero-inner">
-    <div class="eyebrow">İki Kişi · 20 – 27 Kasım 2026 · 7 Gece 8 Gün</div>
-    <h1>Kahire · Luxor · <em>Şarm</em><br>Tarihten Kızıldeniz'e</h1>
-    <p>Firavunlardan Memlüklere, Kavalalı'dan Krallar Vadisi'ne — ve finalde Ras Mohammed'in resifleri. Beş gün tarih, iki gün deniz; dönüş Şarm'dan, valiz bavula değmeden.</p>
+    <div class="eyebrow">Dört Kişi · 4 – 11 Aralık 2026 · 7 Gece 8 Gün</div>
+    <h1>Kahire · <em>Şarm</em> · Luxor<br>Tarihten Kızıldeniz'e</h1>
+    <p>Firavunlardan Memlüklere, Kavalalı'dan Krallar Vadisi'ne — ve finalde Ras Mohammed'in resifleri. Kahire'de üç tam gün, Şarm'da üç gece; Luxor'a Şarm'dan uçakla günübirlik. Gidiş ve dönüş biletleri alındı.</p>
     <div class="hero-stats">
-      <div class="hstat"><b id="hero-toplam">97–139 bin ₺</b><span>2 kişi toplam</span></div>
-      <div class="hstat"><b>15+ eser</b><span>antik + islami miras</span></div>
-      <div class="hstat"><b>2 gün</b><span>kızıldeniz · milli park + sina çölü</span></div>
+      <div class="hstat"><b id="hero-toplam">—</b><span>4 kişi toplam</span></div>
+      <div class="hstat"><b id="hero-kisi">—</b><span>kişi başı</span></div>
+      <div class="hstat"><b>Luxor + 2 gün</b><span>günübirlik krallar vadisi · ras mohammed + sina çölü</span></div>
     </div>
     <p class="countdown" id="countdown" hidden></p>
     <div><a class="hero-cta" href="rota.html">Haritalı rotayı aç &rarr;</a> <a class="hero-cta ikincil" href="kaynaklar.html">Gitmeden önce oku, izle &rarr;</a></div>
@@ -348,15 +375,15 @@
 <!-- ROTA -->
 <div class="route">
   <div class="route-inner">
-    <div>İSTANBUL<small>20 Kasım akşamı</small></div>
+    <div>İSTANBUL<small>4 Aralık gecesi</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>KAHİRE<small>3 gece · 20–23 Kas</small></div>
+    <div>KAHİRE<small>4 gece · 4–8 Ara</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>LUXOR<small>2 gece · 23–25 Kas</small></div>
+    <div>ŞARM EL-ŞEYH<small>3 gece · 8–11 Ara</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>ŞARM EL-ŞEYH<small>2 gece · 25–27 Kas</small></div>
+    <div>LUXOR<small>günübirlik · 9 Ara</small></div>
     <span class="dash"></span><span class="dot"></span>
-    <div>İSTANBUL<small>27 Kasım</small></div>
+    <div>İSTANBUL<small>11 Aralık</small></div>
   </div>
 </div>
 
@@ -364,29 +391,29 @@
 <section id="program">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Program · 20–27 Kasım</div>
+      <div class="eyebrow">Program · 4–11 Aralık</div>
       <h2>Nil'den Kızıldeniz'e Sekiz Gün</h2>
-      <p>Sabahlar ören yerlerine (serin ve tenha), öğleden sonralar müzelere ve şehre; İslami Kahire tek güne toplandı, kazanılan iki gün Şarm El-Şeyh'te denize ayrıldı. Kasım sonu Kahire ~24°C, Luxor ~29°C, Şarm'da deniz ~25°C.</p>
+      <p>Sabahlar ören yerlerine (serin ve tenha), öğleden sonralar müzelere ve şehre. Kahire'de üç tam gün; sonra Şarm'a geçiliyor ve Luxor, yalnız çarşamba günleri olan uçaklı günübirlik turla Şarm'dan yapılıyor. Luxor'da otel ve iki iç hat bileti ayrı ayrı alınmadığı için bu, Luxor'u da içeren en ucuz düzen. Aralık başında Kahire ~22°C, Luxor ~26°C, Şarm'da deniz ~24–25°C.</p>
     </div>
 
     <div class="nile-line">
 
       <div class="day">
-        <div class="cartouche"><b>1</b><span>CUM<br>20 KAS</span></div>
+        <div class="cartouche"><b>1</b><span>CUM<br> 4 ARA</span></div>
         <div class="day-card">
           <div class="day-body">
             <h3>İstanbul → Kahire</h3>
-            <div class="theme">Akşam Uçuşuyla Yola Çıkış</div>
+            <div class="theme">Gece Uçuşuyla Yola Çıkış</div>
             <ul class="stops" data-gun="1">
-              <li><span class="t">22:10</span><div class="what"><b>İstanbul Havalimanı</b><span>AJet'in (Turkish Airlines operasyonu) Sabiha Gökçen'den 22:10 direkt seferi, 2 saat 30 dakika — 20 Kasım 2026 için doğrulanmış gerçek sefer. THY'nin sabah seferinden kişi başı ~11.700 ₺ (2 kişi ~500 $) daha ucuz; karşılığı bir gece erken yola çıkıp Kahire'de bir gece daha kalmak — hem tasarruf hem dinlenmiş bir ilk gün. Dönüş Şarm El-Şeyh'ten olduğu için bileti tek yön alın.</span></div></li>
-              <li><span class="t">23:40</span><div class="what"><b>Kahire Havalimanı</b><span>Vize kapıda alınıyor: kişi başı 30 $ — Mart 2026'da 25'ten yükseldi, Türkçe kaynakların çoğu hâlâ eski rakamı yazıyor. Banko nakit dolar istiyor, POS yok ve para üstü vermiyorlar; 60 $'ı tam ve küçük banknotla hazırlayın. <span class="ipucu-mini">Gece yarısına yakın geldiğiniz için kuyruk gündüze göre genelde daha kısa. Otele varış gece yarısını bulur — resepsiyona geç check-in yapacağınızı önceden bildirin. Bu akşam için başka plan yok: doğrudan yatış, yarın (21 Kasım) tam ve dinlenmiş bir günle Kahire Kalesi'nden başlıyorsunuz. Kuyruğu hiç beklemek istemezseniz Ağustos 2026'da başlayan dijital QR vizesini kartla önceden alabilirsiniz (36 $, <a href="https://apps.visaonarrival.gov.eg" target="_blank" rel="noopener">apps.visaonarrival.gov.eg</a>).</span></span></div></li>
+              <li><span class="t">22:10</span><div class="what"><b>İstanbul Havalimanı</b><span><b>Bilet alındı.</b> AJet'in Sabiha Gökçen'den akşam direkt seferi, 2 saat 30 dakika; Mısır saati Türkiye'nin bir saat gerisinde, iniş yerel saatle 23:40. Sabah seferi yerine bir gece önceden yola çıkmak hem ucuz hem de 5 Aralık'ı dinlenmiş ve tam bir gün olarak kazandırıyor. Dönüş Şarm'dan, bu yüzden iki tek yön bilet.</span></div></li>
+              <li><span class="t">23:40</span><div class="what"><b>Kahire Havalimanı</b><span>Vize kapıda alınıyor: kişi başı 30 $ — Mart 2026'da 25'ten yükseldi, Türkçe kaynakların çoğu hâlâ eski rakamı yazıyor. Banko nakit dolar istiyor, POS yok ve para üstü vermiyorlar; dört kişi için 120 $'ı tam ve küçük banknotla hazırlayın.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Gece yarısına yakın geldiğiniz için kuyruk gündüze göre genelde daha kısa. Otele varış gece yarısını bulur — resepsiyona geç check-in yapacağınızı önceden bildirin. Bu akşam için başka plan yok: doğrudan yatış, yarın (5 Aralık) tam ve dinlenmiş bir günle Kahire Kalesi'nden başlıyorsunuz. Kuyruğu hiç beklemek istemezseniz Ağustos 2026'da başlayan dijital QR vizesini kartla önceden alabilirsiniz (36 $, <a href="https://apps.visaonarrival.gov.eg" target="_blank" rel="noopener">apps.visaonarrival.gov.eg</a>).</span></details></div></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="day">
-        <div class="cartouche"><b>2</b><span>CMT<br>21 KAS</span></div>
+        <div class="cartouche"><b>2</b><span>CMT<br> 5 ARA</span></div>
         <div class="day-card">
           <div class="duo">
             <div class="photo"><img class="wm" data-f='["Mosque of Muhammad Ali, Citadel of Cairo.jpg","Cairo Citadel.jpg","Mosque of Muhammad Ali.jpg","Muhammad Ali Mosque.jpg"]' alt="Muhammed Ali Camii"><span class="cap">Muhammed Ali Camii, Kahire Kalesi</span></div>
@@ -396,20 +423,20 @@
             <h3>Osmanlı ve Memlük Kahiresi</h3>
             <div class="theme">Kaleden Çarşıya, Işıklandırmalı Bir Akşama <span class="tag ot">Osmanlı izi</span></div>
             <ul class="stops" data-gun="2">
-              <li><span class="t">09:30</span><div class="what"><b>Kahire Kalesi</b><span>Kavalalı Mehmet Ali Paşa'nın İstanbul camilerini örnek alarak yaptırdığı Alabaster Camii. Paşa'nın türbesi caminin içinde. <b>Neye bakmalı:</b> Minareler ince ve kalem uçlu — İstanbul tipi. Memlük Kahiresi köşeli minare yapardı; Paşa bilerek Osmanlı üslubunu seçti, yani cami bir mimari tercih değil siyasi beyandır. Alt duvarlardaki alabaster kaplama adını verdiği şey. Avludaki saat kulesi Fransa kralı Louis Philippe'in hediyesi: karşılığında Luxor Tapınağı'nın dikilitaşlarından biri gitti — <b>saat hiç düzgün çalışmadı</b>, dikilitaş hâlâ Paris'te. İki gün sonra Luxor'da o dikilitaşın boş kaidesini göreceksiniz. Batı terası Kahire'ye bakar, açık havada piramitler seçilir. Aynı kompleksteki En-Nasır Muhammed Camii (1318) çok daha eski, çok daha sade ve çoğu zaman bomboş. <span class="ipucu-mini">Kale içindeki Cevahir Sarayı'na da uğrayın — Paşa'nın kabul sarayı.</span></span></div></li>
-              <li><span class="t">11:45</span><div class="what"><b>Sultan Hasan Medresesi</b><span>Dört mezhep için dört ayrı avlusu olan dev külliye. Taş işçiliği ve ölçek bakımından Kahire'nin en iddialı yapısı — kalenin hemen eteğinde. <b>Neye bakmalı:</b> Ortadaki açık avludan dört yöne dört eyvan açılıyor, her biri bir Sünni mezhep için — arkalarında o mezhebin öğrencilerinin odaları var. <b>Hanefî eyvanı en büyüğü.</b> Giriş portali 38 metre; içeri girerken sokağın gürültüsünün nasıl kesildiğine dikkat edin, akustik olağanüstü. Tavandan sarkan zincirler bir zamanlar yüzlerce kandil taşıyordu, kandiller şimdi müzelerde. Kıble eyvanının arkasındaki türbe odası Sultan Hasan için yapıldı ama <b>o hiç buraya gömülmedi</b>: öldürüldü, cesedi bulunamadı. <span class="ipucu-mini">Karşısındaki Rifai Camii ile ortak bilet: kişi başı yaklaşık 10 $.</span></span></div></li>
-              <li><span class="t">12:35</span><div class="what"><b>Rifai Camii</b><span>Kral Faruk ve son İran Şahı Rıza Pehlevi burada gömülü. Sultan Hasan'ın tam karşısında, 600 yıl sonra ona öykünerek yapıldı. Aynı bilete dahil, 20–30 dakika yeter. <span class="ipucu-mini">Son giriş genelde 16:00 civarında kesiliyor ama bu saatte bolca vaktiniz var. Çıkışta Ezher Parkı'na (16:45) kadar uzun bir öğle molası kalıyor — yakında bir lokantada rahat bir öğle yemeği ve dinlenme için iyi bir fırsat.</span></span></div></li>
-              <li><span class="t">16:45</span><div class="what"><b>El-Ezher Parkı</b><span>Beş yüzyıl boyunca moloz döküm alanı olan tepe, Ağa Han Vakfı'nın uzun restorasyonuyla Kahire'nin en güzel parkına dönüştü. Batıya bakan terasından İslami Kahire'nin minare ormanı ve Kale silüeti tek karede görünüyor. <span class="ipucu-mini">Kasım'da güneş <b>16:57'de</b> batıyor — programın gerçek gün batımını görebileceğiniz tek noktası burası, ve El-Muizz'e yürüme mesafesinde. 23:00'a kadar açık, giriş ~50 EGP. Çayınızı içip hava karardıktan sonra El-Muizz'e geçin; o cadde zaten ışıklandırmayla güzel. Kazılarda ortaya çıkan Eyyubi surlarının restore edilmiş bölümü parkın kenarında duruyor.</span></span></div></li>
-              <li><span class="t">18:00</span><div class="what"><b>El-Muizz Caddesi</b><span>Dünyada en yoğun Orta Çağ İslam eseri barındıran sokak. Bab Zuveyla kapısından girip akşam ışıklandırmasıyla kuzeye, Khan el-Khalili'ye doğru yürüyün. <b>Neye bakmalı:</b> Güneyden girerken <b>Bab Zuveyla</b> — Memlük döneminde idamların yapıldığı kapı; bitişiğindeki el-Müeyyed Camii'nin minarelerine çıkılıyor. Caddenin tam ortasında duran <b>Abdurrahman Kethüda Sebil-Küttabı</b>: altı çeşme, üstü Kur'an mektebi. <b>Kalavun külliyesi</b> (1285) bir medrese, bir türbe ve bir hastaneden oluşuyor — o hastane 20. yüzyıla kadar hasta kabul etti. <b>El-Akmar Camii</b> (1125) Fatımi dönemi; Kahire'nin taşa oyulmuş en eski süslü cephesi burada. Kuzey ucunda Bab el-Futuh kapısı. <span class="ipucu-mini">Kasım'da Kahire'de güneş 16:57'de batıyor; buraya geldiğinizde hava çoktan kararmış olur. Sorun değil — caddenin asıl güzel hâli zaten gece aydınlatmasıyla. Ama gerçek gün batımını görmek isterseniz 16:15'te El-Ezher Parkı'nda olun: 23:00'a kadar açık, ~50 EGP, İslami Kahire silüetine bakan en iyi manzara, buraya 10 dakika.</span></span></div></li>
-              <li><span class="t">19:30</span><div class="what"><b>Khan el-Khalili</b><span>14. yüzyıldan beri ayakta olan kapalı çarşı. Akşam saatlerinde asıl kalabalığına kavuşuyor. <b>Neye bakmalı:</b> 1382'de emir Cerkes el-Halili, Fatımi halifelerinin türbe külliyesini yıktırıp yerine bir kervansaray yaptırdı — çarşının adı ondan geliyor. Turistik tezgâhların arasında kaybolmuş <b>Memlük dönemi taş kapılarını ve tonozlu geçitlerini</b> arayın, hâlâ ayaktalar. Zanaatlar sokaklara ayrılmış: kuyumcular, bakırcılar, baharatçılar ayrı hatlarda. Asıl çarşı deneyimi ana caddede değil, o dar yan kollarda.</span></div></li>
-              <li><span class="t">21:00</span><div class="what"><b>El Fishawy</b><span>Çarşının göbeğinde, aynalarla kaplı, 1797'den beri aynı ailede olan ve hiç kapanmayan kahvehane. Naguib Mahfouz üçlemesinin bir kısmını burada yazmış. 21:00 doğru saat: gündüz paket turlarla dolup taşıyor, akşam Mısırlı aileler ve öğrenciler geliyor. <span class="ipucu-mini">Yazılı menü yok ve fiyat müşteriye göre değişiyor — tek gerçek riski bu. <b>Oturmadan önce her kalemin fiyatını tek tek sorun.</b> Nane çayı (şay bi-na'na) ve karkade ısmarlayın; iki kişi 150–250 EGP olmalı, 400 EGP'yi aşıyorsa itiraz edin. Küçük banknotla ödeyin. Masaya gelen satıcılara göz teması kurmadan "la, şükran" deyin. Fiyat tartışmasıyla uğraşmak istemezseniz 3 dakika ötedeki Naguib Mahfouz Cafe'de fiyatlar menüde yazılı ve sabit — klimalı, daha pahalı, daha az otantik.</span></span></div></li>
+              <li><span class="t">09:30</span><div class="what"><b>Kahire Kalesi</b><span>Kavalalı Mehmet Ali Paşa'nın İstanbul camilerini örnek alarak yaptırdığı Alabaster Camii. Paşa'nın türbesi caminin içinde.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Minareler ince ve kalem uçlu — İstanbul tipi. Memlük Kahiresi köşeli minare yapardı; Paşa bilerek Osmanlı üslubunu seçti, yani cami bir mimari tercih değil siyasi beyandır. Alt duvarlardaki alabaster kaplama adını verdiği şey. Avludaki saat kulesi Fransa kralı Louis Philippe'in hediyesi: karşılığında Luxor Tapınağı'nın dikilitaşlarından biri gitti — <b>saat hiç düzgün çalışmadı</b>, dikilitaş hâlâ Paris'te. O dikilitaşın boş kaidesi bugün Luxor Tapınağı'nın girişinde duruyor. Batı terası Kahire'ye bakar, açık havada piramitler seçilir. Aynı kompleksteki En-Nasır Muhammed Camii (1318) çok daha eski, çok daha sade ve çoğu zaman bomboş.</span><span class="ipucu-mini">Kale içindeki Cevahir Sarayı'na da uğrayın — Paşa'nın kabul sarayı.</span></details></div></li>
+              <li><span class="t">11:45</span><div class="what"><b>Sultan Hasan Medresesi</b><span>Dört mezhep için dört ayrı avlusu olan dev külliye. Taş işçiliği ve ölçek bakımından Kahire'nin en iddialı yapısı — kalenin hemen eteğinde.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Ortadaki açık avludan dört yöne dört eyvan açılıyor, her biri bir Sünni mezhep için — arkalarında o mezhebin öğrencilerinin odaları var. <b>Hanefî eyvanı en büyüğü.</b> Giriş portali 38 metre; içeri girerken sokağın gürültüsünün nasıl kesildiğine dikkat edin, akustik olağanüstü. Tavandan sarkan zincirler bir zamanlar yüzlerce kandil taşıyordu, kandiller şimdi müzelerde. Kıble eyvanının arkasındaki türbe odası Sultan Hasan için yapıldı ama <b>o hiç buraya gömülmedi</b>: öldürüldü, cesedi bulunamadı.</span><span class="ipucu-mini">Karşısındaki Rifai Camii ile ortak bilet: kişi başı yaklaşık 10 $.</span></details></div></li>
+              <li><span class="t">12:35</span><div class="what"><b>Rifai Camii</b><span>Kral Faruk ve son İran Şahı Rıza Pehlevi burada gömülü. Sultan Hasan'ın tam karşısında, 600 yıl sonra ona öykünerek yapıldı. Aynı bilete dahil, 20–30 dakika yeter.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Son giriş genelde 16:00 civarında kesiliyor ama bu saatte bolca vaktiniz var. Çıkışta Ezher Parkı'na (16:45) kadar uzun bir öğle molası kalıyor — yakında bir lokantada rahat bir öğle yemeği ve dinlenme için iyi bir fırsat.</span></details></div></li>
+              <li><span class="t">16:45</span><div class="what"><b>El-Ezher Parkı</b><span>Beş yüzyıl boyunca moloz döküm alanı olan tepe, Ağa Han Vakfı'nın uzun restorasyonuyla Kahire'nin en güzel parkına dönüştü. Batıya bakan terasından İslami Kahire'nin minare ormanı ve Kale silüeti tek karede görünüyor.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Aralık başında güneş <b>16:55'te</b> batıyor — programın gerçek gün batımını görebileceğiniz tek noktası burası, ve El-Muizz'e yürüme mesafesinde. 23:00'a kadar açık, giriş ~50 EGP. Çayınızı içip hava karardıktan sonra El-Muizz'e geçin; o cadde zaten ışıklandırmayla güzel. Kazılarda ortaya çıkan Eyyubi surlarının restore edilmiş bölümü parkın kenarında duruyor.</span></details></div></li>
+              <li><span class="t">18:00</span><div class="what"><b>El-Muizz Caddesi</b><span>Dünyada en yoğun Orta Çağ İslam eseri barındıran sokak. Bab Zuveyla kapısından girip akşam ışıklandırmasıyla kuzeye, Khan el-Khalili'ye doğru yürüyün.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Güneyden girerken <b>Bab Zuveyla</b> — Memlük döneminde idamların yapıldığı kapı; bitişiğindeki el-Müeyyed Camii'nin minarelerine çıkılıyor. Caddenin tam ortasında duran <b>Abdurrahman Kethüda Sebil-Küttabı</b>: altı çeşme, üstü Kur'an mektebi. <b>Kalavun külliyesi</b> (1285) bir medrese, bir türbe ve bir hastaneden oluşuyor — o hastane 20. yüzyıla kadar hasta kabul etti. <b>El-Akmar Camii</b> (1125) Fatımi dönemi; Kahire'nin taşa oyulmuş en eski süslü cephesi burada. Kuzey ucunda Bab el-Futuh kapısı.</span><span class="ipucu-mini">Aralık başında Kahire'de güneş 16:55'te batıyor; buraya geldiğinizde hava çoktan kararmış olur. Sorun değil — caddenin asıl güzel hâli zaten gece aydınlatmasıyla. Ama gerçek gün batımını görmek isterseniz 16:15'te El-Ezher Parkı'nda olun: 23:00'a kadar açık, ~50 EGP, İslami Kahire silüetine bakan en iyi manzara, buraya 10 dakika.</span></details></div></li>
+              <li><span class="t">19:30</span><div class="what"><b>Khan el-Khalili</b><span>14. yüzyıldan beri ayakta olan kapalı çarşı. Akşam saatlerinde asıl kalabalığına kavuşuyor.</span><details class="devam"><summary>Neye bakmalı</summary><span class="anlatim">1382'de emir Cerkes el-Halili, Fatımi halifelerinin türbe külliyesini yıktırıp yerine bir kervansaray yaptırdı — çarşının adı ondan geliyor. Turistik tezgâhların arasında kaybolmuş <b>Memlük dönemi taş kapılarını ve tonozlu geçitlerini</b> arayın, hâlâ ayaktalar. Zanaatlar sokaklara ayrılmış: kuyumcular, bakırcılar, baharatçılar ayrı hatlarda. Asıl çarşı deneyimi ana caddede değil, o dar yan kollarda.</span></details></div></li>
+              <li><span class="t">21:00</span><div class="what"><b>El Fishawy</b><span>Çarşının göbeğinde, aynalarla kaplı, 1797'den beri aynı ailede olan ve hiç kapanmayan kahvehane. Naguib Mahfouz üçlemesinin bir kısmını burada yazmış. 21:00 doğru saat: gündüz paket turlarla dolup taşıyor, akşam Mısırlı aileler ve öğrenciler geliyor.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Yazılı menü yok ve fiyat müşteriye göre değişiyor — tek gerçek riski bu. <b>Oturmadan önce her kalemin fiyatını tek tek sorun.</b> Nane çayı (şay bi-na'na) ve karkade ısmarlayın; dört kişi 300–500 EGP olmalı, 800 EGP'yi aşıyorsa itiraz edin. Küçük banknotla ödeyin. Masaya gelen satıcılara göz teması kurmadan "la, şükran" deyin. Fiyat tartışmasıyla uğraşmak istemezseniz 3 dakika ötedeki Naguib Mahfouz Cafe'de fiyatlar menüde yazılı ve sabit — klimalı, daha pahalı, daha az otantik.</span></details></div></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="day">
-        <div class="cartouche"><b>3</b><span>PAZ<br>22 KAS</span></div>
+        <div class="cartouche"><b>3</b><span>PAZ<br> 6 ARA</span></div>
         <div class="day-card">
           <div class="duo">
             <div class="photo"><img class="wm" data-f='["Great Sphinx of Giza - 20080716a.jpg"]' alt="Sfenks"><span class="cap">Sfenks &amp; Kefren Piramidi</span></div>
@@ -419,104 +446,103 @@
             <h3>Gize Günü</h3>
             <div class="theme">Piramitler + Büyük Mısır Müzesi <span class="tag">paket turlarda eksik!</span></div>
             <ul class="stops" data-gun="3">
-              <li><span class="t">08:00</span><div class="what"><b>Gize Platosu</b><span>Keops MÖ 2560 civarında dikildi; 146 metreydi, dış kaplamasını kaybedince 138'e indi. <b>3.800 yıl boyunca dünyanın en yüksek insan yapısı olarak kaldı</b> — bu rekoru başka hiçbir yapı kıramadı. <b>Neye bakmalı:</b> Kefren daha yüksek görünür ama değildir; hem daha yüksek bir kaya tabanında durur hem de <b>tepesinde orijinal kireçtaşı kaplaması hâlâ duruyor.</b> O beyaz külah çok önemli: üç piramidin de bir zamanlar baştan aşağı böyle pürüzsüz ve parlak olduğunu gösteren tek kalıntı bu — bugün gördüğünüz basamaklı yüzey aslında iç dolgu. Mikerinos'un tabanında ise granit kaplama yarım bırakılmış, işçilerin işi nasıl yaptığı orada görülüyor. Platonun güneyindeki üç küçük piramit kraliçelere ait. <span class="ipucu-mini">Kapı açılışında girin: serin, tenha, ışık ideal. Giriş kişi başı 700 EGP. Yeni ana kapı <b>Fayyum Yolu üzerindeki Ziyaretçi Merkezi</b> — taksiciye bunu tarif edin, eski Al-Haram kapısını değil; oradaki kartlı makinelerden bileti kendiniz alıp kimseyle muhatap olmadan turnikeye geçersiniz. Sfenks tarafındaki kapıda gişe yok, oradan yalnız önceden alınmış biletle girilir ama çıkış için ideal. Plato içinde bilete dahil ücretsiz elektrikli servis dolaşıyor (08:00'den önce çalışmıyor) — Keops'tan Sfenks'e 1,3 km'yi yürümek istemezseniz binin. Keops'un içine girmek ayrı bilet ve pahalı (1.500 EGP): içeride oyma da hazine de yok, çıplak granit oda ve dar rampa var; Krallar Vadisi'ni zaten gezeceğiniz için atlanabilir — merak ediyorsanız Kefren piramidi 280 EGP'ye aynı deneyimi veriyor. "Bedava" deve/at teklifi yoktur: binerken değil <b>inerken</b> pazarlık yapılır, o yüzden hiç binmeyin.</span></span></div></li>
-              <li><span class="t">10:30</span><div class="what"><b>Büyük Sfenks</b><span>Tek parça kayadan oyulmuş 73 metrelik aslan gövdesi. Doğuya, gün doğumuna bakar. <b>Neye bakmalı:</b> Pençelerinin arasında duran <b>Rüya Steli</b>: IV. Tutmosis, Sfenks'in rüyasına girip beni kumdan kurtar sana tahtı vereyim dediğini yazdırmış — kendi meşruiyetini bir rüyaya dayandıran firavun. Burnun Napolyon'un askerlerince kırıldığı hikâyesi doğru değil; burun Napolyon'dan yüzyıllar önce zaten yoktu. Hemen yanında <b>Kefren'in Vadi Tapınağı</b> duruyor: Eski Krallık'tan kalan en iyi korunmuş yapı, bazı granit blokları 100 tonun üzerinde. <span class="ipucu-mini">"Fotoğrafınızı çekeyim" diye telefonunuzu isteyen kişi sonunda para istiyor, azına da itiraz ediyor. Elinize kola/şal tutuşturulursa almayın.</span></span></div></li>
-              <li><span class="t">14:00</span><div class="what"><b>Büyük Mısır Müzesi</b><span>Dünyanın en büyük arkeoloji müzesi, piramitlerin hemen yanında. Tutankhamun koleksiyonunun tamamı ilk kez tek çatı altında. Kraliyet mumyaları burada değil — onlar Fustat'taki Medeniyet Müzesi'nde (NMEC); mumya görmek istiyorsanız ayrı bir yarım gün gerekir. <b>Neye bakmalı:</b> Girişteki <b>Büyük Merdiven</b> kraliyet heykelleriyle çevrili ve yukarı çıktıkça sonundaki pencere piramitleri çerçeveliyor — müzenin en iyi tasarım kararı. Atriyumda 11 metrelik <b>II. Ramses kolosu</b>. Tutankhamun galerilerinde koleksiyonun tamamı: 5.000'den fazla parça, tarihte ilk kez bir arada. Keops'un yanındaki çukurda bulunan <b>güneş teknesi</b> de buraya taşındı. <span class="ipucu-mini">Öğle yemeği derdi yok: müzenin içinde <b>Zooba</b> (koshari, taameya, şavarma — hijyeni yüksek, alkolsüz, iki kişi 400–700 EGP), Mandarine Koueider (şark tatlıları) ve birkaç kafe var, hepsi 18:00'e kadar açık. Platodan çıkarken manzaralı bir öğle isterseniz plato içindeki <b>9 Pyramids Lounge</b> dokuz piramide birden bakıyor (09:00–17:00, son giriş 16:00, rezervasyon iyi olur). Gişe satışı yok, bilet saat dilimli: gitmeden <a href="https://tickets.gem.eg" target="_blank" rel="noopener">tickets.gem.eg</a> üzerinden alın (visit-gem.com artık buraya yönleniyor). 1 Kasım 2026'da zam yürürlükte — kişi başı 35 $. 22 Kasım pazara denk geliyor, o gün galeriler 18:00'de kapanıp son girişi 17:00'de kesiyor; 4–5 saatlik müze için 14:00 dilimi sınırda, mümkünse daha erken bir dilim seçin.</span></span></div></li>
-              <li><span class="t">20:00</span><div class="what"><b>Abou Tarek</b><span>Mercimek, pirinç, makarna ve kızarmış soğanın üst üste bindiği milli yemek koshary'nin en bilinen adresi. Maarouf ile Champollion sokaklarının kesiştiği köşede; dört katlı ve hep dolu. Menü yok, sadece boy seçiyorsunuz. İki kişi 100–160 EGP. <span class="ipucu-mini">Kalabalığa aldanmayın, devir hızı çok yüksek — oturduktan ~5 dakika sonra önünüzde. Rezervasyon yok, sıraya girip oturuyorsunuz. <b>Para yemek gelmeden önce alınıyor; bu dolandırıcılık değil, buranın usulü.</b> Nakit ve küçük banknot götürün. Sirkeli sos (daqqa) ve acı sos (shatta) ayrı geliyor — azar azar ekleyin, hepsini dökerseniz sirke ağır gelir. Kapanış saati kaynaklarda 22:00 ile 24:00 arasında çelişiyor, 20:00 her hâlükârda güvenli.</span></span></div></li>
+              <li><span class="t">08:00</span><div class="what"><b>Gize Platosu</b><span>Keops MÖ 2560 civarında dikildi; 146 metreydi, dış kaplamasını kaybedince 138'e indi. <b>3.800 yıl boyunca dünyanın en yüksek insan yapısı olarak kaldı</b> — bu rekoru başka hiçbir yapı kıramadı.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Kefren daha yüksek görünür ama değildir; hem daha yüksek bir kaya tabanında durur hem de <b>tepesinde orijinal kireçtaşı kaplaması hâlâ duruyor.</b> O beyaz külah çok önemli: üç piramidin de bir zamanlar baştan aşağı böyle pürüzsüz ve parlak olduğunu gösteren tek kalıntı bu — bugün gördüğünüz basamaklı yüzey aslında iç dolgu. Mikerinos'un tabanında ise granit kaplama yarım bırakılmış, işçilerin işi nasıl yaptığı orada görülüyor. Platonun güneyindeki üç küçük piramit kraliçelere ait.</span><span class="ipucu-mini">Kapı açılışında girin: serin, tenha, ışık ideal. Giriş kişi başı 700 EGP. Yeni ana kapı <b>Fayyum Yolu üzerindeki Ziyaretçi Merkezi</b> — taksiciye bunu tarif edin, eski Al-Haram kapısını değil; oradaki kartlı makinelerden bileti kendiniz alıp kimseyle muhatap olmadan turnikeye geçersiniz. Sfenks tarafındaki kapıda gişe yok, oradan yalnız önceden alınmış biletle girilir ama çıkış için ideal. Plato içinde bilete dahil ücretsiz elektrikli servis dolaşıyor (08:00'den önce çalışmıyor) — Keops'tan Sfenks'e 1,3 km'yi yürümek istemezseniz binin. Keops'un içine girmek ayrı bilet ve pahalı (1.500 EGP): içeride oyma da hazine de yok, çıplak granit oda ve dar rampa var; yarın Dahşur'da Kırmızı Piramit'in içine zaten gireceğiniz için atlanabilir — merak ediyorsanız Kefren piramidi 280 EGP'ye aynı deneyimi veriyor. "Bedava" deve/at teklifi yoktur: binerken değil <b>inerken</b> pazarlık yapılır, o yüzden hiç binmeyin.</span></details></div></li>
+              <li><span class="t">10:30</span><div class="what"><b>Büyük Sfenks</b><span>Tek parça kayadan oyulmuş 73 metrelik aslan gövdesi. Doğuya, gün doğumuna bakar.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Pençelerinin arasında duran <b>Rüya Steli</b>: IV. Tutmosis, Sfenks'in rüyasına girip beni kumdan kurtar sana tahtı vereyim dediğini yazdırmış — kendi meşruiyetini bir rüyaya dayandıran firavun. Burnun Napolyon'un askerlerince kırıldığı hikâyesi doğru değil; burun Napolyon'dan yüzyıllar önce zaten yoktu. Hemen yanında <b>Kefren'in Vadi Tapınağı</b> duruyor: Eski Krallık'tan kalan en iyi korunmuş yapı, bazı granit blokları 100 tonun üzerinde.</span><span class="ipucu-mini">"Fotoğrafınızı çekeyim" diye telefonunuzu isteyen kişi sonunda para istiyor, azına da itiraz ediyor. Elinize kola/şal tutuşturulursa almayın.</span></details></div></li>
+              <li><span class="t">14:00</span><div class="what"><b>Büyük Mısır Müzesi</b><span>Dünyanın en büyük arkeoloji müzesi, piramitlerin hemen yanında. Tutankhamun koleksiyonunun tamamı ilk kez tek çatı altında. Kraliyet mumyaları burada değil — onlar Fustat'taki Medeniyet Müzesi'nde (NMEC); onlara 7 Aralık öğleden sonrasını ayırdık.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Girişteki <b>Büyük Merdiven</b> kraliyet heykelleriyle çevrili ve yukarı çıktıkça sonundaki pencere piramitleri çerçeveliyor — müzenin en iyi tasarım kararı. Atriyumda 11 metrelik <b>II. Ramses kolosu</b>. Tutankhamun galerilerinde koleksiyonun tamamı: 5.000'den fazla parça, tarihte ilk kez bir arada. Keops'un yanındaki çukurda bulunan <b>güneş teknesi</b> de buraya taşındı.</span><span class="ipucu-mini">Öğle yemeği derdi yok: müzenin içinde <b>Zooba</b> (koshari, taameya, şavarma — hijyeni yüksek, alkolsüz, dört kişi 800–1.400 EGP), Mandarine Koueider (şark tatlıları) ve birkaç kafe var, hepsi 18:00'e kadar açık. Platodan çıkarken manzaralı bir öğle isterseniz plato içindeki <b>9 Pyramids Lounge</b> dokuz piramide birden bakıyor (09:00–17:00, son giriş 16:00, rezervasyon iyi olur). Gişe satışı yok, bilet saat dilimli: gitmeden <a href="https://tickets.gem.eg" target="_blank" rel="noopener">tickets.gem.eg</a> üzerinden alın (visit-gem.com artık buraya yönleniyor). 1 Kasım 2026'da zam yürürlükte — kişi başı 35 $. 6 Aralık pazara denk geliyor, o gün galeriler 18:00'de kapanıp son girişi 17:00'de kesiyor; 4–5 saatlik müze için 14:00 dilimi sınırda, mümkünse daha erken bir dilim seçin. Dört kişilik bileti tek siparişte alın.</span></details></div></li>
+              <li><span class="t">20:00</span><div class="what"><b>Abou Tarek</b><span>Mercimek, pirinç, makarna ve kızarmış soğanın üst üste bindiği milli yemek koshary'nin en bilinen adresi. Maarouf ile Champollion sokaklarının kesiştiği köşede; dört katlı ve hep dolu. Menü yok, sadece boy seçiyorsunuz. Dört kişi 200–320 EGP.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Kalabalığa aldanmayın, devir hızı çok yüksek — oturduktan ~5 dakika sonra önünüzde. Rezervasyon yok, sıraya girip oturuyorsunuz. <b>Para yemek gelmeden önce alınıyor; bu dolandırıcılık değil, buranın usulü.</b> Nakit ve küçük banknot götürün. Sirkeli sos (daqqa) ve acı sos (shatta) ayrı geliyor — azar azar ekleyin, hepsini dökerseniz sirke ağır gelir. Kapanış saati kaynaklarda 22:00 ile 24:00 arasında çelişiyor, 20:00 her hâlükârda güvenli.</span></details></div></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="day">
-        <div class="cartouche"><b>4</b><span>PZT<br>23 KAS</span></div>
+        <div class="cartouche"><b>4</b><span>PZT<br> 7 ARA</span></div>
         <div class="day-card">
           <div class="duo">
             <div class="photo"><img class="wm" data-f='["Saqqara pyramid ver 2.jpg","Saqqara pyramid.jpg","Step Pyramid of Djoser.jpg"]' alt="Sakkara Basamaklı Piramidi"><span class="cap">Coser'in Basamaklı Piramidi, Sakkara</span></div>
-            <div class="photo"><img class="wm" data-f='["Luxor Temple at night.jpg","Egypt.LuxorTemple.06.jpg","Luxor Temple.jpg"]' alt="Luxor Tapınağı"><span class="cap">Luxor Tapınağı, ışıklandırmada</span></div>
+            <div class="photo"><img class="wm" data-f='["Red Pyramid at Dahshur.jpg","Snofrus Red Pyramid in Dahshur (2).jpg","Bent pyramid with its Satellite pyramid.jpg"]' alt="Dahşur, Kırmızı Piramit"><span class="cap">Kırmızı Piramit, Dahşur</span></div>
           </div>
           <div class="day-body">
-            <h3>Sakkara, sonra Luxor</h3>
-            <div class="theme">MÖ 2650'den Işıklandırılmış Bir Akşama</div>
+            <h3>Sakkara, Dahşur ve Mumyalar</h3>
+            <div class="theme">İlk Piramitlerden Firavunların Yüzüne <span class="tag">kalabalıksız</span></div>
             <ul class="stops" data-gun="4">
-              <li><span class="t">08:00</span><div class="what"><b>Sakkara</b><span>Mısır'ın en eski piramidi — Gize'dekilerden yaklaşık bir asır önce, mimar İmhotep tarafından tasarlandı. Valizlerle gelin: buradan doğruca havalimanına geçilecek. <b>Neye bakmalı:</b> Giriş kolonadındaki sütunlar demet demet saz görünümünde oyulmuş — taşın tek başına ayakta durabileceğine <b>henüz güvenmedikleri</b> için bildikleri bitkisel mimariyi taklit etmişler; mimarlık tarihinin en dokunaklı ayrıntılarından biri. Piramidin kuzey yüzünde <b>serdab</b> var: kapalı bir hücre, içinde Coser'in heykeli, duvarda iki delik — heykel 4.700 yıldır o deliklerden dışarı bakıyor. Ti ve Mereruka mastabalarındaki kabartmalar Eski Krallık gündelik hayatının elimizdeki en zengin kaydı: balıkçılık, hayvan besisi, marangozlar. Unas Piramidi'nin içinde <b>ilk Piramit Metinleri</b> var — bilinen en eski dinî yazılı külliyat. <span class="ipucu-mini">Uçuş 14:00'te olduğu için bu sabah artık sıkışık değil: 08:00'de girin, havalimanına 60–90 dakikalık yol için 11:30'da çıkmanız yeterli — Basamaklı Piramit, İmhotep Müzesi ve Ti/Mereruka mastabalarının hepsine vakit var, hiçbirini atlamayın.</span></span></div></li>
-              <li><span class="t">14:00</span><div class="what"><b>Kahire → Luxor</b><span>Kahire–Luxor hattında sabah (05:00–08:25) ve öğleden sonra (14:00'ten itibaren) iki ayrı kümede sefer var, ortasında sefer yok. Sakkara'dan sonra en erken gerçekçi seçenek 14:00 — bu da Karnak'ı bu günden çıkarıp ertesi sabaha taşımayı gerektiriyor, çünkü 15:00 varıştan sonra Karnak'ın son girişine (16:00) yetişecek zaman kalmıyor. <span class="ipucu-mini">Karnak'ı feda etmeyin, sadece güne taşıyın: yarın sabah 06:00 açılışında, boş ve serin bir Karnak sizi bekliyor — turist otobüsleri gelmeden önce.</span></span></div></li>
-              <li><span class="t">17:00</span><div class="what"><b>Luxor Tapınağı</b><span>Avlusunda Ebu'l Haggag Camii yükselir: tapınak ve cami iç içe. Girişteki tek dikilitaşın eşi Paris'te, Concorde Meydanı'nda. <b>Neye bakmalı:</b> Girişteki tek dikilitaşın eşi Paris'te; karşılığında gelen saat Kahire Kalesi'nin avlusunda, hiç çalışmadan duruyor. <b>Ebu'l-Haccac Camii'nin kapısı zeminden üç metre yukarıda:</b> cami, tapınak kumla dolduktan sonra o seviyeye inşa edilmiş; kazı tapınağı boşaltınca kapı havada kalmış. Bir binada 3.400 yıllık katman farkını bu kadar net gösteren başka örnek yok. İçeride Roma dönemi bir odada <b>firavun kabartmalarının üstüne boyanmış Hıristiyan freskleri</b> var — pagan, Hıristiyan ve İslam üst üste. III. Amenhotep'in kolonadı ve II. Ramses kolosları avluda. <span class="ipucu-mini">Karanlıkta ışıklandırılmış hâli Luxor'un en güzel manzaralarından ve akşam açık kalan tek büyük tapınak bu — asıl değeri burada. Uçak 15:00'te iniyor, otele valiz bırakıp 17:00'de burada olmak rahat sığar. Güneş 16:59'da batıyor, 17:00 girişiyle hem alacakaranlığı hem ışıkları görürsünüz. <b>Kapanış saatinde kaynaklar çelişiyor</b> (bakanlık 20:00, bazı kaynaklar 19:00), o yüzden 18:30 yerine öne çekildi; otelinize sorun. Bilet 500 EGP, kartla. İçindeki Ebu'l-Haggag Camii aktif bir cami — namaz vaktine denk gelirseniz cemaate katılabilirsiniz.</span></span></div></li>
-              <li><span class="t">20:00</span><div class="what"><b>Sofra</b><span>Nil kıyısındaki turistik restoranlardan uzakta, 1930'lardan kalma bir evde tagine ve mezeler. Adres: 90 Mohamed Farid St., Al Manshiya. 11:00–24:00 açık. Kişi başı 400–600 EGP. <b>Alkol servisi yok</b> — Luxor'da en rahat edeceğiniz adres. <span class="ipucu-mini"><b>Rezervasyon yapın</b>, yorumlarda tekrar eden uyarı bu ve kasım yüksek sezon; teras katını özellikle isteyin. Oteliniz aracılığıyla ya da <a href="https://www.google.com/maps/search/?api=1&query=Sofra+Restaurant+Al+Manshiya+Luxor" target="_blank" rel="noopener">Google Maps</a>'tan bulup Facebook sayfasından yazmak en pratiği. Nil kıyısında değil iç mahallede, akşam gidiş ve dönüş için taksi ayarlayın. Burada pirinç dolgulu güvercin (hamam mahshi) ve tatlı olarak umm ali deneyin.</span></span></div></li>
+              <li><span class="t">08:00</span><div class="what"><b>Sakkara</b><span>Mısır'ın en eski piramidi — Gize'dekilerden yaklaşık bir asır önce, mimar İmhotep tarafından tasarlandı.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Giriş kolonadındaki sütunlar demet demet saz görünümünde oyulmuş — taşın tek başına ayakta durabileceğine <b>henüz güvenmedikleri</b> için bildikleri bitkisel mimariyi taklit etmişler; mimarlık tarihinin en dokunaklı ayrıntılarından biri. Piramidin kuzey yüzünde <b>serdab</b> var: kapalı bir hücre, içinde Coser'in heykeli, duvarda iki delik — heykel 4.700 yıldır o deliklerden dışarı bakıyor. Ti ve Mereruka mastabalarındaki kabartmalar Eski Krallık gündelik hayatının elimizdeki en zengin kaydı: balıkçılık, hayvan besisi, marangozlar. Unas Piramidi'nin içinde <b>ilk Piramit Metinleri</b> var — bilinen en eski dinî yazılı külliyat.</span><span class="ipucu-mini">08:00 açılışında girin ve 11:00'de çıkın: Basamaklı Piramit, İmhotep Müzesi ve Ti/Mereruka mastabalarının hepsine vakit var, hiçbirini atlamayın. Bilet kişi başı ~600 EGP, kartla. Sakkara ile Dahşur'u aynı şoförlü araçla yapın; dört kişi tek araca sığıyor ve araç sizi öğleden sonra NMEC'e bırakıyor.</span></details></div></li>
+              <li><span class="t">11:30</span><div class="what"><b>Dahşur</b><span>Sakkara'nın 10 km güneyinde, Firavun Snefru'nun iki piramidi: Mısırlıların düzgün piramidi deneme yanılmayla nasıl öğrendiğinin açık hava dersi.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim"><b>Kırık Piramit</b> yarı yolda açısını değiştiriyor; dik başlanan yapı çatlamaya başlayınca ustalar eğimi düşürmüş, sonuç bu kırık siluet. Dış kaplamasının büyük kısmı hâlâ yerinde, Gize'de göremediğiniz pürüzsüz yüzeyin en iyi örneği. <b>Kırmızı Piramit</b> ise dersin sonucu: dünyanın ilk gerçek düzgün piramidi, Keops'tan önce. İçine girilebiliyor ve bilete dahil: 60 metrelik alçak bir koridordan inip bindirmeli tavanlı iki odaya ulaşıyorsunuz.</span><span class="ipucu-mini">Gize'nin aksine burası neredeyse bomboş; satıcı ve deve baskısı yok denecek kadar az. Bilet ~200 EGP, kartla. Kırmızı Piramit'in koridoru 1 metre yüksekliğinde ve içerisi amonyak kokulu, sıcak; dizlerinden ya da klostrofobiden çekinen dışarıda bekleyebilir. 13:00 gibi çıkıp yolda öğle yemeği yiyin.</span></details></div></li>
+              <li><span class="t">15:00</span><div class="what"><b>Medeniyet Müzesi (NMEC)</b><span>Fustat'taki Mısır Medeniyeti Ulusal Müzesi'nde, 2021'de görkemli bir geçit töreniyle Tahrir'den taşınan 20'yi aşkın kraliyet mumyası bir arada. Karanlık, yer altı galeriye benzer bir salonda her firavun kendi vitrininde yatıyor.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim"><b>II. Ramses</b>, 90 yaşına yakın ölen ve 1976'da Paris'e tedavi için pasaportla gönderilen firavun. <b>Hatşepsut</b>, 9 Aralık'ta tapınağını göreceğiniz kadın firavun. <b>I. Seti</b>, yüzü mumyalar arasında en iyi korunmuşu sayılıyor. Çarşamba Krallar Vadisi'nde mezarlarına gireceğiniz kralların yüzlerini önceden görmüş olacaksınız.</span><span class="ipucu-mini">Dahşur'dan buraya ~40 dakika. Mumya salonu dışındaki ana galeri küçük ve bir saat yeter; asıl değer mumyalarda. Bilet gişede, kartla; güncel ücret ve kapanış saatini gitmeden kontrol edin (akşamüstü kapanıyor). Mumya salonunda fotoğraf yasak. Akşamı hafif tutun: yarın Şarm'a uçuyorsunuz, valizleri bu akşam hazırlayın.</span></details></div></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="day">
-        <div class="cartouche"><b>5</b><span>SAL<br>24 KAS</span></div>
+        <div class="cartouche"><b>5</b><span>SAL<br> 8 ARA</span></div>
         <div class="day-card">
           <div class="duo">
-            <div class="photo"><img class="wm" data-f='["Karnak Temple.jpg","Karnak temple.jpg","Great Hypostyle Hall, Karnak.jpg","Hypostyle hall, Karnak temple.jpg"]' alt="Karnak Tapınağı"><span class="cap">Karnak — sabah erken, boş salon</span></div>
-            <div class="photo"><img class="wm" data-f='["Valley of the Kings.jpg","Valley of the Kings, Luxor.jpg","Valley of the Kings panorama.jpg","ValleyOfTheKingsPano.jpg"]' alt="Krallar Vadisi"><span class="cap">Krallar Vadisi</span></div>
-          </div>
-          <div class="day-body">
-            <h3>Karnak ve Batı Yakası</h3>
-            <div class="theme">Sabah Işığında Karnak, Sonra Ölüler Şehri</div>
-            <ul class="stops" data-gun="5">
-              <li><span class="t">06:00</span><div class="what"><b>Karnak Tapınağı</b><span>Mısır'ın en büyük tapınak kompleksi, 2000 yıl boyunca eklenerek büyüdü. Dünden bugüne taşındı çünkü Luxor'a iniş 15:00'te ve son giriş saatine (16:00) yetişecek zaman kalmıyordu — kayıp değil kazanç: 06:00 açılışında ne tur otobüsü ne kalabalık var. <b>Neye bakmalı:</b> Girişte koç başlı sfenksler dizisi. İlk pilon <b>bitirilmemiş</b> ve arkasında <b>inşaat rampasının kerpiç kalıntısı hâlâ duruyor</b> — bu tapınakların nasıl yapıldığını gösteren en somut kanıt, çoğu ziyaretçi farkına varmadan geçiyor. Hipostil salonda 134 sütun, ortadaki on ikisi 21 metre. Hatşepsut'un dikilitaşı 29 metreyle <b>Mısır'da ayakta duran en yüksek dikilitaş</b>; ikizi kutsal gölün yanında devrilmiş hâlde yatıyor — tepeden tırnağa yakından inceleyebileceğiniz tek dikilitaş o. Bilete dahil olan Açık Hava Müzesi'nde I. Senusret'in <b>Beyaz Şapel</b>'i parça parça bulunup yeniden kurulmuş hâlde duruyor. <span class="ipucu-mini">1,5 saat ayırın, 07:30'da çıkın — Krallar Vadisi'nin kendi açılışı 07:00, batı yakaya geçiş 45 dakika sürüyor, bu yüzden vadiye biraz gecikmeli girmiş olacaksınız. Bilet 600 EGP ve <b>gişe nakit almıyor, sadece kart</b>. Açık Hava Müzesi'ni ve kutsal gölü atlamayın; çoğu ziyaretçi hipostil salonu görüp çıkıyor.</span></span></div></li>
-              <li><span class="t">08:15</span><div class="what"><b>Krallar Vadisi</b><span>Yeni Krallık firavunlarının kaya mezarları. Standart bilet yaklaşık 750 EGP ve üç mezar içeriyor; Tutankhamun ayrı bilet. <b>Neye bakmalı:</b> Mezarların hepsi aynı şemayı izliyor: inen koridor, sonra <b>kuyu şaftı</b> (hem sel suyunu tutmak hem soyguncuyu düşürmek için), sütunlu salon, defin odası. Duvarlardaki metinler süs değil <b>tarif</b>: Amduat ve Kapılar Kitabı, güneşin gece yolculuğunun saat saat haritası — firavunun aynı yolu geçebilmesi için. KV9'un tavanında gökyüzü tanrıçası Nut boydan boya uzanıyor. Ve şu ayrıntı: <b>Tutankhamun'un mezarı 3.200 yıl soyulmadan kaldı çünkü KV9'u kazan işçiler molozu onun kapısının üstüne döktü.</b> <span class="ipucu-mini">Karnak'tan sonra buraya 08:15 gibi varıyorsunuz — 07:00 açılışı kadar erken değil ama kasım sonunda öğlene kadar hâlâ tolere edilebilir; asıl kızgın saatler 12:00'den sonra. Bilet 750 EGP ve <b>açık mezarlardan üçünü</b> seçme hakkı veriyor; hangi mezarların açık olduğu rotasyonla değişiyor, liste sabah girişte panoda. Ek biletli mezarlar ayrı: I. Seti (KV17) 2.000 EGP — vadinin en iyisi, tek ek bilet alacaksanız bu; V./VI. Ramses (KV9) 220 EGP — fiyat/performansta açık ara önde; Tutankhamun (KV62) 700 EGP — küçük bir oda, çoğu ziyaretçi değmediğini söylüyor. <b>Turnikeden geçtikten sonra bilet alamıyorsunuz</b>, ek mezar kararını kapıda verin. Telefon fotoğrafı ücretsiz, flaş her yerde yasak. Tur otobüsleri 09:00'da geliyor — erken girin.</span></span></div></li>
-              <li><span class="t">09:45</span><div class="what"><b>Hatşepsut Tapınağı</b><span>Kadın firavunun kayalığa oyulmuş üç teraslı tapınağı; arkasındaki 300 metrelik uçurum yapının parçası gibi durur. Mimarı, Hatşepsut'un başdanışmanı Senenmut. Diğer tapınaklar peyzaja konur, bu ondan çıkar gibi görünür — 3.500 yıl sonra hâlâ modern durmasının sebebi bu. <span class="ipucu-mini">Üç şeyi kaçırmayın. <b>Punt Kolonadı</b> (orta teras, güney): Punt Ülkesi'ne yapılan deniz seferi — gemiler, sepetlerde taşınan canlı buhur ağaçları, zürafalar. <b>Anubis Şapeli</b> (kuzey uç): tapınağın en iyi korunmuş renkleri burada ve çoğu ziyaretçi uğramadan geçiyor. Ve her yerde göreceğiniz <b>keski izleri</b>: üvey oğlu III. Tutmosis, ölümünden yirmi yıl sonra bütün tasvirlerini kazıtmış — figürün olması gereken yerde oyuk var, komşusu sapasağlam. Kendisi takma sakallı ve erkek firavun kıyafetiyle betimlenmiş; kalıp buydu. Mumyası Kahire'de, NMEC'te. Gölge yok, otoparktan rampaya 300–400 m; sabah serininde yürüyün. Otoparkın yanındaki Asasif mezarları çıkışta 30–45 dakika — el feneri götürün.</span></span></div></li>
-              <li><span class="t">10:45</span><div class="what"><b>Memnon Devleri</b><span>3.400 yıldır ayakta duran 18 metrelik ikiz heykeller. III. Amenhotep'in bugün yok olmuş tapınağının kapı bekçileriydi. <b>Neye bakmalı:</b> Bu iki heykel, <b>Mısır'da yapılmış en büyük ölü tapınağından</b> geriye kalan her şey — Karnak'tan bile genişti, sel ve deprem yok etti. MÖ 27'deki depremden sonra kuzeydeki heykel şafak vakti <b>ses çıkarmaya</b> başladı; Yunan ve Romalı turistler bunu duymak için ta buralara geldi ve <b>adlarını heykelin bacaklarına kazıdı — o yazılar hâlâ orada.</b> İmparator Septimius Severus heykeli onartınca ses kesildi. Yol kenarında, ücretsiz, 20 dakika; ama ne olduğunu bilmeden bakarsanız sadece iki yıpranmış heykel görürsünüz.</span></div></li>
-              <li><span class="t">11:05</span><div class="what"><b>Medinet Habu</b><span>Orijinal boyaları en iyi korunmuş kabartmalar burada — üstelik Karnak'ın kalabalığı olmadan. Memnon Devleri'nin hemen ötesinde. <b>Neye bakmalı:</b> Kabartmalar <b>alışılmadık derecede derin</b> oyulmuş — III. Ramses, kendisinden sonra gelenlerin adını kazımasını istemedi ve haklı çıktı. Kuzey duvarındaki <b>Deniz Kavimleri deniz savaşı</b>, o savaşın dünyadaki tek görsel kaydı. Yanındaki sahnede kâtipler öldürülen düşmanların kesik ellerini sayıyor. Tavanlarda ve üst duvarlarda <b>orijinal boya</b> duruyor — Karnak'ta kaybettiğiniz rengi burada bulacaksınız. Giriş kapısı Suriye kalelerinden kopyalanmış bir migdol; tapınağın içinde Kıpti dönemi kilise kalıntıları da var. <span class="ipucu-mini">Batı yakasında öğle yemeği için en iyi adres tam karşıda: <b>Café &amp; Restaurant Maratonga</b> — açık hava, gölge, taze pişmiş ekmek, uygun fiyat, alkol öne çıkmıyor. Ramesseum tarafında kalırsanız Marsam Hotel'in bahçesi ya da Panorama'nın çatı terası (11:00'den itibaren) da iyi. Ramesseum Rest House manzaralı ama bira servisi yapıyor.</span></span></div></li>
-              <li><span class="t">12:15</span><div class="what"><b>Deir el-Medina</b> <small style="font-weight:400;opacity:.75">— vaktiniz kalırsa</small><span>Krallar Vadisi'ndeki mezarları kazan ve boyayan ustaların yaşadığı köy — ve kendileri için yaptıkları mezarlar. Sennedjem ile Inherkhau'nun mezarlarındaki renkler firavun mezarlarınınkinden daha canlı; kendi elleriyle, acele etmeden yapmışlar. <span class="ipucu-mini">Karnak bu güne eklenince batı yakasının geri kalanı sıkıştı; bu durak ilk feda edilecek olan — <b>kaynak: öneri</b>, plana dahil değil. Vaktiniz varsa Medinet Habu'ya 1,8 km, bilet ~220 EGP, 45 dakika yeter. Yoksa doğrudan öğle yemeğine geçip otelde dinlenin, 16:30'daki felluka için güç toplayın.</span></span></div></li>
-              <li><span class="t">16:30</span><div class="what"><b>Nil'de felluka</b><span>Geleneksel yelkenliyle bir saat: 15–20 $. Cruise'un vaat ettiği manzaranın özeti, fiyatın kırkta biri.</span></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="cartouche"><b>6</b><span>ÇRŞ<br>25 KAS</span></div>
-        <div class="day-card">
-          <div class="duo">
-            <div class="photo"><img class="wm" data-f='["By ovedc - Luxor Museum - 01.jpg","Luxor Museum 01.jpg","Luxor Museum 2010.jpg"]' alt="Luxor Müzesi"><span class="cap">Luxor Müzesi</span></div>
-            <div class="photo"><img class="wm" data-f='["Sharm el-Sheikh.jpg","Sharm El Sheikh.jpg","Naama Bay.jpg","Sharm el-Sheikh beach.jpg"]' alt="Şarm El-Şeyh kıyısı"><span class="cap">Şarm El-Şeyh, Kızıldeniz</span></div>
-          </div>
-          <div class="day-body">
-            <h3>Luxor → Şarm El-Şeyh</h3>
-            <div class="theme">Nil'den Kızıldeniz'e</div>
-            <ul class="stops" data-gun="6">
-              <li><span class="t">09:00</span><div class="what"><b>Mumyalama Müzesi</b><span>Corniche üzerinde küçük ama iyi kurgulanmış bir müze: mumyalama aletleri, kanopik kavanozlar, mumyalanmış kediler ve timsahlar, sürecin adım adım anlatımı. <span class="ipucu-mini">Dört gündür mezar geziyorsunuz; burası o mezarların <b>neden</b> ve <b>nasıl</b> yapıldığını anlatan parça. 09:00'da açılıyor, 45 dakika yeter, Luxor Müzesi'ne Corniche boyunca 650 metre. Sırayı bozmayın — önce burayı görüp sonra Luxor Müzesi'ne giderseniz oradaki mumyalar bambaşka anlam kazanıyor. Bilet ~220 EGP. Bu sabah zaten boştu ve müze 13:00'te kapanıyor.</span></span></div></li>
-              <li><span class="t">10:15</span><div class="what"><b>Luxor Müzesi</b><span>Küçük ama titizlikle seçilmiş koleksiyon. Akşam uçuşundan önce Corniche'te yürüyüş ve müzeyle rahat bir veda sabahı. <b>Neye bakmalı:</b> <b>İki kraliyet mumyası</b> — 18. hanedanı kuran I. Ahmose ve I. Ramses olduğu düşünülen mumya; sargısız hâlde, karartılmış odada iklimlendirilmiş vitrinlerde. I. Ramses, Krallar Vadisi'nde 2.000 EGP'ye girmeyi tarttığınız mezarın sahibi I. Seti'nin babası. Bir de <b>Karnak zulası</b>: 1989'da Karnak'ta bir çukura gömülü bulunan heykeller — gömüldükleri için neredeyse kusursuz korunmuşlar, Mısır heykel sanatının en iyi örnekleri arasındalar. Akhenaton'un yıktırılan tapınağından kalan <b>talatat blokları</b> da burada, duvar hâlinde yeniden birleştirilmiş. <span class="ipucu-mini">Kışın müze <b>öğle arası veriyor: 09:00–13:00, sonra 17:00–20:00</b>. Siz 16:00 uçuşundasınız, yani sabah seansı tek şansınız — 10:00'da girip 12:00'de çıkın, sonra havalimanına. Gize ve GEM'in kalabalığından sonra burası küçük, sakin ve özenli bir seçki; yorulmuş gözle bakmak için ideal. Gişe kartla çalışıyor.</span></span></div></li>
-              <li><span class="t">16:50</span><div class="what"><b>Luxor → Şarm El-Şeyh</b><span>Luxor–Şarm arasında artık düzenli bir direkt sefer yok; genel kaynaklarda geçen "pazartesi/çarşamba/cumartesi direkt" bilgisi 2026 kışında güncel değil — gerçek uçuş EgyptAir'in Kahire aktarmalı hattı. Luxor 16:50 kalkış, Kahire'de ~1 sa 45 dk bekleme, Şarm'a 20:45 varış. <span class="ipucu-mini">Aktarma tek biletle (aynı rezervasyon) alınırsa bagaj Şarm'a kadar gider, ayrı check-in gerekmez. Kahire'deki bekleme yatsı vaktine denk geliyor — terminaldeki mescide rahatça yetişirsiniz. Varışın gecikmesi bu akşamı kısaltıyor: otel transferi dahil ~21:15'te odada olursunuz, ilk akşam sade geçsin.</span></span></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="cartouche"><b>7</b><span>PRŞ<br>26 KAS</span></div>
-        <div class="day-card">
-          <div class="duo">
-            <div class="photo"><img class="wm" data-f='["Ras Mohammed Bay.jpg","Tortuga carey (Eretmochelys imbricata), parque nacional Ras Muhammad, Egipto, 2022-03-28, DD 56.jpg"]' alt="Ras Mohammed resifleri"><span class="cap">Ras Mohammed Milli Parkı</span></div>
+            <div class="photo"><img class="wm" data-f='["SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG","Sharm el-Sheikh , photo by Hatem Moushir 71.jpg"]' alt="Sharks Bay, Şarm El-Şeyh"><span class="cap">Sharks Bay, Kızıldeniz</span></div>
             <div class="photo"><img class="wm" data-f='["Sharm elshiekh desert and mountains.jpg","Dessert Safari.jpg"]' alt="Sina çölü"><span class="cap">Sina çölü — akşam safarisi</span></div>
           </div>
           <div class="day-body">
-            <h3>Ras Mohammed</h3>
-            <div class="theme">Gündüz Shark &amp; Yolanda, Akşam Çöl 🐠</div>
-            <ul class="stops" data-gun="7">
-              <li><span class="t">08:30</span><div class="what"><b>Ras Mohammed Milli Parkı</b><span>Sina'nın ucunda, Kızıldeniz'in en ünlü resifleri: Shark ve Yolanda. Tam günlük tekne turu öğle yemeği dahil; kasım sonunda deniz hâlâ 25–26°C. <span class="ipucu-mini">Turu otelden değil, <a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a> ya da <a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a> üzerinden ücretsiz iptalli olarak önceden ayırtın ve rezervasyonda dört şeyi <b>yazılı</b> teyit ettirin: milli park ücreti dahil mi (değilse kişi başı 7–15 € arası değişiyor, nakit ve genelde kapıda), öğle yemeği ve otel transferi dahil mi, kaç durak yapılıyor, dönüş saati kaç. <b>Maske ve şnorkeli Türkiye'den götürün</b> — kiralık maske sızdırır. Deniz ayakkabısı şart. Shark ve Yolanda açık deniz noktası: altınızda dip değil mavi boşluk var ve akıntı sert olabilir, can yeleği isteyin ve akıntı yönünü kaptana sorun. Pasaportunuzu yanınıza alın.</span></span></div></li>
-              <li><span class="t">18:00</span><div class="what"><b>Sina'da quad + deve safarisi</b><span>Tekne dönüşünden sonra tur aracı otelden alır, 15–20 dakikada çöl istasyonuna götürür; brifing ve kask, sonra Sina dağlarına doğru ~30 km rehberli quad sürüşü. Echo Dağı'nda yankı molası, Bedevi köyünde çay ve 10–15 dakikalık deve binişi, ardından Bedevi kampında akşam yemeği. Toplam 3 saat; gün batımı 16:46 olduğu için tur zaten karanlıkta devam ediyor — ışık değil, çöl gecesi ve ateş başı sohbeti asıl kazanç. <span class="ipucu-mini">Bu durak <b>Sharm Old Market'in balık akşamının yerine geçiyor</b> — ikisi aynı akşama sığmıyor, tekne 17:00'de dönüyor ve tur 18:00'de otelden alıyor. Deniz ürünleri akşamını tercih ederseniz bu turu iptal edip Old Market'e gidin. <b>Kişi başı tekli quad alın</b> (15–20 €): çift kişilik 10 €'luk turlarda arkada oturan toz yutar; 2 kişi için özel tur ~60 € ve 30 araçlık konvoy kuyruğundan kurtarır. <a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a> veya <a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a>'dan 24 saat ücretsiz iptalli ayırtın, alış saatini bir gece önce WhatsApp'tan teyit ettirin — tekne gecikirse 18:00 yerine 18:30 alışı isteyin, çoğu operatör esnek. Bakiyeyi online ödeyin; yanınıza yalnız bahşiş için 100–200 EGP. <b>Ekipman:</b> kapalı ayakkabı zorunlu, uzun kol ve pantolon, toz için buff ya da şal (turda satılan şalı almayın, fahiş), çöl gecesi soğuyor — ince bir mont. Kask tur veriyor, takmadan sürmeyin; sürücü belgesi istenmiyor. <b>Sigorta:</b> seyahat sigortalarının çoğu quad kazasını kapsam dışı tutuyor — poliçenizde "motorlu araç / ATV" istisnasına bakın, gerekirse ek teminat. Deve kısmında hayvanın haline bakın; kötüyse binmeden fotoğraf çekip geçin.</span></span></div></li>
+            <h3>Kahire → Şarm El-Şeyh</h3>
+            <div class="theme">Öğleden Sonra Deniz, Akşam Çöl</div>
+            <ul class="stops" data-gun="5">
+              <li><span class="t">11:00</span><div class="what"><b>Kahire → Şarm El-Şeyh</b><span>Air Cairo'nun 11:00 seferi, Şarm'a ~12:05 varış; 6 Kasım'da kişi başı ~6.082 ₺ görüldü. Aynı gün 06:00 seferi kişi başı ~2.275 ₺ ucuz ama 03:30'da kalkmak demek, iki gün sonra Luxor için zaten 04:00'te kalkacaksınız. EgyptAir'in 13:20 seferi (~6.135 ₺) yedek seçenek.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">İç hatlarda bagaj hakkını biletinizde kontrol edin; dört kişinin valizi ayrı ücretlendirilebilir. Kahire'den sabah 08:00'de çıkın, trafiğe 1 saat pay bırakın. Şarm'a Kahire'den gelenlerde vize kontrolü yok, iç hat gibi çıkıyorsunuz.</span></details></div></li>
+              <li><span class="t">14:00</span><div class="what"><b>Otelin resifi</b><span>Havalimanından otele 10–15 dakika. Check-in, öğle yemeği ve ilk şnorkel: Sharks Bay ya da Ras Umm el Sid'deki otellerin kendi resifi, kıyıdan birkaç kulaçta mercan. Kahire'nin gürültüsünden sonra ilk sessiz öğleden sonra.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Aralık başında deniz ~24–25°C, hava gündüz ~26°C; su ilk anda serin gelir ama 10 dakikada alışılır. Güneş 16:48'de batıyor, 15:30'dan sonra resif gölgede kalıyor; denize öğleden hemen sonra girin. Deniz ayakkabısı şart, cankurtaran yoksa yalnız yüzmeyin.</span></details></div></li>
+              <li><span class="t">18:00</span><div class="what"><b>Sina'da quad + deve safarisi</b><span>Tur aracı otelden alır, 15–20 dakikada çöl istasyonuna götürür; brifing ve kask, sonra Sina dağlarına doğru ~30 km rehberli quad sürüşü. Echo Dağı'nda yankı molası, Bedevi köyünde çay ve 10–15 dakikalık deve binişi, ardından Bedevi kampında akşam yemeği. Toplam 3 saat; gün batımı 16:48 olduğu için tur karanlıkta geçiyor. Işık değil, çöl gecesi, yıldızlar ve ateş başı sohbeti asıl kazanç.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Şarm'daki ilk akşam için ideal: öğleden sonra deniz, akşam çöl, yarın sabah 04:00 alış öncesi 21:00 gibi otelde olursunuz. Erken yatmak isterseniz 14:30–15:00 alışlı <b>gün batımı turunu</b> seçin, 19:00'da dönersiniz. <b>Kişi başı tekli quad alın</b> (15–20 €): çift kişilik turlarda arkada oturan toz yutar. Dört kişi için özel tur ~100–120 € ve 30 araçlık konvoydan kurtarır. <a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a> veya <a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a>'dan ücretsiz iptalli ayırtın, alış saatini bir gece önce WhatsApp'tan teyit ettirin. Bakiyeyi online ödeyin; yanınıza yalnız bahşiş için 200–400 EGP. <b>Ekipman:</b> kapalı ayakkabı zorunlu, uzun kol ve pantolon, toz için buff ya da şal, çöl gecesi Aralık'ta soğuk: mont alın. Kask takmadan sürmeyin. <b>Sigorta:</b> seyahat sigortalarının çoğu quad kazasını kapsam dışı tutuyor, poliçede "motorlu araç / ATV" istisnasına bakın.</span></details></div></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="day">
-        <div class="cartouche"><b>8</b><span>CUM<br>27 KAS</span></div>
+        <div class="cartouche"><b>6</b><span>ÇRŞ<br> 9 ARA</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Valley of the Kings.jpg","Valley of the Kings, Luxor.jpg","Valley of the Kings panorama.jpg","ValleyOfTheKingsPano.jpg"]' alt="Krallar Vadisi"><span class="cap">Krallar Vadisi</span></div>
+            <div class="photo"><img class="wm" data-f='["Karnak Temple.jpg","Karnak temple.jpg","Great Hypostyle Hall, Karnak.jpg","Hypostyle hall, Karnak temple.jpg"]' alt="Karnak Tapınağı"><span class="cap">Karnak — Hipostil Salonu</span></div>
+          </div>
+          <div class="day-body">
+            <h3>Luxor'a Günübirlik</h3>
+            <div class="theme">Uçakla Krallar Vadisi ve Karnak, Gece Şarm'a Dönüş <span class="tag">sadece çarşamba</span></div>
+            <ul class="stops" data-gun="6">
+              <li><span class="t">04:00</span><div class="what"><b>Şarm → Luxor</b><span>Travco'nun Şarm'dan günübirlik Luxor turu: otelden 04:00 civarı alış, Şarm havalimanından sabah iç hat uçuşu (~1 saat), Luxor'da rehber ve klimalı araç karşılıyor. Uçuşlar, rehber, girişler ve öğle yemeği fiyata dahil. Tur <b>yalnızca çarşamba</b> günleri var; plan bu yüzden 9 Aralık'a kurulu.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Rezervasyon <a href="https://experiences.easyjet.com/uk/sharm-el-sheikh/luxor-day-trip-from-sharm-el-sheikh-including-flights-344816" target="_blank" rel="noopener">easyJet Holidays (Travco)</a> üzerinden; paylaşımlı grupta kişi başı ~£276–294, 48 saat öncesine kadar ücretsiz iptal. Dört kişi için <b>özel grup</b> kişi başı ~£349: sadece ~£55 fazlasına rehber ve araç yalnız sizin. Uçuş bilgileri için pasaport bilgilerinizi isteyecekler. <b>Pasaportu yanınıza alın</b>, yalnız küçük bir sırt çantası yeterli. Otel kahvaltı paketi (breakfast box) hazırlatın; bir gece önceden resepsiyona söyleyin. Rehberlik İngilizce.</span></details></div></li>
+              <li><span class="t">08:00</span><div class="what"><b>Krallar Vadisi</b><span>Yeni Krallık firavunlarının kaya mezarları. Standart bilet yaklaşık 750 EGP ve üç mezar içeriyor; Tutankhamun ayrı bilet.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Mezarların hepsi aynı şemayı izliyor: inen koridor, sonra <b>kuyu şaftı</b> (hem sel suyunu tutmak hem soyguncuyu düşürmek için), sütunlu salon, defin odası. Duvarlardaki metinler süs değil <b>tarif</b>: Amduat ve Kapılar Kitabı, güneşin gece yolculuğunun saat saat haritası — firavunun aynı yolu geçebilmesi için. KV9'un tavanında gökyüzü tanrıçası Nut boydan boya uzanıyor. Ve şu ayrıntı: <b>Tutankhamun'un mezarı 3.200 yıl soyulmadan kaldı çünkü KV9'u kazan işçiler molozu onun kapısının üstüne döktü.</b></span><span class="ipucu-mini">Tur önce batı yakasına geçiyor; vadiye 08:00 gibi, tur otobüslerinin en yoğun saatinden önce varıyorsunuz. Standart bilet tura dahil ve <b>üç açık mezarı</b> kapsıyor; hangi mezarların açık olduğu rotasyonla değişiyor. Ek biletli mezarlar ayrı: I. Seti (KV17) 2.000 EGP, vadinin en iyisi; V./VI. Ramses (KV9) 220 EGP, fiyat/performansta açık ara önde; Tutankamon (KV62) 700 EGP, küçük bir oda. <b>Turnikeden geçtikten sonra bilet alamıyorsunuz</b>: ek mezar istiyorsanız rehbere kapıda söyleyin, kartınızı hazır tutun. İki gün önce NMEC'te yüzlerini gördüğünüz firavunların mezarındasınız. Flaş her yerde yasak.</span></details></div></li>
+              <li><span class="t">10:15</span><div class="what"><b>Hatşepsut Tapınağı</b><span>Kadın firavunun kayalığa oyulmuş üç teraslı tapınağı; arkasındaki 300 metrelik uçurum yapının parçası gibi durur. Mimarı, Hatşepsut'un başdanışmanı Senenmut. Diğer tapınaklar peyzaja konur, bu ondan çıkar gibi görünür — 3.500 yıl sonra hâlâ modern durmasının sebebi bu.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Üç şeyi kaçırmayın. <b>Punt Kolonadı</b> (orta teras, güney): Punt Ülkesi'ne yapılan deniz seferi — gemiler, sepetlerde taşınan canlı buhur ağaçları, zürafalar. <b>Anubis Şapeli</b> (kuzey uç): tapınağın en iyi korunmuş renkleri burada ve çoğu ziyaretçi uğramadan geçiyor. Ve her yerde göreceğiniz <b>keski izleri</b>: üvey oğlu III. Tutmosis, ölümünden yirmi yıl sonra bütün tasvirlerini kazıtmış — figürün olması gereken yerde oyuk var, komşusu sapasağlam. Kendisi takma sakallı ve erkek firavun kıyafetiyle betimlenmiş; kalıp buydu. Mumyasını 7 Aralık'ta NMEC'te gördünüz. Gölge yok, otoparktan rampaya 300–400 m; şapka ve su alın. Turda burada genelde 45 dakika kalınıyor, Anubis Şapeli için rehberden izin isteyin.</span></details></div></li>
+              <li><span class="t">11:30</span><div class="what"><b>Memnon Devleri</b><span>3.400 yıldır ayakta duran 18 metrelik ikiz heykeller. III. Amenhotep'in bugün yok olmuş tapınağının kapı bekçileriydi.</span><details class="devam"><summary>Neye bakmalı</summary><span class="anlatim">Bu iki heykel, <b>Mısır'da yapılmış en büyük ölü tapınağından</b> geriye kalan her şey — Karnak'tan bile genişti, sel ve deprem yok etti. MÖ 27'deki depremden sonra kuzeydeki heykel şafak vakti <b>ses çıkarmaya</b> başladı; Yunan ve Romalı turistler bunu duymak için ta buralara geldi ve <b>adlarını heykelin bacaklarına kazıdı — o yazılar hâlâ orada.</b> İmparator Septimius Severus heykeli onartınca ses kesildi. Yol kenarında, ücretsiz, turda fotoğraf molası olarak 15 dakika; ama ne olduğunu bilmeden bakarsanız sadece iki yıpranmış heykel görürsünüz.</span></details></div></li>
+              <li><span class="t">14:00</span><div class="what"><b>Karnak Tapınağı</b><span>Mısır'ın en büyük tapınak kompleksi, 2000 yıl boyunca eklenerek büyüdü. Tur öğle yemeğinden sonra doğu yakasına dönüp burayla bitiyor.</span><details class="devam"><summary>Neye bakmalı · ipucu</summary><span class="anlatim">Girişte koç başlı sfenksler dizisi. İlk pilon <b>bitirilmemiş</b> ve arkasında <b>inşaat rampasının kerpiç kalıntısı hâlâ duruyor</b> — bu tapınakların nasıl yapıldığını gösteren en somut kanıt, çoğu ziyaretçi farkına varmadan geçiyor. Hipostil salonda 134 sütun, ortadaki on ikisi 21 metre. Hatşepsut'un dikilitaşı 29 metreyle <b>Mısır'da ayakta duran en yüksek dikilitaş</b>; ikizi kutsal gölün yanında devrilmiş hâlde yatıyor — tepeden tırnağa yakından inceleyebileceğiniz tek dikilitaş o. Bilete dahil olan Açık Hava Müzesi'nde I. Senusret'in <b>Beyaz Şapel</b>'i parça parça bulunup yeniden kurulmuş hâlde duruyor.</span><span class="ipucu-mini">Turda 1,5–2 saat ayrılıyor; rehberin anlatımından sonra serbest zaman isteyin ve <b>Açık Hava Müzesi'ni ve kutsal gölü</b> atlamayın, çoğu grup hipostil salonu görüp çıkıyor. Bilet tura dahil. <b>Luxor Tapınağı programda yok</b>; dönüş uçuşundan önce boş zaman kalırsa rehberden akşam ışıklandırmasında 30 dakika uğramayı isteyin (bilet 500 EGP, kartla, kendiniz ödersiniz).</span></details></div></li>
+              <li><span class="t">19:30</span><div class="what"><b>Luxor → Şarm</b><span>Karnak'tan sonra genelde bir otelde ya da restoranda dinlenme molası var, ardından akşam uçuşuyla Şarm'a dönüş. Otele 21:30–22:00 gibi varıyorsunuz; günün toplamı ~17 saat.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Gidenlerin tek şikâyeti dönüş uçuşu öncesi ~2 saatlik bekleme; şarjı dolu bir telefon, powerbank ve hafif bir hırka alın. Uçuş saati ancak rezervasyondan sonra belli oluyor, bir gün önce teyit edin. Yarın Ras Mohammed var ama alış 08:30: tekne turunu yarım güne çevirmek isterseniz bu akşam operatöre yazın.</span></details></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>7</b><span>PRŞ<br> 10 ARA</span></div>
+        <div class="day-card">
+          <div class="duo">
+            <div class="photo"><img class="wm" data-f='["Ras Mohammed Bay.jpg","Tortuga carey (Eretmochelys imbricata), parque nacional Ras Muhammad, Egipto, 2022-03-28, DD 56.jpg"]' alt="Ras Mohammed resifleri"><span class="cap">Ras Mohammed Milli Parkı</span></div>
+            <div class="photo"><img class="wm" data-f='["Al-Sahaba Mosque in Sharm El-Sheikh.jpg","Al Sahaba Mosque-Sharm.jpg","Sharm El Sheikh Old Market - panoramio.jpg"]' alt="Es-Sahabe Camii, Eski Şarm"><span class="cap">Es-Sahabe Camii, Eski Şarm</span></div>
+          </div>
+          <div class="day-body">
+            <h3>Ras Mohammed</h3>
+            <div class="theme">Gündüz Shark &amp; Yolanda, Akşam Eski Şarm 🐠</div>
+            <ul class="stops" data-gun="7">
+              <li><span class="t">08:30</span><div class="what"><b>Ras Mohammed Milli Parkı</b><span>Sina'nın ucunda, Kızıldeniz'in en ünlü resifleri: Shark ve Yolanda. Tam günlük tekne turu öğle yemeği dahil; aralık başında deniz hâlâ ~24–25°C.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Turu otelden değil, <a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a> ya da <a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a> üzerinden ücretsiz iptalli olarak önceden ayırtın ve rezervasyonda dört şeyi <b>yazılı</b> teyit ettirin: milli park ücreti dahil mi (değilse kişi başı 7–15 € arası değişiyor, nakit ve genelde kapıda), öğle yemeği ve otel transferi dahil mi, kaç durak yapılıyor, dönüş saati kaç. <b>Maske ve şnorkeli Türkiye'den götürün</b> — kiralık maske sızdırır. Deniz ayakkabısı şart. Shark ve Yolanda açık deniz noktası: altınızda dip değil mavi boşluk var ve akıntı sert olabilir, can yeleği isteyin ve akıntı yönünü kaptana sorun. Pasaportunuzu yanınıza alın.</span></details></div></li>
+              <li><span class="t">18:30</span><div class="what"><b>Eski Şarm ve Es-Sahabe Camii</b><span>Şarm'ın otel şeridinden çıkıp şehre değdiği tek yer: Old Market (Sharm el-Maya). Dar çarşı sokakları, baharat ve nargile dükkânları, akşamları ışıklandırılan Osmanlı-Memlük üslubunda <b>Es-Sahabe Camii</b>. Cami yeni (2017), ama mimarisi Kahire'de gördüğünüz kubbe ve minarelere bilinçli bir selam.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Tekne 17:00'de dönüyor; duş alıp 18:30'da çıkın. Akşam yemeği için çarşıdaki balık lokantalarında tezgâhtan balığı seçip tartıyla ödüyorsunuz: <b>kilo fiyatını ve pişirme ücretini önceden sorun</b>. Camide akşam ya da yatsıya cemaatle yetişebilirsiniz. Çarşıda pazarlık kuralı Kahire ile aynı. Otelden taksi 20–25 dakika; dönüş fiyatını da gidişte konuşun.</span></details></div></li>
+              <li><span class="t">21:00</span><div class="what"><b>Farsha Café</b><span>Hadaba'da denize inen kayalıkların üstüne yayılmış, fenerler, halılar ve minderlerle döşenmiş açık hava kafesi. Şarm'ın en çok fotoğraflanan mekânı; manzara ve atmosfer için gidilir, çay, taze meyve suyu ve nargile.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini">Akşamüstü ve gün batımı saatlerinde uzun kuyruk oluyor; gidenler <b>21:00'den sonra</b> çok daha sakin olduğunu söylüyor. Girişte sıra fişi alıp bekliyorsunuz. Fiyatlar turistik mekâna göre makul, ama menüdeki fiyata servis eklenebilir. Merdivenler dik ve karanlık; düz tabanlı ayakkabı giyin. Eski Şarm'dan taksiyle 10 dakika.</span></details></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="cartouche"><b>8</b><span>CUM<br> 11 ARA</span></div>
         <div class="day-card">
           <div class="day-body">
             <h3>Şarm → İstanbul</h3>
             <div class="theme">Son Bir Deniz Sabahı, Erken Dönüş</div>
             <ul class="stops" data-gun="8">
-              <li><span class="t">05:50</span><div class="what"><b>Sharks Bay — otelin resifi</b><span>Otelin house reef'inde son, kısa bir şnorkel: korunaklı koy, kıyıdan birkaç kulaçta mercan. Dün gece çöl turundan geç dönüldüğü ve bugün uçuş 10:50 olduğu için pencere dar — yine de günü denizle kapatmaya değer. <span class="ipucu-mini"><b>Gerçek pencereniz 05:50–06:50.</b> Bu hatta Pegasus'un 10:50 seferi THY'nin 11:45'ine göre kişi başı ~4.500 ₺ daha ucuz, sadece 55 dakika erken — uluslararası uçuş ve Şarm'daki çifte güvenlik kontrolü için 3 saat önce havalimanında olun, yani 07:50. Geriye sayarsanız: 07:05 check-out, 06:50 sudan çıkış, bavul akşamdan hazır olmalı. <b>Şnorkelden sonra uçmak tıbben tamamen güvenli</b> — 18 saat kuralı yalnızca tüplü dalış için. Mercana basmayın, deniz ayakkabısı takın, cankurtaran yok — birlikte yüzün.</span></span></div></li>
-              <li><span class="t">10:50</span><div class="what"><b>Şarm → İstanbul</b><span>27 Kasım için tek yön fiyatları gerçekten çok farklı: THY'nin 11:45 seferi kişi başı ~11.500 ₺ iken, Pegasus'un yalnızca 55 dakika daha erken 10:50 seferi ~7.030 ₺ — 2 kişi toplamda yaklaşık 9.000 ₺ (~190 $) fark. Uçuşun kendisi neredeyse aynı saatte, yalnız havalimanına çıkış biraz erkene alınıyor. Yurt dışı çıkış harcını (kişi başı 1.250 ₺) Türkiye'den ayrılmadan dijital ödemiş olun.</span></div></li>
+              <li><span class="t">05:50</span><div class="what"><b>Sharks Bay — otelin resifi</b><span>Otelin resifinde son, kısa bir şnorkel: korunaklı koy, kıyıdan birkaç kulaçta mercan. Uçuş 10:50 olduğu için pencere dar, yine de tatili denizle kapatmaya değer.</span><details class="devam"><summary>İpucu</summary><span class="ipucu-mini"><b>Gerçek pencereniz 05:50–06:50.</b> Güneş 06:24'te doğuyor, ilk ışıkta su sakin. Uluslararası uçuş ve Şarm'daki çifte güvenlik kontrolü için 3 saat önce havalimanında olun, yani 07:50. Geriye sayarsanız: 07:05 check-out, 06:50 sudan çıkış, bavul akşamdan hazır olmalı. <b>Şnorkelden sonra uçmak tıbben tamamen güvenli</b> — 18 saat kuralı yalnızca tüplü dalış için. Mercana basmayın, deniz ayakkabısı takın, cankurtaran yok — birlikte yüzün.</span></details></div></li>
+              <li><span class="t">10:50</span><div class="what"><b>Şarm → İstanbul</b><span><b>Bilet alındı.</b> Pegasus'un 10:50 direkt seferi, 2 saat 45 dakika; Türkiye saatiyle 14:35 civarı İstanbul. Bu hatta THY'nin 11:45 seferinden belirgin şekilde ucuzdu. Yurt dışı çıkış harcını (kişi başı 1.250 ₺) Türkiye'den ayrılmadan dijital ödemiş olun.</span></div></li>
             </ul>
           </div>
         </div>
@@ -532,7 +558,7 @@
     <div class="sec-head">
       <div class="eyebrow">Vakit Namazları</div>
       <h2>Rotaya Uyan İbadet Planı</h2>
-      <p>Yedi günün vakitleri, bulunduğunuz şehre göre hesaplanmış — ve her vakitte programın sizi nereye koyduğu. Vakitler <b>Hanefî ikindisiyle</b> ve Diyanet açılarıyla hesaplanır; Mısır'da ezan biraz farklı okunur, aşağıda ayrıntısı var.</p>
+      <p>Sekiz günün vakitleri, bulunduğunuz şehre göre hesaplanmış — ve her vakitte programın sizi nereye koyduğu. Vakitler <b>Hanefî ikindisiyle</b> ve Diyanet açılarıyla hesaplanır; Mısır'da ezan biraz farklı okunur, aşağıda ayrıntısı var.</p>
     </div>
 
     <div class="kible-serit" id="kible-serit"></div>
@@ -547,86 +573,89 @@
     </div>
 
     <div class="ibadet-gun">
-      <h3>1 · 20 Kasım Cuma</h3>
+      <h3>1 · 4 Aralık Cuma</h3>
       <div class="yer">İstanbul · Yola çıkış</div>
       <ul>
         <li><span class="v">Cuma</span><span>İstanbul'da sıradan bir cuma — uçuş akşam 22:10'da, hiçbir vakitle çakışma yok. Semtinizdeki camide cemaate rahatça yetişirsiniz.</span></li>
         <li><span class="v">İkindi · Akşam</span><span>Evde ya da son hazırlıkları yaparken kılın; ikisi de yola çıkmadan çok önce sığar.</span></li>
-        <li><span class="v">Yatsı</span><span>Havalimanına gitmeden önce ya da terminaldeki mescitte — 22:10 kalkışta yatsı vakti çoktan girmiş olur, aceleniz yok.</span></li>
+        <li><span class="v">Yatsı</span><span>Vakit 19:07'de giriyor: evden çıkmadan ya da Sabiha Gökçen'deki mescitte kılın, aceleniz yok.</span></li>
       </ul>
     </div>
 
     <div class="ibadet-gun">
-      <h3>2 · 21 Kasım Cumartesi</h3>
+      <h3>2 · 5 Aralık Cumartesi</h3>
       <div class="yer">Kahire · Osmanlı ve Memlük İzleri</div>
       <ul>
-        <li><span class="v">Sabah</span><span>Otelde, dinlenmiş bir sabah — Kale'ye (09:30) çıkmadan önce kılın, gece yarısı varıştan sonra vaktiniz bol.</span></li>
-        <li><span class="v">Öğle</span><span><b>Sultan Hasan Medresesi</b> ya da <b>Rifai Camii</b> civarında (11:45–13:00) — ikisi de faal cami, öğle vaktine tam yetişirsiniz.</span></li>
-        <li><span class="v">İkindi</span><span>Öğle molasında, otelde ya da yakın bir lokantada — Ezher Parkı'na (16:45) çıkmadan önce.</span></li>
-        <li><span class="v">Akşam</span><span><b>El-Ezher Parkı'nda</b> (16:45) — gün batımıyla (16:57) neredeyse aynı ana denk geliyor, parkta kılıp öyle El-Muizz'e geçin.</span></li>
+        <li><span class="v">Sabah</span><span>Otelde, dinlenmiş bir sabah — Kale'ye (09:30) çıkmadan önce kılın, vakit 06:36'ya kadar.</span></li>
+        <li><span class="v">Öğle</span><span><b>Sultan Hasan Medresesi</b> ya da <b>Rifai Camii</b> civarında (11:45–13:00) — ikisi de faal cami, öğle vakti (11:46) tam o sırada giriyor.</span></li>
+        <li><span class="v">İkindi</span><span>Vakit 15:18'de: öğle molasında ya da Ezher Parkı'na (16:45) çıkmadan önce.</span></li>
+        <li><span class="v">Akşam</span><span><b>El-Ezher Parkı'nda</b> (16:45) — gün batımı 16:55, parkta kılıp öyle El-Muizz'e geçin.</span></li>
         <li><span class="v">Yatsı</span><span>El-Muizz yürüyüşünün ucunda <b>El-Hüseyin Camii</b> ya da <b>El-Ezher</b>; ikisi de Khan el-Khalili'nin bitişiğinde.</span></li>
       </ul>
     </div>
 
     <div class="ibadet-gun">
-      <h3>3 · 22 Kasım Pazar</h3>
+      <h3>3 · 6 Aralık Pazar</h3>
       <div class="yer">Kahire · Gize ve GEM</div>
       <ul>
-        <li><span class="v">Sabah</span><span>Otelde, 08:00'de Gize'ye çıkmadan. Vakit geniş: 05:02–06:26.</span></li>
-        <li><span class="v">Öğle</span><span>Gize Platosu'nda. Ören yerlerinde ayrı mescit olur; görevliye <b>"musalla"</b> (مصلى) deyin, yolu tarif ederler.</span></li>
-        <li><span class="v">İkindi · Akşam</span><span>Büyük Mısır Müzesi'nde (14:00–). Girişte mescidin yerini sorun — iki vakit de siz müzedeyken giriyor.</span></li>
+        <li><span class="v">Sabah</span><span>Otelde, 07:00'de Gize'ye çıkmadan. Vakit 05:12–06:37.</span></li>
+        <li><span class="v">Öğle</span><span>Gize Platosu'nda ya da GEM'e geçerken. Ören yerlerinde ayrı mescit olur; görevliye <b>"musalla"</b> (مصلى) deyin, yolu tarif ederler.</span></li>
+        <li><span class="v">İkindi · Akşam</span><span>Büyük Mısır Müzesi'nde (14:00–). Girişte mescidin yerini sorun — iki vakit de (15:18, 16:55) siz müzedeyken giriyor.</span></li>
         <li><span class="v">Yatsı</span><span>Otelde; Abou Tarek'e (20:00) inmeden önce rahat rahat.</span></li>
       </ul>
     </div>
 
     <div class="ibadet-gun">
-      <h3>4 · 23 Kasım Pazartesi</h3>
-      <div class="yer">Sakkara → Luxor</div>
+      <h3>4 · 7 Aralık Pazartesi</h3>
+      <div class="yer">Kahire · Sakkara, Dahşur, NMEC</div>
       <ul>
-        <li><span class="v">Öğle</span><span>Sakkara'da ya da Kahire Havalimanı'nda — 14:00 uçuşu için terminaldesiniz. İç hat terminalinde mescit var, danışmaya sorun.</span></li>
-        <li><span class="v">İkindi</span><span>Vakit 15:23'te giriyor, siz uçaktasınız (14:00 kalkış, 15:00 iniş) ya da Luxor'da otele geçiyorsunuz. Otelde ya da havalimanında kılın, acelesi yok — Karnak bu gün yok, yarın sabaha taşındı.</span></li>
-        <li><span class="v">Akşam · Yatsı</span><span><b>Ebu'l-Haccac Camii</b> — Luxor Tapınağı'nın (17:00) avlusunda, tapınağın taşlarının üstünde duran 800 yıllık cami. Rotanızdaki en sıra dışı namaz yeri: altınızda Amon tapınağı, çevrenizde cemaat. Akşam 16:59'da giriyor, siz tam o sırada içeri girmiş olacaksınız — kılın, vakit 18:14'e kadar geniş. Yatsıyı da burada kılıp sonra ışıklandırılmış tapınağı gezin.</span></li>
+        <li><span class="v">Sabah</span><span>Otelde, 07:00'de yola çıkmadan.</span></li>
+        <li><span class="v">Öğle</span><span>Dahşur'da ya da Kahire'ye dönüş yolunda öğle yemeğinde. Sakkara–Dahşur hattındaki köylerde cami çok; şoföre söylemeniz yeterli.</span></li>
+        <li><span class="v">İkindi · Akşam</span><span>NMEC'te (15:00–); müzenin mescidini sorun. Akşam 16:55'te giriyor, müzeden çıkarken ya da otelde.</span></li>
+        <li><span class="v">Yatsı</span><span>Otelde. Erken yatın: yarın Şarm'a uçuyorsunuz.</span></li>
       </ul>
     </div>
 
     <div class="ibadet-gun">
-      <h3>5 · 24 Kasım Salı</h3>
-      <div class="yer">Luxor · Karnak ve Batı Yakası</div>
+      <h3>5 · 8 Aralık Salı</h3>
+      <div class="yer">Kahire → Şarm El-Şeyh</div>
       <ul>
-        <li><span class="v">Sabah</span><span>Otelde, Karnak'a (06:00) çıkmadan. Vakit 04:53'te giriyor — erken kalkış zaten planda. Güneş (06:23) Karnak'tayken doğar; ilk ışık hipostil salonun sütunlarına vururken görürsünüz.</span></li>
-        <li><span class="v">Öğle</span><span>Krallar Vadisi ya da Hatşepsut çevresinde. Batı yakası köylerinde (Qurna) cami boldur.</span></li>
-        <li><span class="v">İkindi</span><span>Medinet Habu sonrası, fellukaya binmeden — 15:22, tekne 16:30.</span></li>
-        <li><span class="v">Akşam</span><span><b>Fellukadasınız.</b> Vakit 16:58'de, siz Nil'in ortasındasınız. Teknede kılınır; kayıkçıya söylerseniz yanaştırır.</span></li>
+        <li><span class="v">Sabah</span><span>Kahire'de, otelde (vakit 06:39'a kadar). 08:00'de havalimanına çıkıyorsunuz.</span></li>
+        <li><span class="v">Öğle</span><span>Şarm'da öğle 11:35'te giriyor, siz uçaktasınız (11:00 kalkış, ~12:05 iniş) — otele varınca kılın.</span></li>
+        <li><span class="v">İkindi</span><span>Otelde, denizden çıkınca; vakit 15:11.</span></li>
+        <li><span class="v">Akşam · Yatsı</span><span><b>Çölde.</b> 18:00'de alınıyorsunuz; akşam (16:48) ondan önce otelde, yatsı (18:06) Bedevi kampında. Rehber mola veriyor; halının üstünde, telefon pusulasıyla kıbleyi bulup açık gökyüzü altında kılın.</span></li>
       </ul>
     </div>
 
     <div class="ibadet-gun">
-      <h3>6 · 25 Kasım Çarşamba</h3>
-      <div class="yer">Luxor → Şarm El-Şeyh</div>
+      <h3>6 · 9 Aralık Çarşamba</h3>
+      <div class="yer">Luxor günübirlik</div>
       <ul>
-        <li><span class="v">Öğle</span><span>Luxor Müzesi'nde ya da otelden çıkmadan.</span></li>
-        <li><span class="v">İkindi</span><span>Luxor Havalimanı'nda — 16:50 uçuşu için 14:50'de oradasınız, vakit 15:22.</span></li>
-        <li><span class="v">Akşam</span><span>Vakit (16:47) siz Luxor'dan yeni kalkmışken ya da Kahire'ye inişte giriyor — havalimanında kılın. <b>Yatsı</b> (18:05) tam Kahire aktarmasındaki bekleme sırasına denk geliyor: terminaldeki mescide rahatça yetişirsiniz, Şarm'a bu vakti geçirdikten sonra inersiniz.</span></li>
+        <li><span class="v">Sabah</span><span>İmsak 04:59'da giriyor, siz 04:00'te yola çıkmış oluyorsunuz. <b>Şarm havalimanında</b>, uçuştan önce kılın; güneş 06:22'de doğuyor, uçağa binmeden vakit dolmuyor.</span></li>
+        <li><span class="v">Öğle</span><span>Luxor'da 11:42 — Hatşepsut ile Memnon arasında. Batı yakasının köylerinde (Qurna) cami bol; rehberden 10 dakika isteyin.</span></li>
+        <li><span class="v">İkindi</span><span>15:23 — Karnak'tasınız. Kompleksin dışındaki camiler yürüme mesafesinde; ya da öğle ile birleştirmeden, Karnak'tan çıkışta.</span></li>
+        <li><span class="v">Akşam</span><span>16:59 — Karnak'tan sonraki dinlenme molasında ya da Luxor havalimanında.</span></li>
+        <li><span class="v">Yatsı</span><span>Luxor havalimanındaki mescitte ya da Şarm'a dönünce otelde.</span></li>
       </ul>
     </div>
 
     <div class="ibadet-gun">
-      <h3>7 · 26 Kasım Perşembe</h3>
-      <div class="yer">Şarm · Ras Mohammed</div>
+      <h3>7 · 10 Aralık Perşembe</h3>
+      <div class="yer">Şarm · Ras Mohammed ve Eski Şarm</div>
       <ul>
-        <li><span class="v">Öğle · İkindi</span><span><b>İkisi de teknede.</b> Tam gün tur 08:30'da alır, 17:00'de bırakır — akşama, çöl safarisine yetişecek şekilde. Güvertede kılınır; tekne demirliyken yön sabit, seyir hâlindeyken kıble döner — pusula/uygulama işinizi görür.</span></li>
-        <li><span class="v">Akşam</span><span>Vakit 16:47'de giriyor, siz hâlâ teknedesiniz — 17:00 dönüşten hemen önce. Güvertede kılıp inin, çöl safarisine öyle çıkın.</span></li>
-        <li><span class="v">Yatsı</span><span>Çölde, Bedevi kampında — 18:00'de başlayan quad safarisinin ortasına denk geliyor. Rehber genelde mola veriyor; halının üstünde, telefon pusulasıyla kıbleyi bulup kılın. Açık gökyüzü altında namaz, bu günün beklenmedik güzelliklerinden.</span></li>
+        <li><span class="v">Öğle · İkindi</span><span><b>İkisi de teknede.</b> Tam gün tur 08:30'da alır, 17:00'de bırakır. Güvertede kılınır; tekne demirliyken yön sabit, seyir hâlindeyken kıble döner — pusula/uygulama işinizi görür.</span></li>
+        <li><span class="v">Akşam</span><span>16:48 — tekne dönüşünde ya da otelde.</span></li>
+        <li><span class="v">Yatsı</span><span><b>Es-Sahabe Camii</b> — Eski Şarm'da (18:30), vakit 18:07'de girmiş oluyor. Şarm'ın en büyük camiinde cemaatle kılıp çarşıya geçin.</span></li>
       </ul>
     </div>
 
     <div class="ibadet-gun cuma">
-      <h3>8 · 27 Kasım Cuma ⚠️</h3>
+      <h3>8 · 11 Aralık Cuma ⚠️</h3>
       <div class="yer">Şarm → İstanbul · Cuma günü</div>
       <ul>
-        <li><span class="v">Cuma</span><span><b>Cumaya yetişme ihtimali yok — dilemma değil, gerçek.</b> Gerçek uçuş <b>10:50</b> (Pegasus): uluslararası uçuş ve Şarm'ın çifte güvenlik kontrolü için 07:50'de havalimanında olmanız gerekiyor. Öğle vakti 11:30'da giriyor, yani siz zaten güvenlik ve pasaport kontrolünden geçmiş, kapıda beklerken vakit giriyor. Hutbeye gitmek fiziksel olarak imkânsız.</span></li>
-        <li><span class="v">Ne yapılır</span><span>Musafir (yolcu) olan kişi cuma yerine öğleyi kılar — bu bir ruhsat değil, seyahat hâlinin gereği. Vakit girdiğinde hâlâ terminaldeyseniz bir köşede, uçaktaysanız oturarak kılın. Hutbe ve cami arayışına gerek yok, karar da yok: seçenek zaten kalmadı.</span></li>
-        <li><span class="v">İkindi · Akşam</span><span>İkisi de uçuşta (10:50 kalkış, 2 saat 45 dakika, 14:35 İstanbul iniş). İstanbul'a indiğinizde ikindi vakti içindesinizdir; akşam ve yatsıyı şehre döndükten sonra kılarsınız.</span></li>
+        <li><span class="v">Cuma</span><span><b>Cumaya yetişme ihtimali yok.</b> Uçuş <b>10:50</b> (Pegasus): uluslararası uçuş ve Şarm'ın çifte güvenlik kontrolü için 07:50'de havalimanında olmanız gerekiyor. Öğle vakti 11:36'da giriyor, siz o sırada havadasınız. Hutbeye gitmek fiziksel olarak imkânsız.</span></li>
+        <li><span class="v">Ne yapılır</span><span>Musafir (yolcu) olan kişi cuma yerine öğleyi kılar — bu bir ruhsat değil, seyahat hâlinin gereği. Uçakta oturarak ya da İstanbul'a inince kılın.</span></li>
+        <li><span class="v">İkindi · Akşam</span><span>İstanbul'a ~14:35'te iniyorsunuz; ikindi (15:54) ve akşam (17:35) İstanbul'da, eve vardıktan sonra.</span></li>
       </ul>
     </div>
 
@@ -635,7 +664,7 @@
       <p><b>Yöntem:</b> Vakitler sayfa açıldığında bulunduğunuz günün ve şehrin koordinatlarından astronomik olarak hesaplanır: imsak için güneş 18°, yatsı için 17° batıda; ikindi <b>Hanefî</b> ölçüsüyle (gölge boyu iki kat). Diyanet takviminde temkin payı olduğu için yayınlanan vakitlerle birkaç dakika oynayabilir.</p>
       <p><b>İkindide 45 dakikalık fark var.</b> Mısır camileri ikindiyi Şafiî ölçüsüyle (gölge bir kat) okur — Hanefî ikindisinden yaklaşık <b>45 dakika önce</b>. Yani ezanı duyduğunuzda sizin vaktiniz henüz girmemiş olur; Hanefî vaktini beklerseniz o cemaate yetişemezsiniz. Bu farkı bilerek planlayın, gün içindeki tek gerçek sürpriz budur.</p>
       <p><b>İmsakta 7 dakika:</b> Mısır ezanı Mısır Genel Ölçüm Kurumu'nun açılarına (19,5° / 17,5°) göre okunuyor, imsak buradaki tablodan ~7 dakika erken. Yatsıda fark 2–3 dakika, ihmal edilebilir. Cemaate uyacaksanız her hâlükârda yerel ezan esastır.</p>
-      <p><b>Ezan aramanıza gerek yok:</b> Kahire ve Luxor'da nereye giderseniz gidin ezan duyulur, cami yürüme mesafesindedir. Zorlanacağınız tek yerler tekne turu ve Krallar Vadisi gibi ören yerlerinin içi — oralara seccade/örtü almanız işinizi görür.</p>
+      <p><b>Ezan aramanıza gerek yok:</b> Kahire'de nereye giderseniz gidin ezan duyulur, cami yürüme mesafesindedir. Zorlanacağınız tek yerler tekne turu ve Krallar Vadisi gibi ören yerlerinin içi — oralara seccade/örtü almanız işinizi görür.</p>
     </div>
   </div>
 </section>
@@ -645,64 +674,63 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Bütçe</div>
-      <h2>İki Kişilik Hesap</h2>
-      <p>Ağustos 2026 araştırma fiyatlarıyla. Dört uçuş bacağı (açık çeneli rota: İstanbul→Kahire, Kahire→Luxor, Luxor→Şarm, Şarm→İstanbul) ve üç şehirde ikişer gece. Sürpriz kalem yok.</p>
+      <h2>Dört Kişilik Hesap</h2>
+      <p>Uçuşlar 6 Kasım 2026 fiyatlarıyla (gidiş ve dönüş alındı), Luxor turu easyJet Holidays/Travco fiyatıyla (1 £ ≈ 66 ₺), gerisi Ağustos 2026 araştırmasıyla. Oteller iki çift kişilik oda üzerinden. Üç uçuş bacağı: İstanbul→Kahire, Kahire→Şarm, Şarm→İstanbul; Luxor uçuşları tura dahil.</p>
     </div>
 
     <div class="kur-satir">
       <label for="kur">Dolar kuru</label>
-      <input class="kur-giris" id="kur" type="text" inputmode="decimal" value="46,6" aria-describedby="kur-not">
+      <input class="kur-giris" id="kur" type="text" inputmode="decimal" value="49,5" aria-describedby="kur-not">
       <span id="kur-not">₺ · kuru güncelleyin, toplam yeniden hesaplansın</span>
       <button class="kur-sifirla" id="kur-sifirla" type="button">sıfırla</button>
     </div>
 
     <div class="stele">
       <table>
-        <tr><th class="sec"><span class="sr-only">Dahil</span></th><th>Kalem</th><th>2 Kişi</th></tr>
-        <tr data-min="220" data-max="280"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="İstanbul – Kahire uçuşunu hesaba dahil et"></td><td>İstanbul → Kahire tek yön<small>20 Kas 22:10, AJet — bir gece erken akşam uçuşu, THY'nin sabah seferinden 2 kişi için ~500 $ ucuz</small></td><td>220–280 $</td></tr>
-        <tr data-min="160" data-max="220"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire – Luxor iç hattını hesaba dahil et"></td><td>Kahire → Luxor tek yön iç hat<small>23 Kas 14:00; Air Cairo — sabah (05:00–08:25) ile öğleden sonra arasında sefer yok, bu yüzden Karnak ertesi sabaha alındı</small></td><td>160–220 $</td></tr>
-        <tr data-min="220" data-max="260"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Luxor – Şarm uçuşunu hesaba dahil et"></td><td>Luxor → Şarm El-Şeyh<small>25 Kas 16:50 — artık direkt sefer yok, gerçek uçuş EgyptAir'in Kahire aktarmalı hattı (~4 saat, Şarm'a 20:45 varış)</small></td><td>250–320 $</td></tr>
-        <tr data-min="240" data-max="320"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm – İstanbul uçuşunu hesaba dahil et"></td><td>Şarm El-Şeyh → İstanbul tek yön<small>27 Kas 10:50, Pegasus — THY'nin 11:45 seferinden 2 kişi için ~190 $ daha ucuz, sadece 55 dk erken</small></td><td>240–320 $</td></tr>
-        <tr data-min="150" data-max="300"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire otelini hesaba dahil et"></td><td>Kahire oteli — 3 gece<small>Downtown/Tahrir 4* veya Gize'de piramit manzaralı butik</small></td><td>150–300 $</td></tr>
-        <tr data-min="70" data-max="180"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Luxor otelini hesaba dahil et"></td><td>Luxor oteli — 2 gece<small>Doğu yakası, Nil'e yakın</small></td><td>70–180 $</td></tr>
-        <tr data-min="240" data-max="400"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm otelini hesaba dahil et"></td><td>Şarm oteli — 2 gece her şey dahil<small>Sharks Bay / Ras Umm el Sid, house reef'li resort</small></td><td>240–400 $</td></tr>
-        <tr data-min="170" data-max="200"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Ören yeri girişlerini hesaba dahil et"></td><td>Tüm girişler<small>Gize (700 EGP/kişi), GEM (35 $/kişi — 1 Kas 2026 zamlı), Sakkara, Sultan Hasan+Rifai, Karnak, Krallar Vadisi, Medinet Habu… Keops'un içi ayrı ve pahalı (1.500 EGP), bu tutara dahil değil</small></td><td>170–200 $</td></tr>
-        <tr data-min="80" data-max="100"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Rehberli yarım günü hesaba dahil et"></td><td>Batı yakası rehberli yarım gün<small>İsteğe bağlı — kendi başınıza da gezebilirsiniz</small></td><td>80–100 $</td></tr>
-        <tr data-min="80" data-max="120"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Ras Mohammed turunu hesaba dahil et"></td><td>Ras Mohammed tekne turu + park ücretleri<small>Tam gün, öğle yemeği teknede; park + marina kişi başı <b>nakit</b> — park için 2026 kaynakları 5–15 $ arası veriyor, üst uçtan hesaplayın. Turların çoğu dahil ediyor, rezervasyonda sorun</small></td><td>80–120 $</td></tr>
-        <tr data-min="40" data-max="70"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Quad ve deve safarisini hesaba dahil et"></td><td>Quad + deve safarisi — Sina çölü<small>26 Kas akşamı (Ras Mohammed dönüşünde), 3 saat, otel transferi ve Bedevi yemeği dahil; 2 kişi tekli quad 30–40 €, özel tur ~60 €. Online ödeyin, nakit yalnız bahşiş. Çoğu seyahat sigortası quad'ı kapsamıyor — poliçeye bakın</small></td><td>40–70 $</td></tr>
-        <tr data-min="150" data-max="220"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Yemekleri hesaba dahil et"></td><td>Yemekler — Kahire + Luxor + Şarm akşamları<small>Yerel lokantalarda ikiniz 10–15 $'a doyarsınız; Şarm'da otel her şey dahil. Oturmalı restoranlarda hesabın üstüne %12 servis + %14 vergi biniyor — menü fiyatını dörtte bir fazlasıyla okuyun</small></td><td>150–220 $</td></tr>
-        <tr data-min="140" data-max="190"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şehir içi ulaşım ve fellukayı hesaba dahil et"></td><td>Şehir içi ulaşım + felluka + bahşişler + transferler<small>Uber Kahire'de çok ucuz; Şarm'da otel transferi ayarlatın</small></td><td>140–190 $</td></tr>
-        <tr data-min="60" data-max="72"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Vizeyi hesaba dahil et"></td><td>Vize — kapıda<small>Mart 2026'da 25 $'dan <b>30 $/kişi</b>'ye çıktı; bankodan nakit 60 $, dijital QR ile kartla 72 $. Sina uyarısı: yalnız Şarm'a gelenlerin ücretsiz Sina pulu Luxor'dan gelen için geçerli değil, normal vize sizde zaten olacak</small></td><td>60–72 $</td></tr>
-        <tr data-try-min="2500" data-try-max="2500"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Yurt dışı çıkış harcını hesaba dahil et"></td><td>Yurt dışı çıkış harcı<small>1.250 ₺/kişi, gitmeden dijital ödeyin</small></td><td>2.500 ₺</td></tr>
-        <tr class="total"><td class="sec"></td><td>TOPLAM</td><td id="toplam">≈ 97 – 139 bin ₺<span class="toplam-usd" id="toplam-usd"></span></td></tr>
+        <tr><th class="sec"><span class="sr-only">Dahil</span></th><th>Kalem</th><th>4 Kişi</th></tr>
+        <tr data-try-min="26464" data-try-max="26464"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="İstanbul – Kahire uçuşunu hesaba dahil et"></td><td>İstanbul → Kahire tek yön · <b>alındı</b><small>4 Ara 22:10, AJet, Sabiha Gökçen — planlama sırasındaki fiyat kişi başı ~6.616 ₺; ödediğiniz tutarla değiştirin</small></td><td>~26.500 ₺</td></tr>
+        <tr data-try-min="24328" data-try-max="28000"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire – Şarm iç hattını hesaba dahil et"></td><td>Kahire → Şarm El-Şeyh tek yön iç hat<small>8 Ara 11:00, Air Cairo — 6 Kasım'da kişi başı ~6.082 ₺; 06:00 seferi ~2.275 ₺ ucuz ama 03:30 kalkış demek</small></td><td>24–28 bin ₺</td></tr>
+        <tr data-try-min="20864" data-try-max="20864"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm – İstanbul uçuşunu hesaba dahil et"></td><td>Şarm El-Şeyh → İstanbul tek yön · <b>alındı</b><small>11 Ara 10:50, Pegasus — planlama sırasındaki fiyat kişi başı ~5.216 ₺</small></td><td>~20.900 ₺</td></tr>
+        <tr data-min="1570" data-max="1860"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Luxor günübirlik turunu hesaba dahil et"></td><td>Luxor günübirlik turu — Şarm'dan uçakla<small>9 Ara çarşamba, Travco: Şarm–Luxor gidiş-dönüş uçuş, rehber, Krallar Vadisi (3 mezar), Hatşepsut, Karnak girişleri ve öğle yemeği dahil. Paylaşımlı ~£294/kişi, 4 kişilik özel grup ~£349/kişi. Tutankamon ve I. Seti mezarları ayrı</small></td><td>1.570–1.860 $</td></tr>
+        <tr data-min="400" data-max="920"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire otelini hesaba dahil et"></td><td>Kahire oteli — 4 gece, 2 oda<small>Downtown/Tahrir 4* ya da Zamalek; Gize'de piramit manzaralı butik daha ucuz</small></td><td>400–920 $</td></tr>
+        <tr data-min="720" data-max="1500"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şarm otelini hesaba dahil et"></td><td>Şarm oteli — 3 gece, 2 oda, her şey dahil<small>Sharks Bay / Ras Umm el Sid, house reef'li resort</small></td><td>720–1.500 $</td></tr>
+        <tr data-min="320" data-max="400"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Kahire girişlerini hesaba dahil et"></td><td>Kahire girişleri<small>Gize (700 EGP/kişi), GEM (35 $/kişi — 1 Kas 2026 zamlı), Sakkara, Dahşur, Kale, Sultan Hasan+Rifai, NMEC. Keops'un içi (1.500 EGP) ve Luxor'daki ek mezarlar dahil değil</small></td><td>320–400 $</td></tr>
+        <tr data-min="50" data-max="70"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Sakkara-Dahşur aracını hesaba dahil et"></td><td>Sakkara · Dahşur · NMEC günü şoförlü araç<small>7 Ara tam gün, dört kişi tek araçta</small></td><td>50–70 $</td></tr>
+        <tr data-min="160" data-max="240"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Ras Mohammed turunu hesaba dahil et"></td><td>Ras Mohammed tekne turu + park ücretleri<small>10 Ara, tam gün, öğle yemeği teknede; park + marina kişi başı <b>nakit</b> — 2026 kaynakları 5–15 $ arası veriyor, üst uçtan hesaplayın. Turların çoğu dahil ediyor, rezervasyonda sorun</small></td><td>160–240 $</td></tr>
+        <tr data-min="80" data-max="130"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Quad ve deve safarisini hesaba dahil et"></td><td>Quad + deve safarisi — Sina çölü<small>8 Ara akşamı, 3 saat, otel transferi ve Bedevi yemeği dahil; kişi başı tekli quad 15–20 €, 4 kişilik özel tur ~100–120 €. Çoğu seyahat sigortası quad'ı kapsamıyor — poliçeye bakın</small></td><td>80–130 $</td></tr>
+        <tr data-min="220" data-max="360"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Yemekleri hesaba dahil et"></td><td>Yemekler — Kahire + Şarm akşamları<small>Kahire'de yerel lokantalarda dört kişi 20–30 $'a doyar; Şarm'da otel her şey dahil, Eski Şarm balık akşamı ve Farsha ayrı. Oturmalı restoranlarda hesabın üstüne %12 servis + %14 vergi biniyor</small></td><td>220–360 $</td></tr>
+        <tr data-min="150" data-max="230"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Şehir içi ulaşım ve bahşişleri hesaba dahil et"></td><td>Şehir içi ulaşım + bahşişler + transferler<small>Uber/InDrive Kahire'de çok ucuz, dört kişi için büyük araç seçin; Şarm'da otel transferi ve taksi</small></td><td>150–230 $</td></tr>
+        <tr data-min="120" data-max="144"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Vizeyi hesaba dahil et"></td><td>Vize — kapıda<small>Mart 2026'da 25 $'dan <b>30 $/kişi</b>'ye çıktı; bankodan nakit 120 $, dijital QR ile kartla 144 $</small></td><td>120–144 $</td></tr>
+        <tr data-try-min="5000" data-try-max="5000"><td class="sec"><input class="b-check" type="checkbox" checked aria-label="Yurt dışı çıkış harcını hesaba dahil et"></td><td>Yurt dışı çıkış harcı<small>1.250 ₺/kişi, gitmeden dijital ödeyin</small></td><td>5.000 ₺</td></tr>
+        <tr class="total"><td class="sec"></td><td>TOPLAM</td><td id="toplam">—<span class="toplam-usd" id="toplam-usd"></span></td></tr>
       </table>
     </div>
     <div class="budget-note">
-      <div class="bnote"><b>~117 bin ₺</b><span>Kralların İzinde paketi — piramitler, İslami Kahire ve Kızıldeniz yok</span></div>
-      <div class="bnote"><b>~155 bin ₺</b><span>Kadim Rotalar paketi — Şarm yine yok</span></div>
-      <div class="bnote"><b id="fark">25–60 bin ₺</b><span>pakete göre fark — üstelik bu planda 2 gün deniz dahil</span></div>
+      <div class="bnote"><b id="kisi-basi">—</b><span>kişi başı, her şey dahil</span></div>
+      <div class="bnote"><b>~72 bin ₺</b><span>üç uçuş bacağı, 4 kişi — ikisi alındı</span></div>
+      <div class="bnote"><b>~19–23 bin ₺</b><span>kişi başı Luxor günü — uçuş, rehber, girişler, yemek</span></div>
     </div>
     <div class="para">
       <h3>Para ve Nakit</h3>
       <p class="gir">Mısır lirası (EGP) Mart 2024 dalgalanmasından beri 47–52 bandında yatay: <b>1 $ ≈ 50 EGP</b> (Ağustos 2026). İşinize yarayacak kafa hesabı: <b>1 EGP ≈ 1 ₺</b> — Mısır fiyatlarını neredeyse birebir TL gibi okuyabilirsiniz. Kur seyahate kadar oynayabilir, gitmeden bakın.</p>
 
       <div class="cuzdan">
-        <div><b>60 $</b><span>vize bankosu — nakit, tam para</span></div>
-        <div><b>250 $</b><span>EGP'ye bozdurulacak (≈ 12.500 EGP)</span></div>
-        <div><b>100 $</b><span>rezerv — kart çalışmazsa</span></div>
-        <div><b>≈ 500 $</b><span>2 kişi, 7 gece · nakit toplamı</span></div>
+        <div><b>120 $</b><span>vize bankosu — nakit, tam para</span></div>
+        <div><b>400 $</b><span>EGP'ye bozdurulacak (≈ 20.000 EGP)</span></div>
+        <div><b>200 $</b><span>rezerv — kart çalışmazsa</span></div>
+        <div><b>≈ 720 $</b><span>4 kişi, 7 gece · nakit toplamı</span></div>
       </div>
 
       <div class="para-grid">
         <div class="para-kutu">
           <h4>Nakit şart</h4>
           <ul>
-            <li><b>Vize bankosu</b><span class="sag">60 $</span></li>
+            <li><b>Vize bankosu</b><span class="sag">120 $</span></li>
             <li><b>Taksi / InDrive</b><span class="sag">200–400 EGP/gün</span></li>
             <li><b>Çarşı, yerel lokanta</b><span class="sag">—</span></li>
-            <li><b>Luxor feribotu</b><span class="sag">15–25 EGP</span></li>
+            <li><b>Luxor'da ek mezar biletleri</b><span class="sag">kart</span></li>
             <li><b>Ras Mohammed park + marina</b><span class="sag">nakit, kart yok</span></li>
-            <li><b>Quad safarisi bahşişi</b><span class="sag">100–200 EGP</span></li>
+            <li><b>Quad safarisi bahşişi</b><span class="sag">200–400 EGP</span></li>
             <li><b>Bahşiş, tuvalet, ayakkabılık</b><span class="sag">bozuk para</span></li>
           </ul>
         </div>
@@ -718,14 +746,14 @@
         </div>
 
         <div class="para-kutu">
-          <h4>Günlük EGP · 2 kişi</h4>
+          <h4>Günlük EGP · 4 kişi</h4>
           <ul>
-            <li><b>Kahire</b><span class="sag">1.000–1.500</span></li>
-            <li><b>Luxor</b><span class="sag">1.000–1.800</span></li>
-            <li><b>Şarm (her şey dahil)</b><span class="sag">550–1.100</span></li>
-            <li><b>Ras Mohammed günü</b><span class="sag">+1.500–2.500</span></li>
+            <li><b>Kahire</b><span class="sag">2.000–3.000</span></li>
+            <li><b>Luxor turu günü</b><span class="sag">500–1.000 (bahşiş)</span></li>
+            <li><b>Şarm (her şey dahil)</b><span class="sag">1.100–2.200</span></li>
+            <li><b>Ras Mohammed günü</b><span class="sag">+3.000–5.000</span></li>
           </ul>
-          <p style="font-size:.8rem;color:var(--muted);margin-top:10px">Luxor en nakit-yoğun şehir: uygulama taksi yok, bahşiş baskısı en yüksek.</p>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:10px">Luxor turunda rehber ve şoför bahşişi beklenir: grup olarak 200–400 EGP. Ras Mohammed park ücreti tura dahil değilse kişi başı nakit.</p>
         </div>
 
         <div class="para-kutu">
@@ -745,7 +773,7 @@
         <b>Bozdurma sırası:</b> Havalimanında yalnızca <b>100–150 $</b> bozdurun (kur şehirden %3–5 kötü), gerisini şehirdeki banka ATM'sinden çekin — CIB, NBE, Banque Misr. Otel resepsiyonunda ve sokakta asla bozdurmayın. <b>Türkiye'den EGP almayın:</b> makas kötü, üstelik ülkeye en fazla 5.000 EGP sokulabiliyor.<br><br>
         <b>ATM'de tek soru önemli:</b> "TRY mi EGP mi çekmek istersiniz?" diye sorduğunda <b>daima EGP</b> seçin. TL'yi seçerseniz kuru ATM sahibi belirler ve %3–7 kaybedersiniz. Aynı tuzak POS'ta da var.<br><br>
         <b>Çarşıda döviz uzatmayın.</b> Satıcı "50 dolar" der, euro verirsiniz, kendi lehine kur uygular — kayıp %5–15. Han el-Halili'de her zaman EGP ile ödeyin. Yanınıza <b>temiz ve yeni seri</b> dolar alın: 2006 öncesi banknotları Mısır bankaları reddediyor, 1'likleri de döviz büroları almıyor (bahşiş için işe yarar, bozdurmaya değil).<br><br>
-        <b>20 Kasım cuma gece yarısına yakın iniyorsunuz</b> — Mısır'da bankalar cuma ve cumartesi kapalı, hem varış hem ertesi gün. Varış günü için havalimanı gişesi ya da ATM planlayın. Döviz bürosunda <b>pasaport</b> isteniyor; <b>fişleri saklayın</b>, artan EGP'yi geri bozdurmak için gerekiyor. En iyisi son gün elinizde 1.000–2.000 EGP'den fazla kalmasın: EGP'yi Türkiye'de bozduramazsınız.
+        <b>4 Aralık cuma gece yarısına yakın iniyorsunuz</b> — Mısır'da bankalar cuma ve cumartesi kapalı, hem varış hem ertesi gün. Varış günü için havalimanı gişesi ya da ATM planlayın. Döviz bürosunda <b>pasaport</b> isteniyor; <b>fişleri saklayın</b>, artan EGP'yi geri bozdurmak için gerekiyor. En iyisi son gün elinizde 1.000–2.000 EGP'den fazla kalmasın: EGP'yi Türkiye'de bozduramazsınız.
       </div>
     </div>
   </div>
@@ -756,29 +784,22 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Nerede Kalınır</div>
-      <h2>Üç Şehir, Üç Otel</h2>
-      <p>Ağustos 2026 araştırması; fiyatlar çift kişilik oda için gecelik tahmindir ve Kasım yüksek sezonda %10–30 üstüne çıkabilir. Hepsini ücretsiz iptalli tarifeyle, erkenden rezerve edin.</p>
+      <h2>İki Şehir, İki Otel</h2>
+      <p>Ağustos 2026 araştırması; fiyatlar <b>çift kişilik oda</b> için gecelik tahmindir, dört kişi iki oda tutacaksınız (aile odası da sorun, çoğu zaman daha ucuz). Aralık yüksek sezon, fiyatlar %10–30 üstüne çıkabilir. Hepsini ücretsiz iptalli tarifeyle, hemen rezerve edin. Luxor günübirlik olduğu için orada otel yok.</p>
     </div>
 
     <div class="ul-grid">
       <article class="ul-kart">
         <div class="photo"><img class="wm" data-f='["CairoSteigenbergerHotelElTahrir.jpg","Tahrir Square, Cairo, Egypt 1.jpg"]' data-w="800" alt="Steigenberger Hotel El Tahrir, Kahire"><span class="cap">Steigenberger El Tahrir, Downtown</span></div>
-        <h3>Kahire · 20–23 Kasım (3 gece)</h3>
+        <h3>Kahire · 4–8 Aralık (4 gece)</h3>
         <p><a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Steigenberger+Hotel+El+Tahrir+Cairo" target="_blank" rel="noopener"><b>Steigenberger Hotel El Tahrir</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Steigenberger%20Hotel%20El%20Tahrir%20Cairo" target="_blank" rel="noopener">(Booking)</a> (Downtown, ~100–115 $/gece) — Tahrir'in dibinde, İslami Kahire'ye ve Kale'ye 15–20 dk. Kültür programı için en dengeli seçim.</p>
         <p class="ul-not"><b>Alternatifler:</b> Zamalek'te <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Novotel+Cairo+El+Borg+Zamalek" target="_blank" rel="noopener"><b>Novotel El Borg</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Novotel%20Cairo%20El%20Borg%20Zamalek" target="_blank" rel="noopener">(Booking)</a> (~85 $, sakin ada, Nil kıyısı) daha uygun fiyatlı; piramit manzarası isterseniz Gize'de <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Marvel+Stone+Hotel+Giza" target="_blank" rel="noopener"><b>Marvel Stone</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Marvel%20Stone%20Hotel%20Giza" target="_blank" rel="noopener">(Booking)</a> (~50–70 $) veya <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Great+Pyramid+Inn+Giza" target="_blank" rel="noopener"><b>Great Pyramid Inn</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Great%20Pyramid%20Inn%20Giza" target="_blank" rel="noopener">(Booking)</a> (~40–60 $) — çatı terasından piramitler, ama çevre kaotik ve merkeze uzak.</p>
       </article>
 
       <article class="ul-kart">
-        <div class="photo"><img class="wm" data-f='["Luxor Winter Palace R01.jpg","Winter Palace Luxor front.jpg","Luxor Temple at night, Luxor, Egypt.jpg"]' data-w="800" alt="Sofitel Winter Palace, Luxor"><span class="cap">Winter Palace — Luxor Kornişi</span></div>
-        <h3>Luxor · 23–25 Kasım (2 gece)</h3>
-        <p><a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Nefertiti+Hotel+Luxor" target="_blank" rel="noopener"><b>Nefertiti Hotel</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Nefertiti%20Hotel%20Luxor" target="_blank" rel="noopener">(Booking)</a> (~35–55 $/gece) — Luxor Tapınağı'na yürüme mesafesi, tapınak manzaralı ünlü çatı restoranı, övülen aile işletmesi. Batı yakası feribotu birkaç dakika. Odalar basit ama konum ve karakter birinci sınıf.</p>
-        <p class="ul-not"><b>Yükseltmeler:</b> <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Steigenberger+Nile+Palace+Luxor" target="_blank" rel="noopener"><b>Steigenberger Nile Palace</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Steigenberger%20Nile%20Palace%20Luxor" target="_blank" rel="noopener">(Booking)</a> (~60–120 $, Nil kıyısı 5*, havuz) veya 1886'dan kalma <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Sofitel+Winter+Palace+Luxor" target="_blank" rel="noopener"><b>Sofitel Winter Palace</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Sofitel%20Winter%20Palace%20Luxor" target="_blank" rel="noopener">(Booking)</a> (~250 $+, Agatha Christie'nin oteli, tapınağa 500 m) — tarihi deneyim bütçeye değerse.</p>
-      </article>
-
-      <article class="ul-kart">
         <div class="photo"><img class="wm" data-f='["Sharm el Sheikh, Sultan Gardens Resort - panoramio.jpg","Sharm el Sheikh, Sultan Gardens Resort - panoramio (2).jpg","SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG"]' data-w="800" alt="Sultan Gardens Resort, Sharks Bay"><span class="cap">Sultan Gardens Resort, Sharks Bay</span></div>
-        <h3>Şarm El-Şeyh · 25–27 Kasım (2 gece)</h3>
-        <p><a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Sultan+Gardens+Resort+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Sultan Gardens Resort</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Sultan%20Gardens%20Resort%20Sharm%20El%20Sheikh" target="_blank" rel="noopener">(Booking)</a> (Sharks Bay, ~150–250 $/gece her şey dahil) — iyi house reef, korunaklı koy, havalimanına 10–15 dk; 27 Kasım uçuşu için ideal konum. <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Reef+Oasis+Blue+Bay+Resort+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Reef Oasis Blue Bay</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Reef%20Oasis%20Blue%20Bay%20Resort%20Sharm%20El%20Sheikh" target="_blank" rel="noopener">(Booking)</a> (Ras Umm el Sid, ~120–200 $ AI) iki house reef'iyle şnorkelde en güçlüsü ama havalimanına 25–30 dk.</p>
+        <h3>Şarm El-Şeyh · 8–11 Aralık (3 gece)</h3>
+        <p><a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Sultan+Gardens+Resort+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Sultan Gardens Resort</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Sultan%20Gardens%20Resort%20Sharm%20El%20Sheikh" target="_blank" rel="noopener">(Booking)</a> (Sharks Bay, ~150–250 $/gece her şey dahil) — iyi house reef, korunaklı koy, havalimanına 10–15 dk; 9 Aralık 04:00 Luxor alışı ve 11 Aralık uçuşu için ideal konum. <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Reef+Oasis+Blue+Bay+Resort+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Reef Oasis Blue Bay</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Reef%20Oasis%20Blue%20Bay%20Resort%20Sharm%20El%20Sheikh" target="_blank" rel="noopener">(Booking)</a> (Ras Umm el Sid, ~120–200 $ AI) iki house reef'iyle şnorkelde en güçlüsü ama havalimanına 25–30 dk.</p>
         <p class="ul-not"><b>Resif kontrolü:</b> Şarm'da otel seçerken kıyı profilini sorun — bazı tesislerde iskele 300 m sürüyor çünkü su diz boyu, deniz ayakkabısız girilmiyor; bazılarında iskele 15 m sonra biten mercan duvarına açılıyor. İkincisi şnorkel için kıyaslanmayacak kadar iyi. <b>Uçlar:</b> Sessiz üst segment için <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Rixos+Sharm+El+Sheikh+Nabq+Bay" target="_blank" rel="noopener"><b>Rixos Adults Only</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Rixos%20Sharm%20El%20Sheikh%20Nabq%20Bay" target="_blank" rel="noopener">(Booking)</a> (Nabq, ~230 $+ ultra AI, resif zayıf); bütçe için Naama'da <a class="otel-l" href="https://www.google.com/maps/search/?api=1&amp;query=Falcon+Naama+Star+Hotel+Sharm+El+Sheikh" target="_blank" rel="noopener"><b>Falcon Naama Star</b></a> <a class="otel-l" href="https://www.booking.com/searchresults.html?ss=Falcon%20Naama%20Star%20Hotel%20Sharm%20El%20Sheikh" target="_blank" rel="noopener">(Booking)</a> (~20–50 $, plajsız şehir oteli).</p>
       </article>
     </div>
@@ -791,32 +812,20 @@
     <div class="sec-head">
       <div class="eyebrow">Nasıl Gidilir</div>
       <h2>Ulaşım Rehberi</h2>
-      <p>Üç şehir üç ayrı düzen: Kahire'de uygulamadan araç çağırıyorsunuz, Luxor'da pazarlık ediyorsunuz, Şarm'da transfer ayarlatıyorsunuz. Duraklar arası tek tek ulaşım bilgisi <a href="rota.html">haritalı rotada</a>.</p>
+      <p>İki şehir iki ayrı düzen: Kahire'de uygulamadan araç çağırıyorsunuz, Şarm'da transfer ve taksi ayarlıyorsunuz. Luxor günü tur aracıyla, düşünecek bir şey yok. Duraklar arası tek tek ulaşım bilgisi <a href="rota.html">haritalı rotada</a>.</p>
     </div>
 
     <div class="ul-grid">
       <article class="ul-kart">
         <h3>Kahire · InDrive, Uber, Careem</h3>
-        <p>Şehir içi ulaşımın tek pratik cevabı. Fiyat uygulamada sabit, pazarlık yok, güzergâh kayıtlı. Gidenlerin en çok önerdiği <b>InDrive</b> — aynı yolu Uber'den ucuza götürüyor; Uber'in araçları biraz daha iyi. İkisini de kurup fiyat karşılaştırın.</p>
+        <p>Şehir içi ulaşımın tek pratik cevabı. Fiyat uygulamada sabit, pazarlık yok, güzergâh kayıtlı. Gidenlerin en çok önerdiği <b>InDrive</b> — aynı yolu Uber'den ucuza götürüyor; Uber'in araçları biraz daha iyi. İkisini de kurup fiyat karşılaştırın. Dört kişi ve valiz için <b>büyük araç</b> (UberXL / Comfort) seçin.</p>
         <p class="ul-not"><b>Kaçının:</b> Havalimanı çıkışında ve ören yeri kapılarında yaklaşan taksicilerden — aynı yol üç katına çıkabiliyor. Binmeden <b>plakayı doğrulayın:</b> Mısır plakaları Arap rakamlı, yanlış araca binmek yaygın hata.</p>
       </article>
 
       <article class="ul-kart">
-        <h3>Luxor · Uber yok, InDrive var</h3>
-        <p>Uber çalışmıyor ama <b>InDrive</b> Luxor'da aktif — sabit fiyat, pazarlık yok, havalimanı dahil şehrin tamamını kapsıyor. Kapsamadığı bir güzergahta kalırsanız taksi pazarlığına dönün, fiyatı <b>binmeden önce</b> netleştirin. Batı yakası için gün boyu şoförlü araç tutmak yine en rahatı.</p>
-        <p class="ul-not"><b>Kaleş:</b> At arabası teklifleri yoğun. Hayvanların durumu çoğu zaman kötü — InDrive ya da taksi hem hızlı hem sorunsuz.</p>
-      </article>
-
-      <article class="ul-kart">
-        <h3>Batı yakasına geçiş</h3>
-        <p>Krallar Vadisi, Hatşepsut ve Medinet Habu Nil'in karşı kıyısında. İki yol var: <b>yolcu feribotu</b> (5 dakika, 10–20 EGP, karşıda araç tutarsınız) veya güneydeki <b>köprü</b> (şoförlü araçla, gün boyu aracınız yanınızda).</p>
-        <p class="ul-not"><b>Öneri:</b> Üç ayrı noktayı gezeceğiniz için yarım/tam günlük araç feribottan daha rahat çıkıyor.</p>
-      </article>
-
-      <article class="ul-kart">
         <h3>Şehirler arası · uçak</h3>
-        <p>Kahire–Luxor uçakla 1 saat (EgyptAir/Nile Air, günde birkaç sefer). Luxor–Şarm bacağında Air Cairo'nun <b>direkt seferi pazartesi, çarşamba ve cumartesi</b> uçuyor — plandaki 25 Kasım çarşamba. Direkt kaçarsa Kahire aktarması toplam 4–6 saate ve yaklaşık iki katı fiyata çıkıyor.</p>
-        <p class="ul-not"><b>Önce bu bileti alın:</b> Bütün plan çarşamba direktine kurulu; sefer saatini doğrulamadan diğer biletleri almayın.</p>
+        <p>Kahire–Şarm uçakla ~1 saat (Air Cairo, EgyptAir, Nile Air). Plandaki sefer <b>8 Aralık 11:00 Air Cairo</b>; aynı gün 06:00 (Air Cairo) ve 13:20 (EgyptAir) seferleri yedek. Luxor'a gidiş-dönüş uçuşları Travco turunun içinde, ayrı bilet almıyorsunuz.</p>
+        <p class="ul-not"><b>Sıra:</b> Önce Luxor turunu ayırtın (yalnız çarşamba, yer sınırlı), sonra Kahire–Şarm biletini alın. Turun iptal hakkı 48 saate kadar ücretsiz.</p>
       </article>
 
       <article class="ul-kart">
@@ -850,32 +859,32 @@
     </div>
 
     <div class="hz-ust">
-      <span class="hz-sayac" id="hz-sayac">0 / 15 tamam</span>
+      <span class="hz-sayac" id="hz-sayac">0 / 20 tamam</span>
       <div class="hz-bar"><i id="hz-bar"></i></div>
       <button class="hz-sifirla" id="hz-sifirla" type="button">listeyi sıfırla</button>
     </div>
 
     <ul class="hz-liste">
-      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat"><span class="yazi"><b>Önce Luxor–Şarm direktini al</b><span>Air Cairo, 25 Kasım çarşamba. Plan bu sefere kurulu — önce bunu, sonra diğerlerini alın.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="ucak"><span class="yazi"><b>Dış hat biletlerini al — iki tek yön</b><span>İstanbul→Kahire (20 Kas akşamı) ve Şarm→İstanbul (27 Kas). Yüksek sezon, hızlı dolar.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat2"><span class="yazi"><b>Kahire–Luxor iç hattını al</b><span>23 Kasım öğlen seferi — sabah Sakkara'ya yetecek şekilde. EgyptAir veya Nile Air.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="gem"><span class="yazi"><b>GEM biletini online al</b><span><b><a href="https://tickets.gem.eg" target="_blank" rel="noopener">tickets.gem.eg</a></b> — gişe satışı yok, bilet saat dilimli. 22 Kasım pazar: galeriler 18:00'de kapanır, son giriş 17:00.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="otel"><span class="yazi"><b>Otelleri ücretsiz iptalli rezerve et</b><span>Kahire 3, Luxor 2, Şarm 2 gece — öneriler Konaklama bölümünde.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="harc"><span class="yazi"><b>Çıkış harcını dijital öde</b><span>Kişi başı 1.250 ₺. Havalimanında pul satışı kalktı.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="ucak"><span class="yazi"><b>Dış hat biletleri — iki tek yön</b><span>İstanbul→Kahire (4 Ara 22:10) ve Şarm→İstanbul (11 Ara 10:50). Alındı; isimlerin pasaporttaki yazımla aynı olduğunu kontrol edin.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="luxor-tur"><span class="yazi"><b>Luxor günübirlik turunu ayırt</b><span>9 Aralık çarşamba, <a href="https://experiences.easyjet.com/uk/sharm-el-sheikh/luxor-day-trip-from-sharm-el-sheikh-including-flights-344816" target="_blank" rel="noopener">easyJet Holidays (Travco)</a>. Tur yalnız çarşamba var — önce bunu ayırtın. Dört kişi için özel grubu sorun (~£349/kişi). Pasaport bilgilerini isteyecekler.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="ichat2"><span class="yazi"><b>Kahire–Şarm iç hattını al</b><span>8 Aralık salı, Air Cairo 11:00 (yedek: EgyptAir 13:20). Bagaj hakkını kontrol edin.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="gem"><span class="yazi"><b>GEM biletini online al</b><span><b><a href="https://tickets.gem.eg" target="_blank" rel="noopener">tickets.gem.eg</a></b> — gişe satışı yok, bilet saat dilimli. 6 Aralık pazar: galeriler 18:00'de kapanır, son giriş 17:00.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="otel"><span class="yazi"><b>Otelleri ücretsiz iptalli rezerve et</b><span>Kahire 4 gece (4–8 Ara), Şarm 3 gece (8–11 Ara); dört kişi için iki oda ya da aile odası. Öneriler Konaklama bölümünde. Kahire'ye gece yarısı varacağınızı otele bildirin.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="harc"><span class="yazi"><b>Çıkış harcını dijital öde</b><span>Kişi başı 1.250 ₺, dört kişi 5.000 ₺. Havalimanında pul satışı kalktı.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="kart"><span class="yazi"><b>Yurt dışına açık kart + yedek kart</b><span>Piramitler ve Karnak dahil girişler yalnızca kartla.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="pasaport"><span class="yazi"><b>Pasaport geçerliliğini kontrol et</b><span>Giriş tarihinden itibaren en az 6 ay geçerli olmalı — yani <b>21 Mayıs 2027</b>'den sonraya kadar. En az iki boş sayfa da bulunsun.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="vize"><span class="yazi"><b>Vize için 60 $ nakit ayır</b><span>Kişi başı 30 $ (Mart 2026'da arttı). Banko kart geçmiyor ve para üstü vermiyor — tam parayı küçük banknotla hazırlayın. Ön başvuru gerekmiyor; istersen <a href="https://apps.visaonarrival.gov.eg" target="_blank" rel="noopener">apps.visaonarrival.gov.eg</a>'den kartla QR alıp kuyruğu atlarsın (36 $/kişi).</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="sigorta"><span class="yazi"><b>Seyahat sigortası yaptır</b><span>Çoğu kredi kartı paketinde hazır geliyor, önce onu kontrol edin. 26 Kasım quad safarisi için poliçedeki "motorlu araç / ATV" istisnasına bakın — standart paketlerin çoğu quad kazasını kapsamıyor, gerekirse ek teminat.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="tur"><span class="yazi"><b>Batı yakası turunu ayır</b><span><a href="https://www.getyourguide.com/luxor-l109/" target="_blank" rel="noopener">GetYourGuide</a> veya <a href="https://www.viator.com/Luxor/d826" target="_blank" rel="noopener">Viator</a> üzerinden, ücretsiz iptalli tarifeyle.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="cuma"><span class="yazi"><b>Cuma namazını uçakta kılmayı kabullenin</b><span>27 Kasım cuma; gerçek uçuş 10:50 (Pegasus) ve öğle vakti 11:30'da giriyor — havalimana daha o girmeden vardığınız için cuma cemaatine hiç yetişme ihtimali yok. Musafir olarak öğleyi kılın: mümkünse boarding öncesi salonda, değilse koltukta oturarak.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="rasmo"><span class="yazi"><b>Ras Mohammed teknesini ayır</b><span><a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a> ya da <a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a> üzerinden — 26 Kasım tam gün, ~17:00 dönüş. Park girişi + marina ücreti kişi başı, <b>nakit</b> — park için kaynaklar 5–15 $ arası veriyor, 15 $ üstünden hazırlanın. Turların çoğu bunu fiyata dahil ediyor: <b>rezervasyonda mutlaka sorun.</b> Aynı akşam 18:00'de çöl safarisi de var — tekne gecikirse iki tur arasında koordinasyon gerekir, ikisini de aynı operatörden almak işinizi kolaylaştırır.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="quad"><span class="yazi"><b>Quad + deve safarisini ayır</b><span>26 Kasım akşamı, Ras Mohammed tekne dönüşünde alır, 3 saat. Tekli quad ve Bedevi yemeği dahil paket, ücretsiz iptalli (<a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a>/<a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a>). Alış saatini WhatsApp'tan bir gece önce teyit ettirin — tekne gecikirse 18:00 yerine 18:30 isteyin. Kapalı ayakkabı, uzun kol ve çölün gece soğuğu için ince bir mont hazırlayın.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="pasaport"><span class="yazi"><b>Pasaport geçerliliğini kontrol et</b><span>Giriş tarihinden itibaren en az 6 ay geçerli olmalı — yani <b>5 Haziran 2027</b>'den sonraya kadar. En az iki boş sayfa da bulunsun. Dört pasaportun da fotoğrafını telefona alın.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="vize"><span class="yazi"><b>Vize için 120 $ nakit ayır</b><span>Kişi başı 30 $ (Mart 2026'da arttı). Banko kart geçmiyor ve para üstü vermiyor — tam parayı küçük banknotla hazırlayın. Ön başvuru gerekmiyor; istersen <a href="https://apps.visaonarrival.gov.eg" target="_blank" rel="noopener">apps.visaonarrival.gov.eg</a>'den kartla QR alıp kuyruğu atlarsın (36 $/kişi).</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="sigorta"><span class="yazi"><b>Seyahat sigortası yaptır</b><span>Çoğu kredi kartı paketinde hazır geliyor, önce onu kontrol edin. 8 Aralık quad safarisi için poliçedeki "motorlu araç / ATV" istisnasına bakın — standart paketlerin çoğu quad kazasını kapsamıyor, gerekirse ek teminat.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="arac"><span class="yazi"><b>7 Aralık için şoförlü araç ayarla</b><span>Sakkara, Dahşur ve NMEC tam gün; otelden ya da InDrive'dan bir şoförü günlük tutun (dört kişi 50–70 $). Fiyatı ve "alışveriş durağı yok" şartını yazılı netleştirin.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="cuma"><span class="yazi"><b>Cuma namazını uçakta kılmayı kabullenin</b><span>11 Aralık cuma; uçuş 10:50 (Pegasus) ve öğle vakti 11:36'da giriyor — o sırada havadasınız. Musafir olarak öğleyi kılın: uçakta oturarak ya da İstanbul'a inince.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="rasmo"><span class="yazi"><b>Ras Mohammed teknesini ayır</b><span><a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a> ya da <a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a> üzerinden — 10 Aralık tam gün, ~17:00 dönüş. Park girişi + marina ücreti kişi başı, <b>nakit</b> — kaynaklar 5–15 $ arası veriyor. Turların çoğu bunu fiyata dahil ediyor: <b>rezervasyonda mutlaka sorun.</b> Önceki gün Luxor'dan gece döneceksiniz; isterseniz yarım günlük tur seçin.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="quad"><span class="yazi"><b>Quad + deve safarisini ayır</b><span>8 Aralık akşamı 18:00 alış, 3 saat. Tekli quad ve Bedevi yemeği dahil paket, ücretsiz iptalli (<a href="https://www.getyourguide.com/sharm-el-sheikh-l408/" target="_blank" rel="noopener">GetYourGuide</a>/<a href="https://www.viator.com/Sharm-el-Sheikh/d827" target="_blank" rel="noopener">Viator</a>). Kapalı ayakkabı, uzun kol ve çöl gecesi için mont hazırlayın.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="ecza"><span class="yazi"><b>Mide ve ishal ilacı, ıslak mendil</b><span>Lokantalarda el yıkayacak lavabo çoğu zaman yok. Şişe suyu kuralına gitmeden alışın.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="doviz"><span class="yazi"><b>Temiz, yeni seri dolar çek</b><span>Bankadan "yeni banknot" isteyin — Mısır 2006 öncesi serileri reddediyor. 2 kişi 7 gece için ≈500 $ nakit. EGP'yi Türkiye'den almayın, ülkeye 5.000 EGP sınırı var.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="doviz"><span class="yazi"><b>Temiz, yeni seri dolar çek</b><span>Bankadan "yeni banknot" isteyin — Mısır 2006 öncesi serileri reddediyor. 4 kişi 7 gece için ≈720 $ nakit. EGP'yi Türkiye'den almayın, ülkeye 5.000 EGP sınırı var.</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="bozuk"><span class="yazi"><b>Bozuk para hazırla</b><span>1'lik dolar ve küçük EGP: bahşiş, tuvalet, camide ayakkabılık (5 EGP). Büyük banknot verirseniz para üstü geri gelmiyor.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="deniz"><span class="yazi"><b>Mayo, deniz gözlüğü, deniz ayakkabısı</b><span>Maske-şnorkel teknede veriliyor ama kendi gözlüğünüz hijyenik; mercanda ayakkabı işe yarar.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="deniz"><span class="yazi"><b>Mayo, maske-şnorkel, deniz ayakkabısı</b><span>Kiralık maske sızdırır; kendi maskeniz hijyenik. Mercanda ayakkabı şart. Aralık'ta su ~24°C: üşüyen için ince bir şnorkel tişörtü (rashguard).</span></span></label></li>
       <li class="hz-oge"><label><input type="checkbox" data-hz="sal"><span class="yazi"><b>Cami ziyaretleri için şal / uzun kollu</b><span>Omuz ve diz kapalı olmalı; ince bir şal pratik çözüm.</span></span></label></li>
-      <li class="hz-oge"><label><input type="checkbox" data-hz="gunes"><span class="yazi"><b>Şapka, güneş kremi, matara</b><span>Krallar Vadisi kayalık bir çanak — öğleden sonra fırına döner.</span></span></label></li>
+      <li class="hz-oge"><label><input type="checkbox" data-hz="gunes"><span class="yazi"><b>Şapka, güneş kremi, matara, hırka</b><span>Gündüz güneş sert ama akşamlar serin: Kahire'de akşam ~13°C, çölde daha soğuk. Luxor günü için powerbank.</span></span></label></li>
     </ul>
   </div>
 </section>
@@ -885,11 +894,11 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Bilmeden Gitmeyin</div>
-      <h2>Dokuz Altın Kural</h2>
+      <h2>On Üç Altın Kural</h2>
     </div>
     <div class="tips-grid">
-      <div class="tip" data-g="📅"><h4>Yüksek sezon uyarısı</h4><p>Kasım–Nisan Mısır'ın yüksek sezonu; sıcak çekildiği için ören yerleri de biletler de dolu olur. <b>Uçakları ilk iş olarak, hemen alın.</b></p></div>
-      <div class="tip" data-g="🛫"><h4>Çarşamba direktine kurulu plan</h4><p>Luxor→Şarm'ı Air Cairo <b>pzt/çrş/cmt</b> direkt uçuyor; 25 Kasım çarşamba. Önce bu bileti doğrulayıp alın — kaçarsa Kahire aktarması yarım gün ve iki kat para.</p></div>
+      <div class="tip" data-g="📅"><h4>Yüksek sezon uyarısı</h4><p>Ekim–Nisan Mısır'ın yüksek sezonu, Aralık başı tam ortası; sıcak çekildiği için ören yerleri de biletler de dolu olur. <b>Kalan iç hattı, Luxor turunu ve otelleri bu hafta ayırtın.</b></p></div>
+      <div class="tip" data-g="🛫"><h4>Luxor yalnız çarşamba</h4><p>Şarm'dan uçaklı Luxor turu haftada bir, <b>çarşamba</b> günü var; plan 9 Aralık'a kurulu. Önce bunu ayırtın — kaçarsa Luxor'u ancak Kahire'den iki ayrı iç hatla, kişi başı birkaç bin lira fazlasına yapabilirsiniz.</p></div>
       <div class="tip" data-g="🎫"><h4>GEM bileti önceden</h4><p>Gişe satışı yok, bilet saat dilimli — <b><a href="https://tickets.gem.eg" target="_blank" rel="noopener">tickets.gem.eg</a></b>'den gitmeden alın (eski visit-gem.com buraya yönleniyor). 1 Kasım 2026'da fiyat 30 $'dan <b>35 $</b>'a çıktı. Kraliyet mumyaları GEM'de değil, Fustat'taki Medeniyet Müzesi'nde (NMEC).</p></div>
       <div class="tip" data-g="💳"><h4>Kart ören yerinde, nakit her yerde</h4><p>Ören ve müze <b>girişleri</b> yalnızca kartla — ama gerisi nakit yürüyor: vize bankosu, bahşiş, taksi, çarşı, tuvalet, camide ayakkabılık. Yanınızda bol bozuk EGP ve 1'lik dolar taşıyın; iki farklı bankanın kartını da alın, bazı POS'lar tek kartı yemiyor.</p></div>
       <div class="tip" data-g="💧"><h4>Sadece kapalı şişe su</h4><p>Musluk suyu içilmiyor — <b>diş fırçalarken de</b> şişe suyu kullanın, içeceğe buz koydurmayın. Açıkta bekleyen soslu ve çiğ şeyleri atlayın. Yanınıza ishal ve mide ilacı alın; bu, gidenlerin en sık yaşadığı tek sorun.</p></div>
@@ -897,7 +906,7 @@
       <div class="tip" data-g="🏷️"><h4>İlk fiyat zaten sahte</h4><p>Pazarlıkta ilk rakam gerçek fiyatın 5–10 katı açılır; siz yarıya indirince "iyi pazarlık ettim" sanırsınız, hâlâ iki katıdır. Beğendiğinizi belli etmeyin, çıkıp gitmekten çekinmeyin — arkanızdan çağırırlar. Çarşıda ilk dükkândan almayın, üç yere fiyat sorun.</p></div>
       <div class="tip" data-g="🕌"><h4>Cami adabı</h4><p>Omuz ve diz kapalı; kadınlar için ince bir şal pratik olur. Camilerin çoğu <b>ücretsiz</b> — İslami Kahire bütçe dostudur.</p></div>
       <div class="tip" data-g="🌅"><h4>Sabahçı olun</h4><p>Ören yerlerine kapı açılışında girin: hem serin hem tenha. Öğleni müzeye ve otele saklayın.</p></div>
-      <div class="tip" data-g="🛶"><h4>Cruise'un özeti: felluka</h4><p>Nil'de yelkenli keyfi için 900 $'lık cruise şart değil — Luxor'da 1 saatlik felluka <b>15–20 $</b>.</p></div>
+      <div class="tip" data-g="🛶"><h4>Kahire'de felluka</h4><p>Nil'de yelkenli keyfi için cruise şart değil: Kahire'de Garden City ve Zamalek kıyısından 1 saatlik felluka grup olarak <b>15–25 $</b>. Bir akşam boşluğunuz kalırsa gün batımına denk getirin.</p></div>
       <div class="tip" data-g="🍲"><h4>Yerel yiyin — ama kalabalık olanı</h4><p>Turistik Nil restoranları yerine koshary, ful, kebap lokantaları: daha ucuz ve daha lezzetli. Seçerken tek kriter <b>devir hızı</b>: Abou Tarek gibi tıklım tıklım, malzemesi gün içinde tükenen yerler güvenli; boş vitrinde bekleyen soslu tabaklar değil.</p></div>
       <div class="tip" data-g="🧭"><h4>Rehber şart mı?</h4><p>Gidenler ikiye bölünüyor. Ören yerlerini anlamak için rehber işe yarıyor; ama Türkiye'den satılan turlarda rehberin sizi anlaşmalı halı ve papirüs dükkânlarına sokması yaygın şikâyet. Orta yol: şehirde kendiniz gezin, <b>tekne ve tam gün turlarını</b> <a href="https://www.getyourguide.com" target="_blank" rel="noopener">GetYourGuide</a>/<a href="https://www.viator.com" target="_blank" rel="noopener">Viator</a> üzerinden puanına bakarak alın — acente fiyatının yarısına geliyor ve alışveriş durağı çıkmıyor.</p></div>
       <div class="tip" data-g="🛡️"><h4>İptal edilebilir alın</h4><p>Otel ve günlük turları <b>ücretsiz iptalli</b> tarifelerle rezerve edin; turları <a href="https://www.getyourguide.com" target="_blank" rel="noopener">GetYourGuide</a>/<a href="https://www.viator.com" target="_blank" rel="noopener">Viator</a> güvencesiyle almak rahattır.</p></div>
@@ -909,22 +918,22 @@
 <section class="close">
   <div class="wrap">
     <h2>Firavunlar, Memlükler, Kavalalı — ve finalde Kızıldeniz.</h2>
-    <p>Paket turların "ekstra" diye sattığı her şey, hiçbirinin göstermediği İslami Kahire ve hiçbirinde olmayan Ras Mohammed bu planda var. Dönüş Şarm'dan: tatil, uçağın kapısında bitiyor.</p>
+    <p>Paket turların "ekstra" diye sattığı her şey, hiçbirinin göstermediği İslami Kahire, Dahşur ve hiçbirinde olmayan Ras Mohammed bu planda var. Luxor, Şarm'dan tek günlük bir uçuşla araya giriyor. Dönüş Şarm'dan: tatil, uçağın kapısında bitiyor.</p>
     <div class="vs">
-      <div class="card"><b>~155 bin ₺</b><span>Kadim Rotalar · deniz yok</span></div>
-      <div class="card"><b>~117 bin ₺</b><span>Kralların İzinde · deniz yok</span></div>
-      <div class="card win"><b id="kapanis-toplam">97–139 bin ₺</b><span>Bu plan · 2 kişi · 2 gün deniz dahil</span></div>
+      <div class="card"><b>3 gün</b><span>Kahire · Gize, İslami Kahire, Sakkara–Dahşur</span></div>
+      <div class="card"><b>1 gün</b><span>Luxor · Krallar Vadisi + Karnak</span></div>
+      <div class="card win"><b id="kapanis-toplam">—</b><span>Bu plan · 4 kişi · 2 gün deniz dahil</span></div>
     </div>
   </div>
 </section>
 
-<footer>20–27 Kasım 2026 · Fiyatlar Ağustos 2026 araştırmasına dayalı tahmindir ($ ≈ 46,6 ₺) · Görseller: Wikimedia Commons (CC)</footer>
+<footer>4–11 Aralık 2026 · 4 kişi · Uçuşlar 6 Kasım 2026 fiyatları, gerisi Ağustos 2026 araştırmasına dayalı tahmindir ($ ≈ 49,5 ₺, £ ≈ 66 ₺) · Görseller: Wikimedia Commons (CC)</footer>
 
 <script>
 /* ——— Namaz vakitleri ———
    Standart astronomik hesap: güneşin deklinasyonu ve zaman denklemi üzerinden.
    Açılar Diyanet'inki (imsak 18°, yatsı 17°), ikindi Hanefî (gölge çarpanı 2).
-   Mısır kasımda yaz saati uygulamıyor: UTC+2. İstanbul yıl boyu UTC+3. */
+   Mısır aralıkta yaz saati uygulamıyor: UTC+2. İstanbul yıl boyu UTC+3. */
 (function(){
   var D2R = Math.PI/180, R2D = 180/Math.PI;
   function sin(d){return Math.sin(d*D2R);} function cos(d){return Math.cos(d*D2R);}
@@ -997,30 +1006,30 @@
   }
 
   var SEHIRLER = {
-    ist:   {ad:"İstanbul", lat:41.2753, lng:28.7519, tz:3},
+    ist:   {ad:"İstanbul", lat:40.8986, lng:29.3092, tz:3},
     kahire:{ad:"Kahire",   lat:30.0444, lng:31.2357, tz:2},
     luxor: {ad:"Luxor",    lat:25.6872, lng:32.6396, tz:2},
     sarm:  {ad:"Şarm",     lat:27.9158, lng:34.3300, tz:2}
   };
   /* Her gün için: hangi vakit hangi şehirde geçiyor (aktarma günlerinde bölünür) */
   var GUNLER = [
-    {no:1, g:20, ad:"20 Kas Cuma", yer:"İstanbul", s:"ist"},
-    {no:2, g:21, ad:"21 Kas Cmt", yer:"Kahire", s:"kahire"},
-    {no:3, g:22, ad:"22 Kas Paz", yer:"Kahire", s:"kahire"},
-    {no:4, g:23, ad:"23 Kas Pzt", yer:"Kahire → Luxor",
-     s:{imsak:"kahire",gunes:"kahire",ogle:"kahire",ikindi:"luxor",aksam:"luxor",yatsi:"luxor"}},
-    {no:5, g:24, ad:"24 Kas Sal", yer:"Luxor", s:"luxor"},
-    {no:6, g:25, ad:"25 Kas Çrş", yer:"Luxor → Şarm",
-     s:{imsak:"luxor",gunes:"luxor",ogle:"luxor",ikindi:"luxor",aksam:"sarm",yatsi:"sarm"}},
-    {no:7, g:26, ad:"26 Kas Prş", yer:"Şarm", s:"sarm"},
-    {no:8, g:27, ad:"27 Kas Cuma", yer:"Şarm → İstanbul", s:"sarm"}
+    {no:1, g:4,  ad:"4 Ara Cuma", yer:"İstanbul", s:"ist"},
+    {no:2, g:5,  ad:"5 Ara Cmt",  yer:"Kahire", s:"kahire"},
+    {no:3, g:6,  ad:"6 Ara Paz",  yer:"Kahire", s:"kahire"},
+    {no:4, g:7,  ad:"7 Ara Pzt",  yer:"Kahire", s:"kahire"},
+    {no:5, g:8,  ad:"8 Ara Sal",  yer:"Kahire → Şarm",
+     s:{imsak:"kahire",gunes:"kahire",ogle:"sarm",ikindi:"sarm",aksam:"sarm",yatsi:"sarm"}},
+    {no:6, g:9,  ad:"9 Ara Çrş",  yer:"Şarm → Luxor → Şarm",
+     s:{imsak:"sarm",gunes:"sarm",ogle:"luxor",ikindi:"luxor",aksam:"luxor",yatsi:"luxor"}},
+    {no:7, g:10, ad:"10 Ara Prş", yer:"Şarm", s:"sarm"},
+    {no:8, g:11, ad:"11 Ara Cuma", yer:"Şarm → İstanbul", s:"sarm"}
   ];
   var VAKIT = ["imsak","gunes","ogle","ikindi","aksam","yatsi"];
 
   var govde = document.getElementById('vakit-govde');
   if(!govde) return;
   var bugun = new Date(), buGun2026 =
-    (bugun.getFullYear()===2026 && bugun.getMonth()===10) ? bugun.getDate() : null;
+    (bugun.getFullYear()===2026 && bugun.getMonth()===11) ? bugun.getDate() : null;
 
   GUNLER.forEach(function(gun){
     var tr = document.createElement('tr');
@@ -1029,7 +1038,7 @@
     VAKIT.forEach(function(v){
       var anahtar = (typeof gun.s === 'string') ? gun.s : gun.s[v],
           sehir = SEHIRLER[anahtar],
-          t = vakitler(sehir.lat, sehir.lng, sehir.tz, 2026, 11, gun.g);
+          t = vakitler(sehir.lat, sehir.lng, sehir.tz, 2026, 12, gun.g);
       if(yerler.indexOf(sehir.ad) < 0) yerler.push(sehir.ad);
       /* Gün içinde şehir değişiyorsa hücreyi işaretle: saat o şehrin yerel saati */
       var gecis = (typeof gun.s !== 'string');
@@ -1042,7 +1051,7 @@
 
   var serit = document.getElementById('kible-serit');
   if(serit){
-    ['kahire','luxor','sarm'].forEach(function(k){
+    ['kahire','sarm','luxor'].forEach(function(k){
       var s = SEHIRLER[k], b = kible(s.lat, s.lng);
       var el = document.createElement('div');
       el.className = 'kible-kart';
@@ -1134,12 +1143,12 @@
   (function(){
     var kutu = document.getElementById('countdown');
     if(!kutu) return;
-    var kalkis = new Date(2026, 10, 20);          // 20 Kasım 2026
-    var donus  = new Date(2026, 10, 27, 23, 59);
+    var kalkis = new Date(2026, 11, 4);           // 4 Aralık 2026
+    var donus  = new Date(2026, 11, 11, 23, 59);
     var bugun  = new Date(); bugun.setHours(0,0,0,0);
     var gun = Math.round((kalkis - bugun) / 86400000);
     var metin;
-    if(gun > 1)       metin = '<b>' + gun + ' gün</b> kaldı · 20 Kasım 2026';
+    if(gun > 1)       metin = '<b>' + gun + ' gün</b> kaldı · 4 Aralık 2026';
     else if(gun === 1) metin = '<b>Yarın</b> yola çıkıyorsunuz';
     else if(gun === 0) metin = '<b>Bugün</b> yola çıkıyorsunuz';
     else if(new Date() <= donus) metin = '<b>Gezi sürüyor</b> · iyi yolculuklar';
@@ -1178,11 +1187,9 @@
     if(!kurGiris || !toplamHucre) return;
 
     var usdAlt = document.getElementById('toplam-usd');
-    var farkKutu = document.getElementById('fark');
+    var KISI = 4;
     var satirlar = [].slice.call(document.querySelectorAll('.stele tr[data-min], .stele tr[data-try-min]'));
-    var VARSAYILAN_KUR = 46.6;
-    var UCUZ_PAKET = 117000;   // karşılaştırma: Kralların İzinde
-    var PAHALI_PAKET = 155000; // karşılaştırma: Kadim Rotalar
+    var VARSAYILAN_KUR = 49.5;
 
     var binlik = function(n){ return Math.round(n).toLocaleString('tr-TR'); };
     var bin = function(n){ return Math.round(n / 1000); };
@@ -1219,12 +1226,6 @@
         ? binlik(usdMin) + ' – ' + binlik(usdMax) + ' $' + (tryMax ? ' + ' + binlik(tryMax) + ' ₺' : '')
         : '';
 
-      if(farkKutu){
-        var azFark = UCUZ_PAKET - ustTL, cokFark = PAHALI_PAKET - altTL;
-        farkKutu.textContent = (azFark > 0)
-          ? bin(azFark) + '–' + bin(cokFark) + ' bin ₺'
-          : 'paketlerin üstünde';
-      }
 
       // Giriş ve kapanıştaki özetler de aynı hesabı göstersin.
       var ozet = (bin(altTL) === bin(ustTL))
@@ -1234,6 +1235,14 @@
         var e = document.getElementById(kimlik);
         if(e) e.textContent = ozet;
       });
+      var kisiAlt = altTL / KISI, kisiUst = ustTL / KISI;
+      var kisiOzet = (bin(kisiAlt) === bin(kisiUst))
+        ? bin(kisiAlt) + ' bin ₺'
+        : bin(kisiAlt) + '–' + bin(kisiUst) + ' bin ₺';
+      ['kisi-basi', 'hero-kisi'].forEach(function(kimlik){
+        var e = document.getElementById(kimlik);
+        if(e) e.textContent = kisiOzet;
+      });
     }
 
     satirlar.forEach(function(tr){
@@ -1242,7 +1251,7 @@
     });
     kurGiris.addEventListener('input', hesapla);
     document.getElementById('kur-sifirla').addEventListener('click', function(){
-      kurGiris.value = '46,6';
+      kurGiris.value = '49,5';
       satirlar.forEach(function(tr){
         var k = tr.querySelector('.b-check'); if(k) k.checked = true;
       });
@@ -1296,6 +1305,18 @@
     ciz();
   })();
 
+  /* ——— Baskı: katlanır ayrıntılar kâğıtta açık çıksın ——— */
+  (function(){
+    var kapalilar = [];
+    addEventListener('beforeprint', function(){
+      kapalilar = [].slice.call(document.querySelectorAll('details.devam:not([open])'));
+      kapalilar.forEach(function(d){ d.open = true; });
+    });
+    addEventListener('afterprint', function(){
+      kapalilar.forEach(function(d){ d.open = false; });
+      kapalilar = [];
+    });
+  })();
   /* ——— Kaydırınca belirme: sınıf JS ile ekleniyor, script yoksa içerik zaten görünür ——— */
   (function(){
     if(sakin || !('IntersectionObserver' in window)) return;

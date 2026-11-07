@@ -64,10 +64,6 @@ export const MEKAN_BILGI = {
     gorsel: ["Karnak Temple.jpg", "Great Hypostyle Hall, Karnak.jpg", "Hypostyle hall, Karnak temple.jpg"],
     donem: "MÖ 2000 – MÖ 30", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
   },
-  "luxor-tapinak": {
-    gorsel: ["Egypt.LuxorTemple.06.jpg", "Luxor Temple.jpg", "Luxor Temple at night.jpg"],
-    donem: "MÖ 1400 civarı", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
-  },
   "krallar-vadisi": {
     gorsel: ["Thebes, Luxor, Egypt, Panoramic view of the Valley of the Kings.jpg", "Thebes, Luxor, Egypt, Valley of the Kings from above.jpg"],
     donem: "MÖ 1539 – MÖ 1075", sure: "1,5 saat", unesco: "Antik Teb ve Nekropolü",
@@ -80,29 +76,25 @@ export const MEKAN_BILGI = {
     gorsel: ["Colossi of Memnon.jpg", "Colossi of Memnon, Luxor.jpg", "Memnon colossi.jpg"],
     donem: "MÖ 1350 civarı", sure: "15 dk", unesco: "Antik Teb ve Nekropolü",
   },
-  "luxor-muze": {
-    gorsel: ["By ovedc - Luxor Museum - 01.jpg", "Luxor Museum 01.jpg", "Luxor Museum 2010.jpg"],
-    donem: "1975", sure: "1,5 saat",
+  dahsur: {
+    gorsel: ["Red Pyramid at Dahshur.jpg", "Snofrus Red Pyramid in Dahshur (2).jpg", "Bent pyramid with its Satellite pyramid.jpg"],
+    donem: "MÖ 2600 civarı", sure: "1,5 saat", unesco: "Memphis ve Nekropolü",
   },
-  "medinet-habu": {
-    gorsel: ["Medinet Habu.jpg", "Medinet Habu temple.jpg", "Mortuary Temple of Ramesses III.jpg"],
-    donem: "MÖ 1180 civarı", sure: "1 saat", unesco: "Antik Teb ve Nekropolü",
+  nmec: {
+    gorsel: ["The National Museum of Egyptian Civilization (NMEC) 35.jpg", "National Museum of Egyptian Civilization (NMEC) 06.jpg"],
+    donem: "2021'de açıldı", sure: "1,5–2 saat",
   },
-  "deir-el-medina": {
-    gorsel: ["Deir el-Medina ruins (2009a).jpg", "Deir al Medineh near Luxor.jpg"],
-    donem: "MÖ 1550–1080", sure: "45 dk, isteğe bağlı", unesco: "Antik Teb ve Nekropolü",
+  "otel-resif": {
+    gorsel: ["SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG", "Sharm el-Sheikh , photo by Hatem Moushir 71.jpg"],
+    sure: "Öğleden sonra",
   },
-  mumyalama: {
-    gorsel: ["Musée Momification - Louxor (EG) - 2025-12-10 - 1.jpg", "Musée Momification - Louxor (EG) - 2025-12-10 - 10.jpg"],
-    donem: "1997'de açıldı", sure: "45 dk – 1 saat",
+  "eski-sarm": {
+    gorsel: ["Al-Sahaba Mosque in Sharm El-Sheikh.jpg", "Al Sahaba Mosque-Sharm.jpg", "Sharm El Sheikh Old Market - panoramio.jpg"],
+    donem: "Cami 2017", sure: "2 saat",
   },
-  felluka: {
-    gorsel: ["Felucca on the Nile.jpg", "Feluccas on the Nile.jpg", "Felucca Luxor.jpg"],
-    sure: "1 saat",
-  },
-  sofra: {
-    gorsel: ["Egyptian food.jpg", "Egyptian cuisine.jpg", "Tagine.jpg"],
-    sure: "1,5 saat",
+  farsha: {
+    gorsel: ["Farsha in Sharm el-Sheikh.jpg", "Farsha Cafe.jpg", "View on Farsha in Sharm el-Sheikh.jpg"],
+    sure: "1–1,5 saat",
   },
   "ras-mohammed": {
     gorsel: ["Ras Mohammed Bay.jpg", "Tortuga carey (Eretmochelys imbricata), parque nacional Ras Muhammad, Egipto, 2022-03-28, DD 56.jpg"],
@@ -118,15 +110,18 @@ export const MEKAN_BILGI = {
   },
   // Ulaşım durakları: künye yerine yalnızca havalimanı görseli.
   "ist-kalkis": {
-    gorsel: ["İstanbul Havalimanı Airport 2019 16.jpg", "Istanbul Airport, Arnavutköy (P1090184).jpg"],
+    gorsel: ["İstanbul Sabiha Gökçen Uluslararası Havalimanı.jpg"],
   },
   "cai-varis": {
     gorsel: ["Cairo Airport Terminal 3.jpg", "Gate at Terminal 3 Cairo International Airport - panoramio.jpg"],
   },
-  "cai-lxr": {
-    gorsel: ["Luxor International Airport (14023866758).jpg", "Luxor International Airport (14207238921).jpg"],
+  "cai-ssh": {
+    gorsel: ["Cairo Airport Terminal 3.jpg", "Gate at Terminal 3 Cairo International Airport - panoramio.jpg"],
   },
-  "lxr-ssh": {
+  "lxr-gidis": {
+    gorsel: ["Luxor International.JPG", "Luxor International Airport (14207238921).jpg"],
+  },
+  "lxr-donus": {
     gorsel: ["Arival Hall At Sharm El-Sheikh Airport - panoramio.jpg", "Airport of Sharm El Sheikh - panoramio.jpg"],
   },
   "ssh-donus": {
