@@ -1,7 +1,7 @@
 # Kahire + Şarm El-Şeyh + Luxor — 4–11 Aralık 2026
 
-Dört kişilik, 7 gece 8 günlük Mısır gezisi planı: Kahire'de 4 gece (üç tam gün
-antik ve İslami miras), Şarm El-Şeyh'te 3 gece. Luxor'da konaklama yok; 9 Aralık
+Dört kişilik, 7 gece 8 günlük Mısır gezisi planı: Kahire'de 3 gece (iki tam gün:
+İslami Kahire, Gize ve GEM), Şarm El-Şeyh'te 4 gece. Luxor'da konaklama yok; 9 Aralık
 çarşamba günü Şarm'dan uçaklı günübirlik turla (Travco) geziliyor. Gidiş
 (4 Aralık, AJet 22:10) ve dönüş (11 Aralık, Şarm'dan Pegasus 10:50) biletleri
 alındı. Güncel kararlar ve açık işler: [DURUM.md](DURUM.md).
@@ -16,9 +16,8 @@ alındı. Güncel kararlar ve açık işler: [DURUM.md](DURUM.md).
 
 ### Programın tamamı (`index.html`)
 
-- **Gün gün program** — İslami Kahire (tek günde), Gize ve GEM, Sakkara, Dahşur ve
-  NMEC mumyaları, Şarm'dan günübirlik Luxor (Krallar Vadisi, Hatşepsut, Karnak),
-  Ras Mohammed, Eski Şarm ve Sina'da quad + deve safarisi. Her durakta kısa özet görünür;
+- **Gün gün program** — İslami Kahire (tek günde), Gize ve GEM, Şarm'dan günübirlik Luxor (Krallar Vadisi, Hatşepsut, Karnak),
+  Ras Mohammed, serbest bir deniz günü, Eski Şarm ve Sina'da quad + deve safarisi. Her durakta kısa özet görünür;
   "Neye bakmalı" anlatımı ve ipucu dokununca açılır (baskıda hepsi açık çıkar)
 - **İbadet planı** — sekiz günün vakit namazları, o gün bulunulan şehrin koordinatından
   çalışma anında hesaplanır (Diyanet açıları 18°/17°, **Hanefî** ikindi); aktarma
@@ -51,10 +50,10 @@ alternatif denenir.
 
 ### Nil'den Kızıldeniz'e (`rota.html`)
 
-30 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
+28 durağın tamamı saatiyle, süresiyle ve aralarındaki ulaşımla. Ekranda tek gün
 durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
 
-- **Görsel ve künye** — 30 durağın tamamı için Wikimedia Commons fotoğrafı, dönem
+- **Görsel ve künye** — 28 durağın tamamı için Wikimedia Commons fotoğrafı, dönem
   bilgisi, önerilen süre ve UNESCO alanı. Görsele dokununca aynı dosyanın 1600
   piksellik hâli tam ekran açılır: önce önbellekteki küçük hâl görünür, büyüğü
   gelince yerine geçer. Altında mekânın adı ve Commons'taki dosya sayfasına

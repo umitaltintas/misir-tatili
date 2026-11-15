@@ -40,10 +40,6 @@ export const MEKAN_BILGI = {
     gorsel: ["Koshary.jpg", "Kushari.jpg", "Koshari.jpg"],
     donem: "1950'ler", sure: "1 saat",
   },
-  sakkara: {
-    gorsel: ["Saqqara pyramid ver 2.jpg", "Saqqara pyramid.jpg", "Step Pyramid of Djoser.jpg"],
-    donem: "MÖ 2650 civarı", sure: "2 saat", unesco: "Memphis ve Nekropolü",
-  },
   "sultan-hasan": {
     gorsel: ["Mosque-Madrassa of Sultan Hassan.jpg", "Sultan Hassan Mosque.jpg", "Mosque of Sultan Hassan.jpg"],
     donem: "1356–1363", sure: "1 saat", unesco: "Tarihi Kahire",
@@ -76,17 +72,13 @@ export const MEKAN_BILGI = {
     gorsel: ["Colossi of Memnon.jpg", "Colossi of Memnon, Luxor.jpg", "Memnon colossi.jpg"],
     donem: "MÖ 1350 civarı", sure: "15 dk", unesco: "Antik Teb ve Nekropolü",
   },
-  dahsur: {
-    gorsel: ["Red Pyramid at Dahshur.jpg", "Snofrus Red Pyramid in Dahshur (2).jpg", "Bent pyramid with its Satellite pyramid.jpg"],
-    donem: "MÖ 2600 civarı", sure: "1,5 saat", unesco: "Memphis ve Nekropolü",
-  },
-  nmec: {
-    gorsel: ["The National Museum of Egyptian Civilization (NMEC) 35.jpg", "National Museum of Egyptian Civilization (NMEC) 06.jpg"],
-    donem: "2021'de açıldı", sure: "1,5–2 saat",
-  },
   "otel-resif": {
     gorsel: ["SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG", "Sharm el-Sheikh , photo by Hatem Moushir 71.jpg"],
     sure: "Öğleden sonra",
+  },
+  "serbest-gun": {
+    gorsel: ["Sharm el-Sheikh , photo by Hatem Moushir 71.jpg", "SharmElSheikhEgypt-SharksBay byDanielCsorfoly.JPG"],
+    sure: "Bütün gün",
   },
   "eski-sarm": {
     gorsel: ["Al-Sahaba Mosque in Sharm El-Sheikh.jpg", "Al Sahaba Mosque-Sharm.jpg", "Sharm El Sheikh Old Market - panoramio.jpg"],
