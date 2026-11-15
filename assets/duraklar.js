@@ -185,12 +185,12 @@ export const DURAKLAR = [
 
   // ————————————————————————— ŞARM
   {
-    id: "cai-ssh", gun: 4, saat: "11:00", kategori: "ulasim", kaynak: "plan",
+    id: "cai-ssh", gun: 4, saat: "12:00", kategori: "ulasim", kaynak: "plan",
     ad: "Kahire → Şarm El-Şeyh",
-    alt: "Air Cairo direkt, ~1 saat",
+    alt: "Nile Air direkt, ~1 saat",
     konum: [31.4056, 30.1219],
-    aciklama: "Air Cairo'nun 11:00 seferi, Şarm'a ~12:05 varış; 8 Aralık için 6 Kasım'da kişi başı ~6.082 ₺ görülmüştü, 7 Aralık saat ve fiyatını alırken teyit edin. Bu hatta günde onlarca sefer var; sabah 06:00 seferi daha ucuz ama 03:30'da kalkmak demek. Öğleden sonraki seferler (ör. EgyptAir 13:20) yedek seçenek, yalnız ilk deniz öğleden sonrası kısalır.",
-    ipucu: "İç hatlarda bagaj hakkını biletinizde kontrol edin; dört kişinin valizi ayrı ücretlendirilebilir. Kahire'den sabah 08:00'de çıkın, trafiğe 1 saat pay bırakın. Şarm'a Kahire'den gelenlerde vize kontrolü yok, iç hat gibi çıkıyorsunuz.",
+    aciklama: "Nile Air'ın 12:00 seferi, Şarm'a 13:05 varış. 15 Kasım'da Google Flights'ta kişi başı ~4.105 ₺, günün en uygun fiyatlı makul saatli seferi. Otele 13:30 gibi varıyorsunuz, check-in saatine (genelde 14:00) tam denk geliyor. Alternatifler: EgyptAir 09:05 (10:05 varış, ~6.128 ₺) daha uzun bir deniz öğleden sonrası isteyene; Air Cairo 06:00 (~3.992 ₺) en ucuzu ama 03:30 kalkış demek. Air Cairo'nun 11:00 seferinde yalnız Premium Economy kalmış (~6.118 ₺).",
+    ipucu: "<b>Bagaj hakkını biletinizde kontrol edin</b>: Nile Air'ın en ucuz tarifesinde valiz dahil olmayabilir, dört valizin ek ücreti EgyptAir farkını kapatabilir; satın almadan önce karşılaştırın. Kahire'den 09:00'da çıkın, trafiğe pay bırakın. Şarm'a Kahire'den gelenlerde vize kontrolü yok, iç hat gibi çıkıyorsunuz.",
     kamera: { zoom: 6.5, pitch: 45, bearing: 120 },
   },
   {

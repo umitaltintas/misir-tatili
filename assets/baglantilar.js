@@ -112,14 +112,14 @@ export const BAGLANTILAR = [
     from: "abou-tarek", to: "cai-ssh", tur: "uber", gunBasi: true,
     sure: "45–70 dk (otelden havalimanına)", ucret: "250–400 EGP (4 kişi, büyük araç)",
     ozet: "Sabah havalimanına",
-    detay: "Uçuş 11:00. İç hat için 2 saat önce havalimanında olun: otelden 08:00'de çıkın, trafik için pay bırakın. Dört kişi ve valizler için uygulamada büyük araç (UberXL / Comfort) seçin ya da otelden transfer isteyin.",
+    detay: "Uçuş 12:00. İç hat için 2 saat önce havalimanında olun: otelden 09:00'da çıkın, trafik için pay bırakın. Dört kişi ve valizler için uygulamada büyük araç (UberXL / Comfort) seçin ya da otelden transfer isteyin.",
     dikkat: "Hangi terminalden kalktığınızı biletten kontrol edip şoföre söyleyin; Kahire'de terminaller arası mesafe uzun.",
   },
   {
     from: "cai-ssh", to: "otel-resif", tur: "ucak",
-    sure: "~1 sa uçuş + 15 dk transfer", ucret: "~24.300 ₺ (4 kişi, tek yön) + transfer 10–20 $",
+    sure: "~1 sa uçuş + 15 dk transfer", ucret: "~16.400 ₺ (4 kişi, tek yön) + transfer 10–20 $",
     ozet: "Kızıldeniz'e iniş",
-    detay: "Şarm'a ~12:05 iniş. Havalimanından Sharks Bay 10–15 dakika; önceden ayarlanmış otel transferi pazarlık derdini sıfırlar. Check-in saati gelmemişse valizi bırakıp öğle yemeğine ve denize geçin.",
+    detay: "Şarm'a 13:05 iniş. Havalimanından Sharks Bay 10–15 dakika; önceden ayarlanmış otel transferi pazarlık derdini sıfırlar. Check-in saati gelmemişse valizi bırakıp öğle yemeğine ve denize geçin.",
     dikkat: "Şarm'da Uber yok; Careem kısıtlı çalışıyor. Havalimanı taksisinde fiyatı binmeden netleştirin.",
   },
   {

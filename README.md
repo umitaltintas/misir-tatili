@@ -13,6 +13,7 @@ alındı. Güncel kararlar ve açık işler: [DURUM.md](DURUM.md).
 | Programın tamamı — gün gün plan, bütçe tablosu, konaklama, ipuçları | [/](https://umitaltintas.github.io/misir-tatili/) |
 | Nil'den Kızıldeniz'e — gün gün zaman çizelgesi | [/rota.html](https://umitaltintas.github.io/misir-tatili/rota.html) |
 | Gitmeden önce — okuma, izleme ve dinleme listesi | [/kaynaklar.html](https://umitaltintas.github.io/misir-tatili/kaynaklar.html) |
+| Otel karşılaştırması — fotoğraflı, trivago fiyatlarıyla | [/oteller.html](https://umitaltintas.github.io/misir-tatili/oteller.html) |
 
 ### Programın tamamı (`index.html`)
 
@@ -79,6 +80,13 @@ durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
   tarifi bağlantısı taşır; her durakta *Haritada aç ↗* o noktayı iğneyle açar.
 - **Katman süzgeçleri** — antik miras, İslami Kahire, müze, sofra, deneyim, Kızıldeniz, ulaşım
 - Klavyeyle gezinme (`←` `→`), durak bazlı derin bağlantı (`#durak-karnak`)
+
+### Otel karşılaştırması (`oteller.html`)
+
+Kahire (4–7 Aralık) ve Şarm (7–11 Aralık) için 16 otel: fotoğraf, puan, oda başına
+gecelik en ucuz teklif, iki oda toplamı ($ ve ₺) ve şu anki öneriye göre fark.
+Fiyata/puana göre sıralama, ücretsiz iptal ve her şey dahil süzgeci. Fiyatlar ve
+görseller (`assets/oteller/`) 15 Kasım 2026'da trivago MCP'den çekildi.
 
 ### Gitmeden önce (`kaynaklar.html`)
 
