@@ -13,6 +13,9 @@ Mac'teki eski sohbetin ve sonrasında verilen kararların özeti. Yeni bir sohbe
 - Site (index.html, rota.html, kaynaklar.html, README) 7 Kasım'da bu plana göre baştan güncellendi.
 - **15 Kasım:** Şarm'a 8 yerine **7 Aralık'ta** geçiliyor. Sakkara, Dahşur ve NMEC programdan çıktı (önemli bulunmadı); Ras Mohammed 8 Aralık'a kaydı, 10 Aralık serbest gün (Ras Mohammed rüzgârdan iptal olursa yedek).
 
+- **15 Kasım (sonra):** Kahire oteli **Steigenberger El Tahrir** olarak kararlaştırıldı; **6 Aralık akşamı Şarm'a geçilmesine** karar verildi (uçuş henüz alınmadı; site programı hâlâ 7 Aralık 12:00 Nile Air gösteriyor, uçuş alınınca güncellenecek).
+  - Otel WhatsApp'tan (+20 201069999114) yazılı yanıt verdi: çıkıştan sonra **valiz emaneti ücretsiz, saat sınırı yok**. Geç çıkış (boş oda varsa, oda başına): 12:00–16:00 30 $, 16:00–19:00 60 $, 19:00 sonrası tam gece.
+
 ## Program
 
 | Gün | Program |
