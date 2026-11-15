@@ -23,8 +23,8 @@ alındı. Güncel kararlar ve açık işler: [DURUM.md](DURUM.md).
 - **İbadet planı** — sekiz günün vakit namazları, o gün bulunulan şehrin koordinatından
   çalışma anında hesaplanır (Diyanet açıları 18°/17°, **Hanefî** ikindi); aktarma
   günlerinde tablo şehri vakit vakit değiştirir. Her gün için vaktin programda nereye
-  denk geldiği yazılı: öğle Sultan Hasan'da, yatsı çölde Bedevi
-  kampında ve Eski Şarm'daki Es-Sahabe Camii'nde, öğle Ras Mohammed teknesinde. Üç şehir için kıble açısı, ve Mısır'daki iki
+  denk geldiği yazılı: öğle Sultan Hasan'da, akşam çölde gün
+  batımında, yatsı Eski Şarm'daki Es-Sahabe Camii'nde, öğle Ras Mohammed teknesinde. Üç şehir için kıble açısı, ve Mısır'daki iki
   fark: camiler ikindiyi Şafiî ölçüsüyle ~45 dk önce, imsakı ~7 dk erken okur
 - **Canlı bütçe hesabı** — dolar kurunu yazın, kalemleri açıp kapatın; 4 kişilik toplam,
   kişi başı tutar ve giriş/kapanış özetleri anında yeniden hesaplanır
@@ -83,7 +83,7 @@ durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
 
 ### Otel karşılaştırması (`oteller.html`)
 
-Kahire (4–7 Aralık) ve Şarm (7–11 Aralık) için 16 otel: fotoğraf, puan, oda başına
+Kahire (4–7 Aralık) ve Şarm (7–11 Aralık) için 18 otel: fotoğraf, puan, oda başına
 gecelik en ucuz teklif, iki oda toplamı ($ ve ₺) ve şu anki öneriye göre fark.
 Fiyata/puana göre sıralama, ücretsiz iptal ve her şey dahil süzgeci. Fiyatlar ve
 görseller (`assets/oteller/`) 15 Kasım 2026'da trivago MCP'den çekildi.

@@ -20,10 +20,10 @@ Mac'teki eski sohbetin ve sonrasında verilen kararların özeti. Yeni bir sohbe
 | 4 Ara Cum | İstanbul → Kahire 22:10, gece varış |
 | 5 Ara Cmt | Kale, Sultan Hasan, Rifai, Ezher Parkı, El-Muizz, Khan el-Khalili |
 | 6 Ara Paz | Gize piramitleri + Büyük Mısır Müzesi (GEM) |
-| 7 Ara Pzt | Kahire → Şarm, Nile Air 12:00 → 13:05; öğleden sonra deniz, akşam quad + deve safarisi |
+| 7 Ara Pzt | Kahire → Şarm, Nile Air 12:00 → 13:05; öğleden sonra otelin resifi, erken yatış |
 | 8 Ara Sal | Ras Mohammed tekne turu, akşam erken yatış |
 | 9 Ara Çar | Travco Luxor turu: 04:00 alış, Krallar Vadisi, Hatşepsut, Memnon, Karnak; ~21:30 otel |
-| 10 Ara Per | Serbest gün (otel resifi, istenirse Tiran); akşam Eski Şarm (Es-Sahabe Camii, balık) ve Farsha Café |
+| 10 Ara Per | Sabah otel resifi; 13:00–17:00 quad + deve safarisi (gün ışığında, gün batımında biter); akşam Eski Şarm (Es-Sahabe Camii, balık) ve Farsha Café |
 | 11 Ara Cum | Sharks Bay son yüzüş, Şarm → İstanbul 10:50 |
 
 ## Bütçe (4 kişi, sitedeki hesap)
@@ -39,8 +39,8 @@ Mac'teki eski sohbetin ve sonrasında verilen kararların özeti. Yeni bir sohbe
 1. Bilet bilgilerini teyit et (yukarıdaki ⚠️).
 2. **Luxor turunu ayırt** — [easyJet Holidays (Travco)](https://experiences.easyjet.com/uk/sharm-el-sheikh/luxor-day-trip-from-sharm-el-sheikh-including-flights-344816), yalnız çarşamba. 4 kişilik özel grubu sor.
 3. **Kahire → Şarm iç hattını al** — 7 Aralık pazartesi. 15 Kasım Google Flights (kişi başı): Nile Air 12:00 ~4.105 ₺ (öneri), Air Cairo 06:00 ~3.992 ₺, EgyptAir 09:05/13:20/15:10 ~6.128 ₺, Air Cairo 11:00 yalnız Premium Economy ~6.118 ₺. Nile Air'de valiz dahil mi kontrol et.
-4. Otelleri ücretsiz iptalli ayırt (Kahire 4–7, Şarm 7–11 Aralık). Öneriler (15 Kasım, trivago canlı fiyatları, oda/gece): Kahire **Steigenberger El Tahrir** (~185–230 $ kahvaltısız; bütçe: Tahrir Plaza Suites ~50 $), Şarm **Coral Sea Sensatori** (~325 $ her şey dahil; daha ucuz: Baron Palms ~220 $, Reef Oasis Blue Bay ~190–225 $ her şey dahil). Kahire girişi **4 Aralık** olmalı (gece 01:00 varış), late arrival notu düşülmeli.
-5. GEM biletini al (6 Aralık); Ras Mohammed (8 Ara) ve quad (7 Ara) turlarını ayırt.
+4. Otelleri ücretsiz iptalli ayırt (Kahire 4–7, Şarm 7–11 Aralık). Öneriler (15 Kasım, trivago canlı fiyatları, oda/gece): Kahire **Steigenberger El Tahrir** (~185–230 $ kahvaltısız; daha ucuz: El Farida ~106 $ kahvaltılı), Şarm **Coral Sea Sensatori** (~325 $ her şey dahil; daha ucuz: Baron Palms ~220 $, Reef Oasis Blue Bay ~190–225 $ her şey dahil). Kahire girişi **4 Aralık** olmalı (gece 01:00 varış), late arrival notu düşülmeli.
+5. GEM biletini al (6 Aralık); Ras Mohammed (8 Ara) ve quad (10 Ara 13:00 alış) turlarını ayırt.
 6. Sitenin tamamı: Hazırlık Listesi bölümünde 20 madde.
 
 ## Notlar

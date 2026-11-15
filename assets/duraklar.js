@@ -36,7 +36,7 @@ export const GUNLER = [
   {
     no: 4, tarih: "7 Aralık", gunAdi: "Pazartesi", sehir: "Şarm El-Şeyh",
     baslik: "Kahire → Şarm El-Şeyh",
-    tema: "Öğleden sonra deniz, akşam çöl",
+    tema: "Öğleden sonra otelin resifi, erken akşam",
   },
   {
     no: 5, tarih: "8 Aralık", gunAdi: "Salı", sehir: "Şarm El-Şeyh",
@@ -50,8 +50,8 @@ export const GUNLER = [
   },
   {
     no: 7, tarih: "10 Aralık", gunAdi: "Perşembe", sehir: "Şarm El-Şeyh",
-    baslik: "Serbest Gün ve Eski Şarm",
-    tema: "Luxor'dan sonra dinlenme, akşam çarşı",
+    baslik: "Çöl Safarisi ve Eski Şarm",
+    tema: "Sabah dinlenme, öğleden sonra çöl, akşam çarşı",
   },
   {
     no: 8, tarih: "11 Aralık", gunAdi: "Cuma", sehir: "Şarm El-Şeyh",
@@ -202,16 +202,6 @@ export const DURAKLAR = [
     ipucu: "Aralık başında deniz ~24–25°C, hava gündüz ~26°C; su ilk anda serin gelir ama 10 dakikada alışılır. Güneş 16:48'de batıyor, 15:30'dan sonra resif gölgede kalıyor; denize öğleden hemen sonra girin. Deniz ayakkabısı şart, cankurtaran yoksa yalnız yüzmeyin.",
     kamera: { zoom: 15, pitch: 55, bearing: 15 },
   },
-  {
-    id: "quad-safari", gun: 4, saat: "18:00", kategori: "deneyim", kaynak: "plan",
-    ad: "Sina'da quad + deve safarisi",
-    alt: "Çöl akşamı, Bedevi yemeği",
-    konum: [34.3300, 27.9930],
-    aciklama: "Tur aracı otelden alır, 15–20 dakikada çöl istasyonuna götürür; brifing ve kask, sonra Sina dağlarına doğru ~30 km rehberli quad sürüşü. Echo Dağı'nda yankı molası, Bedevi köyünde çay ve 10–15 dakikalık deve binişi, ardından Bedevi kampında akşam yemeği. Toplam 3 saat; gün batımı 16:48 olduğu için tur karanlıkta geçiyor. Işık değil, çöl gecesi, yıldızlar ve ateş başı sohbeti asıl kazanç.",
-    ipucu: "Şarm'daki ilk akşam için ideal: öğleden sonra deniz, akşam çöl, 21:00 gibi otelde olursunuz; yarın sabah Ras Mohammed teknesi 08:30'da alıyor. Erken yatmak isterseniz 14:30–15:00 alışlı <b>gün batımı turunu</b> seçin, 19:00'da dönersiniz. <b>Kişi başı tekli quad alın</b> (15–20 €): çift kişilik turlarda arkada oturan toz yutar. Dört kişi için özel tur ~100–120 € ve 30 araçlık konvoydan kurtarır. <a href=\"https://www.getyourguide.com/sharm-el-sheikh-l408/\" target=\"_blank\" rel=\"noopener\">GetYourGuide</a> veya <a href=\"https://www.viator.com/Sharm-el-Sheikh/d827\" target=\"_blank\" rel=\"noopener\">Viator</a>'dan ücretsiz iptalli ayırtın, alış saatini bir gece önce WhatsApp'tan teyit ettirin. Bakiyeyi online ödeyin; yanınıza yalnız bahşiş için 200–400 EGP. <b>Ekipman:</b> kapalı ayakkabı zorunlu, uzun kol ve pantolon, toz için buff ya da şal, çöl gecesi Aralık'ta soğuk: mont alın. Kask takmadan sürmeyin. <b>Sigorta:</b> seyahat sigortalarının çoğu quad kazasını kapsam dışı tutuyor, poliçede \"motorlu araç / ATV\" istisnasına bakın.",
-    etiket: "7 Aralık",
-    kamera: { zoom: 13, pitch: 60, bearing: 300 },
-  },
 
   {
     id: "ras-mohammed", gun: 5, saat: "08:30", kategori: "deniz", kaynak: "plan",
@@ -285,12 +275,22 @@ export const DURAKLAR = [
   {
     id: "serbest-gun", gun: 7, saat: "10:00", kategori: "deniz", kaynak: "plan",
     ad: "Otelde serbest gün",
-    alt: "Resif, havuz ya da Tiran",
+    alt: "Resif ve havuz, öğlene kadar",
     konum: [34.3940, 27.9440],
-    aciklama: "Luxor'un 17 saatinden sonra programsız bir gün. Geç kahvaltı, otelin resifinde şnorkel, havuz başında kitap. Bu gün aynı zamanda <b>yedek gün</b>: 8 Aralık'ta rüzgâr yüzünden Ras Mohammed teknesi iptal olursa tur buraya kayar.",
-    ipucu: "Denize öğleden önce ve öğleden hemen sonra girin; güneş 16:48'de batıyor ve 15:30'dan sonra resif gölgede kalıyor. Bir tekne günü daha isteyenler için <b>Tiran Adası</b> turu var (Ras Mohammed'den daha sığ ve sakin resifler, kişi başı ~25–40 $); ama Luxor'un ertesi günü çoğu kişi dinlenmeyi seçiyor. Naama Bay'de yürüyüş ya da cam tabanlı tekne de hafif seçenekler.",
+    aciklama: "Luxor'un 17 saatinden sonra programsız bir sabah. Geç kahvaltı, otelin resifinde şnorkel, havuz başında kitap; 13:00'te çöl safarisi alıyor. Bu gün aynı zamanda <b>yedek gün</b>: 8 Aralık'ta rüzgâr yüzünden Ras Mohammed teknesi iptal olursa tekne buraya kayar, safari de 7 Aralık öğleden sonrasına (14:30 alış) ya da 11 Aralık'tan önceki boş bir saate alınır.",
+    ipucu: "Denize öğleden önce girin; ışık 10:00–12:00 arası resifte en iyisi. Safari 13:00'te aldığı için öğle yemeğini 12:00'de yiyin ve mayodan çıkıp kapalı ayakkabıyla hazır olun. Luxor'dan sonra yorgunsanız safariyi kısaltıp yalnızca deve ve Bedevi çayı olan 2 saatlik turu seçebilirsiniz.",
     etiket: "Yedek gün",
     kamera: { zoom: 15, pitch: 55, bearing: 15 },
+  },
+  {
+    id: "quad-safari", gun: 7, saat: "13:00", kategori: "deneyim", kaynak: "plan",
+    ad: "Sina'da quad + deve safarisi",
+    alt: "Gün ışığında çöl, gün batımı",
+    konum: [34.3300, 27.9930],
+    aciklama: "Tur aracı otelden alır, 15–20 dakikada çöl istasyonuna götürür; brifing ve kask, sonra Sina dağlarına doğru ~30 km rehberli quad sürüşü. Echo Dağı'nda yankı molası, Bedevi köyünde çay ve 10–15 dakikalık deve binişi, ardından Bedevi çadırında çay ve hafif ikram. 13:00 alışlı öğleden sonra turu: quad sürüşü güneş tepedeyken, dağlar en net görünürken yapılıyor; gün batımını (16:49) Bedevi köyünden izleyip karanlık basmadan, 17:00 gibi otelde olursunuz.",
+    ipucu: "Luxor'un ertesi günü sabahı otelde dinlenip öğle yemeğinden sonra çıkın; 18:30'daki Eski Şarm'a yetişmek için aradaki 1,5 saat duş ve hazırlık. Turu ayırtırken <b>13:00–13:30 alışlı, gün batımında biten</b> turu isteyin; 15:00 sonrası alışlı \"sunset safari\"ler ve akşam turları dönüşte karanlığa kalıyor. <b>Kişi başı tekli quad alın</b> (15–20 €): çift kişilik turlarda arkada oturan toz yutar. Dört kişi için özel tur ~100–120 € ve 30 araçlık konvoydan kurtarır. <a href=\"https://www.getyourguide.com/sharm-el-sheikh-l408/\" target=\"_blank\" rel=\"noopener\">GetYourGuide</a> veya <a href=\"https://www.viator.com/Sharm-el-Sheikh/d827\" target=\"_blank\" rel=\"noopener\">Viator</a>'dan ücretsiz iptalli ayırtın, alış saatini bir gece önce WhatsApp'tan teyit ettirin. Bakiyeyi online ödeyin; yanınıza yalnız bahşiş için 200–400 EGP. <b>Ekipman:</b> kapalı ayakkabı zorunlu, uzun kol ve pantolon, toz için buff ya da şal, gün batımından sonra hava hızla serinliyor: ince bir mont alın. Kask takmadan sürmeyin. <b>Sigorta:</b> seyahat sigortalarının çoğu quad kazasını kapsam dışı tutuyor, poliçede \"motorlu araç / ATV\" istisnasına bakın.",
+    etiket: "10 Aralık",
+    kamera: { zoom: 13, pitch: 60, bearing: 300 },
   },
   {
     id: "eski-sarm", gun: 7, saat: "18:30", kategori: "deneyim", kaynak: "plan",
@@ -298,7 +298,7 @@ export const DURAKLAR = [
     alt: "Old Market, balık akşamı",
     konum: [34.2960, 27.8640],
     aciklama: "Şarm'ın otel şeridinden çıkıp şehre değdiği tek yer: Old Market (Sharm el-Maya). Dar çarşı sokakları, baharat ve nargile dükkânları, akşamları ışıklandırılan Osmanlı-Memlük üslubunda <b>Es-Sahabe Camii</b>. Cami yeni (2017), ama mimarisi Kahire'de gördüğünüz kubbe ve minarelere bilinçli bir selam.",
-    ipucu: "Gündüzü otelde geçirip 18:30'da çıkın. Akşam yemeği için çarşıdaki balık lokantalarında tezgâhtan balığı seçip tartıyla ödüyorsunuz: <b>kilo fiyatını ve pişirme ücretini önceden sorun</b>. Camide akşam ya da yatsıya cemaatle yetişebilirsiniz. Çarşıda pazarlık kuralı Kahire ile aynı. Otelden taksi 20–25 dakika; dönüş fiyatını da gidişte konuşun.",
+    ipucu: "Safariden 17:00 gibi dönüp duş alın, 18:30'da çıkın. Akşam yemeği için çarşıdaki balık lokantalarında tezgâhtan balığı seçip tartıyla ödüyorsunuz: <b>kilo fiyatını ve pişirme ücretini önceden sorun</b>. Camide akşam ya da yatsıya cemaatle yetişebilirsiniz. Çarşıda pazarlık kuralı Kahire ile aynı. Otelden taksi 20–25 dakika; dönüş fiyatını da gidişte konuşun.",
     kamera: { zoom: 16.5, pitch: 55, bearing: 0 },
   },
   {

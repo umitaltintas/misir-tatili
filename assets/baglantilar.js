@@ -123,16 +123,10 @@ export const BAGLANTILAR = [
     dikkat: "Şarm'da Uber yok; Careem kısıtlı çalışıyor. Havalimanı taksisinde fiyatı binmeden netleştirin.",
   },
   {
-    from: "otel-resif", to: "quad-safari", tur: "minibus",
-    sure: "15–20 dk", ucret: "tura dahil",
-    ozet: "Otelden çöle alış",
-    detay: "Tur aracı 18:00'de otel kapısından alıyor. Mayodan çıkıp kapalı ayakkabı, uzun kol ve mont hazırlayın.",
-  },
-  {
-    from: "quad-safari", to: "ras-mohammed", tur: "minibus", gunBasi: true,
+    from: "otel-resif", to: "ras-mohammed", tur: "minibus", gunBasi: true,
     sure: "Otelden marinaya 20–30 dk", ucret: "tura dahil",
     ozet: "Sabah tekne turuna alış",
-    detay: "Çöl turu ~21:00'de otele bırakıyor. Tekne turu 08:00–08:30'da otelden alıp Şarm marinasına götürüyor.",
+    detay: "İlk akşam otelde, erken yatış. Tekne turu 08:00–08:30'da otelden alıp Şarm marinasına götürüyor.",
     dikkat: "Alış saatini bir gece önce WhatsApp'tan teyit ettirin.",
   },
   {
@@ -180,10 +174,16 @@ export const BAGLANTILAR = [
     detay: "Luxor dönüş uçuşu Şarm'a akşam iniyor, Travco otele bırakıyor. Ertesi gün programsız; uyuyabildiğiniz kadar uyuyun.",
   },
   {
-    from: "serbest-gun", to: "eski-sarm", tur: "taksi",
+    from: "serbest-gun", to: "quad-safari", tur: "minibus",
+    sure: "15–20 dk", ucret: "tura dahil",
+    ozet: "Otelden çöle alış",
+    detay: "Tur aracı 13:00'te otel kapısından alıyor. Mayodan çıkıp kapalı ayakkabı, uzun kol, buff ya da şal hazırlayın.",
+  },
+  {
+    from: "quad-safari", to: "eski-sarm", tur: "taksi",
     sure: "20–25 dk", ucret: "250–400 EGP (4 kişi)",
     ozet: "Akşam şehre",
-    detay: "Duştan sonra taksiyle Old Market'e; Es-Sahabe Camii'nin önünde inin.",
+    detay: "Safari 17:00 gibi otele bırakıyor. Duştan sonra 18:30'da taksiyle Old Market'e; Es-Sahabe Camii'nin önünde inin.",
     dikkat: "Taksimetre fiilen kullanılmıyor: fiyatı binmeden netleştirin, dönüşü de gidişte konuşun.",
   },
   {
