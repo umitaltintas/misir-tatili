@@ -83,7 +83,7 @@ durur; günler arasında çipler ya da ileri-geri düğmeleriyle geçilir.
 
 ### Otel karşılaştırması (`oteller.html`)
 
-Kahire (4–7 Aralık) ve Şarm (7–11 Aralık) için 18 otel: fotoğraf, puan, oda başına
+Kahire (4–7 Aralık) ve Şarm (7–11 Aralık) için 17 otel: fotoğraf, puan, oda başına
 gecelik en ucuz teklif, iki oda toplamı ($ ve ₺) ve şu anki öneriye göre fark.
 Fiyata/puana göre sıralama, ücretsiz iptal ve her şey dahil süzgeci. Fiyatlar ve
 görseller (`assets/oteller/`) 15 Kasım 2026'da trivago MCP'den çekildi.
